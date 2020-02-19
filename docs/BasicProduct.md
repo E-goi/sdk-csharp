@@ -1,0 +1,22 @@
+# org.egoi.client.api.Model.BasicProduct
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**ProductIdentifier** | **string** | The ID of the product in your store | [optional] 
+**CatalogId** | **int?** |  | [optional] 
+**Name** | **string** | Name of the product | [optional] 
+**Description** | **string** | Description of the product | [optional] 
+**Sku** | **string** | Stock Keeping Unit | [optional] 
+**Upc** | **string** | Universal Product Code | [optional] 
+**Ean** | **string** | European Article Numbering | [optional] 
+**Gtin** | **string** | Global Trade Item Number | [optional] 
+**Mpn** | **string** | Manufacturer Part Number | [optional] 
+**Link** | **string** | Link for the product | [optional] 
+**ImageLink** | **string** | Link for the product image | [optional] 
+**Price** | **double?** | Price of the product | [optional] 
+**SalePrice** | **double?** | Sale price of the product | [optional] 
+**Brand** | **string** | Brand of the product | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

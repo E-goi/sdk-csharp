@@ -1,2 +1,581 @@
-# sdk-csharp
-E-goi C# Client
+![E-goi](https://www.e-goi.com/wp-content/themes/egoi2019/imgs/svg/logo-egoi.svg)
+
+Almost anything you can do in E-goi, you can do with our API.
+
+The API describes each available method. Learn about parameters, errors, and how to format your requests. That means you can easily call on E-goi actions for your integration.
+**API** Full documentation at https://developers.e-goi.com/api/v3/
+
+If you find a bug or something worth fixing, create an issue.
+
+### Changelog
+#### 1.0.0RC1
+## Frameworks supported
+- .NET 4.0 or later
+- Windows Phone 7.1 (Mango)
+
+<a name="dependencies"></a>
+## Dependencies
+- [RestSharp](https://www.nuget.org/packages/RestSharp) - 105.1.0 or later
+- [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/) - 7.0.0 or later
+- [JsonSubTypes](https://www.nuget.org/packages/JsonSubTypes/) - 1.2.0 or later
+
+The DLLs included in the package may not be the latest version. We recommend using [NuGet](https://docs.nuget.org/consume/installing-nuget) to obtain the latest version of the packages:
+```
+Install-Package RestSharp
+Install-Package Newtonsoft.Json
+Install-Package JsonSubTypes
+```
+
+NOTE: RestSharp versions greater than 105.1.0 have a bug which causes file uploads to fail. See [RestSharp#742](https://github.com/restsharp/RestSharp/issues/742)
+
+<a name="installation"></a>
+## Installation
+Run the following command to generate the DLL
+- [Mac/Linux] `/bin/sh build.sh`
+- [Windows] `build.bat`
+
+## Packaging
+
+A `.nuspec` is included with the project. You can follow the Nuget quickstart to [create](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package#create-the-package) and [publish](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package#publish-the-package) packages.
+
+This `.nuspec` uses placeholders from the `.csproj`, so build the `.csproj` directly:
+
+```
+nuget pack -Build -OutputDirectory out org.egoi.client.api.csproj
+```
+
+Then, publish to a [local feed](https://docs.microsoft.com/en-us/nuget/hosting-packages/local-feeds) or [other host](https://docs.microsoft.com/en-us/nuget/hosting-packages/overview) and consume the new package via Nuget as usual.
+
+<a name="getting-started"></a>
+## Getting Started
+
+```csharp
+using System;
+using System.Diagnostics;
+using org.egoi.client.api.Api;
+using org.egoi.client.api.Client;
+using org.egoi.client.api.Model;
+
+namespace Example
+{
+    public class Example
+    {
+        public void main()
+        {
+
+            // Configure API key authorization: Apikey
+            Configuration.Default.ApiKey.Add("Apikey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("Apikey", "Bearer");
+
+            var apiInstance = new AdvancedReportsApi();
+            var generateEmailBouncesReport = new GenerateEmailBouncesReport(); // GenerateEmailBouncesReport | Parameters for the email bounces report
+
+            try
+            {
+                // Generate email bounces report
+                AcceptedResponse result = apiInstance.GenerateEmailBouncesReport(generateEmailBouncesReport);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling AdvancedReportsApi.GenerateEmailBouncesReport: " + e.Message );
+            }
+
+        }
+    }
+}
+```
+
+<a name="documentation-for-api-endpoints"></a>
+## Documentation for API Endpoints
+
+All URIs are relative to *https://api.egoiapp.com*
+
+Class | Method | HTTP request | Description
+------------ | ------------- | ------------- | -------------
+*AdvancedReportsApi* | [**GenerateEmailBouncesReport**](docs/AdvancedReportsApi.md#generateemailbouncesreport) | **POST** /reports/advanced/email-bounces | Generate email bounces report
+*AdvancedReportsApi* | [**GenerateEmailClicksByContactReport**](docs/AdvancedReportsApi.md#generateemailclicksbycontactreport) | **POST** /reports/advanced/email-clicks-by-contact | Generate email clicks by contact report
+*AdvancedReportsApi* | [**GenerateEmailClicksByUrlReport**](docs/AdvancedReportsApi.md#generateemailclicksbyurlreport) | **POST** /reports/advanced/email-clicks-by-url | Generate email clicks by URL report
+*AdvancedReportsApi* | [**GenerateEmailEventsReport**](docs/AdvancedReportsApi.md#generateemaileventsreport) | **POST** /reports/advanced/email-events | Generate email events report
+*AdvancedReportsApi* | [**GenerateEmailSmsReport**](docs/AdvancedReportsApi.md#generateemailsmsreport) | **POST** /reports/advanced/sms-bounces | Generate SMS bounces report
+*AdvancedReportsApi* | [**GenerateEmailUnsubscriptionsReport**](docs/AdvancedReportsApi.md#generateemailunsubscriptionsreport) | **POST** /reports/advanced/email-unsubscriptions | Generate email unsubscriptions report
+*AdvancedReportsApi* | [**GenerateFormAnswersReport**](docs/AdvancedReportsApi.md#generateformanswersreport) | **POST** /reports/advanced/form-answers | Generate form answers report
+*AdvancedReportsApi* | [**GenerateSendsReport**](docs/AdvancedReportsApi.md#generatesendsreport) | **POST** /reports/advanced/sends | Generate sends report
+*AdvancedReportsApi* | [**GenerateSmsEventsReport**](docs/AdvancedReportsApi.md#generatesmseventsreport) | **POST** /reports/advanced/sms-events | Generate SMS events report
+*AdvancedReportsApi* | [**GenerateSubscriptionsReport**](docs/AdvancedReportsApi.md#generatesubscriptionsreport) | **POST** /reports/advanced/subscriptions | Generate subscriptions report
+*AdvancedReportsApi* | [**GenerateUnsubscriptionsReport**](docs/AdvancedReportsApi.md#generateunsubscriptionsreport) | **POST** /reports/advanced/unsubscriptions | Generate unsubscriptions report
+*AdvancedReportsApi* | [**GetAllAdvancedReports**](docs/AdvancedReportsApi.md#getalladvancedreports) | **GET** /reports/advanced | Get all advanced reports
+*AutomationsApi* | [**DeleteAutomation**](docs/AutomationsApi.md#deleteautomation) | **DELETE** /automations/{automation_id} | Remove automation
+*AutomationsApi* | [**GetAllAutomations**](docs/AutomationsApi.md#getallautomations) | **GET** /automations | Get all automations
+*CNamesApi* | [**GetAllCNames**](docs/CNamesApi.md#getallcnames) | **GET** /cnames | Get All CNames
+*CampaignGroupsApi* | [**CreateCampaignGroup**](docs/CampaignGroupsApi.md#createcampaigngroup) | **POST** /campaign-groups | Create new campaign group
+*CampaignGroupsApi* | [**DeleteCampaignGroup**](docs/CampaignGroupsApi.md#deletecampaigngroup) | **DELETE** /campaign-groups/{group_id} | Remove Campaign Group
+*CampaignGroupsApi* | [**GetAllCampaignGroups**](docs/CampaignGroupsApi.md#getallcampaigngroups) | **GET** /campaign-groups | Get all campaign groups
+*CampaignGroupsApi* | [**UpdateCampaignGroup**](docs/CampaignGroupsApi.md#updatecampaigngroup) | **PUT** /campaign-groups/{group_id} | Update a specific campaign group
+*CampaignsApi* | [**DeleteCampaigns**](docs/CampaignsApi.md#deletecampaigns) | **DELETE** /campaigns/{campaign_hash} | Remove Campaign
+*CampaignsApi* | [**GetAllCampaigns**](docs/CampaignsApi.md#getallcampaigns) | **GET** /campaigns | Get all Campaigns
+*ContactsApi* | [**ActionAttachTag**](docs/ContactsApi.md#actionattachtag) | **POST** /lists/{list_id}/contacts/actions/attach-tag | Attach tag to contact
+*ContactsApi* | [**ActionDetachTag**](docs/ContactsApi.md#actiondetachtag) | **POST** /lists/{list_id}/contacts/actions/detach-tag | Detach tag to contact
+*ContactsApi* | [**ActionExportContacts**](docs/ContactsApi.md#actionexportcontacts) | **POST** /lists/{list_id}/contacts/actions/export | Exports a list of contacts
+*ContactsApi* | [**ActionImportBulk**](docs/ContactsApi.md#actionimportbulk) | **POST** /lists/{list_id}/contacts/actions/import-bulk | Import collection of contacts
+*ContactsApi* | [**ActionStartAutomation**](docs/ContactsApi.md#actionstartautomation) | **POST** /lists/{list_id}/contacts/actions/start-automation | Start automation
+*ContactsApi* | [**ActionUnsubscribeContact**](docs/ContactsApi.md#actionunsubscribecontact) | **POST** /lists/{list_id}/contacts/actions/unsubscribe | Unsubscribes contacts
+*ContactsApi* | [**CreateContact**](docs/ContactsApi.md#createcontact) | **POST** /lists/{list_id}/contacts | Create new contact
+*ContactsApi* | [**GetAllContactActivities**](docs/ContactsApi.md#getallcontactactivities) | **GET** /lists/{list_id}/contacts/{contact_id}/activities | Get all contact activities
+*ContactsApi* | [**GetAllContacts**](docs/ContactsApi.md#getallcontacts) | **GET** /lists/{list_id}/contacts | Get all contacts
+*ContactsApi* | [**GetContact**](docs/ContactsApi.md#getcontact) | **GET** /lists/{list_id}/contacts/{contact_id} | Get contact
+*ContactsApi* | [**PatchContact**](docs/ContactsApi.md#patchcontact) | **PATCH** /lists/{list_id}/contacts/{contact_id} | Update a specific contact
+*EcommerceApi* | [**CreateCatalog**](docs/EcommerceApi.md#createcatalog) | **POST** /catalogs | Create new catalog
+*EcommerceApi* | [**CreateProduct**](docs/EcommerceApi.md#createproduct) | **POST** /catalogs/{catalog_id}/products | Create new product
+*EcommerceApi* | [**DeleteCatalog**](docs/EcommerceApi.md#deletecatalog) | **DELETE** /catalogs/{catalog_id} | Remove catalog
+*EcommerceApi* | [**DeleteProduct**](docs/EcommerceApi.md#deleteproduct) | **DELETE** /catalogs/{catalog_id}/products/{product_identifier} | Remove product
+*EcommerceApi* | [**GetAllCatalogs**](docs/EcommerceApi.md#getallcatalogs) | **GET** /catalogs | Get all catalogs
+*EcommerceApi* | [**GetAllProducts**](docs/EcommerceApi.md#getallproducts) | **GET** /catalogs/{catalog_id}/products | Get all products
+*EcommerceApi* | [**GetProduct**](docs/EcommerceApi.md#getproduct) | **GET** /catalogs/{catalog_id}/products/{product_identifier} | Get product
+*EcommerceApi* | [**ImportProducts**](docs/EcommerceApi.md#importproducts) | **POST** /catalogs/{catalog_id}/products/actions/import | Import products
+*EcommerceApi* | [**UpdateProduct**](docs/EcommerceApi.md#updateproduct) | **PATCH** /catalogs/{catalog_id}/products/{product_identifier} | Update product
+*EmailApi* | [**ActionEnableEmailRss**](docs/EmailApi.md#actionenableemailrss) | **POST** /campaigns/email/rss/{campaign_hash}/actions/enable | Enables a rss email campaign
+*EmailApi* | [**ActionSendEmail**](docs/EmailApi.md#actionsendemail) | **POST** /campaigns/email/{campaign_hash}/actions/send | Send email message
+*EmailApi* | [**CreateEmailCampaign**](docs/EmailApi.md#createemailcampaign) | **POST** /campaigns/email | Create new email campaign
+*EmailApi* | [**CreateEmailRssCampaign**](docs/EmailApi.md#createemailrsscampaign) | **POST** /campaigns/email/rss | Create new email rss campaign
+*EmailApi* | [**PatchEmailCampaign**](docs/EmailApi.md#patchemailcampaign) | **PATCH** /campaigns/email/{campaign_hash} | Update a specific email campaign
+*FieldsApi* | [**CreateExtraField**](docs/FieldsApi.md#createextrafield) | **POST** /lists/{list_id}/fields/extra | Create extra field
+*FieldsApi* | [**CreateFieldOption**](docs/FieldsApi.md#createfieldoption) | **POST** /lists/{list_id}/fields/extra/{field_id}/options | Create new field option
+*FieldsApi* | [**DeleteExtraField**](docs/FieldsApi.md#deleteextrafield) | **DELETE** /lists/{list_id}/fields/extra/{field_id} | Remove extra field
+*FieldsApi* | [**DeleteFieldOption**](docs/FieldsApi.md#deletefieldoption) | **DELETE** /lists/{list_id}/fields/extra/{field_id}/options/{option_id} | Deletes an option
+*FieldsApi* | [**GetAllFieldOptions**](docs/FieldsApi.md#getallfieldoptions) | **GET** /lists/{list_id}/fields/extra/{field_id}/options | Get all field options
+*FieldsApi* | [**GetAllFields**](docs/FieldsApi.md#getallfields) | **GET** /lists/{list_id}/fields | Get all fields
+*FieldsApi* | [**PatchBaseField**](docs/FieldsApi.md#patchbasefield) | **PATCH** /lists/{list_id}/fields/base/{field_id} | Update base field
+*FieldsApi* | [**PatchExtraField**](docs/FieldsApi.md#patchextrafield) | **PATCH** /lists/{list_id}/fields/extra/{field_id} | Update extra field
+*FieldsApi* | [**UpdateFieldOption**](docs/FieldsApi.md#updatefieldoption) | **PATCH** /lists/{list_id}/fields/extra/{field_id}/options/{option_id} | Update field option
+*ListsApi* | [**CreateList**](docs/ListsApi.md#createlist) | **POST** /lists | Create new list
+*ListsApi* | [**DeleteList**](docs/ListsApi.md#deletelist) | **DELETE** /lists/{list_id} | Remove list
+*ListsApi* | [**GetAllLists**](docs/ListsApi.md#getalllists) | **GET** /lists | Get all lists
+*ListsApi* | [**UpdateList**](docs/ListsApi.md#updatelist) | **PATCH** /lists/{list_id} | Update a specific list
+*MyAccountApi* | [**EnableTe**](docs/MyAccountApi.md#enablete) | **POST** /my-account/actions/enable-te | Enable Track&Engage
+*MyAccountApi* | [**GetMyAccount**](docs/MyAccountApi.md#getmyaccount) | **GET** /my-account | Get My Account Info
+*OperationsApi* | [**ActionApproveOperation**](docs/OperationsApi.md#actionapproveoperation) | **POST** /operations/actions/approve | Approve operation
+*OperationsApi* | [**ActionCancelOperation**](docs/OperationsApi.md#actioncanceloperation) | **POST** /operations/actions/cancel | Cancel operation
+*OperationsApi* | [**ActionPauseOperation**](docs/OperationsApi.md#actionpauseoperation) | **POST** /operations/actions/pause | Pause operation
+*OperationsApi* | [**ActionResumeOperation**](docs/OperationsApi.md#actionresumeoperation) | **POST** /operations/actions/resume | Resume operation
+*OperationsApi* | [**GetAllOperations**](docs/OperationsApi.md#getalloperations) | **GET** /operations | Get all queued operations
+*PingApi* | [**Ping**](docs/PingApi.md#ping) | **POST** /ping | Pings the API
+*PushApi* | [**ActionSendPush**](docs/PushApi.md#actionsendpush) | **POST** /campaigns/push/{campaign_hash}/actions/send | Send push message
+*PushApi* | [**CreatePushCampaign**](docs/PushApi.md#createpushcampaign) | **POST** /campaigns/push | Create new push campaign
+*PushApi* | [**PatchPushCampaign**](docs/PushApi.md#patchpushcampaign) | **PATCH** /campaigns/push/{campaign_hash} | Update a specific push campaign
+*ReportsApi* | [**GetSMSReport**](docs/ReportsApi.md#getsmsreport) | **GET** /reports/sms/{campaign_hash} | Get sms report
+*ReportsApi* | [**GetVoiceReport**](docs/ReportsApi.md#getvoicereport) | **GET** /reports/voice/{campaign_hash} | Get voice report
+*ReportsApi* | [**GetWebPushReport**](docs/ReportsApi.md#getwebpushreport) | **GET** /reports/web-push/{campaign_hash} | Get webpush report
+*SegmentsApi* | [**DeleteSegment**](docs/SegmentsApi.md#deletesegment) | **DELETE** /lists/{list_id}/segments/{segment_id} | Remove segment
+*SegmentsApi* | [**GetAllSegments**](docs/SegmentsApi.md#getallsegments) | **GET** /lists/{list_id}/segments | Get all segments
+*SendersApi* | [**CreateCellphoneSender**](docs/SendersApi.md#createcellphonesender) | **POST** /senders/cellphone | Create cellphone sender
+*SendersApi* | [**CreateEmailSender**](docs/SendersApi.md#createemailsender) | **POST** /senders/email | Create email sender
+*SendersApi* | [**CreatePhoneSender**](docs/SendersApi.md#createphonesender) | **POST** /senders/phone | Create phone sender
+*SendersApi* | [**DeleteCellphoneSender**](docs/SendersApi.md#deletecellphonesender) | **DELETE** /senders/cellphone/{sender_id} | Remove cellphone sender
+*SendersApi* | [**DeleteEmailSender**](docs/SendersApi.md#deleteemailsender) | **DELETE** /senders/email/{sender_id} | Remove email sender
+*SendersApi* | [**DeletePhoneSender**](docs/SendersApi.md#deletephonesender) | **DELETE** /senders/phone/{sender_id} | Remove phone sender
+*SendersApi* | [**GetAllCellphoneSenders**](docs/SendersApi.md#getallcellphonesenders) | **GET** /senders/cellphone | Get all cellphone senders
+*SendersApi* | [**GetAllEmailSenders**](docs/SendersApi.md#getallemailsenders) | **GET** /senders/email | Get all email senders
+*SendersApi* | [**GetAllPhoneSenders**](docs/SendersApi.md#getallphonesenders) | **GET** /senders/phone | Get all phone senders
+*SendersApi* | [**PutEmailSender**](docs/SendersApi.md#putemailsender) | **PUT** /senders/email/{sender_id} | Update email sender
+*SmartSmsApi* | [**ActionSendSmartSms**](docs/SmartSmsApi.md#actionsendsmartsms) | **POST** /campaigns/smart-sms/{campaign_hash}/actions/send | Send smart sms message
+*SmartSmsApi* | [**CreateSmartSmsCampaign**](docs/SmartSmsApi.md#createsmartsmscampaign) | **POST** /campaigns/smart-sms | Create new smart sms campaign
+*SmartSmsApi* | [**PatchSmartSmsCampaign**](docs/SmartSmsApi.md#patchsmartsmscampaign) | **PATCH** /campaigns/smart-sms/{campaign_hash} | Update a specific smart sms campaign
+*SmsApi* | [**ActionSendSms**](docs/SmsApi.md#actionsendsms) | **POST** /campaigns/sms/{campaign_hash}/actions/send | Send sms message
+*SmsApi* | [**CreateSmsCampaign**](docs/SmsApi.md#createsmscampaign) | **POST** /campaigns/sms | Create new sms campaign
+*SmsApi* | [**PatchSmsCampaign**](docs/SmsApi.md#patchsmscampaign) | **PATCH** /campaigns/sms/{campaign_hash} | Update a specific sms campaign
+*SuppressionListApi* | [**GetAllSuppressionList**](docs/SuppressionListApi.md#getallsuppressionlist) | **GET** /suppression-list | Get the suppression list
+*TagsApi* | [**CreateTag**](docs/TagsApi.md#createtag) | **POST** /tags | Create new tag
+*TagsApi* | [**DeleteTag**](docs/TagsApi.md#deletetag) | **DELETE** /tags/{tag_id} | Remove tag
+*TagsApi* | [**GetAllTags**](docs/TagsApi.md#getalltags) | **GET** /tags | Get all tags
+*TagsApi* | [**UpdateTag**](docs/TagsApi.md#updatetag) | **PUT** /tags/{tag_id} | Update a specific tag
+*UsersApi* | [**DeleteUser**](docs/UsersApi.md#deleteuser) | **DELETE** /users/{user_id} | Remove user
+*UsersApi* | [**GetAllUsers**](docs/UsersApi.md#getallusers) | **GET** /users | Get all users
+*UtilitiesApi* | [**GetAllCountries**](docs/UtilitiesApi.md#getallcountries) | **GET** /utilities/countries | Get all countries
+*VoiceApi* | [**ActionSendVoice**](docs/VoiceApi.md#actionsendvoice) | **POST** /campaigns/voice/{campaign_hash}/actions/send | Send voice message
+*VoiceApi* | [**CreateVoiceCampaign**](docs/VoiceApi.md#createvoicecampaign) | **POST** /campaigns/voice | Create new voice campaign
+*VoiceApi* | [**PatchVoiceCampaign**](docs/VoiceApi.md#patchvoicecampaign) | **PATCH** /campaigns/voice/{campaign_hash} | Update a specific voice campaign
+*WebpushApi* | [**ActionEnableWebPushRss**](docs/WebpushApi.md#actionenablewebpushrss) | **POST** /campaigns/webpush/rss/{campaign_hash}/actions/enable | Enable a rss webpush campaign
+*WebpushApi* | [**ActionSendWebPush**](docs/WebpushApi.md#actionsendwebpush) | **POST** /campaigns/web-push/{campaign_hash}/actions/send | Send webpush message
+*WebpushApi* | [**CreateWebPushCampaign**](docs/WebpushApi.md#createwebpushcampaign) | **POST** /campaigns/web-push | Create new webpush campaign
+*WebpushApi* | [**CreateWebPushRssCampaign**](docs/WebpushApi.md#createwebpushrsscampaign) | **POST** /campaigns/webpush/rss | Create new webpush rss campaign
+*WebpushApi* | [**GetAllWebPushSites**](docs/WebpushApi.md#getallwebpushsites) | **GET** /webpush/site | Get all webpush sites
+*WebpushApi* | [**PatchWebPushCampaign**](docs/WebpushApi.md#patchwebpushcampaign) | **PATCH** /campaigns/web-push/{campaign_hash} | Update a specific webpush campaign
+
+
+<a name="documentation-for-models"></a>
+## Documentation for Models
+
+ - [Model.AbstractCampaignSendRequest](docs/AbstractCampaignSendRequest.md)
+ - [Model.AbstractCampaignSendRequestSegments](docs/AbstractCampaignSendRequestSegments.md)
+ - [Model.AbstractCampaignTemplate](docs/AbstractCampaignTemplate.md)
+ - [Model.AbstractCellphoneSender](docs/AbstractCellphoneSender.md)
+ - [Model.AbstractSegment](docs/AbstractSegment.md)
+ - [Model.AbstractSendEmail](docs/AbstractSendEmail.md)
+ - [Model.AbstractSendVoice](docs/AbstractSendVoice.md)
+ - [Model.AcceptedResponse](docs/AcceptedResponse.md)
+ - [Model.ActivityCollection](docs/ActivityCollection.md)
+ - [Model.AdvancedReport](docs/AdvancedReport.md)
+ - [Model.AdvancedReportCampaignsObject](docs/AdvancedReportCampaignsObject.md)
+ - [Model.AdvancedReportEmailBouncesColumns](docs/AdvancedReportEmailBouncesColumns.md)
+ - [Model.AdvancedReportEmailBouncesOptions](docs/AdvancedReportEmailBouncesOptions.md)
+ - [Model.AdvancedReportEmailClicksByContactColumns](docs/AdvancedReportEmailClicksByContactColumns.md)
+ - [Model.AdvancedReportEmailClicksByContactOptions](docs/AdvancedReportEmailClicksByContactOptions.md)
+ - [Model.AdvancedReportEmailClicksByUrlColumns](docs/AdvancedReportEmailClicksByUrlColumns.md)
+ - [Model.AdvancedReportEmailClicksByUrlOptions](docs/AdvancedReportEmailClicksByUrlOptions.md)
+ - [Model.AdvancedReportEmailEventsColumns](docs/AdvancedReportEmailEventsColumns.md)
+ - [Model.AdvancedReportEmailEventsOptions](docs/AdvancedReportEmailEventsOptions.md)
+ - [Model.AdvancedReportEmailUnsubscriptionsColumns](docs/AdvancedReportEmailUnsubscriptionsColumns.md)
+ - [Model.AdvancedReportEmailUnsubscriptionsOptions](docs/AdvancedReportEmailUnsubscriptionsOptions.md)
+ - [Model.AdvancedReportRange](docs/AdvancedReportRange.md)
+ - [Model.AdvancedReportSendsColumns](docs/AdvancedReportSendsColumns.md)
+ - [Model.AdvancedReportSendsOptions](docs/AdvancedReportSendsOptions.md)
+ - [Model.AdvancedReportSmsBouncesColumns](docs/AdvancedReportSmsBouncesColumns.md)
+ - [Model.AdvancedReportSmsBouncesOptions](docs/AdvancedReportSmsBouncesOptions.md)
+ - [Model.AdvancedReportSmsEventsColumns](docs/AdvancedReportSmsEventsColumns.md)
+ - [Model.AdvancedReportSmsEventsOptions](docs/AdvancedReportSmsEventsOptions.md)
+ - [Model.AdvancedReportSubscriptionsColumns](docs/AdvancedReportSubscriptionsColumns.md)
+ - [Model.AdvancedReportSubscriptionsOptions](docs/AdvancedReportSubscriptionsOptions.md)
+ - [Model.AdvancedReportUnsubscriptionsColumns](docs/AdvancedReportUnsubscriptionsColumns.md)
+ - [Model.AdvancedReportUnsubscriptionsOptions](docs/AdvancedReportUnsubscriptionsOptions.md)
+ - [Model.AdvancedReportsCollection](docs/AdvancedReportsCollection.md)
+ - [Model.AlphanumericCellphoneSender](docs/AlphanumericCellphoneSender.md)
+ - [Model.AttachTagRequest](docs/AttachTagRequest.md)
+ - [Model.AttachTagResponse](docs/AttachTagResponse.md)
+ - [Model.AutomaticSegment](docs/AutomaticSegment.md)
+ - [Model.Automation](docs/Automation.md)
+ - [Model.AutomationCollection](docs/AutomationCollection.md)
+ - [Model.BadRequest](docs/BadRequest.md)
+ - [Model.BalanceInfo](docs/BalanceInfo.md)
+ - [Model.BalanceInfoBalanceInfo](docs/BalanceInfoBalanceInfo.md)
+ - [Model.BaseConflict](docs/BaseConflict.md)
+ - [Model.BasicProduct](docs/BasicProduct.md)
+ - [Model.BasicSender](docs/BasicSender.md)
+ - [Model.BillingInfo](docs/BillingInfo.md)
+ - [Model.BulkActionResponse](docs/BulkActionResponse.md)
+ - [Model.CName](docs/CName.md)
+ - [Model.CNamesCollection](docs/CNamesCollection.md)
+ - [Model.Campaign](docs/Campaign.md)
+ - [Model.CampaignEmailBaseContent](docs/CampaignEmailBaseContent.md)
+ - [Model.CampaignEmailContent](docs/CampaignEmailContent.md)
+ - [Model.CampaignEmailContentFile](docs/CampaignEmailContentFile.md)
+ - [Model.CampaignEmailContentHtml](docs/CampaignEmailContentHtml.md)
+ - [Model.CampaignEmailContentHtmlPatch](docs/CampaignEmailContentHtmlPatch.md)
+ - [Model.CampaignEmailContentTemplate](docs/CampaignEmailContentTemplate.md)
+ - [Model.CampaignEmailContentWebPage](docs/CampaignEmailContentWebPage.md)
+ - [Model.CampaignEmailRssContent](docs/CampaignEmailRssContent.md)
+ - [Model.CampaignEmailRssContentHtml](docs/CampaignEmailRssContentHtml.md)
+ - [Model.CampaignEmailScheduleRequest](docs/CampaignEmailScheduleRequest.md)
+ - [Model.CampaignEmailSendNowRequest](docs/CampaignEmailSendNowRequest.md)
+ - [Model.CampaignEmailSendRequest](docs/CampaignEmailSendRequest.md)
+ - [Model.CampaignGroup](docs/CampaignGroup.md)
+ - [Model.CampaignGroupCollection](docs/CampaignGroupCollection.md)
+ - [Model.CampaignHash](docs/CampaignHash.md)
+ - [Model.CampaignPushContent](docs/CampaignPushContent.md)
+ - [Model.CampaignPushContentTemplate](docs/CampaignPushContentTemplate.md)
+ - [Model.CampaignPushContentText](docs/CampaignPushContentText.md)
+ - [Model.CampaignPushScheduleRequest](docs/CampaignPushScheduleRequest.md)
+ - [Model.CampaignPushSendRequest](docs/CampaignPushSendRequest.md)
+ - [Model.CampaignScheduleDate](docs/CampaignScheduleDate.md)
+ - [Model.CampaignSentLast30Days](docs/CampaignSentLast30Days.md)
+ - [Model.CampaignSentLast30DaysErrors](docs/CampaignSentLast30DaysErrors.md)
+ - [Model.CampaignSmartSmsHtml](docs/CampaignSmartSmsHtml.md)
+ - [Model.CampaignSmartSmsImport](docs/CampaignSmartSmsImport.md)
+ - [Model.CampaignSmartSmsOptions](docs/CampaignSmartSmsOptions.md)
+ - [Model.CampaignSmartSmsPageContent](docs/CampaignSmartSmsPageContent.md)
+ - [Model.CampaignSmartSmsRedirect](docs/CampaignSmartSmsRedirect.md)
+ - [Model.CampaignSmartSmsScheduleRequest](docs/CampaignSmartSmsScheduleRequest.md)
+ - [Model.CampaignSmartSmsSendRequest](docs/CampaignSmartSmsSendRequest.md)
+ - [Model.CampaignSmsContent](docs/CampaignSmsContent.md)
+ - [Model.CampaignSmsContentTemplate](docs/CampaignSmsContentTemplate.md)
+ - [Model.CampaignSmsContentText](docs/CampaignSmsContentText.md)
+ - [Model.CampaignSmsOptions](docs/CampaignSmsOptions.md)
+ - [Model.CampaignSmsScheduleRequest](docs/CampaignSmsScheduleRequest.md)
+ - [Model.CampaignSmsSendRequest](docs/CampaignSmsSendRequest.md)
+ - [Model.CampaignVoiceScheduleRequest](docs/CampaignVoiceScheduleRequest.md)
+ - [Model.CampaignVoiceSendRequest](docs/CampaignVoiceSendRequest.md)
+ - [Model.CampaignWebPushScheduleRequest](docs/CampaignWebPushScheduleRequest.md)
+ - [Model.CampaignWebPushSendRequest](docs/CampaignWebPushSendRequest.md)
+ - [Model.CampaignsCollection](docs/CampaignsCollection.md)
+ - [Model.Catalog](docs/Catalog.md)
+ - [Model.CatalogCollection](docs/CatalogCollection.md)
+ - [Model.CatalogPostRequest](docs/CatalogPostRequest.md)
+ - [Model.CellphoneSender](docs/CellphoneSender.md)
+ - [Model.CellphoneSenderCollection](docs/CellphoneSenderCollection.md)
+ - [Model.ComplexContact](docs/ComplexContact.md)
+ - [Model.ComplexField](docs/ComplexField.md)
+ - [Model.ComplexList](docs/ComplexList.md)
+ - [Model.ComplexUser](docs/ComplexUser.md)
+ - [Model.Conflict](docs/Conflict.md)
+ - [Model.Contact](docs/Contact.md)
+ - [Model.ContactActivity](docs/ContactActivity.md)
+ - [Model.ContactActivityAbstractActionsWithData](docs/ContactActivityAbstractActionsWithData.md)
+ - [Model.ContactActivityClick](docs/ContactActivityClick.md)
+ - [Model.ContactBaseExtra](docs/ContactBaseExtra.md)
+ - [Model.ContactBaseExtraBulk](docs/ContactBaseExtraBulk.md)
+ - [Model.ContactBaseFieldsBulkSchema](docs/ContactBaseFieldsBulkSchema.md)
+ - [Model.ContactBaseFieldsSchema](docs/ContactBaseFieldsSchema.md)
+ - [Model.ContactBaseStatusExtra](docs/ContactBaseStatusExtra.md)
+ - [Model.ContactBaseStatusExtraBulk](docs/ContactBaseStatusExtraBulk.md)
+ - [Model.ContactBaseWithStatusFieldsBulkSchema](docs/ContactBaseWithStatusFieldsBulkSchema.md)
+ - [Model.ContactBaseWithStatusFieldsSchema](docs/ContactBaseWithStatusFieldsSchema.md)
+ - [Model.ContactBaseWithStatusFieldsSchemaBase](docs/ContactBaseWithStatusFieldsSchemaBase.md)
+ - [Model.ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid](docs/ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid.md)
+ - [Model.ContactBaseWithStatusFieldsSchemaBasePushTokenIos](docs/ContactBaseWithStatusFieldsSchemaBasePushTokenIos.md)
+ - [Model.ContactBulk](docs/ContactBulk.md)
+ - [Model.ContactCollection](docs/ContactCollection.md)
+ - [Model.ContactExportRequest](docs/ContactExportRequest.md)
+ - [Model.ContactExtraFieldCellphone](docs/ContactExtraFieldCellphone.md)
+ - [Model.ContactExtraFieldCellphoneBulk](docs/ContactExtraFieldCellphoneBulk.md)
+ - [Model.ContactExtraFieldDate](docs/ContactExtraFieldDate.md)
+ - [Model.ContactExtraFieldEmail](docs/ContactExtraFieldEmail.md)
+ - [Model.ContactExtraFieldEmailBulk](docs/ContactExtraFieldEmailBulk.md)
+ - [Model.ContactExtraFieldNumber](docs/ContactExtraFieldNumber.md)
+ - [Model.ContactExtraFieldOptions](docs/ContactExtraFieldOptions.md)
+ - [Model.ContactExtraFieldPhone](docs/ContactExtraFieldPhone.md)
+ - [Model.ContactExtraFieldPhoneBulk](docs/ContactExtraFieldPhoneBulk.md)
+ - [Model.ContactExtraFieldText](docs/ContactExtraFieldText.md)
+ - [Model.ContactExtraFields](docs/ContactExtraFields.md)
+ - [Model.ContactExtraFieldsBulk](docs/ContactExtraFieldsBulk.md)
+ - [Model.ContactExtraFieldsBulkSchema](docs/ContactExtraFieldsBulkSchema.md)
+ - [Model.ContactExtraFieldsSchema](docs/ContactExtraFieldsSchema.md)
+ - [Model.ContactInsideBase](docs/ContactInsideBase.md)
+ - [Model.ContactInsideBaseBulk](docs/ContactInsideBaseBulk.md)
+ - [Model.ContactOtherActivity](docs/ContactOtherActivity.md)
+ - [Model.ContactStatusFieldsBulkSchema](docs/ContactStatusFieldsBulkSchema.md)
+ - [Model.ContactStatusFieldsSchema](docs/ContactStatusFieldsSchema.md)
+ - [Model.ContactTags](docs/ContactTags.md)
+ - [Model.ContactTagsBulk](docs/ContactTagsBulk.md)
+ - [Model.ContentVoice](docs/ContentVoice.md)
+ - [Model.ContentVoiceAudio](docs/ContentVoiceAudio.md)
+ - [Model.ContentVoicePatch](docs/ContentVoicePatch.md)
+ - [Model.ContentVoiceTemplate](docs/ContentVoiceTemplate.md)
+ - [Model.Country](docs/Country.md)
+ - [Model.CountryCollection](docs/CountryCollection.md)
+ - [Model.CreateContactResponse](docs/CreateContactResponse.md)
+ - [Model.DeleteCampaignsConflict](docs/DeleteCampaignsConflict.md)
+ - [Model.DeleteFieldsConflict](docs/DeleteFieldsConflict.md)
+ - [Model.DeleteListsConflict](docs/DeleteListsConflict.md)
+ - [Model.DeleteListsConflictsErrors](docs/DeleteListsConflictsErrors.md)
+ - [Model.DeleteSegmentsConflict](docs/DeleteSegmentsConflict.md)
+ - [Model.DeleteSegmentsConflictsErrors](docs/DeleteSegmentsConflictsErrors.md)
+ - [Model.DomainAlreadyDefined](docs/DomainAlreadyDefined.md)
+ - [Model.DomainAlreadyDefinedErrors](docs/DomainAlreadyDefinedErrors.md)
+ - [Model.EmailBouncesCampaignFields](docs/EmailBouncesCampaignFields.md)
+ - [Model.EmailBouncesListStatsFields](docs/EmailBouncesListStatsFields.md)
+ - [Model.EmailCampaignCreate](docs/EmailCampaignCreate.md)
+ - [Model.EmailCampaignPatch](docs/EmailCampaignPatch.md)
+ - [Model.EmailCampaignTemplate](docs/EmailCampaignTemplate.md)
+ - [Model.EmailClicksByContactCampaignFields](docs/EmailClicksByContactCampaignFields.md)
+ - [Model.EmailClicksByContactListStatsFields](docs/EmailClicksByContactListStatsFields.md)
+ - [Model.EmailClicksByUrlCampaignFields](docs/EmailClicksByUrlCampaignFields.md)
+ - [Model.EmailClicksByUrlListStatsFields](docs/EmailClicksByUrlListStatsFields.md)
+ - [Model.EmailEventsCampaignFields](docs/EmailEventsCampaignFields.md)
+ - [Model.EmailEventsListStatsFields](docs/EmailEventsListStatsFields.md)
+ - [Model.EmailRssCampaignCreate](docs/EmailRssCampaignCreate.md)
+ - [Model.EmailSendSegment](docs/EmailSendSegment.md)
+ - [Model.EmailSender](docs/EmailSender.md)
+ - [Model.EmailSenderCollection](docs/EmailSenderCollection.md)
+ - [Model.EmailSenderPutRequest](docs/EmailSenderPutRequest.md)
+ - [Model.EmailUnsubscriptionsCampaignFields](docs/EmailUnsubscriptionsCampaignFields.md)
+ - [Model.EmailUnsubscriptionsListStatsFields](docs/EmailUnsubscriptionsListStatsFields.md)
+ - [Model.EnableTeConflict](docs/EnableTeConflict.md)
+ - [Model.EnableTeConflictsErrors](docs/EnableTeConflictsErrors.md)
+ - [Model.ExportContactsWebhookData](docs/ExportContactsWebhookData.md)
+ - [Model.Field](docs/Field.md)
+ - [Model.FieldCollection](docs/FieldCollection.md)
+ - [Model.FieldInUse](docs/FieldInUse.md)
+ - [Model.FieldInUseErrors](docs/FieldInUseErrors.md)
+ - [Model.FieldInUseErrorsFieldInUseData](docs/FieldInUseErrorsFieldInUseData.md)
+ - [Model.FieldOption](docs/FieldOption.md)
+ - [Model.FieldOptionsCollection](docs/FieldOptionsCollection.md)
+ - [Model.Forbidden](docs/Forbidden.md)
+ - [Model.Form](docs/Form.md)
+ - [Model.GeneralInfo](docs/GeneralInfo.md)
+ - [Model.GenerateEmailBouncesReport](docs/GenerateEmailBouncesReport.md)
+ - [Model.GenerateEmailClicksByContactReport](docs/GenerateEmailClicksByContactReport.md)
+ - [Model.GenerateEmailClicksByUrlReport](docs/GenerateEmailClicksByUrlReport.md)
+ - [Model.GenerateEmailEventsReport](docs/GenerateEmailEventsReport.md)
+ - [Model.GenerateEmailUnsubscriptionsReport](docs/GenerateEmailUnsubscriptionsReport.md)
+ - [Model.GenerateFormAnswersReport](docs/GenerateFormAnswersReport.md)
+ - [Model.GenerateSendsReport](docs/GenerateSendsReport.md)
+ - [Model.GenerateSmsBouncesReport](docs/GenerateSmsBouncesReport.md)
+ - [Model.GenerateSmsEventsReport](docs/GenerateSmsEventsReport.md)
+ - [Model.GenerateSubscriptionsReport](docs/GenerateSubscriptionsReport.md)
+ - [Model.GenerateUnsubscriptionsReport](docs/GenerateUnsubscriptionsReport.md)
+ - [Model.HasAutomations](docs/HasAutomations.md)
+ - [Model.HasAutomationsErrors](docs/HasAutomationsErrors.md)
+ - [Model.HasCampaignsLastThirtyDays](docs/HasCampaignsLastThirtyDays.md)
+ - [Model.HasCampaignsLastThirtyDaysErrors](docs/HasCampaignsLastThirtyDaysErrors.md)
+ - [Model.HasPushApp](docs/HasPushApp.md)
+ - [Model.HasPushAppErrors](docs/HasPushAppErrors.md)
+ - [Model.HasQueuedCampaigns](docs/HasQueuedCampaigns.md)
+ - [Model.HasQueuedCampaignsErrors](docs/HasQueuedCampaignsErrors.md)
+ - [Model.HasQueuedOperations](docs/HasQueuedOperations.md)
+ - [Model.HasQueuedOperationsErrors](docs/HasQueuedOperationsErrors.md)
+ - [Model.HasWebPushSite](docs/HasWebPushSite.md)
+ - [Model.HasWebPushSiteErrors](docs/HasWebPushSiteErrors.md)
+ - [Model.HashcodeCampaign](docs/HashcodeCampaign.md)
+ - [Model.HeaderFooter](docs/HeaderFooter.md)
+ - [Model.HeaderFooterFooterLinks](docs/HeaderFooterFooterLinks.md)
+ - [Model.HeaderFooterHeaderLinks](docs/HeaderFooterHeaderLinks.md)
+ - [Model.HeaderFooterTemplate](docs/HeaderFooterTemplate.md)
+ - [Model.ImportBulkRequest](docs/ImportBulkRequest.md)
+ - [Model.InlineObject](docs/InlineObject.md)
+ - [Model.InternalServerError](docs/InternalServerError.md)
+ - [Model.InvalidSegmentType](docs/InvalidSegmentType.md)
+ - [Model.InvalidSegmentTypeErrors](docs/InvalidSegmentTypeErrors.md)
+ - [Model.Language](docs/Language.md)
+ - [Model.LimitContactsActionSend](docs/LimitContactsActionSend.md)
+ - [Model.LimitContactsPercentActionSend](docs/LimitContactsPercentActionSend.md)
+ - [Model.LimitContactsValueActionSend](docs/LimitContactsValueActionSend.md)
+ - [Model.LimitHourActionSend](docs/LimitHourActionSend.md)
+ - [Model.LimitHourActionSendLimitHour](docs/LimitHourActionSendLimitHour.md)
+ - [Model.LimitSpeedActionSend](docs/LimitSpeedActionSend.md)
+ - [Model.List](docs/List.md)
+ - [Model.ListCollection](docs/ListCollection.md)
+ - [Model.ListLimitReached](docs/ListLimitReached.md)
+ - [Model.ListLimitReachedErrors](docs/ListLimitReachedErrors.md)
+ - [Model.MessageWebPush](docs/MessageWebPush.md)
+ - [Model.MessageWebPushPost](docs/MessageWebPushPost.md)
+ - [Model.MessageWebPushRss](docs/MessageWebPushRss.md)
+ - [Model.ModuleInfo](docs/ModuleInfo.md)
+ - [Model.ModuleInfoModuleInfo](docs/ModuleInfoModuleInfo.md)
+ - [Model.ModuleInfoModuleInfoTe](docs/ModuleInfoModuleInfoTe.md)
+ - [Model.MyAccount](docs/MyAccount.md)
+ - [Model.NotFound](docs/NotFound.md)
+ - [Model.NotifyUserIdArrayActionSend](docs/NotifyUserIdArrayActionSend.md)
+ - [Model.Now](docs/Now.md)
+ - [Model.NumericCellphoneSender](docs/NumericCellphoneSender.md)
+ - [Model.OLimitContactsActionSend](docs/OLimitContactsActionSend.md)
+ - [Model.OSegmentsActionSend](docs/OSegmentsActionSend.md)
+ - [Model.OSegmentsWithoutContactActionSend](docs/OSegmentsWithoutContactActionSend.md)
+ - [Model.Operation](docs/Operation.md)
+ - [Model.OperationActionRequest](docs/OperationActionRequest.md)
+ - [Model.OperationActionResponse](docs/OperationActionResponse.md)
+ - [Model.OperationActionResponseError](docs/OperationActionResponseError.md)
+ - [Model.OperationOperationData](docs/OperationOperationData.md)
+ - [Model.OperationsCollection](docs/OperationsCollection.md)
+ - [Model.Overall](docs/Overall.md)
+ - [Model.OverallOverall](docs/OverallOverall.md)
+ - [Model.PatchRequestBaseField](docs/PatchRequestBaseField.md)
+ - [Model.PatchRequestField](docs/PatchRequestField.md)
+ - [Model.PatchRequestList](docs/PatchRequestList.md)
+ - [Model.PhoneCampaignTemplate](docs/PhoneCampaignTemplate.md)
+ - [Model.PhoneReport](docs/PhoneReport.md)
+ - [Model.PhoneSender](docs/PhoneSender.md)
+ - [Model.PhoneSenderCollection](docs/PhoneSenderCollection.md)
+ - [Model.Ping](docs/Ping.md)
+ - [Model.PlanInfo](docs/PlanInfo.md)
+ - [Model.PlanInfoPlanInfo](docs/PlanInfoPlanInfo.md)
+ - [Model.PostContactsConflict](docs/PostContactsConflict.md)
+ - [Model.PostListsConflict](docs/PostListsConflict.md)
+ - [Model.PostProductsConflict](docs/PostProductsConflict.md)
+ - [Model.PostRequestList](docs/PostRequestList.md)
+ - [Model.Product](docs/Product.md)
+ - [Model.ProductAlreadyExists](docs/ProductAlreadyExists.md)
+ - [Model.ProductAlreadyExistsErrors](docs/ProductAlreadyExistsErrors.md)
+ - [Model.ProductBulkRequest](docs/ProductBulkRequest.md)
+ - [Model.ProductCollection](docs/ProductCollection.md)
+ - [Model.ProductPatchRequest](docs/ProductPatchRequest.md)
+ - [Model.ProductPatchRequestRelatedProducts](docs/ProductPatchRequestRelatedProducts.md)
+ - [Model.ProductPostRequest](docs/ProductPostRequest.md)
+ - [Model.PushCampaignPatchRequest](docs/PushCampaignPatchRequest.md)
+ - [Model.PushCampaignPatchRequestContent](docs/PushCampaignPatchRequestContent.md)
+ - [Model.PushCampaignPostRequest](docs/PushCampaignPostRequest.md)
+ - [Model.PushCampaignPostRequestActions](docs/PushCampaignPostRequestActions.md)
+ - [Model.PushCampaignPostRequestGeoOptions](docs/PushCampaignPostRequestGeoOptions.md)
+ - [Model.PushCampaignPostRequestNotificationOptions](docs/PushCampaignPostRequestNotificationOptions.md)
+ - [Model.PushNotificationSoundSchema](docs/PushNotificationSoundSchema.md)
+ - [Model.PushNotificationSoundSchemaDefault](docs/PushNotificationSoundSchemaDefault.md)
+ - [Model.PushNotificationSoundSchemaNone](docs/PushNotificationSoundSchemaNone.md)
+ - [Model.PushNotificationSoundSchemaUrl](docs/PushNotificationSoundSchemaUrl.md)
+ - [Model.PushReport](docs/PushReport.md)
+ - [Model.PushVersions](docs/PushVersions.md)
+ - [Model.PushVersionsVersions](docs/PushVersionsVersions.md)
+ - [Model.RemoveRequest](docs/RemoveRequest.md)
+ - [Model.RemoveResponse](docs/RemoveResponse.md)
+ - [Model.RemoveResponseErrors](docs/RemoveResponseErrors.md)
+ - [Model.ReportCampaignsAll](docs/ReportCampaignsAll.md)
+ - [Model.ReportCampaignsGroup](docs/ReportCampaignsGroup.md)
+ - [Model.ReportCampaignsLast](docs/ReportCampaignsLast.md)
+ - [Model.ReportCampaignsSpecific](docs/ReportCampaignsSpecific.md)
+ - [Model.RequestItemsUnsubscribe](docs/RequestItemsUnsubscribe.md)
+ - [Model.SavedSegment](docs/SavedSegment.md)
+ - [Model.Segment](docs/Segment.md)
+ - [Model.SegmentCollection](docs/SegmentCollection.md)
+ - [Model.SegmentsActionSend](docs/SegmentsActionSend.md)
+ - [Model.SegmentsWithoutContactActionSend](docs/SegmentsWithoutContactActionSend.md)
+ - [Model.SendContact](docs/SendContact.md)
+ - [Model.SendContactCellphone](docs/SendContactCellphone.md)
+ - [Model.SendEmailContact](docs/SendEmailContact.md)
+ - [Model.SendNone](docs/SendNone.md)
+ - [Model.SendPush](docs/SendPush.md)
+ - [Model.SendSegment](docs/SendSegment.md)
+ - [Model.SendSmartSms](docs/SendSmartSms.md)
+ - [Model.SendSms](docs/SendSms.md)
+ - [Model.SendWebPush](docs/SendWebPush.md)
+ - [Model.SendsCampaignFields](docs/SendsCampaignFields.md)
+ - [Model.SmartSmsCampaign](docs/SmartSmsCampaign.md)
+ - [Model.SmartSmsCampaignCampaignContent](docs/SmartSmsCampaignCampaignContent.md)
+ - [Model.SmartSmsCampaignPatchRequest](docs/SmartSmsCampaignPatchRequest.md)
+ - [Model.SmartSmsCampaignPatchRequestCampaignContent](docs/SmartSmsCampaignPatchRequestCampaignContent.md)
+ - [Model.SmartSmsCampaignPatchRequestPageContent](docs/SmartSmsCampaignPatchRequestPageContent.md)
+ - [Model.SmartSmsSegmentsActionSend](docs/SmartSmsSegmentsActionSend.md)
+ - [Model.SmsBouncesCampaignFields](docs/SmsBouncesCampaignFields.md)
+ - [Model.SmsBouncesListStatsFields](docs/SmsBouncesListStatsFields.md)
+ - [Model.SmsCampaign](docs/SmsCampaign.md)
+ - [Model.SmsCampaignPatchRequest](docs/SmsCampaignPatchRequest.md)
+ - [Model.SmsCampaignPatchRequestContent](docs/SmsCampaignPatchRequestContent.md)
+ - [Model.SmsCampaignTemplate](docs/SmsCampaignTemplate.md)
+ - [Model.SmsEventsCampaignFields](docs/SmsEventsCampaignFields.md)
+ - [Model.SmsEventsListStatsFields](docs/SmsEventsListStatsFields.md)
+ - [Model.SmsSegmentsActionSend](docs/SmsSegmentsActionSend.md)
+ - [Model.StartAutomationRequest](docs/StartAutomationRequest.md)
+ - [Model.StartAutomationResponse](docs/StartAutomationResponse.md)
+ - [Model.SubscriptionsListStatsFields](docs/SubscriptionsListStatsFields.md)
+ - [Model.SuppressionList](docs/SuppressionList.md)
+ - [Model.SuppressionListItems](docs/SuppressionListItems.md)
+ - [Model.Tag](docs/Tag.md)
+ - [Model.TagCollection](docs/TagCollection.md)
+ - [Model.TagCollection1](docs/TagCollection1.md)
+ - [Model.TagRequest](docs/TagRequest.md)
+ - [Model.TagSegment](docs/TagSegment.md)
+ - [Model.TeResponse](docs/TeResponse.md)
+ - [Model.Unauthorized](docs/Unauthorized.md)
+ - [Model.UniqueFieldInUse](docs/UniqueFieldInUse.md)
+ - [Model.UniqueFieldInUseErrors](docs/UniqueFieldInUseErrors.md)
+ - [Model.UnprocessableEntity](docs/UnprocessableEntity.md)
+ - [Model.UnsubscriptionObject](docs/UnsubscriptionObject.md)
+ - [Model.UnsubscriptionsListStatsFields](docs/UnsubscriptionsListStatsFields.md)
+ - [Model.UsedInAutomations](docs/UsedInAutomations.md)
+ - [Model.UsedInAutomationsErrors](docs/UsedInAutomationsErrors.md)
+ - [Model.UsedInRecurringMessages](docs/UsedInRecurringMessages.md)
+ - [Model.UsedInRecurringMessagesErrors](docs/UsedInRecurringMessagesErrors.md)
+ - [Model.User](docs/User.md)
+ - [Model.UserCollection](docs/UserCollection.md)
+ - [Model.UserPostRequest](docs/UserPostRequest.md)
+ - [Model.VoiceCampaign](docs/VoiceCampaign.md)
+ - [Model.VoiceCampaignTemplate](docs/VoiceCampaignTemplate.md)
+ - [Model.VoicePatchCampaign](docs/VoicePatchCampaign.md)
+ - [Model.WebPushCampaign](docs/WebPushCampaign.md)
+ - [Model.WebPushPatchCampaign](docs/WebPushPatchCampaign.md)
+ - [Model.WebPushReport](docs/WebPushReport.md)
+ - [Model.WebPushReportBrowsers](docs/WebPushReportBrowsers.md)
+ - [Model.WebPushReportOperatingSystems](docs/WebPushReportOperatingSystems.md)
+ - [Model.WebPushRssCampaign](docs/WebPushRssCampaign.md)
+ - [Model.WebPushSite](docs/WebPushSite.md)
+ - [Model.WebPushStats](docs/WebPushStats.md)
+
+
+<a name="documentation-for-authorization"></a>
+## Documentation for Authorization
+
+<a name="Apikey"></a>
+### Apikey
+
+- **Type**: API key
+- **API key parameter name**: Apikey
+- **Location**: HTTP header
+
