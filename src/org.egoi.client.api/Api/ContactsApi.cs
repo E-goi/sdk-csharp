@@ -1,7 +1,7 @@
 /* 
  * APIv3 (Beta)
  *
- *  # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services. * <b><a href='https://github.com/E-goi/sdk-java'>Java</a></b> * <b><a href='https://github.com/E-goi/sdk-php'>PHP</a></b> * <b><a href='https://github.com/E-goi/sdk-python'>Python</a></b>  <security-definitions/>
+ *  # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB. <security-definitions/>
  *
  * OpenAPI spec version: 3.0.0-beta
  * 
@@ -25,6 +25,29 @@ namespace org.egoi.client.api.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Activate contacts
+        /// </summary>
+        /// <remarks>
+        /// Activates a collection of contacts (does not apply to removed contacts)
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="activateContactsRequest">Parameters for the request</param>
+        /// <returns>AcceptedResponse</returns>
+        AcceptedResponse ActionActivateContacts (int? listId, ActivateContactsRequest activateContactsRequest);
+
+        /// <summary>
+        /// Activate contacts
+        /// </summary>
+        /// <remarks>
+        /// Activates a collection of contacts (does not apply to removed contacts)
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="activateContactsRequest">Parameters for the request</param>
+        /// <returns>ApiResponse of AcceptedResponse</returns>
+        ApiResponse<AcceptedResponse> ActionActivateContactsWithHttpInfo (int? listId, ActivateContactsRequest activateContactsRequest);
+        /// <summary>
         /// Attach tag to contact
         /// </summary>
         /// <remarks>
@@ -47,6 +70,29 @@ namespace org.egoi.client.api.Api
         /// <param name="attachTagRequest">Parameters for the Tag</param>
         /// <returns>ApiResponse of AttachTagResponse</returns>
         ApiResponse<AttachTagResponse> ActionAttachTagWithHttpInfo (int? listId, AttachTagRequest attachTagRequest);
+        /// <summary>
+        /// Deactivate contacts
+        /// </summary>
+        /// <remarks>
+        /// Deactivates a collection of contacts (does not apply to removed contacts)
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="deactivateContactsRequest">Parameters for the request</param>
+        /// <returns>AcceptedResponse</returns>
+        AcceptedResponse ActionDeactivateContacts (int? listId, DeactivateContactsRequest deactivateContactsRequest);
+
+        /// <summary>
+        /// Deactivate contacts
+        /// </summary>
+        /// <remarks>
+        /// Deactivates a collection of contacts (does not apply to removed contacts)
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="deactivateContactsRequest">Parameters for the request</param>
+        /// <returns>ApiResponse of AcceptedResponse</returns>
+        ApiResponse<AcceptedResponse> ActionDeactivateContactsWithHttpInfo (int? listId, DeactivateContactsRequest deactivateContactsRequest);
         /// <summary>
         /// Detach tag to contact
         /// </summary>
@@ -94,10 +140,33 @@ namespace org.egoi.client.api.Api
         /// <returns>ApiResponse of AcceptedResponse</returns>
         ApiResponse<AcceptedResponse> ActionExportContactsWithHttpInfo (int? listId, ContactExportRequest contactExportRequest);
         /// <summary>
+        /// Forget contacts
+        /// </summary>
+        /// <remarks>
+        /// Forgets a list of contacts to the desired callback url
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="contactForgetRequest">Parameters for the action</param>
+        /// <returns>AcceptedResponse</returns>
+        AcceptedResponse ActionForgetContacts (int? listId, ContactForgetRequest contactForgetRequest);
+
+        /// <summary>
+        /// Forget contacts
+        /// </summary>
+        /// <remarks>
+        /// Forgets a list of contacts to the desired callback url
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="contactForgetRequest">Parameters for the action</param>
+        /// <returns>ApiResponse of AcceptedResponse</returns>
+        ApiResponse<AcceptedResponse> ActionForgetContactsWithHttpInfo (int? listId, ContactForgetRequest contactForgetRequest);
+        /// <summary>
         /// Import collection of contacts
         /// </summary>
         /// <remarks>
-        /// Imports a collection of contacts
+        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -109,7 +178,7 @@ namespace org.egoi.client.api.Api
         /// Import collection of contacts
         /// </summary>
         /// <remarks>
-        /// Imports a collection of contacts
+        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -226,8 +295,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="email">Email of the contacts to return (optional)</param>
         /// <returns>ContactCollection</returns>
-        ContactCollection GetAllContacts (int? listId, int? offset = null, int? limit = null);
+        ContactCollection GetAllContacts (int? listId, int? offset = null, int? limit = null, string email = null);
 
         /// <summary>
         /// Get all contacts
@@ -239,8 +309,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="email">Email of the contacts to return (optional)</param>
         /// <returns>ApiResponse of ContactCollection</returns>
-        ApiResponse<ContactCollection> GetAllContactsWithHttpInfo (int? listId, int? offset = null, int? limit = null);
+        ApiResponse<ContactCollection> GetAllContactsWithHttpInfo (int? listId, int? offset = null, int? limit = null, string email = null);
         /// <summary>
         /// Get contact
         /// </summary>
@@ -289,8 +360,54 @@ namespace org.egoi.client.api.Api
         /// <param name="contactBaseStatusExtra">Parameters for the contact</param>
         /// <returns>ApiResponse of CreateContactResponse</returns>
         ApiResponse<CreateContactResponse> PatchContactWithHttpInfo (string contactId, int? listId, ContactBaseStatusExtra contactBaseStatusExtra);
+        /// <summary>
+        /// Search contact
+        /// </summary>
+        /// <remarks>
+        /// Searches a contact across all lists and returns a collection of contacts found
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="contact">Contact to search</param>
+        /// <param name="type">Type of contact to search (defaults to &#39;email&#39;) (optional, default to email)</param>
+        /// <returns>InlineResponse200</returns>
+        InlineResponse200 SearchContacts (string contact, string type = null);
+
+        /// <summary>
+        /// Search contact
+        /// </summary>
+        /// <remarks>
+        /// Searches a contact across all lists and returns a collection of contacts found
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="contact">Contact to search</param>
+        /// <param name="type">Type of contact to search (defaults to &#39;email&#39;) (optional, default to email)</param>
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        ApiResponse<InlineResponse200> SearchContactsWithHttpInfo (string contact, string type = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Activate contacts
+        /// </summary>
+        /// <remarks>
+        /// Activates a collection of contacts (does not apply to removed contacts)
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="activateContactsRequest">Parameters for the request</param>
+        /// <returns>Task of AcceptedResponse</returns>
+        System.Threading.Tasks.Task<AcceptedResponse> ActionActivateContactsAsync (int? listId, ActivateContactsRequest activateContactsRequest);
+
+        /// <summary>
+        /// Activate contacts
+        /// </summary>
+        /// <remarks>
+        /// Activates a collection of contacts (does not apply to removed contacts)
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="activateContactsRequest">Parameters for the request</param>
+        /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionActivateContactsAsyncWithHttpInfo (int? listId, ActivateContactsRequest activateContactsRequest);
         /// <summary>
         /// Attach tag to contact
         /// </summary>
@@ -314,6 +431,29 @@ namespace org.egoi.client.api.Api
         /// <param name="attachTagRequest">Parameters for the Tag</param>
         /// <returns>Task of ApiResponse (AttachTagResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AttachTagResponse>> ActionAttachTagAsyncWithHttpInfo (int? listId, AttachTagRequest attachTagRequest);
+        /// <summary>
+        /// Deactivate contacts
+        /// </summary>
+        /// <remarks>
+        /// Deactivates a collection of contacts (does not apply to removed contacts)
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="deactivateContactsRequest">Parameters for the request</param>
+        /// <returns>Task of AcceptedResponse</returns>
+        System.Threading.Tasks.Task<AcceptedResponse> ActionDeactivateContactsAsync (int? listId, DeactivateContactsRequest deactivateContactsRequest);
+
+        /// <summary>
+        /// Deactivate contacts
+        /// </summary>
+        /// <remarks>
+        /// Deactivates a collection of contacts (does not apply to removed contacts)
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="deactivateContactsRequest">Parameters for the request</param>
+        /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionDeactivateContactsAsyncWithHttpInfo (int? listId, DeactivateContactsRequest deactivateContactsRequest);
         /// <summary>
         /// Detach tag to contact
         /// </summary>
@@ -361,10 +501,33 @@ namespace org.egoi.client.api.Api
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionExportContactsAsyncWithHttpInfo (int? listId, ContactExportRequest contactExportRequest);
         /// <summary>
+        /// Forget contacts
+        /// </summary>
+        /// <remarks>
+        /// Forgets a list of contacts to the desired callback url
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="contactForgetRequest">Parameters for the action</param>
+        /// <returns>Task of AcceptedResponse</returns>
+        System.Threading.Tasks.Task<AcceptedResponse> ActionForgetContactsAsync (int? listId, ContactForgetRequest contactForgetRequest);
+
+        /// <summary>
+        /// Forget contacts
+        /// </summary>
+        /// <remarks>
+        /// Forgets a list of contacts to the desired callback url
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="contactForgetRequest">Parameters for the action</param>
+        /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionForgetContactsAsyncWithHttpInfo (int? listId, ContactForgetRequest contactForgetRequest);
+        /// <summary>
         /// Import collection of contacts
         /// </summary>
         /// <remarks>
-        /// Imports a collection of contacts
+        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -376,7 +539,7 @@ namespace org.egoi.client.api.Api
         /// Import collection of contacts
         /// </summary>
         /// <remarks>
-        /// Imports a collection of contacts
+        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -493,8 +656,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="email">Email of the contacts to return (optional)</param>
         /// <returns>Task of ContactCollection</returns>
-        System.Threading.Tasks.Task<ContactCollection> GetAllContactsAsync (int? listId, int? offset = null, int? limit = null);
+        System.Threading.Tasks.Task<ContactCollection> GetAllContactsAsync (int? listId, int? offset = null, int? limit = null, string email = null);
 
         /// <summary>
         /// Get all contacts
@@ -506,8 +670,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="email">Email of the contacts to return (optional)</param>
         /// <returns>Task of ApiResponse (ContactCollection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ContactCollection>> GetAllContactsAsyncWithHttpInfo (int? listId, int? offset = null, int? limit = null);
+        System.Threading.Tasks.Task<ApiResponse<ContactCollection>> GetAllContactsAsyncWithHttpInfo (int? listId, int? offset = null, int? limit = null, string email = null);
         /// <summary>
         /// Get contact
         /// </summary>
@@ -556,6 +721,29 @@ namespace org.egoi.client.api.Api
         /// <param name="contactBaseStatusExtra">Parameters for the contact</param>
         /// <returns>Task of ApiResponse (CreateContactResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CreateContactResponse>> PatchContactAsyncWithHttpInfo (string contactId, int? listId, ContactBaseStatusExtra contactBaseStatusExtra);
+        /// <summary>
+        /// Search contact
+        /// </summary>
+        /// <remarks>
+        /// Searches a contact across all lists and returns a collection of contacts found
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="contact">Contact to search</param>
+        /// <param name="type">Type of contact to search (defaults to &#39;email&#39;) (optional, default to email)</param>
+        /// <returns>Task of InlineResponse200</returns>
+        System.Threading.Tasks.Task<InlineResponse200> SearchContactsAsync (string contact, string type = null);
+
+        /// <summary>
+        /// Search contact
+        /// </summary>
+        /// <remarks>
+        /// Searches a contact across all lists and returns a collection of contacts found
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="contact">Contact to search</param>
+        /// <param name="type">Type of contact to search (defaults to &#39;email&#39;) (optional, default to email)</param>
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> SearchContactsAsyncWithHttpInfo (string contact, string type = null);
         #endregion Asynchronous Operations
     }
 
@@ -665,6 +853,177 @@ namespace org.egoi.client.api.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Activate contacts Activates a collection of contacts (does not apply to removed contacts)
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="activateContactsRequest">Parameters for the request</param>
+        /// <returns>AcceptedResponse</returns>
+        public AcceptedResponse ActionActivateContacts (int? listId, ActivateContactsRequest activateContactsRequest)
+        {
+             ApiResponse<AcceptedResponse> localVarResponse = ActionActivateContactsWithHttpInfo(listId, activateContactsRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Activate contacts Activates a collection of contacts (does not apply to removed contacts)
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="activateContactsRequest">Parameters for the request</param>
+        /// <returns>ApiResponse of AcceptedResponse</returns>
+        public ApiResponse< AcceptedResponse > ActionActivateContactsWithHttpInfo (int? listId, ActivateContactsRequest activateContactsRequest)
+        {
+            // verify the required parameter 'listId' is set
+            if (listId == null)
+                throw new ApiException(400, "Missing required parameter 'listId' when calling ContactsApi->ActionActivateContacts");
+            // verify the required parameter 'activateContactsRequest' is set
+            if (activateContactsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'activateContactsRequest' when calling ContactsApi->ActionActivateContacts");
+
+            var localVarPath = "/lists/{list_id}/contacts/actions/activate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
+            if (activateContactsRequest != null && activateContactsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(activateContactsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = activateContactsRequest; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ActionActivateContacts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AcceptedResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
+        }
+
+        /// <summary>
+        /// Activate contacts Activates a collection of contacts (does not apply to removed contacts)
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="activateContactsRequest">Parameters for the request</param>
+        /// <returns>Task of AcceptedResponse</returns>
+        public async System.Threading.Tasks.Task<AcceptedResponse> ActionActivateContactsAsync (int? listId, ActivateContactsRequest activateContactsRequest)
+        {
+             ApiResponse<AcceptedResponse> localVarResponse = await ActionActivateContactsAsyncWithHttpInfo(listId, activateContactsRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Activate contacts Activates a collection of contacts (does not apply to removed contacts)
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="activateContactsRequest">Parameters for the request</param>
+        /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionActivateContactsAsyncWithHttpInfo (int? listId, ActivateContactsRequest activateContactsRequest)
+        {
+            // verify the required parameter 'listId' is set
+            if (listId == null)
+                throw new ApiException(400, "Missing required parameter 'listId' when calling ContactsApi->ActionActivateContacts");
+            // verify the required parameter 'activateContactsRequest' is set
+            if (activateContactsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'activateContactsRequest' when calling ContactsApi->ActionActivateContacts");
+
+            var localVarPath = "/lists/{list_id}/contacts/actions/activate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
+            if (activateContactsRequest != null && activateContactsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(activateContactsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = activateContactsRequest; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ActionActivateContacts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AcceptedResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
         /// <summary>
@@ -836,6 +1195,177 @@ namespace org.egoi.client.api.Api
             return new ApiResponse<AttachTagResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (AttachTagResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AttachTagResponse)));
+        }
+
+        /// <summary>
+        /// Deactivate contacts Deactivates a collection of contacts (does not apply to removed contacts)
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="deactivateContactsRequest">Parameters for the request</param>
+        /// <returns>AcceptedResponse</returns>
+        public AcceptedResponse ActionDeactivateContacts (int? listId, DeactivateContactsRequest deactivateContactsRequest)
+        {
+             ApiResponse<AcceptedResponse> localVarResponse = ActionDeactivateContactsWithHttpInfo(listId, deactivateContactsRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Deactivate contacts Deactivates a collection of contacts (does not apply to removed contacts)
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="deactivateContactsRequest">Parameters for the request</param>
+        /// <returns>ApiResponse of AcceptedResponse</returns>
+        public ApiResponse< AcceptedResponse > ActionDeactivateContactsWithHttpInfo (int? listId, DeactivateContactsRequest deactivateContactsRequest)
+        {
+            // verify the required parameter 'listId' is set
+            if (listId == null)
+                throw new ApiException(400, "Missing required parameter 'listId' when calling ContactsApi->ActionDeactivateContacts");
+            // verify the required parameter 'deactivateContactsRequest' is set
+            if (deactivateContactsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'deactivateContactsRequest' when calling ContactsApi->ActionDeactivateContacts");
+
+            var localVarPath = "/lists/{list_id}/contacts/actions/deactivate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
+            if (deactivateContactsRequest != null && deactivateContactsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(deactivateContactsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = deactivateContactsRequest; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ActionDeactivateContacts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AcceptedResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
+        }
+
+        /// <summary>
+        /// Deactivate contacts Deactivates a collection of contacts (does not apply to removed contacts)
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="deactivateContactsRequest">Parameters for the request</param>
+        /// <returns>Task of AcceptedResponse</returns>
+        public async System.Threading.Tasks.Task<AcceptedResponse> ActionDeactivateContactsAsync (int? listId, DeactivateContactsRequest deactivateContactsRequest)
+        {
+             ApiResponse<AcceptedResponse> localVarResponse = await ActionDeactivateContactsAsyncWithHttpInfo(listId, deactivateContactsRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Deactivate contacts Deactivates a collection of contacts (does not apply to removed contacts)
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="deactivateContactsRequest">Parameters for the request</param>
+        /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionDeactivateContactsAsyncWithHttpInfo (int? listId, DeactivateContactsRequest deactivateContactsRequest)
+        {
+            // verify the required parameter 'listId' is set
+            if (listId == null)
+                throw new ApiException(400, "Missing required parameter 'listId' when calling ContactsApi->ActionDeactivateContacts");
+            // verify the required parameter 'deactivateContactsRequest' is set
+            if (deactivateContactsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'deactivateContactsRequest' when calling ContactsApi->ActionDeactivateContacts");
+
+            var localVarPath = "/lists/{list_id}/contacts/actions/deactivate";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
+            if (deactivateContactsRequest != null && deactivateContactsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(deactivateContactsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = deactivateContactsRequest; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ActionDeactivateContacts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AcceptedResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
         /// <summary>
@@ -1181,7 +1711,178 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
-        /// Import collection of contacts Imports a collection of contacts
+        /// Forget contacts Forgets a list of contacts to the desired callback url
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="contactForgetRequest">Parameters for the action</param>
+        /// <returns>AcceptedResponse</returns>
+        public AcceptedResponse ActionForgetContacts (int? listId, ContactForgetRequest contactForgetRequest)
+        {
+             ApiResponse<AcceptedResponse> localVarResponse = ActionForgetContactsWithHttpInfo(listId, contactForgetRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Forget contacts Forgets a list of contacts to the desired callback url
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="contactForgetRequest">Parameters for the action</param>
+        /// <returns>ApiResponse of AcceptedResponse</returns>
+        public ApiResponse< AcceptedResponse > ActionForgetContactsWithHttpInfo (int? listId, ContactForgetRequest contactForgetRequest)
+        {
+            // verify the required parameter 'listId' is set
+            if (listId == null)
+                throw new ApiException(400, "Missing required parameter 'listId' when calling ContactsApi->ActionForgetContacts");
+            // verify the required parameter 'contactForgetRequest' is set
+            if (contactForgetRequest == null)
+                throw new ApiException(400, "Missing required parameter 'contactForgetRequest' when calling ContactsApi->ActionForgetContacts");
+
+            var localVarPath = "/lists/{list_id}/contacts/actions/forget";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
+            if (contactForgetRequest != null && contactForgetRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(contactForgetRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = contactForgetRequest; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ActionForgetContacts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AcceptedResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
+        }
+
+        /// <summary>
+        /// Forget contacts Forgets a list of contacts to the desired callback url
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="contactForgetRequest">Parameters for the action</param>
+        /// <returns>Task of AcceptedResponse</returns>
+        public async System.Threading.Tasks.Task<AcceptedResponse> ActionForgetContactsAsync (int? listId, ContactForgetRequest contactForgetRequest)
+        {
+             ApiResponse<AcceptedResponse> localVarResponse = await ActionForgetContactsAsyncWithHttpInfo(listId, contactForgetRequest);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Forget contacts Forgets a list of contacts to the desired callback url
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="contactForgetRequest">Parameters for the action</param>
+        /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionForgetContactsAsyncWithHttpInfo (int? listId, ContactForgetRequest contactForgetRequest)
+        {
+            // verify the required parameter 'listId' is set
+            if (listId == null)
+                throw new ApiException(400, "Missing required parameter 'listId' when calling ContactsApi->ActionForgetContacts");
+            // verify the required parameter 'contactForgetRequest' is set
+            if (contactForgetRequest == null)
+                throw new ApiException(400, "Missing required parameter 'contactForgetRequest' when calling ContactsApi->ActionForgetContacts");
+
+            var localVarPath = "/lists/{list_id}/contacts/actions/forget";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
+            if (contactForgetRequest != null && contactForgetRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(contactForgetRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = contactForgetRequest; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ActionForgetContacts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AcceptedResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
+        }
+
+        /// <summary>
+        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -1194,7 +1895,7 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
-        /// Import collection of contacts Imports a collection of contacts
+        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -1266,7 +1967,7 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
-        /// Import collection of contacts Imports a collection of contacts
+        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -1280,7 +1981,7 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
-        /// Import collection of contacts Imports a collection of contacts
+        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -2050,10 +2751,11 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="email">Email of the contacts to return (optional)</param>
         /// <returns>ContactCollection</returns>
-        public ContactCollection GetAllContacts (int? listId, int? offset = null, int? limit = null)
+        public ContactCollection GetAllContacts (int? listId, int? offset = null, int? limit = null, string email = null)
         {
-             ApiResponse<ContactCollection> localVarResponse = GetAllContactsWithHttpInfo(listId, offset, limit);
+             ApiResponse<ContactCollection> localVarResponse = GetAllContactsWithHttpInfo(listId, offset, limit, email);
              return localVarResponse.Data;
         }
 
@@ -2064,8 +2766,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="email">Email of the contacts to return (optional)</param>
         /// <returns>ApiResponse of ContactCollection</returns>
-        public ApiResponse< ContactCollection > GetAllContactsWithHttpInfo (int? listId, int? offset = null, int? limit = null)
+        public ApiResponse< ContactCollection > GetAllContactsWithHttpInfo (int? listId, int? offset = null, int? limit = null, string email = null)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -2095,6 +2798,7 @@ namespace org.egoi.client.api.Api
             if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (email != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "email", email)); // query parameter
 
             // authentication (Apikey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
@@ -2127,10 +2831,11 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="email">Email of the contacts to return (optional)</param>
         /// <returns>Task of ContactCollection</returns>
-        public async System.Threading.Tasks.Task<ContactCollection> GetAllContactsAsync (int? listId, int? offset = null, int? limit = null)
+        public async System.Threading.Tasks.Task<ContactCollection> GetAllContactsAsync (int? listId, int? offset = null, int? limit = null, string email = null)
         {
-             ApiResponse<ContactCollection> localVarResponse = await GetAllContactsAsyncWithHttpInfo(listId, offset, limit);
+             ApiResponse<ContactCollection> localVarResponse = await GetAllContactsAsyncWithHttpInfo(listId, offset, limit, email);
              return localVarResponse.Data;
 
         }
@@ -2142,8 +2847,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="email">Email of the contacts to return (optional)</param>
         /// <returns>Task of ApiResponse (ContactCollection)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ContactCollection>> GetAllContactsAsyncWithHttpInfo (int? listId, int? offset = null, int? limit = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ContactCollection>> GetAllContactsAsyncWithHttpInfo (int? listId, int? offset = null, int? limit = null, string email = null)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -2173,6 +2879,7 @@ namespace org.egoi.client.api.Api
             if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (email != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "email", email)); // query parameter
 
             // authentication (Apikey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
@@ -2534,6 +3241,155 @@ namespace org.egoi.client.api.Api
             return new ApiResponse<CreateContactResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (CreateContactResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CreateContactResponse)));
+        }
+
+        /// <summary>
+        /// Search contact Searches a contact across all lists and returns a collection of contacts found
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="contact">Contact to search</param>
+        /// <param name="type">Type of contact to search (defaults to &#39;email&#39;) (optional, default to email)</param>
+        /// <returns>InlineResponse200</returns>
+        public InlineResponse200 SearchContacts (string contact, string type = null)
+        {
+             ApiResponse<InlineResponse200> localVarResponse = SearchContactsWithHttpInfo(contact, type);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search contact Searches a contact across all lists and returns a collection of contacts found
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="contact">Contact to search</param>
+        /// <param name="type">Type of contact to search (defaults to &#39;email&#39;) (optional, default to email)</param>
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        public ApiResponse< InlineResponse200 > SearchContactsWithHttpInfo (string contact, string type = null)
+        {
+            // verify the required parameter 'contact' is set
+            if (contact == null)
+                throw new ApiException(400, "Missing required parameter 'contact' when calling ContactsApi->SearchContacts");
+
+            var localVarPath = "/contacts/search";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (type != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "type", type)); // query parameter
+            if (contact != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "contact", contact)); // query parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchContacts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse200) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
+        }
+
+        /// <summary>
+        /// Search contact Searches a contact across all lists and returns a collection of contacts found
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="contact">Contact to search</param>
+        /// <param name="type">Type of contact to search (defaults to &#39;email&#39;) (optional, default to email)</param>
+        /// <returns>Task of InlineResponse200</returns>
+        public async System.Threading.Tasks.Task<InlineResponse200> SearchContactsAsync (string contact, string type = null)
+        {
+             ApiResponse<InlineResponse200> localVarResponse = await SearchContactsAsyncWithHttpInfo(contact, type);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Search contact Searches a contact across all lists and returns a collection of contacts found
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="contact">Contact to search</param>
+        /// <param name="type">Type of contact to search (defaults to &#39;email&#39;) (optional, default to email)</param>
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> SearchContactsAsyncWithHttpInfo (string contact, string type = null)
+        {
+            // verify the required parameter 'contact' is set
+            if (contact == null)
+                throw new ApiException(400, "Missing required parameter 'contact' when calling ContactsApi->SearchContacts");
+
+            var localVarPath = "/contacts/search";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (type != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "type", type)); // query parameter
+            if (contact != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "contact", contact)); // query parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchContacts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse200) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
         }
 
     }

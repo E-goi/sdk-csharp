@@ -4,9 +4,12 @@ All URIs are relative to *https://api.egoiapp.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ActionActivateContacts**](ContactsApi.md#actionactivatecontacts) | **POST** /lists/{list_id}/contacts/actions/activate | Activate contacts
 [**ActionAttachTag**](ContactsApi.md#actionattachtag) | **POST** /lists/{list_id}/contacts/actions/attach-tag | Attach tag to contact
+[**ActionDeactivateContacts**](ContactsApi.md#actiondeactivatecontacts) | **POST** /lists/{list_id}/contacts/actions/deactivate | Deactivate contacts
 [**ActionDetachTag**](ContactsApi.md#actiondetachtag) | **POST** /lists/{list_id}/contacts/actions/detach-tag | Detach tag to contact
 [**ActionExportContacts**](ContactsApi.md#actionexportcontacts) | **POST** /lists/{list_id}/contacts/actions/export | Exports a list of contacts
+[**ActionForgetContacts**](ContactsApi.md#actionforgetcontacts) | **POST** /lists/{list_id}/contacts/actions/forget | Forget contacts
 [**ActionImportBulk**](ContactsApi.md#actionimportbulk) | **POST** /lists/{list_id}/contacts/actions/import-bulk | Import collection of contacts
 [**ActionStartAutomation**](ContactsApi.md#actionstartautomation) | **POST** /lists/{list_id}/contacts/actions/start-automation | Start automation
 [**ActionUnsubscribeContact**](ContactsApi.md#actionunsubscribecontact) | **POST** /lists/{list_id}/contacts/actions/unsubscribe | Unsubscribes contacts
@@ -15,7 +18,76 @@ Method | HTTP request | Description
 [**GetAllContacts**](ContactsApi.md#getallcontacts) | **GET** /lists/{list_id}/contacts | Get all contacts
 [**GetContact**](ContactsApi.md#getcontact) | **GET** /lists/{list_id}/contacts/{contact_id} | Get contact
 [**PatchContact**](ContactsApi.md#patchcontact) | **PATCH** /lists/{list_id}/contacts/{contact_id} | Update a specific contact
+[**SearchContacts**](ContactsApi.md#searchcontacts) | **GET** /contacts/search | Search contact
 
+
+<a name="actionactivatecontacts"></a>
+# **ActionActivateContacts**
+> AcceptedResponse ActionActivateContacts (int? listId, ActivateContactsRequest activateContactsRequest)
+
+Activate contacts
+
+Activates a collection of contacts (does not apply to removed contacts)
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using org.egoi.client.api.Api;
+using org.egoi.client.api.Client;
+using org.egoi.client.api.Model;
+
+namespace Example
+{
+    public class ActionActivateContactsExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: Apikey
+            Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
+
+            var apiInstance = new ContactsApi();
+            var listId = 56;  // int? | ID of the List
+            var activateContactsRequest = new ActivateContactsRequest(); // ActivateContactsRequest | Parameters for the request
+
+            try
+            {
+                // Activate contacts
+                AcceptedResponse result = apiInstance.ActionActivateContacts(listId, activateContactsRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ContactsApi.ActionActivateContacts: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **listId** | **int?**| ID of the List | 
+ **activateContactsRequest** | [**ActivateContactsRequest**](ActivateContactsRequest.md)| Parameters for the request | 
+
+### Return type
+
+[**AcceptedResponse**](AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="actionattachtag"></a>
 # **ActionAttachTag**
@@ -73,6 +145,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AttachTagResponse**](AttachTagResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="actiondeactivatecontacts"></a>
+# **ActionDeactivateContacts**
+> AcceptedResponse ActionDeactivateContacts (int? listId, DeactivateContactsRequest deactivateContactsRequest)
+
+Deactivate contacts
+
+Deactivates a collection of contacts (does not apply to removed contacts)
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using org.egoi.client.api.Api;
+using org.egoi.client.api.Client;
+using org.egoi.client.api.Model;
+
+namespace Example
+{
+    public class ActionDeactivateContactsExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: Apikey
+            Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
+
+            var apiInstance = new ContactsApi();
+            var listId = 56;  // int? | ID of the List
+            var deactivateContactsRequest = new DeactivateContactsRequest(); // DeactivateContactsRequest | Parameters for the request
+
+            try
+            {
+                // Deactivate contacts
+                AcceptedResponse result = apiInstance.ActionDeactivateContacts(listId, deactivateContactsRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ContactsApi.ActionDeactivateContacts: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **listId** | **int?**| ID of the List | 
+ **deactivateContactsRequest** | [**DeactivateContactsRequest**](DeactivateContactsRequest.md)| Parameters for the request | 
+
+### Return type
+
+[**AcceptedResponse**](AcceptedResponse.md)
 
 ### Authorization
 
@@ -221,13 +361,81 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="actionforgetcontacts"></a>
+# **ActionForgetContacts**
+> AcceptedResponse ActionForgetContacts (int? listId, ContactForgetRequest contactForgetRequest)
+
+Forget contacts
+
+Forgets a list of contacts to the desired callback url
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using org.egoi.client.api.Api;
+using org.egoi.client.api.Client;
+using org.egoi.client.api.Model;
+
+namespace Example
+{
+    public class ActionForgetContactsExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: Apikey
+            Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
+
+            var apiInstance = new ContactsApi();
+            var listId = 56;  // int? | ID of the List
+            var contactForgetRequest = new ContactForgetRequest(); // ContactForgetRequest | Parameters for the action
+
+            try
+            {
+                // Forget contacts
+                AcceptedResponse result = apiInstance.ActionForgetContacts(listId, contactForgetRequest);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ContactsApi.ActionForgetContacts: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **listId** | **int?**| ID of the List | 
+ **contactForgetRequest** | [**ContactForgetRequest**](ContactForgetRequest.md)| Parameters for the action | 
+
+### Return type
+
+[**AcceptedResponse**](AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="actionimportbulk"></a>
 # **ActionImportBulk**
 > AcceptedResponse ActionImportBulk (int? listId, ImportBulkRequest importBulkRequest)
 
 Import collection of contacts
 
-Imports a collection of contacts
+Imports a collection of contacts </br>      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits 'Stream Limits')
 
 ### Example
 ```csharp
@@ -571,7 +779,7 @@ Name | Type | Description  | Notes
 
 <a name="getallcontacts"></a>
 # **GetAllContacts**
-> ContactCollection GetAllContacts (int? listId, int? offset = null, int? limit = null)
+> ContactCollection GetAllContacts (int? listId, int? offset = null, int? limit = null, string email = null)
 
 Get all contacts
 
@@ -600,11 +808,12 @@ namespace Example
             var listId = 56;  // int? | ID of the List
             var offset = 56;  // int? | Element offset (starting at zero for the first element) (optional) 
             var limit = 56;  // int? | Number of items to return (optional)  (default to 10)
+            var email = email_example;  // string | Email of the contacts to return (optional) 
 
             try
             {
                 // Get all contacts
-                ContactCollection result = apiInstance.GetAllContacts(listId, offset, limit);
+                ContactCollection result = apiInstance.GetAllContacts(listId, offset, limit, email);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -623,6 +832,7 @@ Name | Type | Description  | Notes
  **listId** | **int?**| ID of the List | 
  **offset** | **int?**| Element offset (starting at zero for the first element) | [optional] 
  **limit** | **int?**| Number of items to return | [optional] [default to 10]
+ **email** | **string**| Email of the contacts to return | [optional] 
 
 ### Return type
 
@@ -773,6 +983,74 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="searchcontacts"></a>
+# **SearchContacts**
+> InlineResponse200 SearchContacts (string contact, string type = null)
+
+Search contact
+
+Searches a contact across all lists and returns a collection of contacts found
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using org.egoi.client.api.Api;
+using org.egoi.client.api.Client;
+using org.egoi.client.api.Model;
+
+namespace Example
+{
+    public class SearchContactsExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: Apikey
+            Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
+
+            var apiInstance = new ContactsApi();
+            var contact = contact_example;  // string | Contact to search
+            var type = type_example;  // string | Type of contact to search (defaults to 'email') (optional)  (default to email)
+
+            try
+            {
+                // Search contact
+                InlineResponse200 result = apiInstance.SearchContacts(contact, type);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ContactsApi.SearchContacts: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contact** | **string**| Contact to search | 
+ **type** | **string**| Type of contact to search (defaults to &#39;email&#39;) | [optional] [default to email]
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

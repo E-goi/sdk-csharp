@@ -8,7 +8,8 @@ Method | HTTP request | Description
 [**ActionSendWebPush**](WebpushApi.md#actionsendwebpush) | **POST** /campaigns/web-push/{campaign_hash}/actions/send | Send webpush message
 [**CreateWebPushCampaign**](WebpushApi.md#createwebpushcampaign) | **POST** /campaigns/web-push | Create new webpush campaign
 [**CreateWebPushRssCampaign**](WebpushApi.md#createwebpushrsscampaign) | **POST** /campaigns/webpush/rss | Create new webpush rss campaign
-[**GetAllWebPushSites**](WebpushApi.md#getallwebpushsites) | **GET** /webpush/site | Get all webpush sites
+[**CreateWebpushSite**](WebpushApi.md#createwebpushsite) | **POST** /webpush/sites | Creates a webpush site
+[**GetAllWebPushSites**](WebpushApi.md#getallwebpushsites) | **GET** /webpush/sites | Get all webpush sites
 [**PatchWebPushCampaign**](WebpushApi.md#patchwebpushcampaign) | **PATCH** /campaigns/web-push/{campaign_hash} | Update a specific webpush campaign
 
 
@@ -266,6 +267,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**HashcodeCampaign**](HashcodeCampaign.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="createwebpushsite"></a>
+# **CreateWebpushSite**
+> WebPushSite CreateWebpushSite (WebPushSite webPushSite)
+
+Creates a webpush site
+
+Create a new webpush site
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using org.egoi.client.api.Api;
+using org.egoi.client.api.Client;
+using org.egoi.client.api.Model;
+
+namespace Example
+{
+    public class CreateWebpushSiteExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: Apikey
+            Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
+
+            var apiInstance = new WebpushApi();
+            var webPushSite = new WebPushSite(); // WebPushSite | Parameters for the webpush site
+
+            try
+            {
+                // Creates a webpush site
+                WebPushSite result = apiInstance.CreateWebpushSite(webPushSite);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling WebpushApi.CreateWebpushSite: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **webPushSite** | [**WebPushSite**](WebPushSite.md)| Parameters for the webpush site | 
+
+### Return type
+
+[**WebPushSite**](WebPushSite.md)
 
 ### Authorization
 
