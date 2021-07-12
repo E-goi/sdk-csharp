@@ -1,9 +1,9 @@
 /* 
- * APIv3 (Beta)
+ * APIv3 (New)
  *
- *  # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB. <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
  *
- * OpenAPI spec version: 3.0.0-beta
+ * OpenAPI spec version: 3.0.0
  * 
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -25,6 +25,29 @@ namespace org.egoi.client.api.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Create cart
+        /// </summary>
+        /// <remarks>
+        /// Creates a new cart. If ***contact_id*** is specified, order will be atached to the contact, if the contact propreties are specified, we&#39;ll create the user, if its already in your list it will get the correct contact (**make sure you are sending atleast all configured list&#39;s unique fields**). This same logic is also applied to the **product_identifier**.
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain">Domain</param>
+        /// <param name="cart">Parameters for the Carts</param>
+        /// <returns>AcceptedResponse</returns>
+        AcceptedResponse CreateCart (string domain, Cart cart);
+
+        /// <summary>
+        /// Create cart
+        /// </summary>
+        /// <remarks>
+        /// Creates a new cart. If ***contact_id*** is specified, order will be atached to the contact, if the contact propreties are specified, we&#39;ll create the user, if its already in your list it will get the correct contact (**make sure you are sending atleast all configured list&#39;s unique fields**). This same logic is also applied to the **product_identifier**.
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain">Domain</param>
+        /// <param name="cart">Parameters for the Carts</param>
+        /// <returns>ApiResponse of AcceptedResponse</returns>
+        ApiResponse<AcceptedResponse> CreateCartWithHttpInfo (string domain, Cart cart);
+        /// <summary>
         /// Create new catalog
         /// </summary>
         /// <remarks>
@@ -45,6 +68,29 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogPostRequest">Parameters for the Catalog</param>
         /// <returns>ApiResponse of Catalog</returns>
         ApiResponse<Catalog> CreateCatalogWithHttpInfo (CatalogPostRequest catalogPostRequest);
+        /// <summary>
+        /// Create order
+        /// </summary>
+        /// <remarks>
+        /// Creates a new order. If **contact_id** is specified, order will be atached to the contact, if the contact propreties are specified, we&#39;ll create the user, if its already in your list it will get the correct contact (***make sure you are sending atleast all configured list&#39;s unique fields***). This same logic is also applied to the **product_identifier**.
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain">Domain</param>
+        /// <param name="createOrder">Parameters for the Orders</param>
+        /// <returns>AcceptedResponse</returns>
+        AcceptedResponse CreateOrder (string domain, CreateOrder createOrder);
+
+        /// <summary>
+        /// Create order
+        /// </summary>
+        /// <remarks>
+        /// Creates a new order. If **contact_id** is specified, order will be atached to the contact, if the contact propreties are specified, we&#39;ll create the user, if its already in your list it will get the correct contact (***make sure you are sending atleast all configured list&#39;s unique fields***). This same logic is also applied to the **product_identifier**.
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain">Domain</param>
+        /// <param name="createOrder">Parameters for the Orders</param>
+        /// <returns>ApiResponse of AcceptedResponse</returns>
+        ApiResponse<AcceptedResponse> CreateOrderWithHttpInfo (string domain, CreateOrder createOrder);
         /// <summary>
         /// Create new product
         /// </summary>
@@ -182,29 +228,6 @@ namespace org.egoi.client.api.Api
         /// <returns>ApiResponse of Product</returns>
         ApiResponse<Product> GetProductWithHttpInfo (int? catalogId, string productIdentifier);
         /// <summary>
-        /// Orders import bulk request
-        /// </summary>
-        /// <remarks>
-        /// Creates new bulk orders syncronization
-        /// </remarks>
-        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">ID of the List</param>
-        /// <param name="importOrdersBulkBulkRequest">Parameters for the Orders</param>
-        /// <returns>AcceptedResponse</returns>
-        AcceptedResponse ImportOrdersBulk (int? listId, List<ImportOrdersBulkBulkRequest> importOrdersBulkBulkRequest);
-
-        /// <summary>
-        /// Orders import bulk request
-        /// </summary>
-        /// <remarks>
-        /// Creates new bulk orders syncronization
-        /// </remarks>
-        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">ID of the List</param>
-        /// <param name="importOrdersBulkBulkRequest">Parameters for the Orders</param>
-        /// <returns>ApiResponse of AcceptedResponse</returns>
-        ApiResponse<AcceptedResponse> ImportOrdersBulkWithHttpInfo (int? listId, List<ImportOrdersBulkBulkRequest> importOrdersBulkBulkRequest);
-        /// <summary>
         /// Import products
         /// </summary>
         /// <remarks>
@@ -255,6 +278,29 @@ namespace org.egoi.client.api.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
+        /// Create cart
+        /// </summary>
+        /// <remarks>
+        /// Creates a new cart. If ***contact_id*** is specified, order will be atached to the contact, if the contact propreties are specified, we&#39;ll create the user, if its already in your list it will get the correct contact (**make sure you are sending atleast all configured list&#39;s unique fields**). This same logic is also applied to the **product_identifier**.
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain">Domain</param>
+        /// <param name="cart">Parameters for the Carts</param>
+        /// <returns>Task of AcceptedResponse</returns>
+        System.Threading.Tasks.Task<AcceptedResponse> CreateCartAsync (string domain, Cart cart);
+
+        /// <summary>
+        /// Create cart
+        /// </summary>
+        /// <remarks>
+        /// Creates a new cart. If ***contact_id*** is specified, order will be atached to the contact, if the contact propreties are specified, we&#39;ll create the user, if its already in your list it will get the correct contact (**make sure you are sending atleast all configured list&#39;s unique fields**). This same logic is also applied to the **product_identifier**.
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain">Domain</param>
+        /// <param name="cart">Parameters for the Carts</param>
+        /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> CreateCartAsyncWithHttpInfo (string domain, Cart cart);
+        /// <summary>
         /// Create new catalog
         /// </summary>
         /// <remarks>
@@ -275,6 +321,29 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogPostRequest">Parameters for the Catalog</param>
         /// <returns>Task of ApiResponse (Catalog)</returns>
         System.Threading.Tasks.Task<ApiResponse<Catalog>> CreateCatalogAsyncWithHttpInfo (CatalogPostRequest catalogPostRequest);
+        /// <summary>
+        /// Create order
+        /// </summary>
+        /// <remarks>
+        /// Creates a new order. If **contact_id** is specified, order will be atached to the contact, if the contact propreties are specified, we&#39;ll create the user, if its already in your list it will get the correct contact (***make sure you are sending atleast all configured list&#39;s unique fields***). This same logic is also applied to the **product_identifier**.
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain">Domain</param>
+        /// <param name="createOrder">Parameters for the Orders</param>
+        /// <returns>Task of AcceptedResponse</returns>
+        System.Threading.Tasks.Task<AcceptedResponse> CreateOrderAsync (string domain, CreateOrder createOrder);
+
+        /// <summary>
+        /// Create order
+        /// </summary>
+        /// <remarks>
+        /// Creates a new order. If **contact_id** is specified, order will be atached to the contact, if the contact propreties are specified, we&#39;ll create the user, if its already in your list it will get the correct contact (***make sure you are sending atleast all configured list&#39;s unique fields***). This same logic is also applied to the **product_identifier**.
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain">Domain</param>
+        /// <param name="createOrder">Parameters for the Orders</param>
+        /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> CreateOrderAsyncWithHttpInfo (string domain, CreateOrder createOrder);
         /// <summary>
         /// Create new product
         /// </summary>
@@ -411,29 +480,6 @@ namespace org.egoi.client.api.Api
         /// <param name="productIdentifier">ID of the Product</param>
         /// <returns>Task of ApiResponse (Product)</returns>
         System.Threading.Tasks.Task<ApiResponse<Product>> GetProductAsyncWithHttpInfo (int? catalogId, string productIdentifier);
-        /// <summary>
-        /// Orders import bulk request
-        /// </summary>
-        /// <remarks>
-        /// Creates new bulk orders syncronization
-        /// </remarks>
-        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">ID of the List</param>
-        /// <param name="importOrdersBulkBulkRequest">Parameters for the Orders</param>
-        /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> ImportOrdersBulkAsync (int? listId, List<ImportOrdersBulkBulkRequest> importOrdersBulkBulkRequest);
-
-        /// <summary>
-        /// Orders import bulk request
-        /// </summary>
-        /// <remarks>
-        /// Creates new bulk orders syncronization
-        /// </remarks>
-        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">ID of the List</param>
-        /// <param name="importOrdersBulkBulkRequest">Parameters for the Orders</param>
-        /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ImportOrdersBulkAsyncWithHttpInfo (int? listId, List<ImportOrdersBulkBulkRequest> importOrdersBulkBulkRequest);
         /// <summary>
         /// Import products
         /// </summary>
@@ -594,6 +640,177 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
+        /// Create cart Creates a new cart. If ***contact_id*** is specified, order will be atached to the contact, if the contact propreties are specified, we&#39;ll create the user, if its already in your list it will get the correct contact (**make sure you are sending atleast all configured list&#39;s unique fields**). This same logic is also applied to the **product_identifier**.
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain">Domain</param>
+        /// <param name="cart">Parameters for the Carts</param>
+        /// <returns>AcceptedResponse</returns>
+        public AcceptedResponse CreateCart (string domain, Cart cart)
+        {
+             ApiResponse<AcceptedResponse> localVarResponse = CreateCartWithHttpInfo(domain, cart);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create cart Creates a new cart. If ***contact_id*** is specified, order will be atached to the contact, if the contact propreties are specified, we&#39;ll create the user, if its already in your list it will get the correct contact (**make sure you are sending atleast all configured list&#39;s unique fields**). This same logic is also applied to the **product_identifier**.
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain">Domain</param>
+        /// <param name="cart">Parameters for the Carts</param>
+        /// <returns>ApiResponse of AcceptedResponse</returns>
+        public ApiResponse< AcceptedResponse > CreateCartWithHttpInfo (string domain, Cart cart)
+        {
+            // verify the required parameter 'domain' is set
+            if (domain == null)
+                throw new ApiException(400, "Missing required parameter 'domain' when calling EcommerceApi->CreateCart");
+            // verify the required parameter 'cart' is set
+            if (cart == null)
+                throw new ApiException(400, "Missing required parameter 'cart' when calling EcommerceApi->CreateCart");
+
+            var localVarPath = "/{domain}/carts";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (domain != null) localVarPathParams.Add("domain", this.Configuration.ApiClient.ParameterToString(domain)); // path parameter
+            if (cart != null && cart.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(cart); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = cart; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateCart", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AcceptedResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
+        }
+
+        /// <summary>
+        /// Create cart Creates a new cart. If ***contact_id*** is specified, order will be atached to the contact, if the contact propreties are specified, we&#39;ll create the user, if its already in your list it will get the correct contact (**make sure you are sending atleast all configured list&#39;s unique fields**). This same logic is also applied to the **product_identifier**.
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain">Domain</param>
+        /// <param name="cart">Parameters for the Carts</param>
+        /// <returns>Task of AcceptedResponse</returns>
+        public async System.Threading.Tasks.Task<AcceptedResponse> CreateCartAsync (string domain, Cart cart)
+        {
+             ApiResponse<AcceptedResponse> localVarResponse = await CreateCartAsyncWithHttpInfo(domain, cart);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create cart Creates a new cart. If ***contact_id*** is specified, order will be atached to the contact, if the contact propreties are specified, we&#39;ll create the user, if its already in your list it will get the correct contact (**make sure you are sending atleast all configured list&#39;s unique fields**). This same logic is also applied to the **product_identifier**.
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain">Domain</param>
+        /// <param name="cart">Parameters for the Carts</param>
+        /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> CreateCartAsyncWithHttpInfo (string domain, Cart cart)
+        {
+            // verify the required parameter 'domain' is set
+            if (domain == null)
+                throw new ApiException(400, "Missing required parameter 'domain' when calling EcommerceApi->CreateCart");
+            // verify the required parameter 'cart' is set
+            if (cart == null)
+                throw new ApiException(400, "Missing required parameter 'cart' when calling EcommerceApi->CreateCart");
+
+            var localVarPath = "/{domain}/carts";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (domain != null) localVarPathParams.Add("domain", this.Configuration.ApiClient.ParameterToString(domain)); // path parameter
+            if (cart != null && cart.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(cart); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = cart; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateCart", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AcceptedResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
+        }
+
+        /// <summary>
         /// Create new catalog Creates a new catalog
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
@@ -750,6 +967,177 @@ namespace org.egoi.client.api.Api
             return new ApiResponse<Catalog>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (Catalog) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Catalog)));
+        }
+
+        /// <summary>
+        /// Create order Creates a new order. If **contact_id** is specified, order will be atached to the contact, if the contact propreties are specified, we&#39;ll create the user, if its already in your list it will get the correct contact (***make sure you are sending atleast all configured list&#39;s unique fields***). This same logic is also applied to the **product_identifier**.
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain">Domain</param>
+        /// <param name="createOrder">Parameters for the Orders</param>
+        /// <returns>AcceptedResponse</returns>
+        public AcceptedResponse CreateOrder (string domain, CreateOrder createOrder)
+        {
+             ApiResponse<AcceptedResponse> localVarResponse = CreateOrderWithHttpInfo(domain, createOrder);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create order Creates a new order. If **contact_id** is specified, order will be atached to the contact, if the contact propreties are specified, we&#39;ll create the user, if its already in your list it will get the correct contact (***make sure you are sending atleast all configured list&#39;s unique fields***). This same logic is also applied to the **product_identifier**.
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain">Domain</param>
+        /// <param name="createOrder">Parameters for the Orders</param>
+        /// <returns>ApiResponse of AcceptedResponse</returns>
+        public ApiResponse< AcceptedResponse > CreateOrderWithHttpInfo (string domain, CreateOrder createOrder)
+        {
+            // verify the required parameter 'domain' is set
+            if (domain == null)
+                throw new ApiException(400, "Missing required parameter 'domain' when calling EcommerceApi->CreateOrder");
+            // verify the required parameter 'createOrder' is set
+            if (createOrder == null)
+                throw new ApiException(400, "Missing required parameter 'createOrder' when calling EcommerceApi->CreateOrder");
+
+            var localVarPath = "/{domain}/orders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (domain != null) localVarPathParams.Add("domain", this.Configuration.ApiClient.ParameterToString(domain)); // path parameter
+            if (createOrder != null && createOrder.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(createOrder); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = createOrder; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AcceptedResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
+        }
+
+        /// <summary>
+        /// Create order Creates a new order. If **contact_id** is specified, order will be atached to the contact, if the contact propreties are specified, we&#39;ll create the user, if its already in your list it will get the correct contact (***make sure you are sending atleast all configured list&#39;s unique fields***). This same logic is also applied to the **product_identifier**.
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain">Domain</param>
+        /// <param name="createOrder">Parameters for the Orders</param>
+        /// <returns>Task of AcceptedResponse</returns>
+        public async System.Threading.Tasks.Task<AcceptedResponse> CreateOrderAsync (string domain, CreateOrder createOrder)
+        {
+             ApiResponse<AcceptedResponse> localVarResponse = await CreateOrderAsyncWithHttpInfo(domain, createOrder);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create order Creates a new order. If **contact_id** is specified, order will be atached to the contact, if the contact propreties are specified, we&#39;ll create the user, if its already in your list it will get the correct contact (***make sure you are sending atleast all configured list&#39;s unique fields***). This same logic is also applied to the **product_identifier**.
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="domain">Domain</param>
+        /// <param name="createOrder">Parameters for the Orders</param>
+        /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> CreateOrderAsyncWithHttpInfo (string domain, CreateOrder createOrder)
+        {
+            // verify the required parameter 'domain' is set
+            if (domain == null)
+                throw new ApiException(400, "Missing required parameter 'domain' when calling EcommerceApi->CreateOrder");
+            // verify the required parameter 'createOrder' is set
+            if (createOrder == null)
+                throw new ApiException(400, "Missing required parameter 'createOrder' when calling EcommerceApi->CreateOrder");
+
+            var localVarPath = "/{domain}/orders";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (domain != null) localVarPathParams.Add("domain", this.Configuration.ApiClient.ParameterToString(domain)); // path parameter
+            if (createOrder != null && createOrder.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(createOrder); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = createOrder; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AcceptedResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
         /// <summary>
@@ -1662,177 +2050,6 @@ namespace org.egoi.client.api.Api
             return new ApiResponse<Product>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (Product) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Product)));
-        }
-
-        /// <summary>
-        /// Orders import bulk request Creates new bulk orders syncronization
-        /// </summary>
-        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">ID of the List</param>
-        /// <param name="importOrdersBulkBulkRequest">Parameters for the Orders</param>
-        /// <returns>AcceptedResponse</returns>
-        public AcceptedResponse ImportOrdersBulk (int? listId, List<ImportOrdersBulkBulkRequest> importOrdersBulkBulkRequest)
-        {
-             ApiResponse<AcceptedResponse> localVarResponse = ImportOrdersBulkWithHttpInfo(listId, importOrdersBulkBulkRequest);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Orders import bulk request Creates new bulk orders syncronization
-        /// </summary>
-        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">ID of the List</param>
-        /// <param name="importOrdersBulkBulkRequest">Parameters for the Orders</param>
-        /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse< AcceptedResponse > ImportOrdersBulkWithHttpInfo (int? listId, List<ImportOrdersBulkBulkRequest> importOrdersBulkBulkRequest)
-        {
-            // verify the required parameter 'listId' is set
-            if (listId == null)
-                throw new ApiException(400, "Missing required parameter 'listId' when calling EcommerceApi->ImportOrdersBulk");
-            // verify the required parameter 'importOrdersBulkBulkRequest' is set
-            if (importOrdersBulkBulkRequest == null)
-                throw new ApiException(400, "Missing required parameter 'importOrdersBulkBulkRequest' when calling EcommerceApi->ImportOrdersBulk");
-
-            var localVarPath = "/lists/{list_id}/orders";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
-            if (importOrdersBulkBulkRequest != null && importOrdersBulkBulkRequest.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(importOrdersBulkBulkRequest); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = importOrdersBulkBulkRequest; // byte array
-            }
-
-            // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
-            {
-                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ImportOrdersBulk", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
-        }
-
-        /// <summary>
-        /// Orders import bulk request Creates new bulk orders syncronization
-        /// </summary>
-        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">ID of the List</param>
-        /// <param name="importOrdersBulkBulkRequest">Parameters for the Orders</param>
-        /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> ImportOrdersBulkAsync (int? listId, List<ImportOrdersBulkBulkRequest> importOrdersBulkBulkRequest)
-        {
-             ApiResponse<AcceptedResponse> localVarResponse = await ImportOrdersBulkAsyncWithHttpInfo(listId, importOrdersBulkBulkRequest);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Orders import bulk request Creates new bulk orders syncronization
-        /// </summary>
-        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listId">ID of the List</param>
-        /// <param name="importOrdersBulkBulkRequest">Parameters for the Orders</param>
-        /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ImportOrdersBulkAsyncWithHttpInfo (int? listId, List<ImportOrdersBulkBulkRequest> importOrdersBulkBulkRequest)
-        {
-            // verify the required parameter 'listId' is set
-            if (listId == null)
-                throw new ApiException(400, "Missing required parameter 'listId' when calling EcommerceApi->ImportOrdersBulk");
-            // verify the required parameter 'importOrdersBulkBulkRequest' is set
-            if (importOrdersBulkBulkRequest == null)
-                throw new ApiException(400, "Missing required parameter 'importOrdersBulkBulkRequest' when calling EcommerceApi->ImportOrdersBulk");
-
-            var localVarPath = "/lists/{list_id}/orders";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
-            if (importOrdersBulkBulkRequest != null && importOrdersBulkBulkRequest.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(importOrdersBulkBulkRequest); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = importOrdersBulkBulkRequest; // byte array
-            }
-
-            // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
-            {
-                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ImportOrdersBulk", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
         /// <summary>

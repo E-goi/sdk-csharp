@@ -12,11 +12,12 @@ Name | Type | Description | Notes
 **Mpn** | **string** | Manufacturer Part Number | [optional] 
 **Link** | **string** | Link for the product | [optional] 
 **ImageLink** | **string** | Link for the product image | [optional] 
-**Price** | **double?** | Price of the product | [optional] 
-**SalePrice** | **double?** | Sale price of the product | [optional] 
+**Price** | **double?** | Price of the product | [optional] [default to 0D]
+**SalePrice** | **double?** | Sale price of the product | [optional] [default to 0D]
 **Brand** | **string** | Brand of the product | [optional] 
 **Categories** | **List&lt;string&gt;** | Array of product categories, using the character &#39;&gt;&#39; as delimiter for the breadcrumb                         syntax | [optional] 
 **RelatedProducts** | [**ProductPatchRequestRelatedProducts**](ProductPatchRequestRelatedProducts.md) |  | [optional] 
+**CustomAttributes** | [**List&lt;ProductCustomAttributes&gt;**](ProductCustomAttributes.md) | Custom attributes | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

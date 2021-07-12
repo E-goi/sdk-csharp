@@ -1,9 +1,9 @@
 /* 
- * APIv3 (Beta)
+ * APIv3 (New)
  *
- *  # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB. <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
  *
- * OpenAPI spec version: 3.0.0-beta
+ * OpenAPI spec version: 3.0.0
  * 
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -51,7 +51,7 @@ namespace org.egoi.client.api.Api
         /// Attach tag to contact
         /// </summary>
         /// <remarks>
-        /// Attaches a tag to the provided contacts
+        /// Attaches a tag to the provided contacts. &lt;br&gt;***Note:***&lt;br&gt; If you provide the array of **contacts** there will be a maximum limit of 1000 contacts in the payload, but if you provide a **segment_id** instead of     the array of contacts you will get an asynchronous response with the status code 202
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -63,7 +63,7 @@ namespace org.egoi.client.api.Api
         /// Attach tag to contact
         /// </summary>
         /// <remarks>
-        /// Attaches a tag to the provided contacts
+        /// Attaches a tag to the provided contacts. &lt;br&gt;***Note:***&lt;br&gt; If you provide the array of **contacts** there will be a maximum limit of 1000 contacts in the payload, but if you provide a **segment_id** instead of     the array of contacts you will get an asynchronous response with the status code 202
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -166,7 +166,7 @@ namespace org.egoi.client.api.Api
         /// Import collection of contacts
         /// </summary>
         /// <remarks>
-        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)
+        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -178,7 +178,7 @@ namespace org.egoi.client.api.Api
         /// Import collection of contacts
         /// </summary>
         /// <remarks>
-        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)
+        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -295,9 +295,19 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="firstName">First name of the contacts to return (optional)</param>
+        /// <param name="lastName">Last name of the contacts to return (optional)</param>
         /// <param name="email">Email of the contacts to return (optional)</param>
+        /// <param name="emailStatus">EmailStatus of the contacts to return (optional)</param>
+        /// <param name="cellphone">Cellphone of the contacts to return (optional)</param>
+        /// <param name="cellphoneStatus">CellphoneStatus of the contacts to return (optional)</param>
+        /// <param name="phone">Phone of the contacts to return (optional)</param>
+        /// <param name="phoneStatus">PhoneStatus of the contacts to return (optional)</param>
+        /// <param name="birthDate">Birth date of the contacts to return (optional)</param>
+        /// <param name="language">Language date of the contacts to return (optional)</param>
+        /// <param name="extraFieldId">Extra field of contacts, extra_field_id[field_id]&#x3D;value (optional)</param>
         /// <returns>ContactCollection</returns>
-        ContactCollection GetAllContacts (int? listId, int? offset = null, int? limit = null, string email = null);
+        ContactCollection GetAllContacts (int? listId, int? offset = null, int? limit = null, string firstName = null, string lastName = null, string email = null, bool? emailStatus = null, string cellphone = null, bool? cellphoneStatus = null, string phone = null, bool? phoneStatus = null, DateTime? birthDate = null, string language = null, List<string> extraFieldId = null);
 
         /// <summary>
         /// Get all contacts
@@ -309,9 +319,48 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="firstName">First name of the contacts to return (optional)</param>
+        /// <param name="lastName">Last name of the contacts to return (optional)</param>
         /// <param name="email">Email of the contacts to return (optional)</param>
+        /// <param name="emailStatus">EmailStatus of the contacts to return (optional)</param>
+        /// <param name="cellphone">Cellphone of the contacts to return (optional)</param>
+        /// <param name="cellphoneStatus">CellphoneStatus of the contacts to return (optional)</param>
+        /// <param name="phone">Phone of the contacts to return (optional)</param>
+        /// <param name="phoneStatus">PhoneStatus of the contacts to return (optional)</param>
+        /// <param name="birthDate">Birth date of the contacts to return (optional)</param>
+        /// <param name="language">Language date of the contacts to return (optional)</param>
+        /// <param name="extraFieldId">Extra field of contacts, extra_field_id[field_id]&#x3D;value (optional)</param>
         /// <returns>ApiResponse of ContactCollection</returns>
-        ApiResponse<ContactCollection> GetAllContactsWithHttpInfo (int? listId, int? offset = null, int? limit = null, string email = null);
+        ApiResponse<ContactCollection> GetAllContactsWithHttpInfo (int? listId, int? offset = null, int? limit = null, string firstName = null, string lastName = null, string email = null, bool? emailStatus = null, string cellphone = null, bool? cellphoneStatus = null, string phone = null, bool? phoneStatus = null, DateTime? birthDate = null, string language = null, List<string> extraFieldId = null);
+        /// <summary>
+        /// Get all contacts by Segment Id
+        /// </summary>
+        /// <remarks>
+        /// Returns all contacts filtered by Segment Id
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="segmentId">ID of the Segment</param>
+        /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
+        /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="showRemoved">Show removed contacts (optional)</param>
+        /// <returns>ContactCollection</returns>
+        ContactCollection GetAllContactsBySegment (int? listId, string segmentId, int? offset = null, int? limit = null, bool? showRemoved = null);
+
+        /// <summary>
+        /// Get all contacts by Segment Id
+        /// </summary>
+        /// <remarks>
+        /// Returns all contacts filtered by Segment Id
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="segmentId">ID of the Segment</param>
+        /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
+        /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="showRemoved">Show removed contacts (optional)</param>
+        /// <returns>ApiResponse of ContactCollection</returns>
+        ApiResponse<ContactCollection> GetAllContactsBySegmentWithHttpInfo (int? listId, string segmentId, int? offset = null, int? limit = null, bool? showRemoved = null);
         /// <summary>
         /// Get contact
         /// </summary>
@@ -412,7 +461,7 @@ namespace org.egoi.client.api.Api
         /// Attach tag to contact
         /// </summary>
         /// <remarks>
-        /// Attaches a tag to the provided contacts
+        /// Attaches a tag to the provided contacts. &lt;br&gt;***Note:***&lt;br&gt; If you provide the array of **contacts** there will be a maximum limit of 1000 contacts in the payload, but if you provide a **segment_id** instead of     the array of contacts you will get an asynchronous response with the status code 202
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -424,7 +473,7 @@ namespace org.egoi.client.api.Api
         /// Attach tag to contact
         /// </summary>
         /// <remarks>
-        /// Attaches a tag to the provided contacts
+        /// Attaches a tag to the provided contacts. &lt;br&gt;***Note:***&lt;br&gt; If you provide the array of **contacts** there will be a maximum limit of 1000 contacts in the payload, but if you provide a **segment_id** instead of     the array of contacts you will get an asynchronous response with the status code 202
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -527,7 +576,7 @@ namespace org.egoi.client.api.Api
         /// Import collection of contacts
         /// </summary>
         /// <remarks>
-        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)
+        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -539,7 +588,7 @@ namespace org.egoi.client.api.Api
         /// Import collection of contacts
         /// </summary>
         /// <remarks>
-        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)
+        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -656,9 +705,19 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="firstName">First name of the contacts to return (optional)</param>
+        /// <param name="lastName">Last name of the contacts to return (optional)</param>
         /// <param name="email">Email of the contacts to return (optional)</param>
+        /// <param name="emailStatus">EmailStatus of the contacts to return (optional)</param>
+        /// <param name="cellphone">Cellphone of the contacts to return (optional)</param>
+        /// <param name="cellphoneStatus">CellphoneStatus of the contacts to return (optional)</param>
+        /// <param name="phone">Phone of the contacts to return (optional)</param>
+        /// <param name="phoneStatus">PhoneStatus of the contacts to return (optional)</param>
+        /// <param name="birthDate">Birth date of the contacts to return (optional)</param>
+        /// <param name="language">Language date of the contacts to return (optional)</param>
+        /// <param name="extraFieldId">Extra field of contacts, extra_field_id[field_id]&#x3D;value (optional)</param>
         /// <returns>Task of ContactCollection</returns>
-        System.Threading.Tasks.Task<ContactCollection> GetAllContactsAsync (int? listId, int? offset = null, int? limit = null, string email = null);
+        System.Threading.Tasks.Task<ContactCollection> GetAllContactsAsync (int? listId, int? offset = null, int? limit = null, string firstName = null, string lastName = null, string email = null, bool? emailStatus = null, string cellphone = null, bool? cellphoneStatus = null, string phone = null, bool? phoneStatus = null, DateTime? birthDate = null, string language = null, List<string> extraFieldId = null);
 
         /// <summary>
         /// Get all contacts
@@ -670,9 +729,48 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="firstName">First name of the contacts to return (optional)</param>
+        /// <param name="lastName">Last name of the contacts to return (optional)</param>
         /// <param name="email">Email of the contacts to return (optional)</param>
+        /// <param name="emailStatus">EmailStatus of the contacts to return (optional)</param>
+        /// <param name="cellphone">Cellphone of the contacts to return (optional)</param>
+        /// <param name="cellphoneStatus">CellphoneStatus of the contacts to return (optional)</param>
+        /// <param name="phone">Phone of the contacts to return (optional)</param>
+        /// <param name="phoneStatus">PhoneStatus of the contacts to return (optional)</param>
+        /// <param name="birthDate">Birth date of the contacts to return (optional)</param>
+        /// <param name="language">Language date of the contacts to return (optional)</param>
+        /// <param name="extraFieldId">Extra field of contacts, extra_field_id[field_id]&#x3D;value (optional)</param>
         /// <returns>Task of ApiResponse (ContactCollection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ContactCollection>> GetAllContactsAsyncWithHttpInfo (int? listId, int? offset = null, int? limit = null, string email = null);
+        System.Threading.Tasks.Task<ApiResponse<ContactCollection>> GetAllContactsAsyncWithHttpInfo (int? listId, int? offset = null, int? limit = null, string firstName = null, string lastName = null, string email = null, bool? emailStatus = null, string cellphone = null, bool? cellphoneStatus = null, string phone = null, bool? phoneStatus = null, DateTime? birthDate = null, string language = null, List<string> extraFieldId = null);
+        /// <summary>
+        /// Get all contacts by Segment Id
+        /// </summary>
+        /// <remarks>
+        /// Returns all contacts filtered by Segment Id
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="segmentId">ID of the Segment</param>
+        /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
+        /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="showRemoved">Show removed contacts (optional)</param>
+        /// <returns>Task of ContactCollection</returns>
+        System.Threading.Tasks.Task<ContactCollection> GetAllContactsBySegmentAsync (int? listId, string segmentId, int? offset = null, int? limit = null, bool? showRemoved = null);
+
+        /// <summary>
+        /// Get all contacts by Segment Id
+        /// </summary>
+        /// <remarks>
+        /// Returns all contacts filtered by Segment Id
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="segmentId">ID of the Segment</param>
+        /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
+        /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="showRemoved">Show removed contacts (optional)</param>
+        /// <returns>Task of ApiResponse (ContactCollection)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ContactCollection>> GetAllContactsBySegmentAsyncWithHttpInfo (int? listId, string segmentId, int? offset = null, int? limit = null, bool? showRemoved = null);
         /// <summary>
         /// Get contact
         /// </summary>
@@ -1027,7 +1125,7 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
-        /// Attach tag to contact Attaches a tag to the provided contacts
+        /// Attach tag to contact Attaches a tag to the provided contacts. &lt;br&gt;***Note:***&lt;br&gt; If you provide the array of **contacts** there will be a maximum limit of 1000 contacts in the payload, but if you provide a **segment_id** instead of     the array of contacts you will get an asynchronous response with the status code 202
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -1040,7 +1138,7 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
-        /// Attach tag to contact Attaches a tag to the provided contacts
+        /// Attach tag to contact Attaches a tag to the provided contacts. &lt;br&gt;***Note:***&lt;br&gt; If you provide the array of **contacts** there will be a maximum limit of 1000 contacts in the payload, but if you provide a **segment_id** instead of     the array of contacts you will get an asynchronous response with the status code 202
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -1112,7 +1210,7 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
-        /// Attach tag to contact Attaches a tag to the provided contacts
+        /// Attach tag to contact Attaches a tag to the provided contacts. &lt;br&gt;***Note:***&lt;br&gt; If you provide the array of **contacts** there will be a maximum limit of 1000 contacts in the payload, but if you provide a **segment_id** instead of     the array of contacts you will get an asynchronous response with the status code 202
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -1126,7 +1224,7 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
-        /// Attach tag to contact Attaches a tag to the provided contacts
+        /// Attach tag to contact Attaches a tag to the provided contacts. &lt;br&gt;***Note:***&lt;br&gt; If you provide the array of **contacts** there will be a maximum limit of 1000 contacts in the payload, but if you provide a **segment_id** instead of     the array of contacts you will get an asynchronous response with the status code 202
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -1882,7 +1980,7 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
-        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)
+        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -1895,7 +1993,7 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
-        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)
+        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -1967,7 +2065,7 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
-        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)
+        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -1981,7 +2079,7 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
-        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)
+        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
@@ -2751,11 +2849,21 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="firstName">First name of the contacts to return (optional)</param>
+        /// <param name="lastName">Last name of the contacts to return (optional)</param>
         /// <param name="email">Email of the contacts to return (optional)</param>
+        /// <param name="emailStatus">EmailStatus of the contacts to return (optional)</param>
+        /// <param name="cellphone">Cellphone of the contacts to return (optional)</param>
+        /// <param name="cellphoneStatus">CellphoneStatus of the contacts to return (optional)</param>
+        /// <param name="phone">Phone of the contacts to return (optional)</param>
+        /// <param name="phoneStatus">PhoneStatus of the contacts to return (optional)</param>
+        /// <param name="birthDate">Birth date of the contacts to return (optional)</param>
+        /// <param name="language">Language date of the contacts to return (optional)</param>
+        /// <param name="extraFieldId">Extra field of contacts, extra_field_id[field_id]&#x3D;value (optional)</param>
         /// <returns>ContactCollection</returns>
-        public ContactCollection GetAllContacts (int? listId, int? offset = null, int? limit = null, string email = null)
+        public ContactCollection GetAllContacts (int? listId, int? offset = null, int? limit = null, string firstName = null, string lastName = null, string email = null, bool? emailStatus = null, string cellphone = null, bool? cellphoneStatus = null, string phone = null, bool? phoneStatus = null, DateTime? birthDate = null, string language = null, List<string> extraFieldId = null)
         {
-             ApiResponse<ContactCollection> localVarResponse = GetAllContactsWithHttpInfo(listId, offset, limit, email);
+             ApiResponse<ContactCollection> localVarResponse = GetAllContactsWithHttpInfo(listId, offset, limit, firstName, lastName, email, emailStatus, cellphone, cellphoneStatus, phone, phoneStatus, birthDate, language, extraFieldId);
              return localVarResponse.Data;
         }
 
@@ -2766,9 +2874,19 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="firstName">First name of the contacts to return (optional)</param>
+        /// <param name="lastName">Last name of the contacts to return (optional)</param>
         /// <param name="email">Email of the contacts to return (optional)</param>
+        /// <param name="emailStatus">EmailStatus of the contacts to return (optional)</param>
+        /// <param name="cellphone">Cellphone of the contacts to return (optional)</param>
+        /// <param name="cellphoneStatus">CellphoneStatus of the contacts to return (optional)</param>
+        /// <param name="phone">Phone of the contacts to return (optional)</param>
+        /// <param name="phoneStatus">PhoneStatus of the contacts to return (optional)</param>
+        /// <param name="birthDate">Birth date of the contacts to return (optional)</param>
+        /// <param name="language">Language date of the contacts to return (optional)</param>
+        /// <param name="extraFieldId">Extra field of contacts, extra_field_id[field_id]&#x3D;value (optional)</param>
         /// <returns>ApiResponse of ContactCollection</returns>
-        public ApiResponse< ContactCollection > GetAllContactsWithHttpInfo (int? listId, int? offset = null, int? limit = null, string email = null)
+        public ApiResponse< ContactCollection > GetAllContactsWithHttpInfo (int? listId, int? offset = null, int? limit = null, string firstName = null, string lastName = null, string email = null, bool? emailStatus = null, string cellphone = null, bool? cellphoneStatus = null, string phone = null, bool? phoneStatus = null, DateTime? birthDate = null, string language = null, List<string> extraFieldId = null)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -2798,7 +2916,17 @@ namespace org.egoi.client.api.Api
             if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (firstName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "first_name", firstName)); // query parameter
+            if (lastName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "last_name", lastName)); // query parameter
             if (email != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "email", email)); // query parameter
+            if (emailStatus != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "email_status", emailStatus)); // query parameter
+            if (cellphone != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "cellphone", cellphone)); // query parameter
+            if (cellphoneStatus != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "cellphone_status", cellphoneStatus)); // query parameter
+            if (phone != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "phone", phone)); // query parameter
+            if (phoneStatus != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "phone_status", phoneStatus)); // query parameter
+            if (birthDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "birth_date", birthDate)); // query parameter
+            if (language != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "language", language)); // query parameter
+            if (extraFieldId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "extra_field_id", extraFieldId)); // query parameter
 
             // authentication (Apikey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
@@ -2831,11 +2959,21 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="firstName">First name of the contacts to return (optional)</param>
+        /// <param name="lastName">Last name of the contacts to return (optional)</param>
         /// <param name="email">Email of the contacts to return (optional)</param>
+        /// <param name="emailStatus">EmailStatus of the contacts to return (optional)</param>
+        /// <param name="cellphone">Cellphone of the contacts to return (optional)</param>
+        /// <param name="cellphoneStatus">CellphoneStatus of the contacts to return (optional)</param>
+        /// <param name="phone">Phone of the contacts to return (optional)</param>
+        /// <param name="phoneStatus">PhoneStatus of the contacts to return (optional)</param>
+        /// <param name="birthDate">Birth date of the contacts to return (optional)</param>
+        /// <param name="language">Language date of the contacts to return (optional)</param>
+        /// <param name="extraFieldId">Extra field of contacts, extra_field_id[field_id]&#x3D;value (optional)</param>
         /// <returns>Task of ContactCollection</returns>
-        public async System.Threading.Tasks.Task<ContactCollection> GetAllContactsAsync (int? listId, int? offset = null, int? limit = null, string email = null)
+        public async System.Threading.Tasks.Task<ContactCollection> GetAllContactsAsync (int? listId, int? offset = null, int? limit = null, string firstName = null, string lastName = null, string email = null, bool? emailStatus = null, string cellphone = null, bool? cellphoneStatus = null, string phone = null, bool? phoneStatus = null, DateTime? birthDate = null, string language = null, List<string> extraFieldId = null)
         {
-             ApiResponse<ContactCollection> localVarResponse = await GetAllContactsAsyncWithHttpInfo(listId, offset, limit, email);
+             ApiResponse<ContactCollection> localVarResponse = await GetAllContactsAsyncWithHttpInfo(listId, offset, limit, firstName, lastName, email, emailStatus, cellphone, cellphoneStatus, phone, phoneStatus, birthDate, language, extraFieldId);
              return localVarResponse.Data;
 
         }
@@ -2847,9 +2985,19 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="firstName">First name of the contacts to return (optional)</param>
+        /// <param name="lastName">Last name of the contacts to return (optional)</param>
         /// <param name="email">Email of the contacts to return (optional)</param>
+        /// <param name="emailStatus">EmailStatus of the contacts to return (optional)</param>
+        /// <param name="cellphone">Cellphone of the contacts to return (optional)</param>
+        /// <param name="cellphoneStatus">CellphoneStatus of the contacts to return (optional)</param>
+        /// <param name="phone">Phone of the contacts to return (optional)</param>
+        /// <param name="phoneStatus">PhoneStatus of the contacts to return (optional)</param>
+        /// <param name="birthDate">Birth date of the contacts to return (optional)</param>
+        /// <param name="language">Language date of the contacts to return (optional)</param>
+        /// <param name="extraFieldId">Extra field of contacts, extra_field_id[field_id]&#x3D;value (optional)</param>
         /// <returns>Task of ApiResponse (ContactCollection)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ContactCollection>> GetAllContactsAsyncWithHttpInfo (int? listId, int? offset = null, int? limit = null, string email = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ContactCollection>> GetAllContactsAsyncWithHttpInfo (int? listId, int? offset = null, int? limit = null, string firstName = null, string lastName = null, string email = null, bool? emailStatus = null, string cellphone = null, bool? cellphoneStatus = null, string phone = null, bool? phoneStatus = null, DateTime? birthDate = null, string language = null, List<string> extraFieldId = null)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -2879,7 +3027,17 @@ namespace org.egoi.client.api.Api
             if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (firstName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "first_name", firstName)); // query parameter
+            if (lastName != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "last_name", lastName)); // query parameter
             if (email != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "email", email)); // query parameter
+            if (emailStatus != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "email_status", emailStatus)); // query parameter
+            if (cellphone != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "cellphone", cellphone)); // query parameter
+            if (cellphoneStatus != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "cellphone_status", cellphoneStatus)); // query parameter
+            if (phone != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "phone", phone)); // query parameter
+            if (phoneStatus != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "phone_status", phoneStatus)); // query parameter
+            if (birthDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "birth_date", birthDate)); // query parameter
+            if (language != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "language", language)); // query parameter
+            if (extraFieldId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "extra_field_id", extraFieldId)); // query parameter
 
             // authentication (Apikey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
@@ -2897,6 +3055,179 @@ namespace org.egoi.client.api.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetAllContacts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ContactCollection>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ContactCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ContactCollection)));
+        }
+
+        /// <summary>
+        /// Get all contacts by Segment Id Returns all contacts filtered by Segment Id
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="segmentId">ID of the Segment</param>
+        /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
+        /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="showRemoved">Show removed contacts (optional)</param>
+        /// <returns>ContactCollection</returns>
+        public ContactCollection GetAllContactsBySegment (int? listId, string segmentId, int? offset = null, int? limit = null, bool? showRemoved = null)
+        {
+             ApiResponse<ContactCollection> localVarResponse = GetAllContactsBySegmentWithHttpInfo(listId, segmentId, offset, limit, showRemoved);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get all contacts by Segment Id Returns all contacts filtered by Segment Id
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="segmentId">ID of the Segment</param>
+        /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
+        /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="showRemoved">Show removed contacts (optional)</param>
+        /// <returns>ApiResponse of ContactCollection</returns>
+        public ApiResponse< ContactCollection > GetAllContactsBySegmentWithHttpInfo (int? listId, string segmentId, int? offset = null, int? limit = null, bool? showRemoved = null)
+        {
+            // verify the required parameter 'listId' is set
+            if (listId == null)
+                throw new ApiException(400, "Missing required parameter 'listId' when calling ContactsApi->GetAllContactsBySegment");
+            // verify the required parameter 'segmentId' is set
+            if (segmentId == null)
+                throw new ApiException(400, "Missing required parameter 'segmentId' when calling ContactsApi->GetAllContactsBySegment");
+
+            var localVarPath = "/lists/{list_id}/contacts/segment/{segment_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
+            if (segmentId != null) localVarPathParams.Add("segment_id", this.Configuration.ApiClient.ParameterToString(segmentId)); // path parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (showRemoved != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "show_removed", showRemoved)); // query parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAllContactsBySegment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ContactCollection>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ContactCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ContactCollection)));
+        }
+
+        /// <summary>
+        /// Get all contacts by Segment Id Returns all contacts filtered by Segment Id
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="segmentId">ID of the Segment</param>
+        /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
+        /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="showRemoved">Show removed contacts (optional)</param>
+        /// <returns>Task of ContactCollection</returns>
+        public async System.Threading.Tasks.Task<ContactCollection> GetAllContactsBySegmentAsync (int? listId, string segmentId, int? offset = null, int? limit = null, bool? showRemoved = null)
+        {
+             ApiResponse<ContactCollection> localVarResponse = await GetAllContactsBySegmentAsyncWithHttpInfo(listId, segmentId, offset, limit, showRemoved);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get all contacts by Segment Id Returns all contacts filtered by Segment Id
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the List</param>
+        /// <param name="segmentId">ID of the Segment</param>
+        /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
+        /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="showRemoved">Show removed contacts (optional)</param>
+        /// <returns>Task of ApiResponse (ContactCollection)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ContactCollection>> GetAllContactsBySegmentAsyncWithHttpInfo (int? listId, string segmentId, int? offset = null, int? limit = null, bool? showRemoved = null)
+        {
+            // verify the required parameter 'listId' is set
+            if (listId == null)
+                throw new ApiException(400, "Missing required parameter 'listId' when calling ContactsApi->GetAllContactsBySegment");
+            // verify the required parameter 'segmentId' is set
+            if (segmentId == null)
+                throw new ApiException(400, "Missing required parameter 'segmentId' when calling ContactsApi->GetAllContactsBySegment");
+
+            var localVarPath = "/lists/{list_id}/contacts/segment/{segment_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
+            if (segmentId != null) localVarPathParams.Add("segment_id", this.Configuration.ApiClient.ParameterToString(segmentId)); // path parameter
+            if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (showRemoved != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "show_removed", showRemoved)); // query parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAllContactsBySegment", localVarResponse);
                 if (exception != null) throw exception;
             }
 

@@ -1,9 +1,9 @@
 /* 
- * APIv3 (Beta)
+ * APIv3 (New)
  *
- *  # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB. <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
  *
- * OpenAPI spec version: 3.0.0-beta
+ * OpenAPI spec version: 3.0.0
  * 
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -69,6 +69,48 @@ namespace org.egoi.client.api.Api
         /// <returns>ApiResponse of HashcodeCampaign</returns>
         ApiResponse<HashcodeCampaign> CreatePushCampaignWithHttpInfo (PushCampaignPostRequest pushCampaignPostRequest);
         /// <summary>
+        /// Get a Push application from E-goi
+        /// </summary>
+        /// <remarks>
+        /// Get a Push application from E-goi
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <returns>AppStructure</returns>
+        AppStructure GetPushApp (string appId);
+
+        /// <summary>
+        /// Get a Push application from E-goi
+        /// </summary>
+        /// <remarks>
+        /// Get a Push application from E-goi
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <returns>ApiResponse of AppStructure</returns>
+        ApiResponse<AppStructure> GetPushAppWithHttpInfo (string appId);
+        /// <summary>
+        /// Get all Push applications from E-goi
+        /// </summary>
+        /// <remarks>
+        /// Get all Push applications from E-goi
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the list to search for. (optional)</param>
+        /// <returns>List&lt;AppStructure&gt;</returns>
+        List<AppStructure> GetPushApps (int? listId = null);
+
+        /// <summary>
+        /// Get all Push applications from E-goi
+        /// </summary>
+        /// <remarks>
+        /// Get all Push applications from E-goi
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the list to search for. (optional)</param>
+        /// <returns>ApiResponse of List&lt;AppStructure&gt;</returns>
+        ApiResponse<List<AppStructure>> GetPushAppsWithHttpInfo (int? listId = null);
+        /// <summary>
         /// Update a specific push campaign
         /// </summary>
         /// <remarks>
@@ -91,6 +133,52 @@ namespace org.egoi.client.api.Api
         /// <param name="pushCampaignPatchRequest">Parameters for the push campaign</param>
         /// <returns>ApiResponse of HashcodeCampaign</returns>
         ApiResponse<HashcodeCampaign> PatchPushCampaignWithHttpInfo (string campaignHash, PushCampaignPatchRequest pushCampaignPatchRequest);
+        /// <summary>
+        /// Registers an event from the push notification.
+        /// </summary>
+        /// <remarks>
+        /// Registers an event from the push notification.
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="pushEvent">Parameters for the event</param>
+        /// <returns>PushResponse</returns>
+        PushResponse RegisterPushEvent (string appId, PushEvent pushEvent);
+
+        /// <summary>
+        /// Registers an event from the push notification.
+        /// </summary>
+        /// <remarks>
+        /// Registers an event from the push notification.
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="pushEvent">Parameters for the event</param>
+        /// <returns>ApiResponse of PushResponse</returns>
+        ApiResponse<PushResponse> RegisterPushEventWithHttpInfo (string appId, PushEvent pushEvent);
+        /// <summary>
+        /// Registers a Firebase token
+        /// </summary>
+        /// <remarks>
+        /// Registers a Firebase token
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="pushToken">Parameters for the token</param>
+        /// <returns>PushResponse</returns>
+        PushResponse RegisterPushToken (string appId, PushToken pushToken);
+
+        /// <summary>
+        /// Registers a Firebase token
+        /// </summary>
+        /// <remarks>
+        /// Registers a Firebase token
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="pushToken">Parameters for the token</param>
+        /// <returns>ApiResponse of PushResponse</returns>
+        ApiResponse<PushResponse> RegisterPushTokenWithHttpInfo (string appId, PushToken pushToken);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -138,6 +226,48 @@ namespace org.egoi.client.api.Api
         /// <returns>Task of ApiResponse (HashcodeCampaign)</returns>
         System.Threading.Tasks.Task<ApiResponse<HashcodeCampaign>> CreatePushCampaignAsyncWithHttpInfo (PushCampaignPostRequest pushCampaignPostRequest);
         /// <summary>
+        /// Get a Push application from E-goi
+        /// </summary>
+        /// <remarks>
+        /// Get a Push application from E-goi
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <returns>Task of AppStructure</returns>
+        System.Threading.Tasks.Task<AppStructure> GetPushAppAsync (string appId);
+
+        /// <summary>
+        /// Get a Push application from E-goi
+        /// </summary>
+        /// <remarks>
+        /// Get a Push application from E-goi
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <returns>Task of ApiResponse (AppStructure)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AppStructure>> GetPushAppAsyncWithHttpInfo (string appId);
+        /// <summary>
+        /// Get all Push applications from E-goi
+        /// </summary>
+        /// <remarks>
+        /// Get all Push applications from E-goi
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the list to search for. (optional)</param>
+        /// <returns>Task of List&lt;AppStructure&gt;</returns>
+        System.Threading.Tasks.Task<List<AppStructure>> GetPushAppsAsync (int? listId = null);
+
+        /// <summary>
+        /// Get all Push applications from E-goi
+        /// </summary>
+        /// <remarks>
+        /// Get all Push applications from E-goi
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the list to search for. (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;AppStructure&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<AppStructure>>> GetPushAppsAsyncWithHttpInfo (int? listId = null);
+        /// <summary>
         /// Update a specific push campaign
         /// </summary>
         /// <remarks>
@@ -160,6 +290,52 @@ namespace org.egoi.client.api.Api
         /// <param name="pushCampaignPatchRequest">Parameters for the push campaign</param>
         /// <returns>Task of ApiResponse (HashcodeCampaign)</returns>
         System.Threading.Tasks.Task<ApiResponse<HashcodeCampaign>> PatchPushCampaignAsyncWithHttpInfo (string campaignHash, PushCampaignPatchRequest pushCampaignPatchRequest);
+        /// <summary>
+        /// Registers an event from the push notification.
+        /// </summary>
+        /// <remarks>
+        /// Registers an event from the push notification.
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="pushEvent">Parameters for the event</param>
+        /// <returns>Task of PushResponse</returns>
+        System.Threading.Tasks.Task<PushResponse> RegisterPushEventAsync (string appId, PushEvent pushEvent);
+
+        /// <summary>
+        /// Registers an event from the push notification.
+        /// </summary>
+        /// <remarks>
+        /// Registers an event from the push notification.
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="pushEvent">Parameters for the event</param>
+        /// <returns>Task of ApiResponse (PushResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PushResponse>> RegisterPushEventAsyncWithHttpInfo (string appId, PushEvent pushEvent);
+        /// <summary>
+        /// Registers a Firebase token
+        /// </summary>
+        /// <remarks>
+        /// Registers a Firebase token
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="pushToken">Parameters for the token</param>
+        /// <returns>Task of PushResponse</returns>
+        System.Threading.Tasks.Task<PushResponse> RegisterPushTokenAsync (string appId, PushToken pushToken);
+
+        /// <summary>
+        /// Registers a Firebase token
+        /// </summary>
+        /// <remarks>
+        /// Registers a Firebase token
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="pushToken">Parameters for the token</param>
+        /// <returns>Task of ApiResponse (PushResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PushResponse>> RegisterPushTokenAsyncWithHttpInfo (string appId, PushToken pushToken);
         #endregion Asynchronous Operations
     }
 
@@ -602,6 +778,286 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
+        /// Get a Push application from E-goi Get a Push application from E-goi
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <returns>AppStructure</returns>
+        public AppStructure GetPushApp (string appId)
+        {
+             ApiResponse<AppStructure> localVarResponse = GetPushAppWithHttpInfo(appId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get a Push application from E-goi Get a Push application from E-goi
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <returns>ApiResponse of AppStructure</returns>
+        public ApiResponse< AppStructure > GetPushAppWithHttpInfo (string appId)
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+                throw new ApiException(400, "Missing required parameter 'appId' when calling PushApi->GetPushApp");
+
+            var localVarPath = "/push/apps/{app_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (appId != null) localVarPathParams.Add("app_id", this.Configuration.ApiClient.ParameterToString(appId)); // path parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPushApp", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AppStructure>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AppStructure) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AppStructure)));
+        }
+
+        /// <summary>
+        /// Get a Push application from E-goi Get a Push application from E-goi
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <returns>Task of AppStructure</returns>
+        public async System.Threading.Tasks.Task<AppStructure> GetPushAppAsync (string appId)
+        {
+             ApiResponse<AppStructure> localVarResponse = await GetPushAppAsyncWithHttpInfo(appId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get a Push application from E-goi Get a Push application from E-goi
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <returns>Task of ApiResponse (AppStructure)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AppStructure>> GetPushAppAsyncWithHttpInfo (string appId)
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+                throw new ApiException(400, "Missing required parameter 'appId' when calling PushApi->GetPushApp");
+
+            var localVarPath = "/push/apps/{app_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (appId != null) localVarPathParams.Add("app_id", this.Configuration.ApiClient.ParameterToString(appId)); // path parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPushApp", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AppStructure>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (AppStructure) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AppStructure)));
+        }
+
+        /// <summary>
+        /// Get all Push applications from E-goi Get all Push applications from E-goi
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the list to search for. (optional)</param>
+        /// <returns>List&lt;AppStructure&gt;</returns>
+        public List<AppStructure> GetPushApps (int? listId = null)
+        {
+             ApiResponse<List<AppStructure>> localVarResponse = GetPushAppsWithHttpInfo(listId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get all Push applications from E-goi Get all Push applications from E-goi
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the list to search for. (optional)</param>
+        /// <returns>ApiResponse of List&lt;AppStructure&gt;</returns>
+        public ApiResponse< List<AppStructure> > GetPushAppsWithHttpInfo (int? listId = null)
+        {
+
+            var localVarPath = "/push/apps";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (listId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "list_id", listId)); // query parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPushApps", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<List<AppStructure>>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (List<AppStructure>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<AppStructure>)));
+        }
+
+        /// <summary>
+        /// Get all Push applications from E-goi Get all Push applications from E-goi
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the list to search for. (optional)</param>
+        /// <returns>Task of List&lt;AppStructure&gt;</returns>
+        public async System.Threading.Tasks.Task<List<AppStructure>> GetPushAppsAsync (int? listId = null)
+        {
+             ApiResponse<List<AppStructure>> localVarResponse = await GetPushAppsAsyncWithHttpInfo(listId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get all Push applications from E-goi Get all Push applications from E-goi
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="listId">ID of the list to search for. (optional)</param>
+        /// <returns>Task of ApiResponse (List&lt;AppStructure&gt;)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<List<AppStructure>>> GetPushAppsAsyncWithHttpInfo (int? listId = null)
+        {
+
+            var localVarPath = "/push/apps";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (listId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "list_id", listId)); // query parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPushApps", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<List<AppStructure>>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (List<AppStructure>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<AppStructure>)));
+        }
+
+        /// <summary>
         /// Update a specific push campaign Update push campaign
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
@@ -770,6 +1226,348 @@ namespace org.egoi.client.api.Api
             return new ApiResponse<HashcodeCampaign>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (HashcodeCampaign) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(HashcodeCampaign)));
+        }
+
+        /// <summary>
+        /// Registers an event from the push notification. Registers an event from the push notification.
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="pushEvent">Parameters for the event</param>
+        /// <returns>PushResponse</returns>
+        public PushResponse RegisterPushEvent (string appId, PushEvent pushEvent)
+        {
+             ApiResponse<PushResponse> localVarResponse = RegisterPushEventWithHttpInfo(appId, pushEvent);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Registers an event from the push notification. Registers an event from the push notification.
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="pushEvent">Parameters for the event</param>
+        /// <returns>ApiResponse of PushResponse</returns>
+        public ApiResponse< PushResponse > RegisterPushEventWithHttpInfo (string appId, PushEvent pushEvent)
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+                throw new ApiException(400, "Missing required parameter 'appId' when calling PushApi->RegisterPushEvent");
+            // verify the required parameter 'pushEvent' is set
+            if (pushEvent == null)
+                throw new ApiException(400, "Missing required parameter 'pushEvent' when calling PushApi->RegisterPushEvent");
+
+            var localVarPath = "/push/apps/{app_id}/event";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (appId != null) localVarPathParams.Add("app_id", this.Configuration.ApiClient.ParameterToString(appId)); // path parameter
+            if (pushEvent != null && pushEvent.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pushEvent); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pushEvent; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RegisterPushEvent", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PushResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PushResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PushResponse)));
+        }
+
+        /// <summary>
+        /// Registers an event from the push notification. Registers an event from the push notification.
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="pushEvent">Parameters for the event</param>
+        /// <returns>Task of PushResponse</returns>
+        public async System.Threading.Tasks.Task<PushResponse> RegisterPushEventAsync (string appId, PushEvent pushEvent)
+        {
+             ApiResponse<PushResponse> localVarResponse = await RegisterPushEventAsyncWithHttpInfo(appId, pushEvent);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Registers an event from the push notification. Registers an event from the push notification.
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="pushEvent">Parameters for the event</param>
+        /// <returns>Task of ApiResponse (PushResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PushResponse>> RegisterPushEventAsyncWithHttpInfo (string appId, PushEvent pushEvent)
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+                throw new ApiException(400, "Missing required parameter 'appId' when calling PushApi->RegisterPushEvent");
+            // verify the required parameter 'pushEvent' is set
+            if (pushEvent == null)
+                throw new ApiException(400, "Missing required parameter 'pushEvent' when calling PushApi->RegisterPushEvent");
+
+            var localVarPath = "/push/apps/{app_id}/event";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (appId != null) localVarPathParams.Add("app_id", this.Configuration.ApiClient.ParameterToString(appId)); // path parameter
+            if (pushEvent != null && pushEvent.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pushEvent); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pushEvent; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RegisterPushEvent", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PushResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PushResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PushResponse)));
+        }
+
+        /// <summary>
+        /// Registers a Firebase token Registers a Firebase token
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="pushToken">Parameters for the token</param>
+        /// <returns>PushResponse</returns>
+        public PushResponse RegisterPushToken (string appId, PushToken pushToken)
+        {
+             ApiResponse<PushResponse> localVarResponse = RegisterPushTokenWithHttpInfo(appId, pushToken);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Registers a Firebase token Registers a Firebase token
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="pushToken">Parameters for the token</param>
+        /// <returns>ApiResponse of PushResponse</returns>
+        public ApiResponse< PushResponse > RegisterPushTokenWithHttpInfo (string appId, PushToken pushToken)
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+                throw new ApiException(400, "Missing required parameter 'appId' when calling PushApi->RegisterPushToken");
+            // verify the required parameter 'pushToken' is set
+            if (pushToken == null)
+                throw new ApiException(400, "Missing required parameter 'pushToken' when calling PushApi->RegisterPushToken");
+
+            var localVarPath = "/push/apps/{app_id}/token";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (appId != null) localVarPathParams.Add("app_id", this.Configuration.ApiClient.ParameterToString(appId)); // path parameter
+            if (pushToken != null && pushToken.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pushToken); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pushToken; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RegisterPushToken", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PushResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PushResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PushResponse)));
+        }
+
+        /// <summary>
+        /// Registers a Firebase token Registers a Firebase token
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="pushToken">Parameters for the token</param>
+        /// <returns>Task of PushResponse</returns>
+        public async System.Threading.Tasks.Task<PushResponse> RegisterPushTokenAsync (string appId, PushToken pushToken)
+        {
+             ApiResponse<PushResponse> localVarResponse = await RegisterPushTokenAsyncWithHttpInfo(appId, pushToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Registers a Firebase token Registers a Firebase token
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="pushToken">Parameters for the token</param>
+        /// <returns>Task of ApiResponse (PushResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<PushResponse>> RegisterPushTokenAsyncWithHttpInfo (string appId, PushToken pushToken)
+        {
+            // verify the required parameter 'appId' is set
+            if (appId == null)
+                throw new ApiException(400, "Missing required parameter 'appId' when calling PushApi->RegisterPushToken");
+            // verify the required parameter 'pushToken' is set
+            if (pushToken == null)
+                throw new ApiException(400, "Missing required parameter 'pushToken' when calling PushApi->RegisterPushToken");
+
+            var localVarPath = "/push/apps/{app_id}/token";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (appId != null) localVarPathParams.Add("app_id", this.Configuration.ApiClient.ParameterToString(appId)); // path parameter
+            if (pushToken != null && pushToken.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(pushToken); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = pushToken; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RegisterPushToken", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<PushResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (PushResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PushResponse)));
         }
 
     }

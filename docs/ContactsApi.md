@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**CreateContact**](ContactsApi.md#createcontact) | **POST** /lists/{list_id}/contacts | Create new contact
 [**GetAllContactActivities**](ContactsApi.md#getallcontactactivities) | **GET** /lists/{list_id}/contacts/{contact_id}/activities | Get all contact activities
 [**GetAllContacts**](ContactsApi.md#getallcontacts) | **GET** /lists/{list_id}/contacts | Get all contacts
+[**GetAllContactsBySegment**](ContactsApi.md#getallcontactsbysegment) | **GET** /lists/{list_id}/contacts/segment/{segment_id} | Get all contacts by Segment Id
 [**GetContact**](ContactsApi.md#getcontact) | **GET** /lists/{list_id}/contacts/{contact_id} | Get contact
 [**PatchContact**](ContactsApi.md#patchcontact) | **PATCH** /lists/{list_id}/contacts/{contact_id} | Update a specific contact
 [**SearchContacts**](ContactsApi.md#searchcontacts) | **GET** /contacts/search | Search contact
@@ -95,7 +96,7 @@ Name | Type | Description  | Notes
 
 Attach tag to contact
 
-Attaches a tag to the provided contacts
+Attaches a tag to the provided contacts. <br>***Note:***<br> If you provide the array of **contacts** there will be a maximum limit of 1000 contacts in the payload, but if you provide a **segment_id** instead of     the array of contacts you will get an asynchronous response with the status code 202
 
 ### Example
 ```csharp
@@ -435,7 +436,7 @@ Name | Type | Description  | Notes
 
 Import collection of contacts
 
-Imports a collection of contacts </br>      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits 'Stream Limits')
+Imports a collection of contacts </br>      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits 'Stream Limits')<br> ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact 'Create new contact')
 
 ### Example
 ```csharp
@@ -779,7 +780,7 @@ Name | Type | Description  | Notes
 
 <a name="getallcontacts"></a>
 # **GetAllContacts**
-> ContactCollection GetAllContacts (int? listId, int? offset = null, int? limit = null, string email = null)
+> ContactCollection GetAllContacts (int? listId, int? offset = null, int? limit = null, string firstName = null, string lastName = null, string email = null, bool? emailStatus = null, string cellphone = null, bool? cellphoneStatus = null, string phone = null, bool? phoneStatus = null, DateTime? birthDate = null, string language = null, List<string> extraFieldId = null)
 
 Get all contacts
 
@@ -808,12 +809,22 @@ namespace Example
             var listId = 56;  // int? | ID of the List
             var offset = 56;  // int? | Element offset (starting at zero for the first element) (optional) 
             var limit = 56;  // int? | Number of items to return (optional)  (default to 10)
+            var firstName = firstName_example;  // string | First name of the contacts to return (optional) 
+            var lastName = lastName_example;  // string | Last name of the contacts to return (optional) 
             var email = email_example;  // string | Email of the contacts to return (optional) 
+            var emailStatus = true;  // bool? | EmailStatus of the contacts to return (optional) 
+            var cellphone = cellphone_example;  // string | Cellphone of the contacts to return (optional) 
+            var cellphoneStatus = true;  // bool? | CellphoneStatus of the contacts to return (optional) 
+            var phone = phone_example;  // string | Phone of the contacts to return (optional) 
+            var phoneStatus = true;  // bool? | PhoneStatus of the contacts to return (optional) 
+            var birthDate = new DateTime?(); // DateTime? | Birth date of the contacts to return (optional) 
+            var language = language_example;  // string | Language date of the contacts to return (optional) 
+            var extraFieldId = new List<string>(); // List<string> | Extra field of contacts, extra_field_id[field_id]=value (optional) 
 
             try
             {
                 // Get all contacts
-                ContactCollection result = apiInstance.GetAllContacts(listId, offset, limit, email);
+                ContactCollection result = apiInstance.GetAllContacts(listId, offset, limit, firstName, lastName, email, emailStatus, cellphone, cellphoneStatus, phone, phoneStatus, birthDate, language, extraFieldId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -832,7 +843,91 @@ Name | Type | Description  | Notes
  **listId** | **int?**| ID of the List | 
  **offset** | **int?**| Element offset (starting at zero for the first element) | [optional] 
  **limit** | **int?**| Number of items to return | [optional] [default to 10]
+ **firstName** | **string**| First name of the contacts to return | [optional] 
+ **lastName** | **string**| Last name of the contacts to return | [optional] 
  **email** | **string**| Email of the contacts to return | [optional] 
+ **emailStatus** | **bool?**| EmailStatus of the contacts to return | [optional] 
+ **cellphone** | **string**| Cellphone of the contacts to return | [optional] 
+ **cellphoneStatus** | **bool?**| CellphoneStatus of the contacts to return | [optional] 
+ **phone** | **string**| Phone of the contacts to return | [optional] 
+ **phoneStatus** | **bool?**| PhoneStatus of the contacts to return | [optional] 
+ **birthDate** | [**DateTime?**](DateTime?.md)| Birth date of the contacts to return | [optional] 
+ **language** | **string**| Language date of the contacts to return | [optional] 
+ **extraFieldId** | [**List&lt;string&gt;**](string.md)| Extra field of contacts, extra_field_id[field_id]&#x3D;value | [optional] 
+
+### Return type
+
+[**ContactCollection**](ContactCollection.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getallcontactsbysegment"></a>
+# **GetAllContactsBySegment**
+> ContactCollection GetAllContactsBySegment (int? listId, string segmentId, int? offset = null, int? limit = null, bool? showRemoved = null)
+
+Get all contacts by Segment Id
+
+Returns all contacts filtered by Segment Id
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using org.egoi.client.api.Api;
+using org.egoi.client.api.Client;
+using org.egoi.client.api.Model;
+
+namespace Example
+{
+    public class GetAllContactsBySegmentExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: Apikey
+            Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
+
+            var apiInstance = new ContactsApi();
+            var listId = 56;  // int? | ID of the List
+            var segmentId = segmentId_example;  // string | ID of the Segment
+            var offset = 56;  // int? | Element offset (starting at zero for the first element) (optional) 
+            var limit = 56;  // int? | Number of items to return (optional)  (default to 10)
+            var showRemoved = true;  // bool? | Show removed contacts (optional) 
+
+            try
+            {
+                // Get all contacts by Segment Id
+                ContactCollection result = apiInstance.GetAllContactsBySegment(listId, segmentId, offset, limit, showRemoved);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ContactsApi.GetAllContactsBySegment: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **listId** | **int?**| ID of the List | 
+ **segmentId** | **string**| ID of the Segment | 
+ **offset** | **int?**| Element offset (starting at zero for the first element) | [optional] 
+ **limit** | **int?**| Number of items to return | [optional] [default to 10]
+ **showRemoved** | **bool?**| Show removed contacts | [optional] 
 
 ### Return type
 
