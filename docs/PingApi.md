@@ -7,8 +7,9 @@ Method | HTTP request | Description
 [**Ping**](PingApi.md#ping) | **POST** /ping | Pings the API
 
 
-<a name="ping"></a>
-# **Ping**
+
+## Ping
+
 > Ping Ping ()
 
 Pings the API
@@ -16,8 +17,9 @@ Pings the API
 Checks if API is up and running
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -27,9 +29,10 @@ namespace Example
 {
     public class PingExample
     {
-        public void main()
+        public static void Main()
         {
-            var apiInstance = new PingApi();
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
+            var apiInstance = new PingApi(Configuration.Default);
 
             try
             {
@@ -37,9 +40,11 @@ namespace Example
                 Ping result = apiInstance.Ping();
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling PingApi.Ping: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -47,6 +52,7 @@ namespace Example
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -59,8 +65,19 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

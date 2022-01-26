@@ -8,17 +8,19 @@ Method | HTTP request | Description
 [**GetAllAutomations**](AutomationsApi.md#getallautomations) | **GET** /automations | Get all automations
 
 
-<a name="deleteautomation"></a>
-# **DeleteAutomation**
-> void DeleteAutomation (int? automationId)
+
+## DeleteAutomation
+
+> void DeleteAutomation (int automationId)
 
 Remove automation
 
 Remove automation information given its ID
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -28,24 +30,27 @@ namespace Example
 {
     public class DeleteAutomationExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new AutomationsApi();
-            var automationId = 56;  // int? | ID of the Automation
+            var apiInstance = new AutomationsApi(Configuration.Default);
+            var automationId = 56;  // int | ID of the Automation
 
             try
             {
                 // Remove automation
                 apiInstance.DeleteAutomation(automationId);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling AutomationsApi.DeleteAutomation: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -54,9 +59,10 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **automationId** | **int?**| ID of the Automation | 
+ **automationId** | **int**| ID of the Automation | 
 
 ### Return type
 
@@ -68,13 +74,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getallautomations"></a>
-# **GetAllAutomations**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **408** | Request Timeout |  -  |
+| **409** | Conflict |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetAllAutomations
+
 > AutomationCollection GetAllAutomations (int? automationId = null, string title = null, int? createdBy = null, int? listId = null, string status = null, int? offset = null, int? limit = null, string order = null, string orderBy = null)
 
 Get all automations
@@ -82,8 +106,9 @@ Get all automations
 Returns all automations
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -93,14 +118,15 @@ namespace Example
 {
     public class GetAllAutomationsExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new AutomationsApi();
+            var apiInstance = new AutomationsApi(Configuration.Default);
             var automationId = 56;  // int? | Reference attribute to automation id (optional) 
             var title = title_example;  // string | Reference attribute to title (optional) 
             var createdBy = 56;  // int? | Reference attribute to created by (optional) 
@@ -117,9 +143,11 @@ namespace Example
                 AutomationCollection result = apiInstance.GetAllAutomations(automationId, title, createdBy, listId, status, offset, limit, order, orderBy);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling AutomationsApi.GetAllAutomations: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -127,6 +155,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -150,8 +179,24 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

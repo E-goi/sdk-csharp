@@ -10,8 +10,9 @@ Method | HTTP request | Description
 [**UpdateTag**](TagsApi.md#updatetag) | **PUT** /tags/{tag_id} | Update a specific tag
 
 
-<a name="createtag"></a>
-# **CreateTag**
+
+## CreateTag
+
 > Tag CreateTag (TagRequest tagRequest)
 
 Create new tag
@@ -19,8 +20,9 @@ Create new tag
 Create a new tag
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -30,14 +32,15 @@ namespace Example
 {
     public class CreateTagExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new TagsApi();
+            var apiInstance = new TagsApi(Configuration.Default);
             var tagRequest = new TagRequest(); // TagRequest | Parameters for the Tag
 
             try
@@ -46,9 +49,11 @@ namespace Example
                 Tag result = apiInstance.CreateTag(tagRequest);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling TagsApi.CreateTag: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -56,6 +61,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -71,22 +77,42 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="deletetag"></a>
-# **DeleteTag**
-> void DeleteTag (int? tagId)
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteTag
+
+> void DeleteTag (int tagId)
 
 Remove tag
 
 Remove tag information given its ID
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -96,24 +122,27 @@ namespace Example
 {
     public class DeleteTagExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new TagsApi();
-            var tagId = 56;  // int? | ID of the Tag
+            var apiInstance = new TagsApi(Configuration.Default);
+            var tagId = 56;  // int | ID of the Tag
 
             try
             {
                 // Remove tag
                 apiInstance.DeleteTag(tagId);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling TagsApi.DeleteTag: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -122,9 +151,10 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tagId** | **int?**| ID of the Tag | 
+ **tagId** | **int**| ID of the Tag | 
 
 ### Return type
 
@@ -136,13 +166,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getalltags"></a>
-# **GetAllTags**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **408** | Request Timeout |  -  |
+| **409** | Conflict |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetAllTags
+
 > TagCollection GetAllTags (int? offset = null, int? limit = null, string order = null, string orderBy = null)
 
 Get all tags
@@ -150,8 +198,9 @@ Get all tags
 Returns all tags
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -161,14 +210,15 @@ namespace Example
 {
     public class GetAllTagsExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new TagsApi();
+            var apiInstance = new TagsApi(Configuration.Default);
             var offset = 56;  // int? | Element offset (starting at zero for the first element) (optional) 
             var limit = 56;  // int? | Number of items to return (optional)  (default to 10)
             var order = order_example;  // string | Type of order (optional)  (default to desc)
@@ -180,9 +230,11 @@ namespace Example
                 TagCollection result = apiInstance.GetAllTags(offset, limit, order, orderBy);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling TagsApi.GetAllTags: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -190,6 +242,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -208,22 +261,40 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updatetag"></a>
-# **UpdateTag**
-> Tag UpdateTag (int? tagId, TagRequest tagRequest)
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateTag
+
+> Tag UpdateTag (int tagId, TagRequest tagRequest)
 
 Update a specific tag
 
 Update a tag
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -233,15 +304,16 @@ namespace Example
 {
     public class UpdateTagExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new TagsApi();
-            var tagId = 56;  // int? | ID of the Tag
+            var apiInstance = new TagsApi(Configuration.Default);
+            var tagId = 56;  // int | ID of the Tag
             var tagRequest = new TagRequest(); // TagRequest | Parameters for the tag
 
             try
@@ -250,9 +322,11 @@ namespace Example
                 Tag result = apiInstance.UpdateTag(tagId, tagRequest);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling TagsApi.UpdateTag: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -261,9 +335,10 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tagId** | **int?**| ID of the Tag | 
+ **tagId** | **int**| ID of the Tag | 
  **tagRequest** | [**TagRequest**](TagRequest.md)| Parameters for the tag | 
 
 ### Return type
@@ -276,8 +351,27 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **408** | Request Timeout |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

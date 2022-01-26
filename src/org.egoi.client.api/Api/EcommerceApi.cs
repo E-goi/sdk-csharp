@@ -1,9 +1,9 @@
-/* 
+/*
  * APIv3 (New)
  *
- *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
  *
- * OpenAPI spec version: 3.0.0
+ * The version of the OpenAPI document: 3.0.0
  * 
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using RestSharp;
 using org.egoi.client.api.Client;
 using org.egoi.client.api.Model;
@@ -101,7 +102,7 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productPostRequest">Parameters for the Product</param>
         /// <returns>Product</returns>
-        Product CreateProduct (int? catalogId, ProductPostRequest productPostRequest);
+        Product CreateProduct (int catalogId, ProductPostRequest productPostRequest);
 
         /// <summary>
         /// Create new product
@@ -113,7 +114,7 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productPostRequest">Parameters for the Product</param>
         /// <returns>ApiResponse of Product</returns>
-        ApiResponse<Product> CreateProductWithHttpInfo (int? catalogId, ProductPostRequest productPostRequest);
+        ApiResponse<Product> CreateProductWithHttpInfo (int catalogId, ProductPostRequest productPostRequest);
         /// <summary>
         /// Remove catalog
         /// </summary>
@@ -123,7 +124,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <returns></returns>
-        void DeleteCatalog (int? catalogId);
+        void DeleteCatalog (int catalogId);
 
         /// <summary>
         /// Remove catalog
@@ -134,7 +135,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteCatalogWithHttpInfo (int? catalogId);
+        ApiResponse<Object> DeleteCatalogWithHttpInfo (int catalogId);
         /// <summary>
         /// Remove product
         /// </summary>
@@ -145,7 +146,7 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
         /// <returns></returns>
-        void DeleteProduct (int? catalogId, string productIdentifier);
+        void DeleteProduct (int catalogId, string productIdentifier);
 
         /// <summary>
         /// Remove product
@@ -157,7 +158,7 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteProductWithHttpInfo (int? catalogId, string productIdentifier);
+        ApiResponse<Object> DeleteProductWithHttpInfo (int catalogId, string productIdentifier);
         /// <summary>
         /// Get all catalogs
         /// </summary>
@@ -185,11 +186,22 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
-        /// <param name="productIdentifier">Product ID in your store (optional)</param>
+        /// <param name="productIdentifier">Filter by product ID in your store (optional)</param>
+        /// <param name="name">Filter by name of the product (optional)</param>
+        /// <param name="description">Filter by description of the product (optional)</param>
+        /// <param name="sku">Filter by Stock Keeping Unit (optional)</param>
+        /// <param name="upc">Filter by Universal Product Code (optional)</param>
+        /// <param name="ean">Filter by European Article Numbering (optional)</param>
+        /// <param name="gtin">Filter by Global Trade Item Number (optional)</param>
+        /// <param name="mpn">Filter by Manufacturer Part Number (optional)</param>
+        /// <param name="price">Filter by price of the product (optional)</param>
+        /// <param name="salePrice">Filter by sale price of the product (optional)</param>
+        /// <param name="brand">Filter by brand of the product (optional)</param>
+        /// <param name="customAttributes">Filter by custom attributes of products&lt;div&gt;&lt;span class&#x3D;&#39;sc-cJSrbW cWGDGi&#39;&gt; Example: &lt;/span&gt; &lt;span class&#x3D;&#39;sc-uJMKN cTkJKI&#39;&gt; &#39;custom_attributes[alias]&#x3D;value&#39; &lt;/span&gt;&lt;/div&gt; (optional)</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <returns>ProductCollection</returns>
-        ProductCollection GetAllProducts (int? catalogId, string productIdentifier = null, int? offset = null, int? limit = null);
+        ProductCollection GetAllProducts (int catalogId, string productIdentifier = default(string), string name = default(string), string description = default(string), string sku = default(string), string upc = default(string), string ean = default(string), string gtin = default(string), string mpn = default(string), decimal? price = default(decimal?), decimal? salePrice = default(decimal?), string brand = default(string), CustomAttributes customAttributes = default(CustomAttributes), int? offset = default(int?), int? limit = default(int?));
 
         /// <summary>
         /// Get all products
@@ -199,11 +211,22 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
-        /// <param name="productIdentifier">Product ID in your store (optional)</param>
+        /// <param name="productIdentifier">Filter by product ID in your store (optional)</param>
+        /// <param name="name">Filter by name of the product (optional)</param>
+        /// <param name="description">Filter by description of the product (optional)</param>
+        /// <param name="sku">Filter by Stock Keeping Unit (optional)</param>
+        /// <param name="upc">Filter by Universal Product Code (optional)</param>
+        /// <param name="ean">Filter by European Article Numbering (optional)</param>
+        /// <param name="gtin">Filter by Global Trade Item Number (optional)</param>
+        /// <param name="mpn">Filter by Manufacturer Part Number (optional)</param>
+        /// <param name="price">Filter by price of the product (optional)</param>
+        /// <param name="salePrice">Filter by sale price of the product (optional)</param>
+        /// <param name="brand">Filter by brand of the product (optional)</param>
+        /// <param name="customAttributes">Filter by custom attributes of products&lt;div&gt;&lt;span class&#x3D;&#39;sc-cJSrbW cWGDGi&#39;&gt; Example: &lt;/span&gt; &lt;span class&#x3D;&#39;sc-uJMKN cTkJKI&#39;&gt; &#39;custom_attributes[alias]&#x3D;value&#39; &lt;/span&gt;&lt;/div&gt; (optional)</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <returns>ApiResponse of ProductCollection</returns>
-        ApiResponse<ProductCollection> GetAllProductsWithHttpInfo (int? catalogId, string productIdentifier = null, int? offset = null, int? limit = null);
+        ApiResponse<ProductCollection> GetAllProductsWithHttpInfo (int catalogId, string productIdentifier = default(string), string name = default(string), string description = default(string), string sku = default(string), string upc = default(string), string ean = default(string), string gtin = default(string), string mpn = default(string), decimal? price = default(decimal?), decimal? salePrice = default(decimal?), string brand = default(string), CustomAttributes customAttributes = default(CustomAttributes), int? offset = default(int?), int? limit = default(int?));
         /// <summary>
         /// Get product
         /// </summary>
@@ -214,7 +237,7 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
         /// <returns>Product</returns>
-        Product GetProduct (int? catalogId, string productIdentifier);
+        Product GetProduct (int catalogId, string productIdentifier);
 
         /// <summary>
         /// Get product
@@ -226,7 +249,7 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
         /// <returns>ApiResponse of Product</returns>
-        ApiResponse<Product> GetProductWithHttpInfo (int? catalogId, string productIdentifier);
+        ApiResponse<Product> GetProductWithHttpInfo (int catalogId, string productIdentifier);
         /// <summary>
         /// Import products
         /// </summary>
@@ -237,7 +260,7 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productBulkRequest">Parameters for the Product</param>
         /// <returns>AcceptedResponse</returns>
-        AcceptedResponse ImportProducts (int? catalogId, ProductBulkRequest productBulkRequest);
+        AcceptedResponse ImportProducts (int catalogId, ProductBulkRequest productBulkRequest);
 
         /// <summary>
         /// Import products
@@ -249,7 +272,7 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productBulkRequest">Parameters for the Product</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        ApiResponse<AcceptedResponse> ImportProductsWithHttpInfo (int? catalogId, ProductBulkRequest productBulkRequest);
+        ApiResponse<AcceptedResponse> ImportProductsWithHttpInfo (int catalogId, ProductBulkRequest productBulkRequest);
         /// <summary>
         /// Update product
         /// </summary>
@@ -261,7 +284,7 @@ namespace org.egoi.client.api.Api
         /// <param name="productIdentifier">ID of the Product</param>
         /// <param name="productPatchRequest">Parameters for the product</param>
         /// <returns>Product</returns>
-        Product UpdateProduct (int? catalogId, string productIdentifier, ProductPatchRequest productPatchRequest);
+        Product UpdateProduct (int catalogId, string productIdentifier, ProductPatchRequest productPatchRequest);
 
         /// <summary>
         /// Update product
@@ -274,7 +297,7 @@ namespace org.egoi.client.api.Api
         /// <param name="productIdentifier">ID of the Product</param>
         /// <param name="productPatchRequest">Parameters for the product</param>
         /// <returns>ApiResponse of Product</returns>
-        ApiResponse<Product> UpdateProductWithHttpInfo (int? catalogId, string productIdentifier, ProductPatchRequest productPatchRequest);
+        ApiResponse<Product> UpdateProductWithHttpInfo (int catalogId, string productIdentifier, ProductPatchRequest productPatchRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -286,8 +309,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">Domain</param>
         /// <param name="cart">Parameters for the Carts</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> CreateCartAsync (string domain, Cart cart);
+        System.Threading.Tasks.Task<AcceptedResponse> CreateCartAsync (string domain, Cart cart, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create cart
@@ -298,8 +322,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">Domain</param>
         /// <param name="cart">Parameters for the Carts</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> CreateCartAsyncWithHttpInfo (string domain, Cart cart);
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> CreateCartWithHttpInfoAsync (string domain, Cart cart, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create new catalog
         /// </summary>
@@ -308,8 +333,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogPostRequest">Parameters for the Catalog</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Catalog</returns>
-        System.Threading.Tasks.Task<Catalog> CreateCatalogAsync (CatalogPostRequest catalogPostRequest);
+        System.Threading.Tasks.Task<Catalog> CreateCatalogAsync (CatalogPostRequest catalogPostRequest, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create new catalog
@@ -319,8 +345,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogPostRequest">Parameters for the Catalog</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Catalog)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Catalog>> CreateCatalogAsyncWithHttpInfo (CatalogPostRequest catalogPostRequest);
+        System.Threading.Tasks.Task<ApiResponse<Catalog>> CreateCatalogWithHttpInfoAsync (CatalogPostRequest catalogPostRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create order
         /// </summary>
@@ -330,8 +357,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">Domain</param>
         /// <param name="createOrder">Parameters for the Orders</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> CreateOrderAsync (string domain, CreateOrder createOrder);
+        System.Threading.Tasks.Task<AcceptedResponse> CreateOrderAsync (string domain, CreateOrder createOrder, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create order
@@ -342,8 +370,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">Domain</param>
         /// <param name="createOrder">Parameters for the Orders</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> CreateOrderAsyncWithHttpInfo (string domain, CreateOrder createOrder);
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> CreateOrderWithHttpInfoAsync (string domain, CreateOrder createOrder, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create new product
         /// </summary>
@@ -353,8 +382,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productPostRequest">Parameters for the Product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Product</returns>
-        System.Threading.Tasks.Task<Product> CreateProductAsync (int? catalogId, ProductPostRequest productPostRequest);
+        System.Threading.Tasks.Task<Product> CreateProductAsync (int catalogId, ProductPostRequest productPostRequest, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create new product
@@ -365,8 +395,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productPostRequest">Parameters for the Product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Product)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Product>> CreateProductAsyncWithHttpInfo (int? catalogId, ProductPostRequest productPostRequest);
+        System.Threading.Tasks.Task<ApiResponse<Product>> CreateProductWithHttpInfoAsync (int catalogId, ProductPostRequest productPostRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Remove catalog
         /// </summary>
@@ -375,8 +406,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteCatalogAsync (int? catalogId);
+        System.Threading.Tasks.Task DeleteCatalogAsync (int catalogId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Remove catalog
@@ -386,8 +418,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCatalogAsyncWithHttpInfo (int? catalogId);
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCatalogWithHttpInfoAsync (int catalogId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Remove product
         /// </summary>
@@ -397,8 +430,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteProductAsync (int? catalogId, string productIdentifier);
+        System.Threading.Tasks.Task DeleteProductAsync (int catalogId, string productIdentifier, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Remove product
@@ -409,8 +443,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteProductAsyncWithHttpInfo (int? catalogId, string productIdentifier);
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteProductWithHttpInfoAsync (int catalogId, string productIdentifier, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get all catalogs
         /// </summary>
@@ -418,8 +453,9 @@ namespace org.egoi.client.api.Api
         /// Returns all catalogs
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of CatalogCollection</returns>
-        System.Threading.Tasks.Task<CatalogCollection> GetAllCatalogsAsync ();
+        System.Threading.Tasks.Task<CatalogCollection> GetAllCatalogsAsync (CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get all catalogs
@@ -428,8 +464,9 @@ namespace org.egoi.client.api.Api
         /// Returns all catalogs
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (CatalogCollection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CatalogCollection>> GetAllCatalogsAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<CatalogCollection>> GetAllCatalogsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get all products
         /// </summary>
@@ -438,11 +475,23 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
-        /// <param name="productIdentifier">Product ID in your store (optional)</param>
+        /// <param name="productIdentifier">Filter by product ID in your store (optional)</param>
+        /// <param name="name">Filter by name of the product (optional)</param>
+        /// <param name="description">Filter by description of the product (optional)</param>
+        /// <param name="sku">Filter by Stock Keeping Unit (optional)</param>
+        /// <param name="upc">Filter by Universal Product Code (optional)</param>
+        /// <param name="ean">Filter by European Article Numbering (optional)</param>
+        /// <param name="gtin">Filter by Global Trade Item Number (optional)</param>
+        /// <param name="mpn">Filter by Manufacturer Part Number (optional)</param>
+        /// <param name="price">Filter by price of the product (optional)</param>
+        /// <param name="salePrice">Filter by sale price of the product (optional)</param>
+        /// <param name="brand">Filter by brand of the product (optional)</param>
+        /// <param name="customAttributes">Filter by custom attributes of products&lt;div&gt;&lt;span class&#x3D;&#39;sc-cJSrbW cWGDGi&#39;&gt; Example: &lt;/span&gt; &lt;span class&#x3D;&#39;sc-uJMKN cTkJKI&#39;&gt; &#39;custom_attributes[alias]&#x3D;value&#39; &lt;/span&gt;&lt;/div&gt; (optional)</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ProductCollection</returns>
-        System.Threading.Tasks.Task<ProductCollection> GetAllProductsAsync (int? catalogId, string productIdentifier = null, int? offset = null, int? limit = null);
+        System.Threading.Tasks.Task<ProductCollection> GetAllProductsAsync (int catalogId, string productIdentifier = default(string), string name = default(string), string description = default(string), string sku = default(string), string upc = default(string), string ean = default(string), string gtin = default(string), string mpn = default(string), decimal? price = default(decimal?), decimal? salePrice = default(decimal?), string brand = default(string), CustomAttributes customAttributes = default(CustomAttributes), int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get all products
@@ -452,11 +501,23 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
-        /// <param name="productIdentifier">Product ID in your store (optional)</param>
+        /// <param name="productIdentifier">Filter by product ID in your store (optional)</param>
+        /// <param name="name">Filter by name of the product (optional)</param>
+        /// <param name="description">Filter by description of the product (optional)</param>
+        /// <param name="sku">Filter by Stock Keeping Unit (optional)</param>
+        /// <param name="upc">Filter by Universal Product Code (optional)</param>
+        /// <param name="ean">Filter by European Article Numbering (optional)</param>
+        /// <param name="gtin">Filter by Global Trade Item Number (optional)</param>
+        /// <param name="mpn">Filter by Manufacturer Part Number (optional)</param>
+        /// <param name="price">Filter by price of the product (optional)</param>
+        /// <param name="salePrice">Filter by sale price of the product (optional)</param>
+        /// <param name="brand">Filter by brand of the product (optional)</param>
+        /// <param name="customAttributes">Filter by custom attributes of products&lt;div&gt;&lt;span class&#x3D;&#39;sc-cJSrbW cWGDGi&#39;&gt; Example: &lt;/span&gt; &lt;span class&#x3D;&#39;sc-uJMKN cTkJKI&#39;&gt; &#39;custom_attributes[alias]&#x3D;value&#39; &lt;/span&gt;&lt;/div&gt; (optional)</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ProductCollection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProductCollection>> GetAllProductsAsyncWithHttpInfo (int? catalogId, string productIdentifier = null, int? offset = null, int? limit = null);
+        System.Threading.Tasks.Task<ApiResponse<ProductCollection>> GetAllProductsWithHttpInfoAsync (int catalogId, string productIdentifier = default(string), string name = default(string), string description = default(string), string sku = default(string), string upc = default(string), string ean = default(string), string gtin = default(string), string mpn = default(string), decimal? price = default(decimal?), decimal? salePrice = default(decimal?), string brand = default(string), CustomAttributes customAttributes = default(CustomAttributes), int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get product
         /// </summary>
@@ -466,8 +527,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Product</returns>
-        System.Threading.Tasks.Task<Product> GetProductAsync (int? catalogId, string productIdentifier);
+        System.Threading.Tasks.Task<Product> GetProductAsync (int catalogId, string productIdentifier, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get product
@@ -478,8 +540,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Product)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Product>> GetProductAsyncWithHttpInfo (int? catalogId, string productIdentifier);
+        System.Threading.Tasks.Task<ApiResponse<Product>> GetProductWithHttpInfoAsync (int catalogId, string productIdentifier, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Import products
         /// </summary>
@@ -489,8 +552,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productBulkRequest">Parameters for the Product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> ImportProductsAsync (int? catalogId, ProductBulkRequest productBulkRequest);
+        System.Threading.Tasks.Task<AcceptedResponse> ImportProductsAsync (int catalogId, ProductBulkRequest productBulkRequest, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Import products
@@ -501,8 +565,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productBulkRequest">Parameters for the Product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ImportProductsAsyncWithHttpInfo (int? catalogId, ProductBulkRequest productBulkRequest);
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ImportProductsWithHttpInfoAsync (int catalogId, ProductBulkRequest productBulkRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update product
         /// </summary>
@@ -513,8 +578,9 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
         /// <param name="productPatchRequest">Parameters for the product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Product</returns>
-        System.Threading.Tasks.Task<Product> UpdateProductAsync (int? catalogId, string productIdentifier, ProductPatchRequest productPatchRequest);
+        System.Threading.Tasks.Task<Product> UpdateProductAsync (int catalogId, string productIdentifier, ProductPatchRequest productPatchRequest, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update product
@@ -526,8 +592,9 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
         /// <param name="productPatchRequest">Parameters for the product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Product)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Product>> UpdateProductAsyncWithHttpInfo (int? catalogId, string productIdentifier, ProductPatchRequest productPatchRequest);
+        System.Threading.Tasks.Task<ApiResponse<Product>> UpdateProductWithHttpInfoAsync (int catalogId, string productIdentifier, ProductPatchRequest productPatchRequest, CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -659,7 +726,7 @@ namespace org.egoi.client.api.Api
         /// <param name="domain">Domain</param>
         /// <param name="cart">Parameters for the Carts</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse< AcceptedResponse > CreateCartWithHttpInfo (string domain, Cart cart)
+        public ApiResponse<AcceptedResponse> CreateCartWithHttpInfo (string domain, Cart cart)
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -720,7 +787,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -730,10 +797,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">Domain</param>
         /// <param name="cart">Parameters for the Carts</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> CreateCartAsync (string domain, Cart cart)
+        public async System.Threading.Tasks.Task<AcceptedResponse> CreateCartAsync (string domain, Cart cart, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AcceptedResponse> localVarResponse = await CreateCartAsyncWithHttpInfo(domain, cart);
+             ApiResponse<AcceptedResponse> localVarResponse = await CreateCartWithHttpInfoAsync(domain, cart, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -744,8 +812,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">Domain</param>
         /// <param name="cart">Parameters for the Carts</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> CreateCartAsyncWithHttpInfo (string domain, Cart cart)
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> CreateCartWithHttpInfoAsync (string domain, Cart cart, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -795,7 +864,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -806,7 +875,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -828,7 +897,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogPostRequest">Parameters for the Catalog</param>
         /// <returns>ApiResponse of Catalog</returns>
-        public ApiResponse< Catalog > CreateCatalogWithHttpInfo (CatalogPostRequest catalogPostRequest)
+        public ApiResponse<Catalog> CreateCatalogWithHttpInfo (CatalogPostRequest catalogPostRequest)
         {
             // verify the required parameter 'catalogPostRequest' is set
             if (catalogPostRequest == null)
@@ -885,7 +954,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Catalog>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (Catalog) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Catalog)));
         }
 
@@ -894,10 +963,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogPostRequest">Parameters for the Catalog</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Catalog</returns>
-        public async System.Threading.Tasks.Task<Catalog> CreateCatalogAsync (CatalogPostRequest catalogPostRequest)
+        public async System.Threading.Tasks.Task<Catalog> CreateCatalogAsync (CatalogPostRequest catalogPostRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<Catalog> localVarResponse = await CreateCatalogAsyncWithHttpInfo(catalogPostRequest);
+             ApiResponse<Catalog> localVarResponse = await CreateCatalogWithHttpInfoAsync(catalogPostRequest, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -907,8 +977,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogPostRequest">Parameters for the Catalog</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Catalog)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Catalog>> CreateCatalogAsyncWithHttpInfo (CatalogPostRequest catalogPostRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<Catalog>> CreateCatalogWithHttpInfoAsync (CatalogPostRequest catalogPostRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'catalogPostRequest' is set
             if (catalogPostRequest == null)
@@ -954,7 +1025,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -965,7 +1036,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Catalog>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (Catalog) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Catalog)));
         }
 
@@ -989,7 +1060,7 @@ namespace org.egoi.client.api.Api
         /// <param name="domain">Domain</param>
         /// <param name="createOrder">Parameters for the Orders</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse< AcceptedResponse > CreateOrderWithHttpInfo (string domain, CreateOrder createOrder)
+        public ApiResponse<AcceptedResponse> CreateOrderWithHttpInfo (string domain, CreateOrder createOrder)
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -1050,7 +1121,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -1060,10 +1131,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">Domain</param>
         /// <param name="createOrder">Parameters for the Orders</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> CreateOrderAsync (string domain, CreateOrder createOrder)
+        public async System.Threading.Tasks.Task<AcceptedResponse> CreateOrderAsync (string domain, CreateOrder createOrder, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AcceptedResponse> localVarResponse = await CreateOrderAsyncWithHttpInfo(domain, createOrder);
+             ApiResponse<AcceptedResponse> localVarResponse = await CreateOrderWithHttpInfoAsync(domain, createOrder, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1074,8 +1146,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="domain">Domain</param>
         /// <param name="createOrder">Parameters for the Orders</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> CreateOrderAsyncWithHttpInfo (string domain, CreateOrder createOrder)
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> CreateOrderWithHttpInfoAsync (string domain, CreateOrder createOrder, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'domain' is set
             if (domain == null)
@@ -1125,7 +1198,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1136,7 +1209,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -1147,7 +1220,7 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productPostRequest">Parameters for the Product</param>
         /// <returns>Product</returns>
-        public Product CreateProduct (int? catalogId, ProductPostRequest productPostRequest)
+        public Product CreateProduct (int catalogId, ProductPostRequest productPostRequest)
         {
              ApiResponse<Product> localVarResponse = CreateProductWithHttpInfo(catalogId, productPostRequest);
              return localVarResponse.Data;
@@ -1160,7 +1233,7 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productPostRequest">Parameters for the Product</param>
         /// <returns>ApiResponse of Product</returns>
-        public ApiResponse< Product > CreateProductWithHttpInfo (int? catalogId, ProductPostRequest productPostRequest)
+        public ApiResponse<Product> CreateProductWithHttpInfo (int catalogId, ProductPostRequest productPostRequest)
         {
             // verify the required parameter 'catalogId' is set
             if (catalogId == null)
@@ -1221,7 +1294,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Product>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (Product) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Product)));
         }
 
@@ -1231,10 +1304,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productPostRequest">Parameters for the Product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Product</returns>
-        public async System.Threading.Tasks.Task<Product> CreateProductAsync (int? catalogId, ProductPostRequest productPostRequest)
+        public async System.Threading.Tasks.Task<Product> CreateProductAsync (int catalogId, ProductPostRequest productPostRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<Product> localVarResponse = await CreateProductAsyncWithHttpInfo(catalogId, productPostRequest);
+             ApiResponse<Product> localVarResponse = await CreateProductWithHttpInfoAsync(catalogId, productPostRequest, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1245,8 +1319,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productPostRequest">Parameters for the Product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Product)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Product>> CreateProductAsyncWithHttpInfo (int? catalogId, ProductPostRequest productPostRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<Product>> CreateProductWithHttpInfoAsync (int catalogId, ProductPostRequest productPostRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'catalogId' is set
             if (catalogId == null)
@@ -1296,7 +1371,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1307,7 +1382,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Product>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (Product) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Product)));
         }
 
@@ -1317,7 +1392,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <returns></returns>
-        public void DeleteCatalog (int? catalogId)
+        public void DeleteCatalog (int catalogId)
         {
              DeleteCatalogWithHttpInfo(catalogId);
         }
@@ -1328,7 +1403,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteCatalogWithHttpInfo (int? catalogId)
+        public ApiResponse<Object> DeleteCatalogWithHttpInfo (int catalogId)
         {
             // verify the required parameter 'catalogId' is set
             if (catalogId == null)
@@ -1377,7 +1452,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
         }
 
@@ -1386,10 +1461,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteCatalogAsync (int? catalogId)
+        public async System.Threading.Tasks.Task DeleteCatalogAsync (int catalogId, CancellationToken cancellationToken = default(CancellationToken))
         {
-             await DeleteCatalogAsyncWithHttpInfo(catalogId);
+             await DeleteCatalogWithHttpInfoAsync(catalogId, cancellationToken);
 
         }
 
@@ -1398,8 +1474,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCatalogAsyncWithHttpInfo (int? catalogId)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCatalogWithHttpInfoAsync (int catalogId, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'catalogId' is set
             if (catalogId == null)
@@ -1437,7 +1514,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1448,7 +1525,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
         }
 
@@ -1459,7 +1536,7 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
         /// <returns></returns>
-        public void DeleteProduct (int? catalogId, string productIdentifier)
+        public void DeleteProduct (int catalogId, string productIdentifier)
         {
              DeleteProductWithHttpInfo(catalogId, productIdentifier);
         }
@@ -1471,7 +1548,7 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteProductWithHttpInfo (int? catalogId, string productIdentifier)
+        public ApiResponse<Object> DeleteProductWithHttpInfo (int catalogId, string productIdentifier)
         {
             // verify the required parameter 'catalogId' is set
             if (catalogId == null)
@@ -1524,7 +1601,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
         }
 
@@ -1534,10 +1611,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteProductAsync (int? catalogId, string productIdentifier)
+        public async System.Threading.Tasks.Task DeleteProductAsync (int catalogId, string productIdentifier, CancellationToken cancellationToken = default(CancellationToken))
         {
-             await DeleteProductAsyncWithHttpInfo(catalogId, productIdentifier);
+             await DeleteProductWithHttpInfoAsync(catalogId, productIdentifier, cancellationToken);
 
         }
 
@@ -1547,8 +1625,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteProductAsyncWithHttpInfo (int? catalogId, string productIdentifier)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteProductWithHttpInfoAsync (int catalogId, string productIdentifier, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'catalogId' is set
             if (catalogId == null)
@@ -1590,7 +1669,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1601,7 +1680,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
         }
 
@@ -1621,7 +1700,7 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of CatalogCollection</returns>
-        public ApiResponse< CatalogCollection > GetAllCatalogsWithHttpInfo ()
+        public ApiResponse<CatalogCollection> GetAllCatalogsWithHttpInfo ()
         {
 
             var localVarPath = "/catalogs";
@@ -1666,7 +1745,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<CatalogCollection>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (CatalogCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CatalogCollection)));
         }
 
@@ -1674,10 +1753,11 @@ namespace org.egoi.client.api.Api
         /// Get all catalogs Returns all catalogs
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of CatalogCollection</returns>
-        public async System.Threading.Tasks.Task<CatalogCollection> GetAllCatalogsAsync ()
+        public async System.Threading.Tasks.Task<CatalogCollection> GetAllCatalogsAsync (CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<CatalogCollection> localVarResponse = await GetAllCatalogsAsyncWithHttpInfo();
+             ApiResponse<CatalogCollection> localVarResponse = await GetAllCatalogsWithHttpInfoAsync(cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1686,8 +1766,9 @@ namespace org.egoi.client.api.Api
         /// Get all catalogs Returns all catalogs
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (CatalogCollection)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CatalogCollection>> GetAllCatalogsAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<CatalogCollection>> GetAllCatalogsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/catalogs";
@@ -1721,7 +1802,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1732,7 +1813,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<CatalogCollection>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (CatalogCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CatalogCollection)));
         }
 
@@ -1741,13 +1822,24 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
-        /// <param name="productIdentifier">Product ID in your store (optional)</param>
+        /// <param name="productIdentifier">Filter by product ID in your store (optional)</param>
+        /// <param name="name">Filter by name of the product (optional)</param>
+        /// <param name="description">Filter by description of the product (optional)</param>
+        /// <param name="sku">Filter by Stock Keeping Unit (optional)</param>
+        /// <param name="upc">Filter by Universal Product Code (optional)</param>
+        /// <param name="ean">Filter by European Article Numbering (optional)</param>
+        /// <param name="gtin">Filter by Global Trade Item Number (optional)</param>
+        /// <param name="mpn">Filter by Manufacturer Part Number (optional)</param>
+        /// <param name="price">Filter by price of the product (optional)</param>
+        /// <param name="salePrice">Filter by sale price of the product (optional)</param>
+        /// <param name="brand">Filter by brand of the product (optional)</param>
+        /// <param name="customAttributes">Filter by custom attributes of products&lt;div&gt;&lt;span class&#x3D;&#39;sc-cJSrbW cWGDGi&#39;&gt; Example: &lt;/span&gt; &lt;span class&#x3D;&#39;sc-uJMKN cTkJKI&#39;&gt; &#39;custom_attributes[alias]&#x3D;value&#39; &lt;/span&gt;&lt;/div&gt; (optional)</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <returns>ProductCollection</returns>
-        public ProductCollection GetAllProducts (int? catalogId, string productIdentifier = null, int? offset = null, int? limit = null)
+        public ProductCollection GetAllProducts (int catalogId, string productIdentifier = default(string), string name = default(string), string description = default(string), string sku = default(string), string upc = default(string), string ean = default(string), string gtin = default(string), string mpn = default(string), decimal? price = default(decimal?), decimal? salePrice = default(decimal?), string brand = default(string), CustomAttributes customAttributes = default(CustomAttributes), int? offset = default(int?), int? limit = default(int?))
         {
-             ApiResponse<ProductCollection> localVarResponse = GetAllProductsWithHttpInfo(catalogId, productIdentifier, offset, limit);
+             ApiResponse<ProductCollection> localVarResponse = GetAllProductsWithHttpInfo(catalogId, productIdentifier, name, description, sku, upc, ean, gtin, mpn, price, salePrice, brand, customAttributes, offset, limit);
              return localVarResponse.Data;
         }
 
@@ -1756,11 +1848,22 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
-        /// <param name="productIdentifier">Product ID in your store (optional)</param>
+        /// <param name="productIdentifier">Filter by product ID in your store (optional)</param>
+        /// <param name="name">Filter by name of the product (optional)</param>
+        /// <param name="description">Filter by description of the product (optional)</param>
+        /// <param name="sku">Filter by Stock Keeping Unit (optional)</param>
+        /// <param name="upc">Filter by Universal Product Code (optional)</param>
+        /// <param name="ean">Filter by European Article Numbering (optional)</param>
+        /// <param name="gtin">Filter by Global Trade Item Number (optional)</param>
+        /// <param name="mpn">Filter by Manufacturer Part Number (optional)</param>
+        /// <param name="price">Filter by price of the product (optional)</param>
+        /// <param name="salePrice">Filter by sale price of the product (optional)</param>
+        /// <param name="brand">Filter by brand of the product (optional)</param>
+        /// <param name="customAttributes">Filter by custom attributes of products&lt;div&gt;&lt;span class&#x3D;&#39;sc-cJSrbW cWGDGi&#39;&gt; Example: &lt;/span&gt; &lt;span class&#x3D;&#39;sc-uJMKN cTkJKI&#39;&gt; &#39;custom_attributes[alias]&#x3D;value&#39; &lt;/span&gt;&lt;/div&gt; (optional)</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <returns>ApiResponse of ProductCollection</returns>
-        public ApiResponse< ProductCollection > GetAllProductsWithHttpInfo (int? catalogId, string productIdentifier = null, int? offset = null, int? limit = null)
+        public ApiResponse<ProductCollection> GetAllProductsWithHttpInfo (int catalogId, string productIdentifier = default(string), string name = default(string), string description = default(string), string sku = default(string), string upc = default(string), string ean = default(string), string gtin = default(string), string mpn = default(string), decimal? price = default(decimal?), decimal? salePrice = default(decimal?), string brand = default(string), CustomAttributes customAttributes = default(CustomAttributes), int? offset = default(int?), int? limit = default(int?))
         {
             // verify the required parameter 'catalogId' is set
             if (catalogId == null)
@@ -1789,6 +1892,17 @@ namespace org.egoi.client.api.Api
 
             if (catalogId != null) localVarPathParams.Add("catalog_id", this.Configuration.ApiClient.ParameterToString(catalogId)); // path parameter
             if (productIdentifier != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "product_identifier", productIdentifier)); // query parameter
+            if (name != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "name", name)); // query parameter
+            if (description != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "description", description)); // query parameter
+            if (sku != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sku", sku)); // query parameter
+            if (upc != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "upc", upc)); // query parameter
+            if (ean != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "ean", ean)); // query parameter
+            if (gtin != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "gtin", gtin)); // query parameter
+            if (mpn != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "mpn", mpn)); // query parameter
+            if (price != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "price", price)); // query parameter
+            if (salePrice != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sale_price", salePrice)); // query parameter
+            if (brand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "brand", brand)); // query parameter
+            if (customAttributes != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "custom_attributes", customAttributes)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
 
@@ -1812,7 +1926,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<ProductCollection>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (ProductCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProductCollection)));
         }
 
@@ -1821,13 +1935,25 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
-        /// <param name="productIdentifier">Product ID in your store (optional)</param>
+        /// <param name="productIdentifier">Filter by product ID in your store (optional)</param>
+        /// <param name="name">Filter by name of the product (optional)</param>
+        /// <param name="description">Filter by description of the product (optional)</param>
+        /// <param name="sku">Filter by Stock Keeping Unit (optional)</param>
+        /// <param name="upc">Filter by Universal Product Code (optional)</param>
+        /// <param name="ean">Filter by European Article Numbering (optional)</param>
+        /// <param name="gtin">Filter by Global Trade Item Number (optional)</param>
+        /// <param name="mpn">Filter by Manufacturer Part Number (optional)</param>
+        /// <param name="price">Filter by price of the product (optional)</param>
+        /// <param name="salePrice">Filter by sale price of the product (optional)</param>
+        /// <param name="brand">Filter by brand of the product (optional)</param>
+        /// <param name="customAttributes">Filter by custom attributes of products&lt;div&gt;&lt;span class&#x3D;&#39;sc-cJSrbW cWGDGi&#39;&gt; Example: &lt;/span&gt; &lt;span class&#x3D;&#39;sc-uJMKN cTkJKI&#39;&gt; &#39;custom_attributes[alias]&#x3D;value&#39; &lt;/span&gt;&lt;/div&gt; (optional)</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ProductCollection</returns>
-        public async System.Threading.Tasks.Task<ProductCollection> GetAllProductsAsync (int? catalogId, string productIdentifier = null, int? offset = null, int? limit = null)
+        public async System.Threading.Tasks.Task<ProductCollection> GetAllProductsAsync (int catalogId, string productIdentifier = default(string), string name = default(string), string description = default(string), string sku = default(string), string upc = default(string), string ean = default(string), string gtin = default(string), string mpn = default(string), decimal? price = default(decimal?), decimal? salePrice = default(decimal?), string brand = default(string), CustomAttributes customAttributes = default(CustomAttributes), int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<ProductCollection> localVarResponse = await GetAllProductsAsyncWithHttpInfo(catalogId, productIdentifier, offset, limit);
+             ApiResponse<ProductCollection> localVarResponse = await GetAllProductsWithHttpInfoAsync(catalogId, productIdentifier, name, description, sku, upc, ean, gtin, mpn, price, salePrice, brand, customAttributes, offset, limit, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1837,11 +1963,23 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
-        /// <param name="productIdentifier">Product ID in your store (optional)</param>
+        /// <param name="productIdentifier">Filter by product ID in your store (optional)</param>
+        /// <param name="name">Filter by name of the product (optional)</param>
+        /// <param name="description">Filter by description of the product (optional)</param>
+        /// <param name="sku">Filter by Stock Keeping Unit (optional)</param>
+        /// <param name="upc">Filter by Universal Product Code (optional)</param>
+        /// <param name="ean">Filter by European Article Numbering (optional)</param>
+        /// <param name="gtin">Filter by Global Trade Item Number (optional)</param>
+        /// <param name="mpn">Filter by Manufacturer Part Number (optional)</param>
+        /// <param name="price">Filter by price of the product (optional)</param>
+        /// <param name="salePrice">Filter by sale price of the product (optional)</param>
+        /// <param name="brand">Filter by brand of the product (optional)</param>
+        /// <param name="customAttributes">Filter by custom attributes of products&lt;div&gt;&lt;span class&#x3D;&#39;sc-cJSrbW cWGDGi&#39;&gt; Example: &lt;/span&gt; &lt;span class&#x3D;&#39;sc-uJMKN cTkJKI&#39;&gt; &#39;custom_attributes[alias]&#x3D;value&#39; &lt;/span&gt;&lt;/div&gt; (optional)</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ProductCollection)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ProductCollection>> GetAllProductsAsyncWithHttpInfo (int? catalogId, string productIdentifier = null, int? offset = null, int? limit = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ProductCollection>> GetAllProductsWithHttpInfoAsync (int catalogId, string productIdentifier = default(string), string name = default(string), string description = default(string), string sku = default(string), string upc = default(string), string ean = default(string), string gtin = default(string), string mpn = default(string), decimal? price = default(decimal?), decimal? salePrice = default(decimal?), string brand = default(string), CustomAttributes customAttributes = default(CustomAttributes), int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'catalogId' is set
             if (catalogId == null)
@@ -1870,6 +2008,17 @@ namespace org.egoi.client.api.Api
 
             if (catalogId != null) localVarPathParams.Add("catalog_id", this.Configuration.ApiClient.ParameterToString(catalogId)); // path parameter
             if (productIdentifier != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "product_identifier", productIdentifier)); // query parameter
+            if (name != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "name", name)); // query parameter
+            if (description != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "description", description)); // query parameter
+            if (sku != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sku", sku)); // query parameter
+            if (upc != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "upc", upc)); // query parameter
+            if (ean != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "ean", ean)); // query parameter
+            if (gtin != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "gtin", gtin)); // query parameter
+            if (mpn != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "mpn", mpn)); // query parameter
+            if (price != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "price", price)); // query parameter
+            if (salePrice != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sale_price", salePrice)); // query parameter
+            if (brand != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "brand", brand)); // query parameter
+            if (customAttributes != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "custom_attributes", customAttributes)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
 
@@ -1882,7 +2031,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1893,7 +2042,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<ProductCollection>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (ProductCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ProductCollection)));
         }
 
@@ -1904,7 +2053,7 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
         /// <returns>Product</returns>
-        public Product GetProduct (int? catalogId, string productIdentifier)
+        public Product GetProduct (int catalogId, string productIdentifier)
         {
              ApiResponse<Product> localVarResponse = GetProductWithHttpInfo(catalogId, productIdentifier);
              return localVarResponse.Data;
@@ -1917,7 +2066,7 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
         /// <returns>ApiResponse of Product</returns>
-        public ApiResponse< Product > GetProductWithHttpInfo (int? catalogId, string productIdentifier)
+        public ApiResponse<Product> GetProductWithHttpInfo (int catalogId, string productIdentifier)
         {
             // verify the required parameter 'catalogId' is set
             if (catalogId == null)
@@ -1970,7 +2119,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Product>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (Product) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Product)));
         }
 
@@ -1980,10 +2129,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Product</returns>
-        public async System.Threading.Tasks.Task<Product> GetProductAsync (int? catalogId, string productIdentifier)
+        public async System.Threading.Tasks.Task<Product> GetProductAsync (int catalogId, string productIdentifier, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<Product> localVarResponse = await GetProductAsyncWithHttpInfo(catalogId, productIdentifier);
+             ApiResponse<Product> localVarResponse = await GetProductWithHttpInfoAsync(catalogId, productIdentifier, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1994,8 +2144,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Product)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Product>> GetProductAsyncWithHttpInfo (int? catalogId, string productIdentifier)
+        public async System.Threading.Tasks.Task<ApiResponse<Product>> GetProductWithHttpInfoAsync (int catalogId, string productIdentifier, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'catalogId' is set
             if (catalogId == null)
@@ -2037,7 +2188,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -2048,7 +2199,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Product>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (Product) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Product)));
         }
 
@@ -2059,7 +2210,7 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productBulkRequest">Parameters for the Product</param>
         /// <returns>AcceptedResponse</returns>
-        public AcceptedResponse ImportProducts (int? catalogId, ProductBulkRequest productBulkRequest)
+        public AcceptedResponse ImportProducts (int catalogId, ProductBulkRequest productBulkRequest)
         {
              ApiResponse<AcceptedResponse> localVarResponse = ImportProductsWithHttpInfo(catalogId, productBulkRequest);
              return localVarResponse.Data;
@@ -2072,7 +2223,7 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productBulkRequest">Parameters for the Product</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse< AcceptedResponse > ImportProductsWithHttpInfo (int? catalogId, ProductBulkRequest productBulkRequest)
+        public ApiResponse<AcceptedResponse> ImportProductsWithHttpInfo (int catalogId, ProductBulkRequest productBulkRequest)
         {
             // verify the required parameter 'catalogId' is set
             if (catalogId == null)
@@ -2133,7 +2284,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -2143,10 +2294,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productBulkRequest">Parameters for the Product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> ImportProductsAsync (int? catalogId, ProductBulkRequest productBulkRequest)
+        public async System.Threading.Tasks.Task<AcceptedResponse> ImportProductsAsync (int catalogId, ProductBulkRequest productBulkRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AcceptedResponse> localVarResponse = await ImportProductsAsyncWithHttpInfo(catalogId, productBulkRequest);
+             ApiResponse<AcceptedResponse> localVarResponse = await ImportProductsWithHttpInfoAsync(catalogId, productBulkRequest, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -2157,8 +2309,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productBulkRequest">Parameters for the Product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ImportProductsAsyncWithHttpInfo (int? catalogId, ProductBulkRequest productBulkRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ImportProductsWithHttpInfoAsync (int catalogId, ProductBulkRequest productBulkRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'catalogId' is set
             if (catalogId == null)
@@ -2208,7 +2361,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -2219,7 +2372,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -2231,7 +2384,7 @@ namespace org.egoi.client.api.Api
         /// <param name="productIdentifier">ID of the Product</param>
         /// <param name="productPatchRequest">Parameters for the product</param>
         /// <returns>Product</returns>
-        public Product UpdateProduct (int? catalogId, string productIdentifier, ProductPatchRequest productPatchRequest)
+        public Product UpdateProduct (int catalogId, string productIdentifier, ProductPatchRequest productPatchRequest)
         {
              ApiResponse<Product> localVarResponse = UpdateProductWithHttpInfo(catalogId, productIdentifier, productPatchRequest);
              return localVarResponse.Data;
@@ -2245,7 +2398,7 @@ namespace org.egoi.client.api.Api
         /// <param name="productIdentifier">ID of the Product</param>
         /// <param name="productPatchRequest">Parameters for the product</param>
         /// <returns>ApiResponse of Product</returns>
-        public ApiResponse< Product > UpdateProductWithHttpInfo (int? catalogId, string productIdentifier, ProductPatchRequest productPatchRequest)
+        public ApiResponse<Product> UpdateProductWithHttpInfo (int catalogId, string productIdentifier, ProductPatchRequest productPatchRequest)
         {
             // verify the required parameter 'catalogId' is set
             if (catalogId == null)
@@ -2310,7 +2463,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Product>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (Product) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Product)));
         }
 
@@ -2321,10 +2474,11 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
         /// <param name="productPatchRequest">Parameters for the product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Product</returns>
-        public async System.Threading.Tasks.Task<Product> UpdateProductAsync (int? catalogId, string productIdentifier, ProductPatchRequest productPatchRequest)
+        public async System.Threading.Tasks.Task<Product> UpdateProductAsync (int catalogId, string productIdentifier, ProductPatchRequest productPatchRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<Product> localVarResponse = await UpdateProductAsyncWithHttpInfo(catalogId, productIdentifier, productPatchRequest);
+             ApiResponse<Product> localVarResponse = await UpdateProductWithHttpInfoAsync(catalogId, productIdentifier, productPatchRequest, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -2336,8 +2490,9 @@ namespace org.egoi.client.api.Api
         /// <param name="catalogId">ID of the Catalog</param>
         /// <param name="productIdentifier">ID of the Product</param>
         /// <param name="productPatchRequest">Parameters for the product</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Product)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Product>> UpdateProductAsyncWithHttpInfo (int? catalogId, string productIdentifier, ProductPatchRequest productPatchRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<Product>> UpdateProductWithHttpInfoAsync (int catalogId, string productIdentifier, ProductPatchRequest productPatchRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'catalogId' is set
             if (catalogId == null)
@@ -2391,7 +2546,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.PATCH, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -2402,7 +2557,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Product>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (Product) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Product)));
         }
 

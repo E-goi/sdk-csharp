@@ -1,9 +1,9 @@
-/* 
+/*
  * APIv3 (New)
  *
- *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
  *
- * OpenAPI spec version: 3.0.0
+ * The version of the OpenAPI document: 3.0.0
  * 
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using RestSharp;
 using org.egoi.client.api.Client;
 using org.egoi.client.api.Model;
@@ -76,8 +77,8 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webPushCampaign">Parameters for the webpush campaign</param>
-        /// <returns>CampaignHash</returns>
-        CampaignHash CreateWebPushCampaign (WebPushCampaign webPushCampaign);
+        /// <returns>InlineResponse200</returns>
+        InlineResponse200 CreateWebPushCampaign (WebPushCampaign webPushCampaign);
 
         /// <summary>
         /// Create new webpush campaign
@@ -87,8 +88,8 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webPushCampaign">Parameters for the webpush campaign</param>
-        /// <returns>ApiResponse of CampaignHash</returns>
-        ApiResponse<CampaignHash> CreateWebPushCampaignWithHttpInfo (WebPushCampaign webPushCampaign);
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        ApiResponse<InlineResponse200> CreateWebPushCampaignWithHttpInfo (WebPushCampaign webPushCampaign);
         /// <summary>
         /// Create new webpush rss campaign
         /// </summary>
@@ -144,7 +145,7 @@ namespace org.egoi.client.api.Api
         /// <param name="orderBy">Reference attribute to order sites (optional, default to list_id)</param>
         /// <param name="listId">Select sites referenced to a list (optional)</param>
         /// <returns>TagCollection1</returns>
-        TagCollection1 GetAllWebPushSites (int? offset = null, int? limit = null, string order = null, string orderBy = null, int? listId = null);
+        TagCollection1 GetAllWebPushSites (int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), int? listId = default(int?));
 
         /// <summary>
         /// Get all webpush sites
@@ -159,7 +160,7 @@ namespace org.egoi.client.api.Api
         /// <param name="orderBy">Reference attribute to order sites (optional, default to list_id)</param>
         /// <param name="listId">Select sites referenced to a list (optional)</param>
         /// <returns>ApiResponse of TagCollection1</returns>
-        ApiResponse<TagCollection1> GetAllWebPushSitesWithHttpInfo (int? offset = null, int? limit = null, string order = null, string orderBy = null, int? listId = null);
+        ApiResponse<TagCollection1> GetAllWebPushSitesWithHttpInfo (int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), int? listId = default(int?));
         /// <summary>
         /// Update a specific webpush campaign
         /// </summary>
@@ -169,8 +170,8 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="webPushPatchCampaign">Parameters for the Webpush Campaign</param>
-        /// <returns>CampaignHash</returns>
-        CampaignHash PatchWebPushCampaign (string campaignHash, WebPushPatchCampaign webPushPatchCampaign);
+        /// <returns>InlineResponse200</returns>
+        InlineResponse200 PatchWebPushCampaign (string campaignHash, WebPushPatchCampaign webPushPatchCampaign);
 
         /// <summary>
         /// Update a specific webpush campaign
@@ -181,8 +182,8 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="webPushPatchCampaign">Parameters for the Webpush Campaign</param>
-        /// <returns>ApiResponse of CampaignHash</returns>
-        ApiResponse<CampaignHash> PatchWebPushCampaignWithHttpInfo (string campaignHash, WebPushPatchCampaign webPushPatchCampaign);
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        ApiResponse<InlineResponse200> PatchWebPushCampaignWithHttpInfo (string campaignHash, WebPushPatchCampaign webPushPatchCampaign);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -193,8 +194,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> ActionEnableWebPushRssAsync (string campaignHash);
+        System.Threading.Tasks.Task<AcceptedResponse> ActionEnableWebPushRssAsync (string campaignHash, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Enable a rss webpush campaign
@@ -204,8 +206,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionEnableWebPushRssAsyncWithHttpInfo (string campaignHash);
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionEnableWebPushRssWithHttpInfoAsync (string campaignHash, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Send webpush message
         /// </summary>
@@ -215,8 +218,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="campaignWebPushSendRequest">Parameters for the &#39;send web-push&#39; action</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> ActionSendWebPushAsync (string campaignHash, CampaignWebPushSendRequest campaignWebPushSendRequest);
+        System.Threading.Tasks.Task<AcceptedResponse> ActionSendWebPushAsync (string campaignHash, CampaignWebPushSendRequest campaignWebPushSendRequest, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Send webpush message
@@ -227,8 +231,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="campaignWebPushSendRequest">Parameters for the &#39;send web-push&#39; action</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionSendWebPushAsyncWithHttpInfo (string campaignHash, CampaignWebPushSendRequest campaignWebPushSendRequest);
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionSendWebPushWithHttpInfoAsync (string campaignHash, CampaignWebPushSendRequest campaignWebPushSendRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create new webpush campaign
         /// </summary>
@@ -237,8 +242,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webPushCampaign">Parameters for the webpush campaign</param>
-        /// <returns>Task of CampaignHash</returns>
-        System.Threading.Tasks.Task<CampaignHash> CreateWebPushCampaignAsync (WebPushCampaign webPushCampaign);
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of InlineResponse200</returns>
+        System.Threading.Tasks.Task<InlineResponse200> CreateWebPushCampaignAsync (WebPushCampaign webPushCampaign, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create new webpush campaign
@@ -248,8 +254,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webPushCampaign">Parameters for the webpush campaign</param>
-        /// <returns>Task of ApiResponse (CampaignHash)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CampaignHash>> CreateWebPushCampaignAsyncWithHttpInfo (WebPushCampaign webPushCampaign);
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> CreateWebPushCampaignWithHttpInfoAsync (WebPushCampaign webPushCampaign, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create new webpush rss campaign
         /// </summary>
@@ -258,8 +265,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webPushRssCampaign">Parameters for the WebPush Campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of HashcodeCampaign</returns>
-        System.Threading.Tasks.Task<HashcodeCampaign> CreateWebPushRssCampaignAsync (WebPushRssCampaign webPushRssCampaign);
+        System.Threading.Tasks.Task<HashcodeCampaign> CreateWebPushRssCampaignAsync (WebPushRssCampaign webPushRssCampaign, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create new webpush rss campaign
@@ -269,8 +277,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webPushRssCampaign">Parameters for the WebPush Campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (HashcodeCampaign)</returns>
-        System.Threading.Tasks.Task<ApiResponse<HashcodeCampaign>> CreateWebPushRssCampaignAsyncWithHttpInfo (WebPushRssCampaign webPushRssCampaign);
+        System.Threading.Tasks.Task<ApiResponse<HashcodeCampaign>> CreateWebPushRssCampaignWithHttpInfoAsync (WebPushRssCampaign webPushRssCampaign, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Creates a webpush site
         /// </summary>
@@ -279,8 +288,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webPushSite">Parameters for the webpush site</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of WebPushSite</returns>
-        System.Threading.Tasks.Task<WebPushSite> CreateWebpushSiteAsync (WebPushSite webPushSite);
+        System.Threading.Tasks.Task<WebPushSite> CreateWebpushSiteAsync (WebPushSite webPushSite, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Creates a webpush site
@@ -290,8 +300,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webPushSite">Parameters for the webpush site</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (WebPushSite)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WebPushSite>> CreateWebpushSiteAsyncWithHttpInfo (WebPushSite webPushSite);
+        System.Threading.Tasks.Task<ApiResponse<WebPushSite>> CreateWebpushSiteWithHttpInfoAsync (WebPushSite webPushSite, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get all webpush sites
         /// </summary>
@@ -304,8 +315,9 @@ namespace org.egoi.client.api.Api
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order sites (optional, default to list_id)</param>
         /// <param name="listId">Select sites referenced to a list (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of TagCollection1</returns>
-        System.Threading.Tasks.Task<TagCollection1> GetAllWebPushSitesAsync (int? offset = null, int? limit = null, string order = null, string orderBy = null, int? listId = null);
+        System.Threading.Tasks.Task<TagCollection1> GetAllWebPushSitesAsync (int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), int? listId = default(int?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get all webpush sites
@@ -319,8 +331,9 @@ namespace org.egoi.client.api.Api
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order sites (optional, default to list_id)</param>
         /// <param name="listId">Select sites referenced to a list (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (TagCollection1)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TagCollection1>> GetAllWebPushSitesAsyncWithHttpInfo (int? offset = null, int? limit = null, string order = null, string orderBy = null, int? listId = null);
+        System.Threading.Tasks.Task<ApiResponse<TagCollection1>> GetAllWebPushSitesWithHttpInfoAsync (int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), int? listId = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update a specific webpush campaign
         /// </summary>
@@ -330,8 +343,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="webPushPatchCampaign">Parameters for the Webpush Campaign</param>
-        /// <returns>Task of CampaignHash</returns>
-        System.Threading.Tasks.Task<CampaignHash> PatchWebPushCampaignAsync (string campaignHash, WebPushPatchCampaign webPushPatchCampaign);
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of InlineResponse200</returns>
+        System.Threading.Tasks.Task<InlineResponse200> PatchWebPushCampaignAsync (string campaignHash, WebPushPatchCampaign webPushPatchCampaign, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update a specific webpush campaign
@@ -342,8 +356,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="webPushPatchCampaign">Parameters for the Webpush Campaign</param>
-        /// <returns>Task of ApiResponse (CampaignHash)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CampaignHash>> PatchWebPushCampaignAsyncWithHttpInfo (string campaignHash, WebPushPatchCampaign webPushPatchCampaign);
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> PatchWebPushCampaignWithHttpInfoAsync (string campaignHash, WebPushPatchCampaign webPushPatchCampaign, CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -473,7 +488,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse< AcceptedResponse > ActionEnableWebPushRssWithHttpInfo (string campaignHash)
+        public ApiResponse<AcceptedResponse> ActionEnableWebPushRssWithHttpInfo (string campaignHash)
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -522,7 +537,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -531,10 +546,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> ActionEnableWebPushRssAsync (string campaignHash)
+        public async System.Threading.Tasks.Task<AcceptedResponse> ActionEnableWebPushRssAsync (string campaignHash, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AcceptedResponse> localVarResponse = await ActionEnableWebPushRssAsyncWithHttpInfo(campaignHash);
+             ApiResponse<AcceptedResponse> localVarResponse = await ActionEnableWebPushRssWithHttpInfoAsync(campaignHash, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -544,8 +560,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionEnableWebPushRssAsyncWithHttpInfo (string campaignHash)
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionEnableWebPushRssWithHttpInfoAsync (string campaignHash, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -583,7 +600,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -594,7 +611,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -618,7 +635,7 @@ namespace org.egoi.client.api.Api
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="campaignWebPushSendRequest">Parameters for the &#39;send web-push&#39; action</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse< AcceptedResponse > ActionSendWebPushWithHttpInfo (string campaignHash, CampaignWebPushSendRequest campaignWebPushSendRequest)
+        public ApiResponse<AcceptedResponse> ActionSendWebPushWithHttpInfo (string campaignHash, CampaignWebPushSendRequest campaignWebPushSendRequest)
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -679,7 +696,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -689,10 +706,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="campaignWebPushSendRequest">Parameters for the &#39;send web-push&#39; action</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> ActionSendWebPushAsync (string campaignHash, CampaignWebPushSendRequest campaignWebPushSendRequest)
+        public async System.Threading.Tasks.Task<AcceptedResponse> ActionSendWebPushAsync (string campaignHash, CampaignWebPushSendRequest campaignWebPushSendRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AcceptedResponse> localVarResponse = await ActionSendWebPushAsyncWithHttpInfo(campaignHash, campaignWebPushSendRequest);
+             ApiResponse<AcceptedResponse> localVarResponse = await ActionSendWebPushWithHttpInfoAsync(campaignHash, campaignWebPushSendRequest, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -703,8 +721,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="campaignWebPushSendRequest">Parameters for the &#39;send web-push&#39; action</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionSendWebPushAsyncWithHttpInfo (string campaignHash, CampaignWebPushSendRequest campaignWebPushSendRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionSendWebPushWithHttpInfoAsync (string campaignHash, CampaignWebPushSendRequest campaignWebPushSendRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -754,7 +773,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -765,7 +784,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -774,10 +793,10 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webPushCampaign">Parameters for the webpush campaign</param>
-        /// <returns>CampaignHash</returns>
-        public CampaignHash CreateWebPushCampaign (WebPushCampaign webPushCampaign)
+        /// <returns>InlineResponse200</returns>
+        public InlineResponse200 CreateWebPushCampaign (WebPushCampaign webPushCampaign)
         {
-             ApiResponse<CampaignHash> localVarResponse = CreateWebPushCampaignWithHttpInfo(webPushCampaign);
+             ApiResponse<InlineResponse200> localVarResponse = CreateWebPushCampaignWithHttpInfo(webPushCampaign);
              return localVarResponse.Data;
         }
 
@@ -786,8 +805,8 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webPushCampaign">Parameters for the webpush campaign</param>
-        /// <returns>ApiResponse of CampaignHash</returns>
-        public ApiResponse< CampaignHash > CreateWebPushCampaignWithHttpInfo (WebPushCampaign webPushCampaign)
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        public ApiResponse<InlineResponse200> CreateWebPushCampaignWithHttpInfo (WebPushCampaign webPushCampaign)
         {
             // verify the required parameter 'webPushCampaign' is set
             if (webPushCampaign == null)
@@ -843,9 +862,9 @@ namespace org.egoi.client.api.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CampaignHash>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CampaignHash) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CampaignHash)));
+            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (InlineResponse200) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
         }
 
         /// <summary>
@@ -853,10 +872,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webPushCampaign">Parameters for the webpush campaign</param>
-        /// <returns>Task of CampaignHash</returns>
-        public async System.Threading.Tasks.Task<CampaignHash> CreateWebPushCampaignAsync (WebPushCampaign webPushCampaign)
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of InlineResponse200</returns>
+        public async System.Threading.Tasks.Task<InlineResponse200> CreateWebPushCampaignAsync (WebPushCampaign webPushCampaign, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<CampaignHash> localVarResponse = await CreateWebPushCampaignAsyncWithHttpInfo(webPushCampaign);
+             ApiResponse<InlineResponse200> localVarResponse = await CreateWebPushCampaignWithHttpInfoAsync(webPushCampaign, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -866,8 +886,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webPushCampaign">Parameters for the webpush campaign</param>
-        /// <returns>Task of ApiResponse (CampaignHash)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CampaignHash>> CreateWebPushCampaignAsyncWithHttpInfo (WebPushCampaign webPushCampaign)
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> CreateWebPushCampaignWithHttpInfoAsync (WebPushCampaign webPushCampaign, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'webPushCampaign' is set
             if (webPushCampaign == null)
@@ -913,7 +934,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -923,9 +944,9 @@ namespace org.egoi.client.api.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CampaignHash>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CampaignHash) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CampaignHash)));
+            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (InlineResponse200) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
         }
 
         /// <summary>
@@ -946,7 +967,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webPushRssCampaign">Parameters for the WebPush Campaign</param>
         /// <returns>ApiResponse of HashcodeCampaign</returns>
-        public ApiResponse< HashcodeCampaign > CreateWebPushRssCampaignWithHttpInfo (WebPushRssCampaign webPushRssCampaign)
+        public ApiResponse<HashcodeCampaign> CreateWebPushRssCampaignWithHttpInfo (WebPushRssCampaign webPushRssCampaign)
         {
             // verify the required parameter 'webPushRssCampaign' is set
             if (webPushRssCampaign == null)
@@ -1003,7 +1024,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<HashcodeCampaign>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (HashcodeCampaign) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(HashcodeCampaign)));
         }
 
@@ -1012,10 +1033,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webPushRssCampaign">Parameters for the WebPush Campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of HashcodeCampaign</returns>
-        public async System.Threading.Tasks.Task<HashcodeCampaign> CreateWebPushRssCampaignAsync (WebPushRssCampaign webPushRssCampaign)
+        public async System.Threading.Tasks.Task<HashcodeCampaign> CreateWebPushRssCampaignAsync (WebPushRssCampaign webPushRssCampaign, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<HashcodeCampaign> localVarResponse = await CreateWebPushRssCampaignAsyncWithHttpInfo(webPushRssCampaign);
+             ApiResponse<HashcodeCampaign> localVarResponse = await CreateWebPushRssCampaignWithHttpInfoAsync(webPushRssCampaign, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1025,8 +1047,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webPushRssCampaign">Parameters for the WebPush Campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (HashcodeCampaign)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<HashcodeCampaign>> CreateWebPushRssCampaignAsyncWithHttpInfo (WebPushRssCampaign webPushRssCampaign)
+        public async System.Threading.Tasks.Task<ApiResponse<HashcodeCampaign>> CreateWebPushRssCampaignWithHttpInfoAsync (WebPushRssCampaign webPushRssCampaign, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'webPushRssCampaign' is set
             if (webPushRssCampaign == null)
@@ -1072,7 +1095,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1083,7 +1106,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<HashcodeCampaign>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (HashcodeCampaign) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(HashcodeCampaign)));
         }
 
@@ -1105,7 +1128,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webPushSite">Parameters for the webpush site</param>
         /// <returns>ApiResponse of WebPushSite</returns>
-        public ApiResponse< WebPushSite > CreateWebpushSiteWithHttpInfo (WebPushSite webPushSite)
+        public ApiResponse<WebPushSite> CreateWebpushSiteWithHttpInfo (WebPushSite webPushSite)
         {
             // verify the required parameter 'webPushSite' is set
             if (webPushSite == null)
@@ -1162,7 +1185,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<WebPushSite>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (WebPushSite) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebPushSite)));
         }
 
@@ -1171,10 +1194,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webPushSite">Parameters for the webpush site</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of WebPushSite</returns>
-        public async System.Threading.Tasks.Task<WebPushSite> CreateWebpushSiteAsync (WebPushSite webPushSite)
+        public async System.Threading.Tasks.Task<WebPushSite> CreateWebpushSiteAsync (WebPushSite webPushSite, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<WebPushSite> localVarResponse = await CreateWebpushSiteAsyncWithHttpInfo(webPushSite);
+             ApiResponse<WebPushSite> localVarResponse = await CreateWebpushSiteWithHttpInfoAsync(webPushSite, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1184,8 +1208,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="webPushSite">Parameters for the webpush site</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (WebPushSite)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<WebPushSite>> CreateWebpushSiteAsyncWithHttpInfo (WebPushSite webPushSite)
+        public async System.Threading.Tasks.Task<ApiResponse<WebPushSite>> CreateWebpushSiteWithHttpInfoAsync (WebPushSite webPushSite, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'webPushSite' is set
             if (webPushSite == null)
@@ -1231,7 +1256,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1242,7 +1267,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<WebPushSite>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (WebPushSite) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebPushSite)));
         }
 
@@ -1256,7 +1281,7 @@ namespace org.egoi.client.api.Api
         /// <param name="orderBy">Reference attribute to order sites (optional, default to list_id)</param>
         /// <param name="listId">Select sites referenced to a list (optional)</param>
         /// <returns>TagCollection1</returns>
-        public TagCollection1 GetAllWebPushSites (int? offset = null, int? limit = null, string order = null, string orderBy = null, int? listId = null)
+        public TagCollection1 GetAllWebPushSites (int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), int? listId = default(int?))
         {
              ApiResponse<TagCollection1> localVarResponse = GetAllWebPushSitesWithHttpInfo(offset, limit, order, orderBy, listId);
              return localVarResponse.Data;
@@ -1272,7 +1297,7 @@ namespace org.egoi.client.api.Api
         /// <param name="orderBy">Reference attribute to order sites (optional, default to list_id)</param>
         /// <param name="listId">Select sites referenced to a list (optional)</param>
         /// <returns>ApiResponse of TagCollection1</returns>
-        public ApiResponse< TagCollection1 > GetAllWebPushSitesWithHttpInfo (int? offset = null, int? limit = null, string order = null, string orderBy = null, int? listId = null)
+        public ApiResponse<TagCollection1> GetAllWebPushSitesWithHttpInfo (int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), int? listId = default(int?))
         {
 
             var localVarPath = "/webpush/sites";
@@ -1322,7 +1347,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<TagCollection1>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (TagCollection1) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TagCollection1)));
         }
 
@@ -1335,10 +1360,11 @@ namespace org.egoi.client.api.Api
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order sites (optional, default to list_id)</param>
         /// <param name="listId">Select sites referenced to a list (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of TagCollection1</returns>
-        public async System.Threading.Tasks.Task<TagCollection1> GetAllWebPushSitesAsync (int? offset = null, int? limit = null, string order = null, string orderBy = null, int? listId = null)
+        public async System.Threading.Tasks.Task<TagCollection1> GetAllWebPushSitesAsync (int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), int? listId = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<TagCollection1> localVarResponse = await GetAllWebPushSitesAsyncWithHttpInfo(offset, limit, order, orderBy, listId);
+             ApiResponse<TagCollection1> localVarResponse = await GetAllWebPushSitesWithHttpInfoAsync(offset, limit, order, orderBy, listId, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1352,8 +1378,9 @@ namespace org.egoi.client.api.Api
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order sites (optional, default to list_id)</param>
         /// <param name="listId">Select sites referenced to a list (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (TagCollection1)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TagCollection1>> GetAllWebPushSitesAsyncWithHttpInfo (int? offset = null, int? limit = null, string order = null, string orderBy = null, int? listId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<TagCollection1>> GetAllWebPushSitesWithHttpInfoAsync (int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), int? listId = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/webpush/sites";
@@ -1392,7 +1419,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1403,7 +1430,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<TagCollection1>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (TagCollection1) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TagCollection1)));
         }
 
@@ -1413,10 +1440,10 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="webPushPatchCampaign">Parameters for the Webpush Campaign</param>
-        /// <returns>CampaignHash</returns>
-        public CampaignHash PatchWebPushCampaign (string campaignHash, WebPushPatchCampaign webPushPatchCampaign)
+        /// <returns>InlineResponse200</returns>
+        public InlineResponse200 PatchWebPushCampaign (string campaignHash, WebPushPatchCampaign webPushPatchCampaign)
         {
-             ApiResponse<CampaignHash> localVarResponse = PatchWebPushCampaignWithHttpInfo(campaignHash, webPushPatchCampaign);
+             ApiResponse<InlineResponse200> localVarResponse = PatchWebPushCampaignWithHttpInfo(campaignHash, webPushPatchCampaign);
              return localVarResponse.Data;
         }
 
@@ -1426,8 +1453,8 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="webPushPatchCampaign">Parameters for the Webpush Campaign</param>
-        /// <returns>ApiResponse of CampaignHash</returns>
-        public ApiResponse< CampaignHash > PatchWebPushCampaignWithHttpInfo (string campaignHash, WebPushPatchCampaign webPushPatchCampaign)
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        public ApiResponse<InlineResponse200> PatchWebPushCampaignWithHttpInfo (string campaignHash, WebPushPatchCampaign webPushPatchCampaign)
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -1487,9 +1514,9 @@ namespace org.egoi.client.api.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CampaignHash>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CampaignHash) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CampaignHash)));
+            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (InlineResponse200) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
         }
 
         /// <summary>
@@ -1498,10 +1525,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="webPushPatchCampaign">Parameters for the Webpush Campaign</param>
-        /// <returns>Task of CampaignHash</returns>
-        public async System.Threading.Tasks.Task<CampaignHash> PatchWebPushCampaignAsync (string campaignHash, WebPushPatchCampaign webPushPatchCampaign)
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of InlineResponse200</returns>
+        public async System.Threading.Tasks.Task<InlineResponse200> PatchWebPushCampaignAsync (string campaignHash, WebPushPatchCampaign webPushPatchCampaign, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<CampaignHash> localVarResponse = await PatchWebPushCampaignAsyncWithHttpInfo(campaignHash, webPushPatchCampaign);
+             ApiResponse<InlineResponse200> localVarResponse = await PatchWebPushCampaignWithHttpInfoAsync(campaignHash, webPushPatchCampaign, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1512,8 +1540,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="webPushPatchCampaign">Parameters for the Webpush Campaign</param>
-        /// <returns>Task of ApiResponse (CampaignHash)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CampaignHash>> PatchWebPushCampaignAsyncWithHttpInfo (string campaignHash, WebPushPatchCampaign webPushPatchCampaign)
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> PatchWebPushCampaignWithHttpInfoAsync (string campaignHash, WebPushPatchCampaign webPushPatchCampaign, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -1563,7 +1592,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.PATCH, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1573,9 +1602,9 @@ namespace org.egoi.client.api.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CampaignHash>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CampaignHash) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CampaignHash)));
+            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (InlineResponse200) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
         }
 
     }

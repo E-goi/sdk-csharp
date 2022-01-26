@@ -1,4 +1,6 @@
+
 # org.egoi.client.api.Model.UniqueFieldInUseErrors
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -7,5 +9,7 @@ Name | Type | Description | Notes
 **FieldId** | **string** | Field ID | [optional] 
 **Contacts** | **List&lt;string&gt;** |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

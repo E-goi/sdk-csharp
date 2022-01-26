@@ -1,9 +1,9 @@
-/* 
+/*
  * APIv3 (New)
  *
- *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
  *
- * OpenAPI spec version: 3.0.0
+ * The version of the OpenAPI document: 3.0.0
  * 
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -39,7 +39,7 @@ namespace org.egoi.client.api.Model
         /// <param name="error">Total number of failed messages.</param>
         /// <param name="invalid">Total number of invalid messages.</param>
         /// <param name="pending">Total number of pending messages.</param>
-        public OverallOverall(int? destinations = default(int?), int? sends = default(int?), int? delivered = default(int?), int? error = default(int?), int? invalid = default(int?), int? pending = default(int?))
+        public OverallOverall(int destinations = default(int), int sends = default(int), int delivered = default(int), int error = default(int), int invalid = default(int), int pending = default(int))
         {
             this.Destinations = destinations;
             this.Sends = sends;
@@ -48,48 +48,48 @@ namespace org.egoi.client.api.Model
             this.Invalid = invalid;
             this.Pending = pending;
         }
-        
+
         /// <summary>
         /// Total number of destinations
         /// </summary>
         /// <value>Total number of destinations</value>
         [DataMember(Name="destinations", EmitDefaultValue=false)]
-        public int? Destinations { get; set; }
+        public int Destinations { get; set; }
 
         /// <summary>
         /// Total number of sent messages
         /// </summary>
         /// <value>Total number of sent messages</value>
         [DataMember(Name="sends", EmitDefaultValue=false)]
-        public int? Sends { get; set; }
+        public int Sends { get; set; }
 
         /// <summary>
         /// Total number of delivered messages
         /// </summary>
         /// <value>Total number of delivered messages</value>
         [DataMember(Name="delivered", EmitDefaultValue=false)]
-        public int? Delivered { get; set; }
+        public int Delivered { get; set; }
 
         /// <summary>
         /// Total number of failed messages
         /// </summary>
         /// <value>Total number of failed messages</value>
         [DataMember(Name="error", EmitDefaultValue=false)]
-        public int? Error { get; set; }
+        public int Error { get; set; }
 
         /// <summary>
         /// Total number of invalid messages
         /// </summary>
         /// <value>Total number of invalid messages</value>
         [DataMember(Name="invalid", EmitDefaultValue=false)]
-        public int? Invalid { get; set; }
+        public int Invalid { get; set; }
 
         /// <summary>
         /// Total number of pending messages
         /// </summary>
         /// <value>Total number of pending messages</value>
         [DataMember(Name="pending", EmitDefaultValue=false)]
-        public int? Pending { get; set; }
+        public int Pending { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -108,14 +108,14 @@ namespace org.egoi.client.api.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -203,38 +203,50 @@ namespace org.egoi.client.api.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Destinations (int?) minimum
-            if(this.Destinations < (int?)1)
+
+
+            // Destinations (int) minimum
+            if(this.Destinations < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Destinations, must be a value greater than or equal to 1.", new [] { "Destinations" });
             }
 
-            // Sends (int?) minimum
-            if(this.Sends < (int?)1)
+
+
+            // Sends (int) minimum
+            if(this.Sends < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sends, must be a value greater than or equal to 1.", new [] { "Sends" });
             }
 
-            // Delivered (int?) minimum
-            if(this.Delivered < (int?)0)
+
+
+            // Delivered (int) minimum
+            if(this.Delivered < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Delivered, must be a value greater than or equal to 0.", new [] { "Delivered" });
             }
 
-            // Error (int?) minimum
-            if(this.Error < (int?)0)
+
+
+            // Error (int) minimum
+            if(this.Error < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Error, must be a value greater than or equal to 0.", new [] { "Error" });
             }
 
-            // Invalid (int?) minimum
-            if(this.Invalid < (int?)0)
+
+
+            // Invalid (int) minimum
+            if(this.Invalid < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Invalid, must be a value greater than or equal to 0.", new [] { "Invalid" });
             }
 
-            // Pending (int?) minimum
-            if(this.Pending < (int?)0)
+
+
+            // Pending (int) minimum
+            if(this.Pending < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Pending, must be a value greater than or equal to 0.", new [] { "Pending" });
             }

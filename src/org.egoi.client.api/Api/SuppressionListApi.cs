@@ -1,9 +1,9 @@
-/* 
+/*
  * APIv3 (New)
  *
- *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
  *
- * OpenAPI spec version: 3.0.0
+ * The version of the OpenAPI document: 3.0.0
  * 
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using RestSharp;
 using org.egoi.client.api.Client;
 using org.egoi.client.api.Model;
@@ -24,6 +25,48 @@ namespace org.egoi.client.api.Api
     public interface ISuppressionListApi : IApiAccessor
     {
         #region Synchronous Operations
+        /// <summary>
+        /// Add to suppression list
+        /// </summary>
+        /// <remarks>
+        /// Adds a collection of values to the suppression list
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSuppressionListRequest">Parameters for the request</param>
+        /// <returns>AcceptedResponse</returns>
+        AcceptedResponse CreateSuppressionList (CreateSuppressionListRequest createSuppressionListRequest);
+
+        /// <summary>
+        /// Add to suppression list
+        /// </summary>
+        /// <remarks>
+        /// Adds a collection of values to the suppression list
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSuppressionListRequest">Parameters for the request</param>
+        /// <returns>ApiResponse of AcceptedResponse</returns>
+        ApiResponse<AcceptedResponse> CreateSuppressionListWithHttpInfo (CreateSuppressionListRequest createSuppressionListRequest);
+        /// <summary>
+        /// Delete from suppression list
+        /// </summary>
+        /// <remarks>
+        /// Deletes a suppression list value given its ID if it&#39;s creation method was ´manual´
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="suppressionId">ID of Suppression List</param>
+        /// <returns></returns>
+        void DeleteSuppressionList (int suppressionId);
+
+        /// <summary>
+        /// Delete from suppression list
+        /// </summary>
+        /// <remarks>
+        /// Deletes a suppression list value given its ID if it&#39;s creation method was ´manual´
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="suppressionId">ID of Suppression List</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteSuppressionListWithHttpInfo (int suppressionId);
         /// <summary>
         /// Get the suppression list
         /// </summary>
@@ -42,7 +85,7 @@ namespace org.egoi.client.api.Api
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order the suppression list (optional, default to id)</param>
         /// <returns>SuppressionListItems</returns>
-        SuppressionListItems GetAllSuppressionList (string type = null, string method = null, string value = null, string campaignHash = null, DateTime? createdMin = null, DateTime? createdMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null);
+        SuppressionListItems GetAllSuppressionList (string type = default(string), string method = default(string), string value = default(string), string campaignHash = default(string), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string));
 
         /// <summary>
         /// Get the suppression list
@@ -62,9 +105,55 @@ namespace org.egoi.client.api.Api
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order the suppression list (optional, default to id)</param>
         /// <returns>ApiResponse of SuppressionListItems</returns>
-        ApiResponse<SuppressionListItems> GetAllSuppressionListWithHttpInfo (string type = null, string method = null, string value = null, string campaignHash = null, DateTime? createdMin = null, DateTime? createdMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null);
+        ApiResponse<SuppressionListItems> GetAllSuppressionListWithHttpInfo (string type = default(string), string method = default(string), string value = default(string), string campaignHash = default(string), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string));
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Add to suppression list
+        /// </summary>
+        /// <remarks>
+        /// Adds a collection of values to the suppression list
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSuppressionListRequest">Parameters for the request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AcceptedResponse</returns>
+        System.Threading.Tasks.Task<AcceptedResponse> CreateSuppressionListAsync (CreateSuppressionListRequest createSuppressionListRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Add to suppression list
+        /// </summary>
+        /// <remarks>
+        /// Adds a collection of values to the suppression list
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSuppressionListRequest">Parameters for the request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> CreateSuppressionListWithHttpInfoAsync (CreateSuppressionListRequest createSuppressionListRequest, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Delete from suppression list
+        /// </summary>
+        /// <remarks>
+        /// Deletes a suppression list value given its ID if it&#39;s creation method was ´manual´
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="suppressionId">ID of Suppression List</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteSuppressionListAsync (int suppressionId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete from suppression list
+        /// </summary>
+        /// <remarks>
+        /// Deletes a suppression list value given its ID if it&#39;s creation method was ´manual´
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="suppressionId">ID of Suppression List</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSuppressionListWithHttpInfoAsync (int suppressionId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get the suppression list
         /// </summary>
@@ -82,8 +171,9 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order the suppression list (optional, default to id)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SuppressionListItems</returns>
-        System.Threading.Tasks.Task<SuppressionListItems> GetAllSuppressionListAsync (string type = null, string method = null, string value = null, string campaignHash = null, DateTime? createdMin = null, DateTime? createdMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null);
+        System.Threading.Tasks.Task<SuppressionListItems> GetAllSuppressionListAsync (string type = default(string), string method = default(string), string value = default(string), string campaignHash = default(string), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get the suppression list
@@ -102,8 +192,9 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order the suppression list (optional, default to id)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SuppressionListItems)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SuppressionListItems>> GetAllSuppressionListAsyncWithHttpInfo (string type = null, string method = null, string value = null, string campaignHash = null, DateTime? createdMin = null, DateTime? createdMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null);
+        System.Threading.Tasks.Task<ApiResponse<SuppressionListItems>> GetAllSuppressionListWithHttpInfoAsync (string type = default(string), string method = default(string), string value = default(string), string campaignHash = default(string), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -216,6 +307,310 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
+        /// Add to suppression list Adds a collection of values to the suppression list
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSuppressionListRequest">Parameters for the request</param>
+        /// <returns>AcceptedResponse</returns>
+        public AcceptedResponse CreateSuppressionList (CreateSuppressionListRequest createSuppressionListRequest)
+        {
+             ApiResponse<AcceptedResponse> localVarResponse = CreateSuppressionListWithHttpInfo(createSuppressionListRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Add to suppression list Adds a collection of values to the suppression list
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSuppressionListRequest">Parameters for the request</param>
+        /// <returns>ApiResponse of AcceptedResponse</returns>
+        public ApiResponse<AcceptedResponse> CreateSuppressionListWithHttpInfo (CreateSuppressionListRequest createSuppressionListRequest)
+        {
+            // verify the required parameter 'createSuppressionListRequest' is set
+            if (createSuppressionListRequest == null)
+                throw new ApiException(400, "Missing required parameter 'createSuppressionListRequest' when calling SuppressionListApi->CreateSuppressionList");
+
+            var localVarPath = "/suppression-list";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (createSuppressionListRequest != null && createSuppressionListRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(createSuppressionListRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = createSuppressionListRequest; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateSuppressionList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AcceptedResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
+        }
+
+        /// <summary>
+        /// Add to suppression list Adds a collection of values to the suppression list
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSuppressionListRequest">Parameters for the request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of AcceptedResponse</returns>
+        public async System.Threading.Tasks.Task<AcceptedResponse> CreateSuppressionListAsync (CreateSuppressionListRequest createSuppressionListRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<AcceptedResponse> localVarResponse = await CreateSuppressionListWithHttpInfoAsync(createSuppressionListRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Add to suppression list Adds a collection of values to the suppression list
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createSuppressionListRequest">Parameters for the request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> CreateSuppressionListWithHttpInfoAsync (CreateSuppressionListRequest createSuppressionListRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'createSuppressionListRequest' is set
+            if (createSuppressionListRequest == null)
+                throw new ApiException(400, "Missing required parameter 'createSuppressionListRequest' when calling SuppressionListApi->CreateSuppressionList");
+
+            var localVarPath = "/suppression-list";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (createSuppressionListRequest != null && createSuppressionListRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(createSuppressionListRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = createSuppressionListRequest; // byte array
+            }
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateSuppressionList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<AcceptedResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
+        }
+
+        /// <summary>
+        /// Delete from suppression list Deletes a suppression list value given its ID if it&#39;s creation method was ´manual´
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="suppressionId">ID of Suppression List</param>
+        /// <returns></returns>
+        public void DeleteSuppressionList (int suppressionId)
+        {
+             DeleteSuppressionListWithHttpInfo(suppressionId);
+        }
+
+        /// <summary>
+        /// Delete from suppression list Deletes a suppression list value given its ID if it&#39;s creation method was ´manual´
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="suppressionId">ID of Suppression List</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteSuppressionListWithHttpInfo (int suppressionId)
+        {
+            // verify the required parameter 'suppressionId' is set
+            if (suppressionId == null)
+                throw new ApiException(400, "Missing required parameter 'suppressionId' when calling SuppressionListApi->DeleteSuppressionList");
+
+            var localVarPath = "/suppression-list/{suppression_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (suppressionId != null) localVarPathParams.Add("suppression_id", this.Configuration.ApiClient.ParameterToString(suppressionId)); // path parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSuppressionList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Delete from suppression list Deletes a suppression list value given its ID if it&#39;s creation method was ´manual´
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="suppressionId">ID of Suppression List</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteSuppressionListAsync (int suppressionId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await DeleteSuppressionListWithHttpInfoAsync(suppressionId, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Delete from suppression list Deletes a suppression list value given its ID if it&#39;s creation method was ´manual´
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="suppressionId">ID of Suppression List</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSuppressionListWithHttpInfoAsync (int suppressionId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'suppressionId' is set
+            if (suppressionId == null)
+                throw new ApiException(400, "Missing required parameter 'suppressionId' when calling SuppressionListApi->DeleteSuppressionList");
+
+            var localVarPath = "/suppression-list/{suppression_id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (suppressionId != null) localVarPathParams.Add("suppression_id", this.Configuration.ApiClient.ParameterToString(suppressionId)); // path parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteSuppressionList", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
         /// Get the suppression list Returns the suppression list
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
@@ -230,7 +625,7 @@ namespace org.egoi.client.api.Api
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order the suppression list (optional, default to id)</param>
         /// <returns>SuppressionListItems</returns>
-        public SuppressionListItems GetAllSuppressionList (string type = null, string method = null, string value = null, string campaignHash = null, DateTime? createdMin = null, DateTime? createdMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null)
+        public SuppressionListItems GetAllSuppressionList (string type = default(string), string method = default(string), string value = default(string), string campaignHash = default(string), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string))
         {
              ApiResponse<SuppressionListItems> localVarResponse = GetAllSuppressionListWithHttpInfo(type, method, value, campaignHash, createdMin, createdMax, offset, limit, order, orderBy);
              return localVarResponse.Data;
@@ -251,7 +646,7 @@ namespace org.egoi.client.api.Api
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order the suppression list (optional, default to id)</param>
         /// <returns>ApiResponse of SuppressionListItems</returns>
-        public ApiResponse< SuppressionListItems > GetAllSuppressionListWithHttpInfo (string type = null, string method = null, string value = null, string campaignHash = null, DateTime? createdMin = null, DateTime? createdMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null)
+        public ApiResponse<SuppressionListItems> GetAllSuppressionListWithHttpInfo (string type = default(string), string method = default(string), string value = default(string), string campaignHash = default(string), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string))
         {
 
             var localVarPath = "/suppression-list";
@@ -306,7 +701,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<SuppressionListItems>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SuppressionListItems) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SuppressionListItems)));
         }
 
@@ -324,10 +719,11 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order the suppression list (optional, default to id)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of SuppressionListItems</returns>
-        public async System.Threading.Tasks.Task<SuppressionListItems> GetAllSuppressionListAsync (string type = null, string method = null, string value = null, string campaignHash = null, DateTime? createdMin = null, DateTime? createdMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null)
+        public async System.Threading.Tasks.Task<SuppressionListItems> GetAllSuppressionListAsync (string type = default(string), string method = default(string), string value = default(string), string campaignHash = default(string), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<SuppressionListItems> localVarResponse = await GetAllSuppressionListAsyncWithHttpInfo(type, method, value, campaignHash, createdMin, createdMax, offset, limit, order, orderBy);
+             ApiResponse<SuppressionListItems> localVarResponse = await GetAllSuppressionListWithHttpInfoAsync(type, method, value, campaignHash, createdMin, createdMax, offset, limit, order, orderBy, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -346,8 +742,9 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order the suppression list (optional, default to id)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SuppressionListItems)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SuppressionListItems>> GetAllSuppressionListAsyncWithHttpInfo (string type = null, string method = null, string value = null, string campaignHash = null, DateTime? createdMin = null, DateTime? createdMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null)
+        public async System.Threading.Tasks.Task<ApiResponse<SuppressionListItems>> GetAllSuppressionListWithHttpInfoAsync (string type = default(string), string method = default(string), string value = default(string), string campaignHash = default(string), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/suppression-list";
@@ -391,7 +788,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -402,7 +799,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<SuppressionListItems>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SuppressionListItems) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SuppressionListItems)));
         }
 

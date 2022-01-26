@@ -1,9 +1,9 @@
-/* 
+/*
  * APIv3 (New)
  *
- *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
  *
- * OpenAPI spec version: 3.0.0
+ * The version of the OpenAPI document: 3.0.0
  * 
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -43,7 +43,7 @@ namespace org.egoi.client.api.Model
         /// <param name="messageHash">The hash of the campaign related to the notification. (required).</param>
         /// <param name="_event">The event to register (opened, canceled). (required).</param>
         /// <param name="deviceId">The E-goi&#39;s ID of the device. (required).</param>
-        public PushEvent(string os = default(string), string contact = default(string), string messageHash = default(string), string _event = default(string), int? deviceId = default(int?))
+        public PushEvent(string os = default(string), string contact = default(string), string messageHash = default(string), string _event = default(string), int deviceId = default(int))
         {
             // to ensure "os" is required (not null)
             if (os == null)
@@ -54,6 +54,7 @@ namespace org.egoi.client.api.Model
             {
                 this.Os = os;
             }
+
             // to ensure "contact" is required (not null)
             if (contact == null)
             {
@@ -63,6 +64,7 @@ namespace org.egoi.client.api.Model
             {
                 this.Contact = contact;
             }
+
             // to ensure "messageHash" is required (not null)
             if (messageHash == null)
             {
@@ -72,6 +74,7 @@ namespace org.egoi.client.api.Model
             {
                 this.MessageHash = messageHash;
             }
+
             // to ensure "_event" is required (not null)
             if (_event == null)
             {
@@ -81,6 +84,7 @@ namespace org.egoi.client.api.Model
             {
                 this.Event = _event;
             }
+
             // to ensure "deviceId" is required (not null)
             if (deviceId == null)
             {
@@ -90,42 +94,43 @@ namespace org.egoi.client.api.Model
             {
                 this.DeviceId = deviceId;
             }
+
         }
-        
+
         /// <summary>
         /// The OS of the device.
         /// </summary>
         /// <value>The OS of the device.</value>
-        [DataMember(Name="os", EmitDefaultValue=false)]
+        [DataMember(Name="os", EmitDefaultValue=true)]
         public string Os { get; set; }
 
         /// <summary>
         /// The UID of the contact.
         /// </summary>
         /// <value>The UID of the contact.</value>
-        [DataMember(Name="contact", EmitDefaultValue=false)]
+        [DataMember(Name="contact", EmitDefaultValue=true)]
         public string Contact { get; set; }
 
         /// <summary>
         /// The hash of the campaign related to the notification.
         /// </summary>
         /// <value>The hash of the campaign related to the notification.</value>
-        [DataMember(Name="message_hash", EmitDefaultValue=false)]
+        [DataMember(Name="message_hash", EmitDefaultValue=true)]
         public string MessageHash { get; set; }
 
         /// <summary>
         /// The event to register (opened, canceled).
         /// </summary>
         /// <value>The event to register (opened, canceled).</value>
-        [DataMember(Name="event", EmitDefaultValue=false)]
+        [DataMember(Name="event", EmitDefaultValue=true)]
         public string Event { get; set; }
 
         /// <summary>
         /// The E-goi&#39;s ID of the device.
         /// </summary>
         /// <value>The E-goi&#39;s ID of the device.</value>
-        [DataMember(Name="device_id", EmitDefaultValue=false)]
-        public int? DeviceId { get; set; }
+        [DataMember(Name="device_id", EmitDefaultValue=true)]
+        public int DeviceId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -143,14 +148,14 @@ namespace org.egoi.client.api.Model
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

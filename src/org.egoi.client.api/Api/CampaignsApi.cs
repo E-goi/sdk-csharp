@@ -1,9 +1,9 @@
-/* 
+/*
  * APIv3 (New)
  *
- *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
  *
- * OpenAPI spec version: 3.0.0
+ * The version of the OpenAPI document: 3.0.0
  * 
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using RestSharp;
 using org.egoi.client.api.Client;
 using org.egoi.client.api.Model;
@@ -74,7 +75,7 @@ namespace org.egoi.client.api.Api
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order campaigns (optional, default to created)</param>
         /// <returns>CampaignsCollection</returns>
-        CampaignsCollection GetAllCampaigns (string channel = null, string campaignHash = null, int? listId = null, string status = null, string internalName = null, int? createdBy = null, int? groupId = null, DateTime? createdMin = null, DateTime? createdMax = null, DateTime? updatedMin = null, DateTime? updatedMax = null, DateTime? startDateMin = null, DateTime? startDateMax = null, DateTime? endDateMin = null, DateTime? endDateMax = null, DateTime? scheduleDateMin = null, DateTime? scheduleDateMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null);
+        CampaignsCollection GetAllCampaigns (string channel = default(string), string campaignHash = default(string), int? listId = default(int?), string status = default(string), string internalName = default(string), int? createdBy = default(int?), int? groupId = default(int?), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), DateTime? updatedMin = default(DateTime?), DateTime? updatedMax = default(DateTime?), DateTime? startDateMin = default(DateTime?), DateTime? startDateMax = default(DateTime?), DateTime? endDateMin = default(DateTime?), DateTime? endDateMax = default(DateTime?), DateTime? scheduleDateMin = default(DateTime?), DateTime? scheduleDateMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string));
 
         /// <summary>
         /// Get all Campaigns
@@ -105,7 +106,7 @@ namespace org.egoi.client.api.Api
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order campaigns (optional, default to created)</param>
         /// <returns>ApiResponse of CampaignsCollection</returns>
-        ApiResponse<CampaignsCollection> GetAllCampaignsWithHttpInfo (string channel = null, string campaignHash = null, int? listId = null, string status = null, string internalName = null, int? createdBy = null, int? groupId = null, DateTime? createdMin = null, DateTime? createdMax = null, DateTime? updatedMin = null, DateTime? updatedMax = null, DateTime? startDateMin = null, DateTime? startDateMax = null, DateTime? endDateMin = null, DateTime? endDateMax = null, DateTime? scheduleDateMin = null, DateTime? scheduleDateMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null);
+        ApiResponse<CampaignsCollection> GetAllCampaignsWithHttpInfo (string channel = default(string), string campaignHash = default(string), int? listId = default(int?), string status = default(string), string internalName = default(string), int? createdBy = default(int?), int? groupId = default(int?), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), DateTime? updatedMin = default(DateTime?), DateTime? updatedMax = default(DateTime?), DateTime? startDateMin = default(DateTime?), DateTime? startDateMax = default(DateTime?), DateTime? endDateMin = default(DateTime?), DateTime? endDateMax = default(DateTime?), DateTime? scheduleDateMin = default(DateTime?), DateTime? scheduleDateMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -116,8 +117,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteCampaignsAsync (string campaignHash);
+        System.Threading.Tasks.Task DeleteCampaignsAsync (string campaignHash, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Remove Campaign
@@ -127,8 +129,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCampaignsAsyncWithHttpInfo (string campaignHash);
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCampaignsWithHttpInfoAsync (string campaignHash, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get all Campaigns
         /// </summary>
@@ -157,8 +160,9 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order campaigns (optional, default to created)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of CampaignsCollection</returns>
-        System.Threading.Tasks.Task<CampaignsCollection> GetAllCampaignsAsync (string channel = null, string campaignHash = null, int? listId = null, string status = null, string internalName = null, int? createdBy = null, int? groupId = null, DateTime? createdMin = null, DateTime? createdMax = null, DateTime? updatedMin = null, DateTime? updatedMax = null, DateTime? startDateMin = null, DateTime? startDateMax = null, DateTime? endDateMin = null, DateTime? endDateMax = null, DateTime? scheduleDateMin = null, DateTime? scheduleDateMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null);
+        System.Threading.Tasks.Task<CampaignsCollection> GetAllCampaignsAsync (string channel = default(string), string campaignHash = default(string), int? listId = default(int?), string status = default(string), string internalName = default(string), int? createdBy = default(int?), int? groupId = default(int?), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), DateTime? updatedMin = default(DateTime?), DateTime? updatedMax = default(DateTime?), DateTime? startDateMin = default(DateTime?), DateTime? startDateMax = default(DateTime?), DateTime? endDateMin = default(DateTime?), DateTime? endDateMax = default(DateTime?), DateTime? scheduleDateMin = default(DateTime?), DateTime? scheduleDateMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get all Campaigns
@@ -188,8 +192,9 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order campaigns (optional, default to created)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (CampaignsCollection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CampaignsCollection>> GetAllCampaignsAsyncWithHttpInfo (string channel = null, string campaignHash = null, int? listId = null, string status = null, string internalName = null, int? createdBy = null, int? groupId = null, DateTime? createdMin = null, DateTime? createdMax = null, DateTime? updatedMin = null, DateTime? updatedMax = null, DateTime? startDateMin = null, DateTime? startDateMax = null, DateTime? endDateMin = null, DateTime? endDateMax = null, DateTime? scheduleDateMin = null, DateTime? scheduleDateMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null);
+        System.Threading.Tasks.Task<ApiResponse<CampaignsCollection>> GetAllCampaignsWithHttpInfoAsync (string channel = default(string), string campaignHash = default(string), int? listId = default(int?), string status = default(string), string internalName = default(string), int? createdBy = default(int?), int? groupId = default(int?), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), DateTime? updatedMin = default(DateTime?), DateTime? updatedMax = default(DateTime?), DateTime? startDateMin = default(DateTime?), DateTime? startDateMax = default(DateTime?), DateTime? endDateMin = default(DateTime?), DateTime? endDateMax = default(DateTime?), DateTime? scheduleDateMin = default(DateTime?), DateTime? scheduleDateMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -367,7 +372,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
         }
 
@@ -376,10 +381,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteCampaignsAsync (string campaignHash)
+        public async System.Threading.Tasks.Task DeleteCampaignsAsync (string campaignHash, CancellationToken cancellationToken = default(CancellationToken))
         {
-             await DeleteCampaignsAsyncWithHttpInfo(campaignHash);
+             await DeleteCampaignsWithHttpInfoAsync(campaignHash, cancellationToken);
 
         }
 
@@ -388,8 +394,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCampaignsAsyncWithHttpInfo (string campaignHash)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCampaignsWithHttpInfoAsync (string campaignHash, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -427,7 +434,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -438,7 +445,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
         }
 
@@ -468,7 +475,7 @@ namespace org.egoi.client.api.Api
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order campaigns (optional, default to created)</param>
         /// <returns>CampaignsCollection</returns>
-        public CampaignsCollection GetAllCampaigns (string channel = null, string campaignHash = null, int? listId = null, string status = null, string internalName = null, int? createdBy = null, int? groupId = null, DateTime? createdMin = null, DateTime? createdMax = null, DateTime? updatedMin = null, DateTime? updatedMax = null, DateTime? startDateMin = null, DateTime? startDateMax = null, DateTime? endDateMin = null, DateTime? endDateMax = null, DateTime? scheduleDateMin = null, DateTime? scheduleDateMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null)
+        public CampaignsCollection GetAllCampaigns (string channel = default(string), string campaignHash = default(string), int? listId = default(int?), string status = default(string), string internalName = default(string), int? createdBy = default(int?), int? groupId = default(int?), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), DateTime? updatedMin = default(DateTime?), DateTime? updatedMax = default(DateTime?), DateTime? startDateMin = default(DateTime?), DateTime? startDateMax = default(DateTime?), DateTime? endDateMin = default(DateTime?), DateTime? endDateMax = default(DateTime?), DateTime? scheduleDateMin = default(DateTime?), DateTime? scheduleDateMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string))
         {
              ApiResponse<CampaignsCollection> localVarResponse = GetAllCampaignsWithHttpInfo(channel, campaignHash, listId, status, internalName, createdBy, groupId, createdMin, createdMax, updatedMin, updatedMax, startDateMin, startDateMax, endDateMin, endDateMax, scheduleDateMin, scheduleDateMax, offset, limit, order, orderBy);
              return localVarResponse.Data;
@@ -500,7 +507,7 @@ namespace org.egoi.client.api.Api
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order campaigns (optional, default to created)</param>
         /// <returns>ApiResponse of CampaignsCollection</returns>
-        public ApiResponse< CampaignsCollection > GetAllCampaignsWithHttpInfo (string channel = null, string campaignHash = null, int? listId = null, string status = null, string internalName = null, int? createdBy = null, int? groupId = null, DateTime? createdMin = null, DateTime? createdMax = null, DateTime? updatedMin = null, DateTime? updatedMax = null, DateTime? startDateMin = null, DateTime? startDateMax = null, DateTime? endDateMin = null, DateTime? endDateMax = null, DateTime? scheduleDateMin = null, DateTime? scheduleDateMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null)
+        public ApiResponse<CampaignsCollection> GetAllCampaignsWithHttpInfo (string channel = default(string), string campaignHash = default(string), int? listId = default(int?), string status = default(string), string internalName = default(string), int? createdBy = default(int?), int? groupId = default(int?), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), DateTime? updatedMin = default(DateTime?), DateTime? updatedMax = default(DateTime?), DateTime? startDateMin = default(DateTime?), DateTime? startDateMax = default(DateTime?), DateTime? endDateMin = default(DateTime?), DateTime? endDateMax = default(DateTime?), DateTime? scheduleDateMin = default(DateTime?), DateTime? scheduleDateMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string))
         {
 
             var localVarPath = "/campaigns";
@@ -566,7 +573,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<CampaignsCollection>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (CampaignsCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CampaignsCollection)));
         }
 
@@ -595,10 +602,11 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order campaigns (optional, default to created)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of CampaignsCollection</returns>
-        public async System.Threading.Tasks.Task<CampaignsCollection> GetAllCampaignsAsync (string channel = null, string campaignHash = null, int? listId = null, string status = null, string internalName = null, int? createdBy = null, int? groupId = null, DateTime? createdMin = null, DateTime? createdMax = null, DateTime? updatedMin = null, DateTime? updatedMax = null, DateTime? startDateMin = null, DateTime? startDateMax = null, DateTime? endDateMin = null, DateTime? endDateMax = null, DateTime? scheduleDateMin = null, DateTime? scheduleDateMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null)
+        public async System.Threading.Tasks.Task<CampaignsCollection> GetAllCampaignsAsync (string channel = default(string), string campaignHash = default(string), int? listId = default(int?), string status = default(string), string internalName = default(string), int? createdBy = default(int?), int? groupId = default(int?), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), DateTime? updatedMin = default(DateTime?), DateTime? updatedMax = default(DateTime?), DateTime? startDateMin = default(DateTime?), DateTime? startDateMax = default(DateTime?), DateTime? endDateMin = default(DateTime?), DateTime? endDateMax = default(DateTime?), DateTime? scheduleDateMin = default(DateTime?), DateTime? scheduleDateMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<CampaignsCollection> localVarResponse = await GetAllCampaignsAsyncWithHttpInfo(channel, campaignHash, listId, status, internalName, createdBy, groupId, createdMin, createdMax, updatedMin, updatedMax, startDateMin, startDateMax, endDateMin, endDateMax, scheduleDateMin, scheduleDateMax, offset, limit, order, orderBy);
+             ApiResponse<CampaignsCollection> localVarResponse = await GetAllCampaignsWithHttpInfoAsync(channel, campaignHash, listId, status, internalName, createdBy, groupId, createdMin, createdMax, updatedMin, updatedMax, startDateMin, startDateMax, endDateMin, endDateMax, scheduleDateMin, scheduleDateMax, offset, limit, order, orderBy, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -628,8 +636,9 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order campaigns (optional, default to created)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (CampaignsCollection)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CampaignsCollection>> GetAllCampaignsAsyncWithHttpInfo (string channel = null, string campaignHash = null, int? listId = null, string status = null, string internalName = null, int? createdBy = null, int? groupId = null, DateTime? createdMin = null, DateTime? createdMax = null, DateTime? updatedMin = null, DateTime? updatedMax = null, DateTime? startDateMin = null, DateTime? startDateMax = null, DateTime? endDateMin = null, DateTime? endDateMax = null, DateTime? scheduleDateMin = null, DateTime? scheduleDateMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CampaignsCollection>> GetAllCampaignsWithHttpInfoAsync (string channel = default(string), string campaignHash = default(string), int? listId = default(int?), string status = default(string), string internalName = default(string), int? createdBy = default(int?), int? groupId = default(int?), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), DateTime? updatedMin = default(DateTime?), DateTime? updatedMax = default(DateTime?), DateTime? startDateMin = default(DateTime?), DateTime? startDateMax = default(DateTime?), DateTime? endDateMin = default(DateTime?), DateTime? endDateMax = default(DateTime?), DateTime? scheduleDateMin = default(DateTime?), DateTime? scheduleDateMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/campaigns";
@@ -684,7 +693,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -695,7 +704,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<CampaignsCollection>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (CampaignsCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CampaignsCollection)));
         }
 

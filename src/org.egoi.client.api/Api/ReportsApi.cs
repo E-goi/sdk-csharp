@@ -1,9 +1,9 @@
-/* 
+/*
  * APIv3 (New)
  *
- *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
  *
- * OpenAPI spec version: 3.0.0
+ * The version of the OpenAPI document: 3.0.0
  * 
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using RestSharp;
 using org.egoi.client.api.Client;
 using org.egoi.client.api.Model;
@@ -25,6 +26,41 @@ namespace org.egoi.client.api.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Get email report
+        /// </summary>
+        /// <remarks>
+        /// Returns email report given the campaign hash
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="campaignHash">ID of the Campaign</param>
+        /// <param name="date">True to show date stats (optional, default to true)</param>
+        /// <param name="weekday">True to show weekday stats (optional, default to true)</param>
+        /// <param name="hour">True to show hour stats (optional, default to true)</param>
+        /// <param name="location">True to show location stats (optional, default to true)</param>
+        /// <param name="domain">True to show Domain stats (optional, default to true)</param>
+        /// <param name="url">True to show Url stats (optional, default to true)</param>
+        /// <param name="reader">True to show Reader stats (optional, default to true)</param>
+        /// <returns>EmailReport</returns>
+        EmailReport GetEmailReport (string campaignHash, bool? date = default(bool?), bool? weekday = default(bool?), bool? hour = default(bool?), bool? location = default(bool?), bool? domain = default(bool?), bool? url = default(bool?), bool? reader = default(bool?));
+
+        /// <summary>
+        /// Get email report
+        /// </summary>
+        /// <remarks>
+        /// Returns email report given the campaign hash
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="campaignHash">ID of the Campaign</param>
+        /// <param name="date">True to show date stats (optional, default to true)</param>
+        /// <param name="weekday">True to show weekday stats (optional, default to true)</param>
+        /// <param name="hour">True to show hour stats (optional, default to true)</param>
+        /// <param name="location">True to show location stats (optional, default to true)</param>
+        /// <param name="domain">True to show Domain stats (optional, default to true)</param>
+        /// <param name="url">True to show Url stats (optional, default to true)</param>
+        /// <param name="reader">True to show Reader stats (optional, default to true)</param>
+        /// <returns>ApiResponse of EmailReport</returns>
+        ApiResponse<EmailReport> GetEmailReportWithHttpInfo (string campaignHash, bool? date = default(bool?), bool? weekday = default(bool?), bool? hour = default(bool?), bool? location = default(bool?), bool? domain = default(bool?), bool? url = default(bool?), bool? reader = default(bool?));
+        /// <summary>
         /// Get sms report
         /// </summary>
         /// <remarks>
@@ -34,7 +70,7 @@ namespace org.egoi.client.api.Api
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="networks">True to show network stats (optional, default to true)</param>
         /// <returns>PhoneReport</returns>
-        PhoneReport GetSMSReport (string campaignHash, bool? networks = null);
+        PhoneReport GetSMSReport (string campaignHash, bool? networks = default(bool?));
 
         /// <summary>
         /// Get sms report
@@ -46,7 +82,7 @@ namespace org.egoi.client.api.Api
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="networks">True to show network stats (optional, default to true)</param>
         /// <returns>ApiResponse of PhoneReport</returns>
-        ApiResponse<PhoneReport> GetSMSReportWithHttpInfo (string campaignHash, bool? networks = null);
+        ApiResponse<PhoneReport> GetSMSReportWithHttpInfo (string campaignHash, bool? networks = default(bool?));
         /// <summary>
         /// Get voice report
         /// </summary>
@@ -57,7 +93,7 @@ namespace org.egoi.client.api.Api
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="networks">True to show network stats (optional, default to true)</param>
         /// <returns>PhoneReport</returns>
-        PhoneReport GetVoiceReport (string campaignHash, bool? networks = null);
+        PhoneReport GetVoiceReport (string campaignHash, bool? networks = default(bool?));
 
         /// <summary>
         /// Get voice report
@@ -69,7 +105,7 @@ namespace org.egoi.client.api.Api
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="networks">True to show network stats (optional, default to true)</param>
         /// <returns>ApiResponse of PhoneReport</returns>
-        ApiResponse<PhoneReport> GetVoiceReportWithHttpInfo (string campaignHash, bool? networks = null);
+        ApiResponse<PhoneReport> GetVoiceReportWithHttpInfo (string campaignHash, bool? networks = default(bool?));
         /// <summary>
         /// Get webpush report
         /// </summary>
@@ -83,7 +119,7 @@ namespace org.egoi.client.api.Api
         /// <param name="browsers">True to show browser stats (optional, default to true)</param>
         /// <param name="url">True to show url stats (optional, default to true)</param>
         /// <returns>WebPushReport</returns>
-        WebPushReport GetWebPushReport (string campaignHash, bool? devices = null, bool? operatingSystems = null, bool? browsers = null, bool? url = null);
+        WebPushReport GetWebPushReport (string campaignHash, bool? devices = default(bool?), bool? operatingSystems = default(bool?), bool? browsers = default(bool?), bool? url = default(bool?));
 
         /// <summary>
         /// Get webpush report
@@ -98,10 +134,47 @@ namespace org.egoi.client.api.Api
         /// <param name="browsers">True to show browser stats (optional, default to true)</param>
         /// <param name="url">True to show url stats (optional, default to true)</param>
         /// <returns>ApiResponse of WebPushReport</returns>
-        ApiResponse<WebPushReport> GetWebPushReportWithHttpInfo (string campaignHash, bool? devices = null, bool? operatingSystems = null, bool? browsers = null, bool? url = null);
+        ApiResponse<WebPushReport> GetWebPushReportWithHttpInfo (string campaignHash, bool? devices = default(bool?), bool? operatingSystems = default(bool?), bool? browsers = default(bool?), bool? url = default(bool?));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
+        /// Get email report
+        /// </summary>
+        /// <remarks>
+        /// Returns email report given the campaign hash
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="campaignHash">ID of the Campaign</param>
+        /// <param name="date">True to show date stats (optional, default to true)</param>
+        /// <param name="weekday">True to show weekday stats (optional, default to true)</param>
+        /// <param name="hour">True to show hour stats (optional, default to true)</param>
+        /// <param name="location">True to show location stats (optional, default to true)</param>
+        /// <param name="domain">True to show Domain stats (optional, default to true)</param>
+        /// <param name="url">True to show Url stats (optional, default to true)</param>
+        /// <param name="reader">True to show Reader stats (optional, default to true)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of EmailReport</returns>
+        System.Threading.Tasks.Task<EmailReport> GetEmailReportAsync (string campaignHash, bool? date = default(bool?), bool? weekday = default(bool?), bool? hour = default(bool?), bool? location = default(bool?), bool? domain = default(bool?), bool? url = default(bool?), bool? reader = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get email report
+        /// </summary>
+        /// <remarks>
+        /// Returns email report given the campaign hash
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="campaignHash">ID of the Campaign</param>
+        /// <param name="date">True to show date stats (optional, default to true)</param>
+        /// <param name="weekday">True to show weekday stats (optional, default to true)</param>
+        /// <param name="hour">True to show hour stats (optional, default to true)</param>
+        /// <param name="location">True to show location stats (optional, default to true)</param>
+        /// <param name="domain">True to show Domain stats (optional, default to true)</param>
+        /// <param name="url">True to show Url stats (optional, default to true)</param>
+        /// <param name="reader">True to show Reader stats (optional, default to true)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (EmailReport)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EmailReport>> GetEmailReportWithHttpInfoAsync (string campaignHash, bool? date = default(bool?), bool? weekday = default(bool?), bool? hour = default(bool?), bool? location = default(bool?), bool? domain = default(bool?), bool? url = default(bool?), bool? reader = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Get sms report
         /// </summary>
         /// <remarks>
@@ -110,8 +183,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="networks">True to show network stats (optional, default to true)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PhoneReport</returns>
-        System.Threading.Tasks.Task<PhoneReport> GetSMSReportAsync (string campaignHash, bool? networks = null);
+        System.Threading.Tasks.Task<PhoneReport> GetSMSReportAsync (string campaignHash, bool? networks = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get sms report
@@ -122,8 +196,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="networks">True to show network stats (optional, default to true)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PhoneReport)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PhoneReport>> GetSMSReportAsyncWithHttpInfo (string campaignHash, bool? networks = null);
+        System.Threading.Tasks.Task<ApiResponse<PhoneReport>> GetSMSReportWithHttpInfoAsync (string campaignHash, bool? networks = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get voice report
         /// </summary>
@@ -133,8 +208,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="networks">True to show network stats (optional, default to true)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PhoneReport</returns>
-        System.Threading.Tasks.Task<PhoneReport> GetVoiceReportAsync (string campaignHash, bool? networks = null);
+        System.Threading.Tasks.Task<PhoneReport> GetVoiceReportAsync (string campaignHash, bool? networks = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get voice report
@@ -145,8 +221,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="networks">True to show network stats (optional, default to true)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PhoneReport)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PhoneReport>> GetVoiceReportAsyncWithHttpInfo (string campaignHash, bool? networks = null);
+        System.Threading.Tasks.Task<ApiResponse<PhoneReport>> GetVoiceReportWithHttpInfoAsync (string campaignHash, bool? networks = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get webpush report
         /// </summary>
@@ -159,8 +236,9 @@ namespace org.egoi.client.api.Api
         /// <param name="operatingSystems">True to show operating systems stats (optional, default to true)</param>
         /// <param name="browsers">True to show browser stats (optional, default to true)</param>
         /// <param name="url">True to show url stats (optional, default to true)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of WebPushReport</returns>
-        System.Threading.Tasks.Task<WebPushReport> GetWebPushReportAsync (string campaignHash, bool? devices = null, bool? operatingSystems = null, bool? browsers = null, bool? url = null);
+        System.Threading.Tasks.Task<WebPushReport> GetWebPushReportAsync (string campaignHash, bool? devices = default(bool?), bool? operatingSystems = default(bool?), bool? browsers = default(bool?), bool? url = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get webpush report
@@ -174,8 +252,9 @@ namespace org.egoi.client.api.Api
         /// <param name="operatingSystems">True to show operating systems stats (optional, default to true)</param>
         /// <param name="browsers">True to show browser stats (optional, default to true)</param>
         /// <param name="url">True to show url stats (optional, default to true)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (WebPushReport)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WebPushReport>> GetWebPushReportAsyncWithHttpInfo (string campaignHash, bool? devices = null, bool? operatingSystems = null, bool? browsers = null, bool? url = null);
+        System.Threading.Tasks.Task<ApiResponse<WebPushReport>> GetWebPushReportWithHttpInfoAsync (string campaignHash, bool? devices = default(bool?), bool? operatingSystems = default(bool?), bool? browsers = default(bool?), bool? url = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -288,13 +367,200 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
+        /// Get email report Returns email report given the campaign hash
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="campaignHash">ID of the Campaign</param>
+        /// <param name="date">True to show date stats (optional, default to true)</param>
+        /// <param name="weekday">True to show weekday stats (optional, default to true)</param>
+        /// <param name="hour">True to show hour stats (optional, default to true)</param>
+        /// <param name="location">True to show location stats (optional, default to true)</param>
+        /// <param name="domain">True to show Domain stats (optional, default to true)</param>
+        /// <param name="url">True to show Url stats (optional, default to true)</param>
+        /// <param name="reader">True to show Reader stats (optional, default to true)</param>
+        /// <returns>EmailReport</returns>
+        public EmailReport GetEmailReport (string campaignHash, bool? date = default(bool?), bool? weekday = default(bool?), bool? hour = default(bool?), bool? location = default(bool?), bool? domain = default(bool?), bool? url = default(bool?), bool? reader = default(bool?))
+        {
+             ApiResponse<EmailReport> localVarResponse = GetEmailReportWithHttpInfo(campaignHash, date, weekday, hour, location, domain, url, reader);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get email report Returns email report given the campaign hash
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="campaignHash">ID of the Campaign</param>
+        /// <param name="date">True to show date stats (optional, default to true)</param>
+        /// <param name="weekday">True to show weekday stats (optional, default to true)</param>
+        /// <param name="hour">True to show hour stats (optional, default to true)</param>
+        /// <param name="location">True to show location stats (optional, default to true)</param>
+        /// <param name="domain">True to show Domain stats (optional, default to true)</param>
+        /// <param name="url">True to show Url stats (optional, default to true)</param>
+        /// <param name="reader">True to show Reader stats (optional, default to true)</param>
+        /// <returns>ApiResponse of EmailReport</returns>
+        public ApiResponse<EmailReport> GetEmailReportWithHttpInfo (string campaignHash, bool? date = default(bool?), bool? weekday = default(bool?), bool? hour = default(bool?), bool? location = default(bool?), bool? domain = default(bool?), bool? url = default(bool?), bool? reader = default(bool?))
+        {
+            // verify the required parameter 'campaignHash' is set
+            if (campaignHash == null)
+                throw new ApiException(400, "Missing required parameter 'campaignHash' when calling ReportsApi->GetEmailReport");
+
+            var localVarPath = "/reports/email/{campaign_hash}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (campaignHash != null) localVarPathParams.Add("campaign_hash", this.Configuration.ApiClient.ParameterToString(campaignHash)); // path parameter
+            if (date != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "date", date)); // query parameter
+            if (weekday != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "weekday", weekday)); // query parameter
+            if (hour != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "hour", hour)); // query parameter
+            if (location != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "location", location)); // query parameter
+            if (domain != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "domain", domain)); // query parameter
+            if (url != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "url", url)); // query parameter
+            if (reader != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "reader", reader)); // query parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailReport", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailReport>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (EmailReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailReport)));
+        }
+
+        /// <summary>
+        /// Get email report Returns email report given the campaign hash
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="campaignHash">ID of the Campaign</param>
+        /// <param name="date">True to show date stats (optional, default to true)</param>
+        /// <param name="weekday">True to show weekday stats (optional, default to true)</param>
+        /// <param name="hour">True to show hour stats (optional, default to true)</param>
+        /// <param name="location">True to show location stats (optional, default to true)</param>
+        /// <param name="domain">True to show Domain stats (optional, default to true)</param>
+        /// <param name="url">True to show Url stats (optional, default to true)</param>
+        /// <param name="reader">True to show Reader stats (optional, default to true)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of EmailReport</returns>
+        public async System.Threading.Tasks.Task<EmailReport> GetEmailReportAsync (string campaignHash, bool? date = default(bool?), bool? weekday = default(bool?), bool? hour = default(bool?), bool? location = default(bool?), bool? domain = default(bool?), bool? url = default(bool?), bool? reader = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<EmailReport> localVarResponse = await GetEmailReportWithHttpInfoAsync(campaignHash, date, weekday, hour, location, domain, url, reader, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get email report Returns email report given the campaign hash
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="campaignHash">ID of the Campaign</param>
+        /// <param name="date">True to show date stats (optional, default to true)</param>
+        /// <param name="weekday">True to show weekday stats (optional, default to true)</param>
+        /// <param name="hour">True to show hour stats (optional, default to true)</param>
+        /// <param name="location">True to show location stats (optional, default to true)</param>
+        /// <param name="domain">True to show Domain stats (optional, default to true)</param>
+        /// <param name="url">True to show Url stats (optional, default to true)</param>
+        /// <param name="reader">True to show Reader stats (optional, default to true)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (EmailReport)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<EmailReport>> GetEmailReportWithHttpInfoAsync (string campaignHash, bool? date = default(bool?), bool? weekday = default(bool?), bool? hour = default(bool?), bool? location = default(bool?), bool? domain = default(bool?), bool? url = default(bool?), bool? reader = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'campaignHash' is set
+            if (campaignHash == null)
+                throw new ApiException(400, "Missing required parameter 'campaignHash' when calling ReportsApi->GetEmailReport");
+
+            var localVarPath = "/reports/email/{campaign_hash}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (campaignHash != null) localVarPathParams.Add("campaign_hash", this.Configuration.ApiClient.ParameterToString(campaignHash)); // path parameter
+            if (date != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "date", date)); // query parameter
+            if (weekday != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "weekday", weekday)); // query parameter
+            if (hour != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "hour", hour)); // query parameter
+            if (location != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "location", location)); // query parameter
+            if (domain != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "domain", domain)); // query parameter
+            if (url != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "url", url)); // query parameter
+            if (reader != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "reader", reader)); // query parameter
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetEmailReport", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<EmailReport>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (EmailReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailReport)));
+        }
+
+        /// <summary>
         /// Get sms report Returns sms report given the campaign hash
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="networks">True to show network stats (optional, default to true)</param>
         /// <returns>PhoneReport</returns>
-        public PhoneReport GetSMSReport (string campaignHash, bool? networks = null)
+        public PhoneReport GetSMSReport (string campaignHash, bool? networks = default(bool?))
         {
              ApiResponse<PhoneReport> localVarResponse = GetSMSReportWithHttpInfo(campaignHash, networks);
              return localVarResponse.Data;
@@ -307,7 +573,7 @@ namespace org.egoi.client.api.Api
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="networks">True to show network stats (optional, default to true)</param>
         /// <returns>ApiResponse of PhoneReport</returns>
-        public ApiResponse< PhoneReport > GetSMSReportWithHttpInfo (string campaignHash, bool? networks = null)
+        public ApiResponse<PhoneReport> GetSMSReportWithHttpInfo (string campaignHash, bool? networks = default(bool?))
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -357,7 +623,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<PhoneReport>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (PhoneReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PhoneReport)));
         }
 
@@ -367,10 +633,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="networks">True to show network stats (optional, default to true)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PhoneReport</returns>
-        public async System.Threading.Tasks.Task<PhoneReport> GetSMSReportAsync (string campaignHash, bool? networks = null)
+        public async System.Threading.Tasks.Task<PhoneReport> GetSMSReportAsync (string campaignHash, bool? networks = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<PhoneReport> localVarResponse = await GetSMSReportAsyncWithHttpInfo(campaignHash, networks);
+             ApiResponse<PhoneReport> localVarResponse = await GetSMSReportWithHttpInfoAsync(campaignHash, networks, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -381,8 +648,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="networks">True to show network stats (optional, default to true)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PhoneReport)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PhoneReport>> GetSMSReportAsyncWithHttpInfo (string campaignHash, bool? networks = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PhoneReport>> GetSMSReportWithHttpInfoAsync (string campaignHash, bool? networks = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -421,7 +689,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -432,7 +700,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<PhoneReport>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (PhoneReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PhoneReport)));
         }
 
@@ -443,7 +711,7 @@ namespace org.egoi.client.api.Api
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="networks">True to show network stats (optional, default to true)</param>
         /// <returns>PhoneReport</returns>
-        public PhoneReport GetVoiceReport (string campaignHash, bool? networks = null)
+        public PhoneReport GetVoiceReport (string campaignHash, bool? networks = default(bool?))
         {
              ApiResponse<PhoneReport> localVarResponse = GetVoiceReportWithHttpInfo(campaignHash, networks);
              return localVarResponse.Data;
@@ -456,7 +724,7 @@ namespace org.egoi.client.api.Api
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="networks">True to show network stats (optional, default to true)</param>
         /// <returns>ApiResponse of PhoneReport</returns>
-        public ApiResponse< PhoneReport > GetVoiceReportWithHttpInfo (string campaignHash, bool? networks = null)
+        public ApiResponse<PhoneReport> GetVoiceReportWithHttpInfo (string campaignHash, bool? networks = default(bool?))
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -506,7 +774,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<PhoneReport>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (PhoneReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PhoneReport)));
         }
 
@@ -516,10 +784,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="networks">True to show network stats (optional, default to true)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PhoneReport</returns>
-        public async System.Threading.Tasks.Task<PhoneReport> GetVoiceReportAsync (string campaignHash, bool? networks = null)
+        public async System.Threading.Tasks.Task<PhoneReport> GetVoiceReportAsync (string campaignHash, bool? networks = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<PhoneReport> localVarResponse = await GetVoiceReportAsyncWithHttpInfo(campaignHash, networks);
+             ApiResponse<PhoneReport> localVarResponse = await GetVoiceReportWithHttpInfoAsync(campaignHash, networks, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -530,8 +799,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="networks">True to show network stats (optional, default to true)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PhoneReport)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PhoneReport>> GetVoiceReportAsyncWithHttpInfo (string campaignHash, bool? networks = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PhoneReport>> GetVoiceReportWithHttpInfoAsync (string campaignHash, bool? networks = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -570,7 +840,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -581,7 +851,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<PhoneReport>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (PhoneReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PhoneReport)));
         }
 
@@ -595,7 +865,7 @@ namespace org.egoi.client.api.Api
         /// <param name="browsers">True to show browser stats (optional, default to true)</param>
         /// <param name="url">True to show url stats (optional, default to true)</param>
         /// <returns>WebPushReport</returns>
-        public WebPushReport GetWebPushReport (string campaignHash, bool? devices = null, bool? operatingSystems = null, bool? browsers = null, bool? url = null)
+        public WebPushReport GetWebPushReport (string campaignHash, bool? devices = default(bool?), bool? operatingSystems = default(bool?), bool? browsers = default(bool?), bool? url = default(bool?))
         {
              ApiResponse<WebPushReport> localVarResponse = GetWebPushReportWithHttpInfo(campaignHash, devices, operatingSystems, browsers, url);
              return localVarResponse.Data;
@@ -611,7 +881,7 @@ namespace org.egoi.client.api.Api
         /// <param name="browsers">True to show browser stats (optional, default to true)</param>
         /// <param name="url">True to show url stats (optional, default to true)</param>
         /// <returns>ApiResponse of WebPushReport</returns>
-        public ApiResponse< WebPushReport > GetWebPushReportWithHttpInfo (string campaignHash, bool? devices = null, bool? operatingSystems = null, bool? browsers = null, bool? url = null)
+        public ApiResponse<WebPushReport> GetWebPushReportWithHttpInfo (string campaignHash, bool? devices = default(bool?), bool? operatingSystems = default(bool?), bool? browsers = default(bool?), bool? url = default(bool?))
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -664,7 +934,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<WebPushReport>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (WebPushReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebPushReport)));
         }
 
@@ -677,10 +947,11 @@ namespace org.egoi.client.api.Api
         /// <param name="operatingSystems">True to show operating systems stats (optional, default to true)</param>
         /// <param name="browsers">True to show browser stats (optional, default to true)</param>
         /// <param name="url">True to show url stats (optional, default to true)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of WebPushReport</returns>
-        public async System.Threading.Tasks.Task<WebPushReport> GetWebPushReportAsync (string campaignHash, bool? devices = null, bool? operatingSystems = null, bool? browsers = null, bool? url = null)
+        public async System.Threading.Tasks.Task<WebPushReport> GetWebPushReportAsync (string campaignHash, bool? devices = default(bool?), bool? operatingSystems = default(bool?), bool? browsers = default(bool?), bool? url = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<WebPushReport> localVarResponse = await GetWebPushReportAsyncWithHttpInfo(campaignHash, devices, operatingSystems, browsers, url);
+             ApiResponse<WebPushReport> localVarResponse = await GetWebPushReportWithHttpInfoAsync(campaignHash, devices, operatingSystems, browsers, url, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -694,8 +965,9 @@ namespace org.egoi.client.api.Api
         /// <param name="operatingSystems">True to show operating systems stats (optional, default to true)</param>
         /// <param name="browsers">True to show browser stats (optional, default to true)</param>
         /// <param name="url">True to show url stats (optional, default to true)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (WebPushReport)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<WebPushReport>> GetWebPushReportAsyncWithHttpInfo (string campaignHash, bool? devices = null, bool? operatingSystems = null, bool? browsers = null, bool? url = null)
+        public async System.Threading.Tasks.Task<ApiResponse<WebPushReport>> GetWebPushReportWithHttpInfoAsync (string campaignHash, bool? devices = default(bool?), bool? operatingSystems = default(bool?), bool? browsers = default(bool?), bool? url = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -737,7 +1009,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -748,7 +1020,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<WebPushReport>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (WebPushReport) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(WebPushReport)));
         }
 

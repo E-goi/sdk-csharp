@@ -8,17 +8,19 @@ Method | HTTP request | Description
 [**GetMyAccount**](MyAccountApi.md#getmyaccount) | **GET** /my-account | Get My Account Info
 
 
-<a name="enablete"></a>
-# **EnableTe**
-> TeResponse EnableTe (InlineObject inlineObject = null)
+
+## EnableTe
+
+> TeResponse EnableTe (InlineObject inlineObject)
 
 Enable Track&Engage
 
 Enable Track&Engag
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -28,15 +30,16 @@ namespace Example
 {
     public class EnableTeExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new MyAccountApi();
-            var inlineObject = new InlineObject(); // InlineObject |  (optional) 
+            var apiInstance = new MyAccountApi(Configuration.Default);
+            var inlineObject = new InlineObject(); // InlineObject | 
 
             try
             {
@@ -44,9 +47,11 @@ namespace Example
                 TeResponse result = apiInstance.EnableTe(inlineObject);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling MyAccountApi.EnableTe: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -55,9 +60,10 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional] 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | 
 
 ### Return type
 
@@ -69,13 +75,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getmyaccount"></a>
-# **GetMyAccount**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetMyAccount
+
 > MyAccount GetMyAccount ()
 
 Get My Account Info
@@ -83,8 +107,9 @@ Get My Account Info
 My Account Info
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -94,14 +119,15 @@ namespace Example
 {
     public class GetMyAccountExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new MyAccountApi();
+            var apiInstance = new MyAccountApi(Configuration.Default);
 
             try
             {
@@ -109,9 +135,11 @@ namespace Example
                 MyAccount result = apiInstance.GetMyAccount();
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling MyAccountApi.GetMyAccount: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -119,6 +147,7 @@ namespace Example
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -131,8 +160,24 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

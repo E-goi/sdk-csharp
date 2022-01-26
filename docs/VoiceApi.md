@@ -9,8 +9,9 @@ Method | HTTP request | Description
 [**PatchVoiceCampaign**](VoiceApi.md#patchvoicecampaign) | **PATCH** /campaigns/voice/{campaign_hash} | Update a specific voice campaign
 
 
-<a name="actionsendvoice"></a>
-# **ActionSendVoice**
+
+## ActionSendVoice
+
 > AcceptedResponse ActionSendVoice (string campaignHash, CampaignVoiceSendRequest campaignVoiceSendRequest)
 
 Send voice message
@@ -18,8 +19,9 @@ Send voice message
 Deploys and sends an voice message
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -29,14 +31,15 @@ namespace Example
 {
     public class ActionSendVoiceExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new VoiceApi();
+            var apiInstance = new VoiceApi(Configuration.Default);
             var campaignHash = campaignHash_example;  // string | ID of the Campaign
             var campaignVoiceSendRequest = new CampaignVoiceSendRequest(); // CampaignVoiceSendRequest | Parameters for the 'send voice' action
 
@@ -46,9 +49,11 @@ namespace Example
                 AcceptedResponse result = apiInstance.ActionSendVoice(campaignHash, campaignVoiceSendRequest);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling VoiceApi.ActionSendVoice: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -56,6 +61,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -72,13 +78,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="createvoicecampaign"></a>
-# **CreateVoiceCampaign**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateVoiceCampaign
+
 > CampaignHash CreateVoiceCampaign (VoiceCampaign voiceCampaign)
 
 Create new voice campaign
@@ -86,8 +109,9 @@ Create new voice campaign
 Create a new voice campaign
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -97,14 +121,15 @@ namespace Example
 {
     public class CreateVoiceCampaignExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new VoiceApi();
+            var apiInstance = new VoiceApi(Configuration.Default);
             var voiceCampaign = new VoiceCampaign(); // VoiceCampaign | Parameters for the Voice Campaign
 
             try
@@ -113,9 +138,11 @@ namespace Example
                 CampaignHash result = apiInstance.CreateVoiceCampaign(voiceCampaign);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling VoiceApi.CreateVoiceCampaign: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -123,6 +150,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -138,22 +166,41 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="patchvoicecampaign"></a>
-# **PatchVoiceCampaign**
-> CampaignHash PatchVoiceCampaign (string campaignHash, VoicePatchCampaign voicePatchCampaign)
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PatchVoiceCampaign
+
+> InlineResponse200 PatchVoiceCampaign (string campaignHash, VoicePatchCampaign voicePatchCampaign)
 
 Update a specific voice campaign
 
 Update a voice campaign
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -163,26 +210,29 @@ namespace Example
 {
     public class PatchVoiceCampaignExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new VoiceApi();
+            var apiInstance = new VoiceApi(Configuration.Default);
             var campaignHash = campaignHash_example;  // string | ID of the Campaign
             var voicePatchCampaign = new VoicePatchCampaign(); // VoicePatchCampaign | Parameters for the Voice Campaign
 
             try
             {
                 // Update a specific voice campaign
-                CampaignHash result = apiInstance.PatchVoiceCampaign(campaignHash, voicePatchCampaign);
+                InlineResponse200 result = apiInstance.PatchVoiceCampaign(campaignHash, voicePatchCampaign);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling VoiceApi.PatchVoiceCampaign: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -191,6 +241,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **campaignHash** | **string**| ID of the Campaign | 
@@ -198,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CampaignHash**](CampaignHash.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
@@ -206,8 +257,26 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

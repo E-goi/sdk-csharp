@@ -1,10 +1,12 @@
+
 # org.egoi.client.api.Model.BasicProduct
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ProductIdentifier** | **string** | The ID of the product in your store | [optional] 
-**CatalogId** | **int?** |  | [optional] 
+**CatalogId** | **int** |  | [optional] [readonly] 
 **Name** | **string** | Name of the product | [optional] 
 **Description** | **string** | Description of the product | [optional] 
 **Sku** | **string** | Stock Keeping Unit | [optional] 
@@ -14,9 +16,11 @@ Name | Type | Description | Notes
 **Mpn** | **string** | Manufacturer Part Number | [optional] 
 **Link** | **string** | Link for the product | [optional] 
 **ImageLink** | **string** | Link for the product image | [optional] 
-**Price** | **double?** | Price of the product | [optional] [default to 0D]
-**SalePrice** | **double?** | Sale price of the product | [optional] [default to 0D]
+**Price** | **double** | Price of the product | [optional] [default to 0D]
+**SalePrice** | **double** | Sale price of the product | [optional] [default to 0D]
 **Brand** | **string** | Brand of the product | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

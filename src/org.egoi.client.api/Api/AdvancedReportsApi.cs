@@ -1,9 +1,9 @@
-/* 
+/*
  * APIv3 (New)
  *
- *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
  *
- * OpenAPI spec version: 3.0.0
+ * The version of the OpenAPI document: 3.0.0
  * 
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using RestSharp;
 using org.egoi.client.api.Client;
 using org.egoi.client.api.Model;
@@ -271,7 +272,7 @@ namespace org.egoi.client.api.Api
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order the advanced reports (optional, default to advanced_report_id)</param>
         /// <returns>AdvancedReportsCollection</returns>
-        AdvancedReportsCollection GetAllAdvancedReports (string status = null, string title = null, DateTime? createdMin = null, DateTime? createdMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null);
+        AdvancedReportsCollection GetAllAdvancedReports (string status = default(string), string title = default(string), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string));
 
         /// <summary>
         /// Get all advanced reports
@@ -289,7 +290,7 @@ namespace org.egoi.client.api.Api
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order the advanced reports (optional, default to advanced_report_id)</param>
         /// <returns>ApiResponse of AdvancedReportsCollection</returns>
-        ApiResponse<AdvancedReportsCollection> GetAllAdvancedReportsWithHttpInfo (string status = null, string title = null, DateTime? createdMin = null, DateTime? createdMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null);
+        ApiResponse<AdvancedReportsCollection> GetAllAdvancedReportsWithHttpInfo (string status = default(string), string title = default(string), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -300,8 +301,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailBouncesReport">Parameters for the email bounces report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailBouncesReportAsync (GenerateEmailBouncesReport generateEmailBouncesReport);
+        System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailBouncesReportAsync (GenerateEmailBouncesReport generateEmailBouncesReport, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Generate email bounces report
@@ -311,8 +313,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailBouncesReport">Parameters for the email bounces report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailBouncesReportAsyncWithHttpInfo (GenerateEmailBouncesReport generateEmailBouncesReport);
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailBouncesReportWithHttpInfoAsync (GenerateEmailBouncesReport generateEmailBouncesReport, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generate email clicks by contact report
         /// </summary>
@@ -321,8 +324,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailClicksByContactReport">Parameters for the email clicks by contact report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailClicksByContactReportAsync (GenerateEmailClicksByContactReport generateEmailClicksByContactReport);
+        System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailClicksByContactReportAsync (GenerateEmailClicksByContactReport generateEmailClicksByContactReport, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Generate email clicks by contact report
@@ -332,8 +336,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailClicksByContactReport">Parameters for the email clicks by contact report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailClicksByContactReportAsyncWithHttpInfo (GenerateEmailClicksByContactReport generateEmailClicksByContactReport);
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailClicksByContactReportWithHttpInfoAsync (GenerateEmailClicksByContactReport generateEmailClicksByContactReport, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generate email clicks by URL report
         /// </summary>
@@ -342,8 +347,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailClicksByUrlReport">Parameters for the email clicks by URL report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailClicksByUrlReportAsync (GenerateEmailClicksByUrlReport generateEmailClicksByUrlReport);
+        System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailClicksByUrlReportAsync (GenerateEmailClicksByUrlReport generateEmailClicksByUrlReport, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Generate email clicks by URL report
@@ -353,8 +359,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailClicksByUrlReport">Parameters for the email clicks by URL report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailClicksByUrlReportAsyncWithHttpInfo (GenerateEmailClicksByUrlReport generateEmailClicksByUrlReport);
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailClicksByUrlReportWithHttpInfoAsync (GenerateEmailClicksByUrlReport generateEmailClicksByUrlReport, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generate email events report
         /// </summary>
@@ -363,8 +370,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailEventsReport">Parameters for the email events report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailEventsReportAsync (GenerateEmailEventsReport generateEmailEventsReport);
+        System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailEventsReportAsync (GenerateEmailEventsReport generateEmailEventsReport, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Generate email events report
@@ -374,8 +382,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailEventsReport">Parameters for the email events report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailEventsReportAsyncWithHttpInfo (GenerateEmailEventsReport generateEmailEventsReport);
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailEventsReportWithHttpInfoAsync (GenerateEmailEventsReport generateEmailEventsReport, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generate SMS bounces report
         /// </summary>
@@ -384,8 +393,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSmsBouncesReport">Parameters for the SMS bounces report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailSmsReportAsync (GenerateSmsBouncesReport generateSmsBouncesReport);
+        System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailSmsReportAsync (GenerateSmsBouncesReport generateSmsBouncesReport, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Generate SMS bounces report
@@ -395,8 +405,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSmsBouncesReport">Parameters for the SMS bounces report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailSmsReportAsyncWithHttpInfo (GenerateSmsBouncesReport generateSmsBouncesReport);
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailSmsReportWithHttpInfoAsync (GenerateSmsBouncesReport generateSmsBouncesReport, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generate email unsubscriptions report
         /// </summary>
@@ -405,8 +416,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailUnsubscriptionsReport">Parameters for the email unsubscriptions report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailUnsubscriptionsReportAsync (GenerateEmailUnsubscriptionsReport generateEmailUnsubscriptionsReport);
+        System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailUnsubscriptionsReportAsync (GenerateEmailUnsubscriptionsReport generateEmailUnsubscriptionsReport, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Generate email unsubscriptions report
@@ -416,8 +428,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailUnsubscriptionsReport">Parameters for the email unsubscriptions report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailUnsubscriptionsReportAsyncWithHttpInfo (GenerateEmailUnsubscriptionsReport generateEmailUnsubscriptionsReport);
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailUnsubscriptionsReportWithHttpInfoAsync (GenerateEmailUnsubscriptionsReport generateEmailUnsubscriptionsReport, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generate form answers report
         /// </summary>
@@ -426,8 +439,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateFormAnswersReport">Parameters for the form answers report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> GenerateFormAnswersReportAsync (GenerateFormAnswersReport generateFormAnswersReport);
+        System.Threading.Tasks.Task<AcceptedResponse> GenerateFormAnswersReportAsync (GenerateFormAnswersReport generateFormAnswersReport, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Generate form answers report
@@ -437,8 +451,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateFormAnswersReport">Parameters for the form answers report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateFormAnswersReportAsyncWithHttpInfo (GenerateFormAnswersReport generateFormAnswersReport);
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateFormAnswersReportWithHttpInfoAsync (GenerateFormAnswersReport generateFormAnswersReport, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generate sends report
         /// </summary>
@@ -447,8 +462,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSendsReport">Parameters for the sends report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> GenerateSendsReportAsync (GenerateSendsReport generateSendsReport);
+        System.Threading.Tasks.Task<AcceptedResponse> GenerateSendsReportAsync (GenerateSendsReport generateSendsReport, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Generate sends report
@@ -458,8 +474,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSendsReport">Parameters for the sends report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateSendsReportAsyncWithHttpInfo (GenerateSendsReport generateSendsReport);
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateSendsReportWithHttpInfoAsync (GenerateSendsReport generateSendsReport, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generate SMS events report
         /// </summary>
@@ -468,8 +485,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSmsEventsReport">Parameters for the SMS events report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> GenerateSmsEventsReportAsync (GenerateSmsEventsReport generateSmsEventsReport);
+        System.Threading.Tasks.Task<AcceptedResponse> GenerateSmsEventsReportAsync (GenerateSmsEventsReport generateSmsEventsReport, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Generate SMS events report
@@ -479,8 +497,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSmsEventsReport">Parameters for the SMS events report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateSmsEventsReportAsyncWithHttpInfo (GenerateSmsEventsReport generateSmsEventsReport);
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateSmsEventsReportWithHttpInfoAsync (GenerateSmsEventsReport generateSmsEventsReport, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generate subscriptions report
         /// </summary>
@@ -489,8 +508,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSubscriptionsReport">Parameters for the subscriptions report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> GenerateSubscriptionsReportAsync (GenerateSubscriptionsReport generateSubscriptionsReport);
+        System.Threading.Tasks.Task<AcceptedResponse> GenerateSubscriptionsReportAsync (GenerateSubscriptionsReport generateSubscriptionsReport, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Generate subscriptions report
@@ -500,8 +520,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSubscriptionsReport">Parameters for the subscriptions report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateSubscriptionsReportAsyncWithHttpInfo (GenerateSubscriptionsReport generateSubscriptionsReport);
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateSubscriptionsReportWithHttpInfoAsync (GenerateSubscriptionsReport generateSubscriptionsReport, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generate unsubscriptions report
         /// </summary>
@@ -510,8 +531,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateUnsubscriptionsReport">Parameters for the unsubscriptions report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> GenerateUnsubscriptionsReportAsync (GenerateUnsubscriptionsReport generateUnsubscriptionsReport);
+        System.Threading.Tasks.Task<AcceptedResponse> GenerateUnsubscriptionsReportAsync (GenerateUnsubscriptionsReport generateUnsubscriptionsReport, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Generate unsubscriptions report
@@ -521,8 +543,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateUnsubscriptionsReport">Parameters for the unsubscriptions report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateUnsubscriptionsReportAsyncWithHttpInfo (GenerateUnsubscriptionsReport generateUnsubscriptionsReport);
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateUnsubscriptionsReportWithHttpInfoAsync (GenerateUnsubscriptionsReport generateUnsubscriptionsReport, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get all advanced reports
         /// </summary>
@@ -538,8 +561,9 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order the advanced reports (optional, default to advanced_report_id)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AdvancedReportsCollection</returns>
-        System.Threading.Tasks.Task<AdvancedReportsCollection> GetAllAdvancedReportsAsync (string status = null, string title = null, DateTime? createdMin = null, DateTime? createdMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null);
+        System.Threading.Tasks.Task<AdvancedReportsCollection> GetAllAdvancedReportsAsync (string status = default(string), string title = default(string), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get all advanced reports
@@ -556,8 +580,9 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order the advanced reports (optional, default to advanced_report_id)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AdvancedReportsCollection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AdvancedReportsCollection>> GetAllAdvancedReportsAsyncWithHttpInfo (string status = null, string title = null, DateTime? createdMin = null, DateTime? createdMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null);
+        System.Threading.Tasks.Task<ApiResponse<AdvancedReportsCollection>> GetAllAdvancedReportsWithHttpInfoAsync (string status = default(string), string title = default(string), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -687,7 +712,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailBouncesReport">Parameters for the email bounces report</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse< AcceptedResponse > GenerateEmailBouncesReportWithHttpInfo (GenerateEmailBouncesReport generateEmailBouncesReport)
+        public ApiResponse<AcceptedResponse> GenerateEmailBouncesReportWithHttpInfo (GenerateEmailBouncesReport generateEmailBouncesReport)
         {
             // verify the required parameter 'generateEmailBouncesReport' is set
             if (generateEmailBouncesReport == null)
@@ -744,7 +769,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -753,10 +778,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailBouncesReport">Parameters for the email bounces report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailBouncesReportAsync (GenerateEmailBouncesReport generateEmailBouncesReport)
+        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailBouncesReportAsync (GenerateEmailBouncesReport generateEmailBouncesReport, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AcceptedResponse> localVarResponse = await GenerateEmailBouncesReportAsyncWithHttpInfo(generateEmailBouncesReport);
+             ApiResponse<AcceptedResponse> localVarResponse = await GenerateEmailBouncesReportWithHttpInfoAsync(generateEmailBouncesReport, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -766,8 +792,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailBouncesReport">Parameters for the email bounces report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailBouncesReportAsyncWithHttpInfo (GenerateEmailBouncesReport generateEmailBouncesReport)
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailBouncesReportWithHttpInfoAsync (GenerateEmailBouncesReport generateEmailBouncesReport, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'generateEmailBouncesReport' is set
             if (generateEmailBouncesReport == null)
@@ -813,7 +840,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -824,7 +851,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -846,7 +873,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailClicksByContactReport">Parameters for the email clicks by contact report</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse< AcceptedResponse > GenerateEmailClicksByContactReportWithHttpInfo (GenerateEmailClicksByContactReport generateEmailClicksByContactReport)
+        public ApiResponse<AcceptedResponse> GenerateEmailClicksByContactReportWithHttpInfo (GenerateEmailClicksByContactReport generateEmailClicksByContactReport)
         {
             // verify the required parameter 'generateEmailClicksByContactReport' is set
             if (generateEmailClicksByContactReport == null)
@@ -903,7 +930,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -912,10 +939,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailClicksByContactReport">Parameters for the email clicks by contact report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailClicksByContactReportAsync (GenerateEmailClicksByContactReport generateEmailClicksByContactReport)
+        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailClicksByContactReportAsync (GenerateEmailClicksByContactReport generateEmailClicksByContactReport, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AcceptedResponse> localVarResponse = await GenerateEmailClicksByContactReportAsyncWithHttpInfo(generateEmailClicksByContactReport);
+             ApiResponse<AcceptedResponse> localVarResponse = await GenerateEmailClicksByContactReportWithHttpInfoAsync(generateEmailClicksByContactReport, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -925,8 +953,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailClicksByContactReport">Parameters for the email clicks by contact report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailClicksByContactReportAsyncWithHttpInfo (GenerateEmailClicksByContactReport generateEmailClicksByContactReport)
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailClicksByContactReportWithHttpInfoAsync (GenerateEmailClicksByContactReport generateEmailClicksByContactReport, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'generateEmailClicksByContactReport' is set
             if (generateEmailClicksByContactReport == null)
@@ -972,7 +1001,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -983,7 +1012,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -1005,7 +1034,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailClicksByUrlReport">Parameters for the email clicks by URL report</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse< AcceptedResponse > GenerateEmailClicksByUrlReportWithHttpInfo (GenerateEmailClicksByUrlReport generateEmailClicksByUrlReport)
+        public ApiResponse<AcceptedResponse> GenerateEmailClicksByUrlReportWithHttpInfo (GenerateEmailClicksByUrlReport generateEmailClicksByUrlReport)
         {
             // verify the required parameter 'generateEmailClicksByUrlReport' is set
             if (generateEmailClicksByUrlReport == null)
@@ -1062,7 +1091,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -1071,10 +1100,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailClicksByUrlReport">Parameters for the email clicks by URL report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailClicksByUrlReportAsync (GenerateEmailClicksByUrlReport generateEmailClicksByUrlReport)
+        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailClicksByUrlReportAsync (GenerateEmailClicksByUrlReport generateEmailClicksByUrlReport, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AcceptedResponse> localVarResponse = await GenerateEmailClicksByUrlReportAsyncWithHttpInfo(generateEmailClicksByUrlReport);
+             ApiResponse<AcceptedResponse> localVarResponse = await GenerateEmailClicksByUrlReportWithHttpInfoAsync(generateEmailClicksByUrlReport, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1084,8 +1114,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailClicksByUrlReport">Parameters for the email clicks by URL report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailClicksByUrlReportAsyncWithHttpInfo (GenerateEmailClicksByUrlReport generateEmailClicksByUrlReport)
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailClicksByUrlReportWithHttpInfoAsync (GenerateEmailClicksByUrlReport generateEmailClicksByUrlReport, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'generateEmailClicksByUrlReport' is set
             if (generateEmailClicksByUrlReport == null)
@@ -1131,7 +1162,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1142,7 +1173,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -1164,7 +1195,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailEventsReport">Parameters for the email events report</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse< AcceptedResponse > GenerateEmailEventsReportWithHttpInfo (GenerateEmailEventsReport generateEmailEventsReport)
+        public ApiResponse<AcceptedResponse> GenerateEmailEventsReportWithHttpInfo (GenerateEmailEventsReport generateEmailEventsReport)
         {
             // verify the required parameter 'generateEmailEventsReport' is set
             if (generateEmailEventsReport == null)
@@ -1221,7 +1252,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -1230,10 +1261,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailEventsReport">Parameters for the email events report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailEventsReportAsync (GenerateEmailEventsReport generateEmailEventsReport)
+        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailEventsReportAsync (GenerateEmailEventsReport generateEmailEventsReport, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AcceptedResponse> localVarResponse = await GenerateEmailEventsReportAsyncWithHttpInfo(generateEmailEventsReport);
+             ApiResponse<AcceptedResponse> localVarResponse = await GenerateEmailEventsReportWithHttpInfoAsync(generateEmailEventsReport, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1243,8 +1275,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailEventsReport">Parameters for the email events report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailEventsReportAsyncWithHttpInfo (GenerateEmailEventsReport generateEmailEventsReport)
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailEventsReportWithHttpInfoAsync (GenerateEmailEventsReport generateEmailEventsReport, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'generateEmailEventsReport' is set
             if (generateEmailEventsReport == null)
@@ -1290,7 +1323,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1301,7 +1334,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -1323,7 +1356,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSmsBouncesReport">Parameters for the SMS bounces report</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse< AcceptedResponse > GenerateEmailSmsReportWithHttpInfo (GenerateSmsBouncesReport generateSmsBouncesReport)
+        public ApiResponse<AcceptedResponse> GenerateEmailSmsReportWithHttpInfo (GenerateSmsBouncesReport generateSmsBouncesReport)
         {
             // verify the required parameter 'generateSmsBouncesReport' is set
             if (generateSmsBouncesReport == null)
@@ -1380,7 +1413,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -1389,10 +1422,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSmsBouncesReport">Parameters for the SMS bounces report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailSmsReportAsync (GenerateSmsBouncesReport generateSmsBouncesReport)
+        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailSmsReportAsync (GenerateSmsBouncesReport generateSmsBouncesReport, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AcceptedResponse> localVarResponse = await GenerateEmailSmsReportAsyncWithHttpInfo(generateSmsBouncesReport);
+             ApiResponse<AcceptedResponse> localVarResponse = await GenerateEmailSmsReportWithHttpInfoAsync(generateSmsBouncesReport, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1402,8 +1436,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSmsBouncesReport">Parameters for the SMS bounces report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailSmsReportAsyncWithHttpInfo (GenerateSmsBouncesReport generateSmsBouncesReport)
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailSmsReportWithHttpInfoAsync (GenerateSmsBouncesReport generateSmsBouncesReport, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'generateSmsBouncesReport' is set
             if (generateSmsBouncesReport == null)
@@ -1449,7 +1484,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1460,7 +1495,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -1482,7 +1517,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailUnsubscriptionsReport">Parameters for the email unsubscriptions report</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse< AcceptedResponse > GenerateEmailUnsubscriptionsReportWithHttpInfo (GenerateEmailUnsubscriptionsReport generateEmailUnsubscriptionsReport)
+        public ApiResponse<AcceptedResponse> GenerateEmailUnsubscriptionsReportWithHttpInfo (GenerateEmailUnsubscriptionsReport generateEmailUnsubscriptionsReport)
         {
             // verify the required parameter 'generateEmailUnsubscriptionsReport' is set
             if (generateEmailUnsubscriptionsReport == null)
@@ -1539,7 +1574,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -1548,10 +1583,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailUnsubscriptionsReport">Parameters for the email unsubscriptions report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailUnsubscriptionsReportAsync (GenerateEmailUnsubscriptionsReport generateEmailUnsubscriptionsReport)
+        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateEmailUnsubscriptionsReportAsync (GenerateEmailUnsubscriptionsReport generateEmailUnsubscriptionsReport, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AcceptedResponse> localVarResponse = await GenerateEmailUnsubscriptionsReportAsyncWithHttpInfo(generateEmailUnsubscriptionsReport);
+             ApiResponse<AcceptedResponse> localVarResponse = await GenerateEmailUnsubscriptionsReportWithHttpInfoAsync(generateEmailUnsubscriptionsReport, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1561,8 +1597,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateEmailUnsubscriptionsReport">Parameters for the email unsubscriptions report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailUnsubscriptionsReportAsyncWithHttpInfo (GenerateEmailUnsubscriptionsReport generateEmailUnsubscriptionsReport)
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateEmailUnsubscriptionsReportWithHttpInfoAsync (GenerateEmailUnsubscriptionsReport generateEmailUnsubscriptionsReport, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'generateEmailUnsubscriptionsReport' is set
             if (generateEmailUnsubscriptionsReport == null)
@@ -1608,7 +1645,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1619,7 +1656,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -1641,7 +1678,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateFormAnswersReport">Parameters for the form answers report</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse< AcceptedResponse > GenerateFormAnswersReportWithHttpInfo (GenerateFormAnswersReport generateFormAnswersReport)
+        public ApiResponse<AcceptedResponse> GenerateFormAnswersReportWithHttpInfo (GenerateFormAnswersReport generateFormAnswersReport)
         {
             // verify the required parameter 'generateFormAnswersReport' is set
             if (generateFormAnswersReport == null)
@@ -1698,7 +1735,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -1707,10 +1744,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateFormAnswersReport">Parameters for the form answers report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateFormAnswersReportAsync (GenerateFormAnswersReport generateFormAnswersReport)
+        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateFormAnswersReportAsync (GenerateFormAnswersReport generateFormAnswersReport, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AcceptedResponse> localVarResponse = await GenerateFormAnswersReportAsyncWithHttpInfo(generateFormAnswersReport);
+             ApiResponse<AcceptedResponse> localVarResponse = await GenerateFormAnswersReportWithHttpInfoAsync(generateFormAnswersReport, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1720,8 +1758,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateFormAnswersReport">Parameters for the form answers report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateFormAnswersReportAsyncWithHttpInfo (GenerateFormAnswersReport generateFormAnswersReport)
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateFormAnswersReportWithHttpInfoAsync (GenerateFormAnswersReport generateFormAnswersReport, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'generateFormAnswersReport' is set
             if (generateFormAnswersReport == null)
@@ -1767,7 +1806,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1778,7 +1817,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -1800,7 +1839,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSendsReport">Parameters for the sends report</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse< AcceptedResponse > GenerateSendsReportWithHttpInfo (GenerateSendsReport generateSendsReport)
+        public ApiResponse<AcceptedResponse> GenerateSendsReportWithHttpInfo (GenerateSendsReport generateSendsReport)
         {
             // verify the required parameter 'generateSendsReport' is set
             if (generateSendsReport == null)
@@ -1857,7 +1896,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -1866,10 +1905,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSendsReport">Parameters for the sends report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateSendsReportAsync (GenerateSendsReport generateSendsReport)
+        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateSendsReportAsync (GenerateSendsReport generateSendsReport, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AcceptedResponse> localVarResponse = await GenerateSendsReportAsyncWithHttpInfo(generateSendsReport);
+             ApiResponse<AcceptedResponse> localVarResponse = await GenerateSendsReportWithHttpInfoAsync(generateSendsReport, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1879,8 +1919,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSendsReport">Parameters for the sends report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateSendsReportAsyncWithHttpInfo (GenerateSendsReport generateSendsReport)
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateSendsReportWithHttpInfoAsync (GenerateSendsReport generateSendsReport, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'generateSendsReport' is set
             if (generateSendsReport == null)
@@ -1926,7 +1967,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1937,7 +1978,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -1959,7 +2000,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSmsEventsReport">Parameters for the SMS events report</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse< AcceptedResponse > GenerateSmsEventsReportWithHttpInfo (GenerateSmsEventsReport generateSmsEventsReport)
+        public ApiResponse<AcceptedResponse> GenerateSmsEventsReportWithHttpInfo (GenerateSmsEventsReport generateSmsEventsReport)
         {
             // verify the required parameter 'generateSmsEventsReport' is set
             if (generateSmsEventsReport == null)
@@ -2016,7 +2057,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -2025,10 +2066,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSmsEventsReport">Parameters for the SMS events report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateSmsEventsReportAsync (GenerateSmsEventsReport generateSmsEventsReport)
+        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateSmsEventsReportAsync (GenerateSmsEventsReport generateSmsEventsReport, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AcceptedResponse> localVarResponse = await GenerateSmsEventsReportAsyncWithHttpInfo(generateSmsEventsReport);
+             ApiResponse<AcceptedResponse> localVarResponse = await GenerateSmsEventsReportWithHttpInfoAsync(generateSmsEventsReport, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -2038,8 +2080,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSmsEventsReport">Parameters for the SMS events report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateSmsEventsReportAsyncWithHttpInfo (GenerateSmsEventsReport generateSmsEventsReport)
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateSmsEventsReportWithHttpInfoAsync (GenerateSmsEventsReport generateSmsEventsReport, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'generateSmsEventsReport' is set
             if (generateSmsEventsReport == null)
@@ -2085,7 +2128,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -2096,7 +2139,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -2118,7 +2161,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSubscriptionsReport">Parameters for the subscriptions report</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse< AcceptedResponse > GenerateSubscriptionsReportWithHttpInfo (GenerateSubscriptionsReport generateSubscriptionsReport)
+        public ApiResponse<AcceptedResponse> GenerateSubscriptionsReportWithHttpInfo (GenerateSubscriptionsReport generateSubscriptionsReport)
         {
             // verify the required parameter 'generateSubscriptionsReport' is set
             if (generateSubscriptionsReport == null)
@@ -2175,7 +2218,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -2184,10 +2227,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSubscriptionsReport">Parameters for the subscriptions report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateSubscriptionsReportAsync (GenerateSubscriptionsReport generateSubscriptionsReport)
+        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateSubscriptionsReportAsync (GenerateSubscriptionsReport generateSubscriptionsReport, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AcceptedResponse> localVarResponse = await GenerateSubscriptionsReportAsyncWithHttpInfo(generateSubscriptionsReport);
+             ApiResponse<AcceptedResponse> localVarResponse = await GenerateSubscriptionsReportWithHttpInfoAsync(generateSubscriptionsReport, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -2197,8 +2241,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateSubscriptionsReport">Parameters for the subscriptions report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateSubscriptionsReportAsyncWithHttpInfo (GenerateSubscriptionsReport generateSubscriptionsReport)
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateSubscriptionsReportWithHttpInfoAsync (GenerateSubscriptionsReport generateSubscriptionsReport, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'generateSubscriptionsReport' is set
             if (generateSubscriptionsReport == null)
@@ -2244,7 +2289,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -2255,7 +2300,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -2277,7 +2322,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateUnsubscriptionsReport">Parameters for the unsubscriptions report</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse< AcceptedResponse > GenerateUnsubscriptionsReportWithHttpInfo (GenerateUnsubscriptionsReport generateUnsubscriptionsReport)
+        public ApiResponse<AcceptedResponse> GenerateUnsubscriptionsReportWithHttpInfo (GenerateUnsubscriptionsReport generateUnsubscriptionsReport)
         {
             // verify the required parameter 'generateUnsubscriptionsReport' is set
             if (generateUnsubscriptionsReport == null)
@@ -2334,7 +2379,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -2343,10 +2388,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateUnsubscriptionsReport">Parameters for the unsubscriptions report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateUnsubscriptionsReportAsync (GenerateUnsubscriptionsReport generateUnsubscriptionsReport)
+        public async System.Threading.Tasks.Task<AcceptedResponse> GenerateUnsubscriptionsReportAsync (GenerateUnsubscriptionsReport generateUnsubscriptionsReport, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AcceptedResponse> localVarResponse = await GenerateUnsubscriptionsReportAsyncWithHttpInfo(generateUnsubscriptionsReport);
+             ApiResponse<AcceptedResponse> localVarResponse = await GenerateUnsubscriptionsReportWithHttpInfoAsync(generateUnsubscriptionsReport, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -2356,8 +2402,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="generateUnsubscriptionsReport">Parameters for the unsubscriptions report</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateUnsubscriptionsReportAsyncWithHttpInfo (GenerateUnsubscriptionsReport generateUnsubscriptionsReport)
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> GenerateUnsubscriptionsReportWithHttpInfoAsync (GenerateUnsubscriptionsReport generateUnsubscriptionsReport, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'generateUnsubscriptionsReport' is set
             if (generateUnsubscriptionsReport == null)
@@ -2403,7 +2450,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -2414,7 +2461,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -2431,7 +2478,7 @@ namespace org.egoi.client.api.Api
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order the advanced reports (optional, default to advanced_report_id)</param>
         /// <returns>AdvancedReportsCollection</returns>
-        public AdvancedReportsCollection GetAllAdvancedReports (string status = null, string title = null, DateTime? createdMin = null, DateTime? createdMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null)
+        public AdvancedReportsCollection GetAllAdvancedReports (string status = default(string), string title = default(string), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string))
         {
              ApiResponse<AdvancedReportsCollection> localVarResponse = GetAllAdvancedReportsWithHttpInfo(status, title, createdMin, createdMax, offset, limit, order, orderBy);
              return localVarResponse.Data;
@@ -2450,7 +2497,7 @@ namespace org.egoi.client.api.Api
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order the advanced reports (optional, default to advanced_report_id)</param>
         /// <returns>ApiResponse of AdvancedReportsCollection</returns>
-        public ApiResponse< AdvancedReportsCollection > GetAllAdvancedReportsWithHttpInfo (string status = null, string title = null, DateTime? createdMin = null, DateTime? createdMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null)
+        public ApiResponse<AdvancedReportsCollection> GetAllAdvancedReportsWithHttpInfo (string status = default(string), string title = default(string), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string))
         {
 
             var localVarPath = "/reports/advanced";
@@ -2503,7 +2550,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AdvancedReportsCollection>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AdvancedReportsCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AdvancedReportsCollection)));
         }
 
@@ -2519,10 +2566,11 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order the advanced reports (optional, default to advanced_report_id)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AdvancedReportsCollection</returns>
-        public async System.Threading.Tasks.Task<AdvancedReportsCollection> GetAllAdvancedReportsAsync (string status = null, string title = null, DateTime? createdMin = null, DateTime? createdMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null)
+        public async System.Threading.Tasks.Task<AdvancedReportsCollection> GetAllAdvancedReportsAsync (string status = default(string), string title = default(string), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AdvancedReportsCollection> localVarResponse = await GetAllAdvancedReportsAsyncWithHttpInfo(status, title, createdMin, createdMax, offset, limit, order, orderBy);
+             ApiResponse<AdvancedReportsCollection> localVarResponse = await GetAllAdvancedReportsWithHttpInfoAsync(status, title, createdMin, createdMax, offset, limit, order, orderBy, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -2539,8 +2587,9 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="order">Type of order (optional, default to desc)</param>
         /// <param name="orderBy">Reference attribute to order the advanced reports (optional, default to advanced_report_id)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AdvancedReportsCollection)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AdvancedReportsCollection>> GetAllAdvancedReportsAsyncWithHttpInfo (string status = null, string title = null, DateTime? createdMin = null, DateTime? createdMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null)
+        public async System.Threading.Tasks.Task<ApiResponse<AdvancedReportsCollection>> GetAllAdvancedReportsWithHttpInfoAsync (string status = default(string), string title = default(string), DateTime? createdMin = default(DateTime?), DateTime? createdMax = default(DateTime?), int? offset = default(int?), int? limit = default(int?), string order = default(string), string orderBy = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/reports/advanced";
@@ -2582,7 +2631,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -2593,7 +2642,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AdvancedReportsCollection>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AdvancedReportsCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AdvancedReportsCollection)));
         }
 

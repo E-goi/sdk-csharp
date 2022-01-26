@@ -1,9 +1,9 @@
-/* 
+/*
  * APIv3 (New)
  *
- *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
  *
- * OpenAPI spec version: 3.0.0
+ * The version of the OpenAPI document: 3.0.0
  * 
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using RestSharp;
 using org.egoi.client.api.Client;
 using org.egoi.client.api.Model;
@@ -31,9 +32,9 @@ namespace org.egoi.client.api.Api
         /// Creates a cellphone sender
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cellphoneSender">Parameters for the sender</param>
+        /// <param name="cellphoneSenderPost">Parameters for the sender</param>
         /// <returns>CellphoneSender</returns>
-        CellphoneSender CreateCellphoneSender (CellphoneSender cellphoneSender);
+        CellphoneSender CreateCellphoneSender (CellphoneSenderPost cellphoneSenderPost);
 
         /// <summary>
         /// Create cellphone sender
@@ -42,9 +43,9 @@ namespace org.egoi.client.api.Api
         /// Creates a cellphone sender
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cellphoneSender">Parameters for the sender</param>
+        /// <param name="cellphoneSenderPost">Parameters for the sender</param>
         /// <returns>ApiResponse of CellphoneSender</returns>
-        ApiResponse<CellphoneSender> CreateCellphoneSenderWithHttpInfo (CellphoneSender cellphoneSender);
+        ApiResponse<CellphoneSender> CreateCellphoneSenderWithHttpInfo (CellphoneSenderPost cellphoneSenderPost);
         /// <summary>
         /// Create email sender
         /// </summary>
@@ -52,9 +53,9 @@ namespace org.egoi.client.api.Api
         /// Creates an email sender
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailSender">Parameters for the sender</param>
+        /// <param name="emailSenderPost">Parameters for the sender</param>
         /// <returns>EmailSender</returns>
-        EmailSender CreateEmailSender (EmailSender emailSender);
+        EmailSender CreateEmailSender (EmailSenderPost emailSenderPost);
 
         /// <summary>
         /// Create email sender
@@ -63,9 +64,9 @@ namespace org.egoi.client.api.Api
         /// Creates an email sender
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailSender">Parameters for the sender</param>
+        /// <param name="emailSenderPost">Parameters for the sender</param>
         /// <returns>ApiResponse of EmailSender</returns>
-        ApiResponse<EmailSender> CreateEmailSenderWithHttpInfo (EmailSender emailSender);
+        ApiResponse<EmailSender> CreateEmailSenderWithHttpInfo (EmailSenderPost emailSenderPost);
         /// <summary>
         /// Create phone sender
         /// </summary>
@@ -73,9 +74,9 @@ namespace org.egoi.client.api.Api
         /// Creates a phone sender
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="phoneSender">Parameters for the sender</param>
+        /// <param name="phoneSenderPost">Parameters for the sender</param>
         /// <returns>PhoneSender</returns>
-        PhoneSender CreatePhoneSender (PhoneSender phoneSender);
+        PhoneSender CreatePhoneSender (PhoneSenderPost phoneSenderPost);
 
         /// <summary>
         /// Create phone sender
@@ -84,9 +85,9 @@ namespace org.egoi.client.api.Api
         /// Creates a phone sender
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="phoneSender">Parameters for the sender</param>
+        /// <param name="phoneSenderPost">Parameters for the sender</param>
         /// <returns>ApiResponse of PhoneSender</returns>
-        ApiResponse<PhoneSender> CreatePhoneSenderWithHttpInfo (PhoneSender phoneSender);
+        ApiResponse<PhoneSender> CreatePhoneSenderWithHttpInfo (PhoneSenderPost phoneSenderPost);
         /// <summary>
         /// Remove cellphone sender
         /// </summary>
@@ -96,7 +97,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
         /// <returns></returns>
-        void DeleteCellphoneSender (int? senderId);
+        void DeleteCellphoneSender (int senderId);
 
         /// <summary>
         /// Remove cellphone sender
@@ -107,7 +108,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteCellphoneSenderWithHttpInfo (int? senderId);
+        ApiResponse<Object> DeleteCellphoneSenderWithHttpInfo (int senderId);
         /// <summary>
         /// Remove email sender
         /// </summary>
@@ -117,7 +118,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
         /// <returns></returns>
-        void DeleteEmailSender (int? senderId);
+        void DeleteEmailSender (int senderId);
 
         /// <summary>
         /// Remove email sender
@@ -128,7 +129,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteEmailSenderWithHttpInfo (int? senderId);
+        ApiResponse<Object> DeleteEmailSenderWithHttpInfo (int senderId);
         /// <summary>
         /// Remove phone sender
         /// </summary>
@@ -138,7 +139,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
         /// <returns></returns>
-        void DeletePhoneSender (int? senderId);
+        void DeletePhoneSender (int senderId);
 
         /// <summary>
         /// Remove phone sender
@@ -149,7 +150,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeletePhoneSenderWithHttpInfo (int? senderId);
+        ApiResponse<Object> DeletePhoneSenderWithHttpInfo (int senderId);
         /// <summary>
         /// Get all cellphone senders
         /// </summary>
@@ -161,7 +162,7 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
         /// <returns>CellphoneSenderCollection</returns>
-        CellphoneSenderCollection GetAllCellphoneSenders (int? offset = null, int? limit = null, string status = null);
+        CellphoneSenderCollection GetAllCellphoneSenders (int? offset = default(int?), int? limit = default(int?), string status = default(string));
 
         /// <summary>
         /// Get all cellphone senders
@@ -174,7 +175,7 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
         /// <returns>ApiResponse of CellphoneSenderCollection</returns>
-        ApiResponse<CellphoneSenderCollection> GetAllCellphoneSendersWithHttpInfo (int? offset = null, int? limit = null, string status = null);
+        ApiResponse<CellphoneSenderCollection> GetAllCellphoneSendersWithHttpInfo (int? offset = default(int?), int? limit = default(int?), string status = default(string));
         /// <summary>
         /// Get all email senders
         /// </summary>
@@ -186,7 +187,7 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
         /// <returns>EmailSenderCollection</returns>
-        EmailSenderCollection GetAllEmailSenders (int? offset = null, int? limit = null, string status = null);
+        EmailSenderCollection GetAllEmailSenders (int? offset = default(int?), int? limit = default(int?), string status = default(string));
 
         /// <summary>
         /// Get all email senders
@@ -199,7 +200,7 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
         /// <returns>ApiResponse of EmailSenderCollection</returns>
-        ApiResponse<EmailSenderCollection> GetAllEmailSendersWithHttpInfo (int? offset = null, int? limit = null, string status = null);
+        ApiResponse<EmailSenderCollection> GetAllEmailSendersWithHttpInfo (int? offset = default(int?), int? limit = default(int?), string status = default(string));
         /// <summary>
         /// Get all phone senders
         /// </summary>
@@ -211,7 +212,7 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
         /// <returns>PhoneSenderCollection</returns>
-        PhoneSenderCollection GetAllPhoneSenders (int? offset = null, int? limit = null, string status = null);
+        PhoneSenderCollection GetAllPhoneSenders (int? offset = default(int?), int? limit = default(int?), string status = default(string));
 
         /// <summary>
         /// Get all phone senders
@@ -224,7 +225,7 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
         /// <returns>ApiResponse of PhoneSenderCollection</returns>
-        ApiResponse<PhoneSenderCollection> GetAllPhoneSendersWithHttpInfo (int? offset = null, int? limit = null, string status = null);
+        ApiResponse<PhoneSenderCollection> GetAllPhoneSendersWithHttpInfo (int? offset = default(int?), int? limit = default(int?), string status = default(string));
         /// <summary>
         /// Update email sender
         /// </summary>
@@ -235,7 +236,7 @@ namespace org.egoi.client.api.Api
         /// <param name="senderId">ID of the Sender</param>
         /// <param name="emailSenderPutRequest">Parameters for the contact</param>
         /// <returns>EmailSender</returns>
-        EmailSender PutEmailSender (int? senderId, EmailSenderPutRequest emailSenderPutRequest);
+        EmailSender PutEmailSender (int senderId, EmailSenderPutRequest emailSenderPutRequest);
 
         /// <summary>
         /// Update email sender
@@ -247,7 +248,7 @@ namespace org.egoi.client.api.Api
         /// <param name="senderId">ID of the Sender</param>
         /// <param name="emailSenderPutRequest">Parameters for the contact</param>
         /// <returns>ApiResponse of EmailSender</returns>
-        ApiResponse<EmailSender> PutEmailSenderWithHttpInfo (int? senderId, EmailSenderPutRequest emailSenderPutRequest);
+        ApiResponse<EmailSender> PutEmailSenderWithHttpInfo (int senderId, EmailSenderPutRequest emailSenderPutRequest);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -257,9 +258,10 @@ namespace org.egoi.client.api.Api
         /// Creates a cellphone sender
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cellphoneSender">Parameters for the sender</param>
+        /// <param name="cellphoneSenderPost">Parameters for the sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of CellphoneSender</returns>
-        System.Threading.Tasks.Task<CellphoneSender> CreateCellphoneSenderAsync (CellphoneSender cellphoneSender);
+        System.Threading.Tasks.Task<CellphoneSender> CreateCellphoneSenderAsync (CellphoneSenderPost cellphoneSenderPost, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create cellphone sender
@@ -268,9 +270,10 @@ namespace org.egoi.client.api.Api
         /// Creates a cellphone sender
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cellphoneSender">Parameters for the sender</param>
+        /// <param name="cellphoneSenderPost">Parameters for the sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (CellphoneSender)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CellphoneSender>> CreateCellphoneSenderAsyncWithHttpInfo (CellphoneSender cellphoneSender);
+        System.Threading.Tasks.Task<ApiResponse<CellphoneSender>> CreateCellphoneSenderWithHttpInfoAsync (CellphoneSenderPost cellphoneSenderPost, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create email sender
         /// </summary>
@@ -278,9 +281,10 @@ namespace org.egoi.client.api.Api
         /// Creates an email sender
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailSender">Parameters for the sender</param>
+        /// <param name="emailSenderPost">Parameters for the sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of EmailSender</returns>
-        System.Threading.Tasks.Task<EmailSender> CreateEmailSenderAsync (EmailSender emailSender);
+        System.Threading.Tasks.Task<EmailSender> CreateEmailSenderAsync (EmailSenderPost emailSenderPost, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create email sender
@@ -289,9 +293,10 @@ namespace org.egoi.client.api.Api
         /// Creates an email sender
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailSender">Parameters for the sender</param>
+        /// <param name="emailSenderPost">Parameters for the sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (EmailSender)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailSender>> CreateEmailSenderAsyncWithHttpInfo (EmailSender emailSender);
+        System.Threading.Tasks.Task<ApiResponse<EmailSender>> CreateEmailSenderWithHttpInfoAsync (EmailSenderPost emailSenderPost, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create phone sender
         /// </summary>
@@ -299,9 +304,10 @@ namespace org.egoi.client.api.Api
         /// Creates a phone sender
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="phoneSender">Parameters for the sender</param>
+        /// <param name="phoneSenderPost">Parameters for the sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PhoneSender</returns>
-        System.Threading.Tasks.Task<PhoneSender> CreatePhoneSenderAsync (PhoneSender phoneSender);
+        System.Threading.Tasks.Task<PhoneSender> CreatePhoneSenderAsync (PhoneSenderPost phoneSenderPost, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create phone sender
@@ -310,9 +316,10 @@ namespace org.egoi.client.api.Api
         /// Creates a phone sender
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="phoneSender">Parameters for the sender</param>
+        /// <param name="phoneSenderPost">Parameters for the sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PhoneSender)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PhoneSender>> CreatePhoneSenderAsyncWithHttpInfo (PhoneSender phoneSender);
+        System.Threading.Tasks.Task<ApiResponse<PhoneSender>> CreatePhoneSenderWithHttpInfoAsync (PhoneSenderPost phoneSenderPost, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Remove cellphone sender
         /// </summary>
@@ -321,8 +328,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteCellphoneSenderAsync (int? senderId);
+        System.Threading.Tasks.Task DeleteCellphoneSenderAsync (int senderId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Remove cellphone sender
@@ -332,8 +340,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCellphoneSenderAsyncWithHttpInfo (int? senderId);
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCellphoneSenderWithHttpInfoAsync (int senderId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Remove email sender
         /// </summary>
@@ -342,8 +351,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteEmailSenderAsync (int? senderId);
+        System.Threading.Tasks.Task DeleteEmailSenderAsync (int senderId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Remove email sender
@@ -353,8 +363,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEmailSenderAsyncWithHttpInfo (int? senderId);
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEmailSenderWithHttpInfoAsync (int senderId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Remove phone sender
         /// </summary>
@@ -363,8 +374,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeletePhoneSenderAsync (int? senderId);
+        System.Threading.Tasks.Task DeletePhoneSenderAsync (int senderId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Remove phone sender
@@ -374,8 +386,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeletePhoneSenderAsyncWithHttpInfo (int? senderId);
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeletePhoneSenderWithHttpInfoAsync (int senderId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get all cellphone senders
         /// </summary>
@@ -386,8 +399,9 @@ namespace org.egoi.client.api.Api
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of CellphoneSenderCollection</returns>
-        System.Threading.Tasks.Task<CellphoneSenderCollection> GetAllCellphoneSendersAsync (int? offset = null, int? limit = null, string status = null);
+        System.Threading.Tasks.Task<CellphoneSenderCollection> GetAllCellphoneSendersAsync (int? offset = default(int?), int? limit = default(int?), string status = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get all cellphone senders
@@ -399,8 +413,9 @@ namespace org.egoi.client.api.Api
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (CellphoneSenderCollection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CellphoneSenderCollection>> GetAllCellphoneSendersAsyncWithHttpInfo (int? offset = null, int? limit = null, string status = null);
+        System.Threading.Tasks.Task<ApiResponse<CellphoneSenderCollection>> GetAllCellphoneSendersWithHttpInfoAsync (int? offset = default(int?), int? limit = default(int?), string status = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get all email senders
         /// </summary>
@@ -411,8 +426,9 @@ namespace org.egoi.client.api.Api
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of EmailSenderCollection</returns>
-        System.Threading.Tasks.Task<EmailSenderCollection> GetAllEmailSendersAsync (int? offset = null, int? limit = null, string status = null);
+        System.Threading.Tasks.Task<EmailSenderCollection> GetAllEmailSendersAsync (int? offset = default(int?), int? limit = default(int?), string status = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get all email senders
@@ -424,8 +440,9 @@ namespace org.egoi.client.api.Api
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (EmailSenderCollection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailSenderCollection>> GetAllEmailSendersAsyncWithHttpInfo (int? offset = null, int? limit = null, string status = null);
+        System.Threading.Tasks.Task<ApiResponse<EmailSenderCollection>> GetAllEmailSendersWithHttpInfoAsync (int? offset = default(int?), int? limit = default(int?), string status = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get all phone senders
         /// </summary>
@@ -436,8 +453,9 @@ namespace org.egoi.client.api.Api
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PhoneSenderCollection</returns>
-        System.Threading.Tasks.Task<PhoneSenderCollection> GetAllPhoneSendersAsync (int? offset = null, int? limit = null, string status = null);
+        System.Threading.Tasks.Task<PhoneSenderCollection> GetAllPhoneSendersAsync (int? offset = default(int?), int? limit = default(int?), string status = default(string), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get all phone senders
@@ -449,8 +467,9 @@ namespace org.egoi.client.api.Api
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PhoneSenderCollection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PhoneSenderCollection>> GetAllPhoneSendersAsyncWithHttpInfo (int? offset = null, int? limit = null, string status = null);
+        System.Threading.Tasks.Task<ApiResponse<PhoneSenderCollection>> GetAllPhoneSendersWithHttpInfoAsync (int? offset = default(int?), int? limit = default(int?), string status = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update email sender
         /// </summary>
@@ -460,8 +479,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
         /// <param name="emailSenderPutRequest">Parameters for the contact</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of EmailSender</returns>
-        System.Threading.Tasks.Task<EmailSender> PutEmailSenderAsync (int? senderId, EmailSenderPutRequest emailSenderPutRequest);
+        System.Threading.Tasks.Task<EmailSender> PutEmailSenderAsync (int senderId, EmailSenderPutRequest emailSenderPutRequest, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update email sender
@@ -472,8 +492,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
         /// <param name="emailSenderPutRequest">Parameters for the contact</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (EmailSender)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EmailSender>> PutEmailSenderAsyncWithHttpInfo (int? senderId, EmailSenderPutRequest emailSenderPutRequest);
+        System.Threading.Tasks.Task<ApiResponse<EmailSender>> PutEmailSenderWithHttpInfoAsync (int senderId, EmailSenderPutRequest emailSenderPutRequest, CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -589,11 +610,11 @@ namespace org.egoi.client.api.Api
         /// Create cellphone sender Creates a cellphone sender
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cellphoneSender">Parameters for the sender</param>
+        /// <param name="cellphoneSenderPost">Parameters for the sender</param>
         /// <returns>CellphoneSender</returns>
-        public CellphoneSender CreateCellphoneSender (CellphoneSender cellphoneSender)
+        public CellphoneSender CreateCellphoneSender (CellphoneSenderPost cellphoneSenderPost)
         {
-             ApiResponse<CellphoneSender> localVarResponse = CreateCellphoneSenderWithHttpInfo(cellphoneSender);
+             ApiResponse<CellphoneSender> localVarResponse = CreateCellphoneSenderWithHttpInfo(cellphoneSenderPost);
              return localVarResponse.Data;
         }
 
@@ -601,13 +622,13 @@ namespace org.egoi.client.api.Api
         /// Create cellphone sender Creates a cellphone sender
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cellphoneSender">Parameters for the sender</param>
+        /// <param name="cellphoneSenderPost">Parameters for the sender</param>
         /// <returns>ApiResponse of CellphoneSender</returns>
-        public ApiResponse< CellphoneSender > CreateCellphoneSenderWithHttpInfo (CellphoneSender cellphoneSender)
+        public ApiResponse<CellphoneSender> CreateCellphoneSenderWithHttpInfo (CellphoneSenderPost cellphoneSenderPost)
         {
-            // verify the required parameter 'cellphoneSender' is set
-            if (cellphoneSender == null)
-                throw new ApiException(400, "Missing required parameter 'cellphoneSender' when calling SendersApi->CreateCellphoneSender");
+            // verify the required parameter 'cellphoneSenderPost' is set
+            if (cellphoneSenderPost == null)
+                throw new ApiException(400, "Missing required parameter 'cellphoneSenderPost' when calling SendersApi->CreateCellphoneSender");
 
             var localVarPath = "/senders/cellphone";
             var localVarPathParams = new Dictionary<String, String>();
@@ -631,13 +652,13 @@ namespace org.egoi.client.api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (cellphoneSender != null && cellphoneSender.GetType() != typeof(byte[]))
+            if (cellphoneSenderPost != null && cellphoneSenderPost.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(cellphoneSender); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(cellphoneSenderPost); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = cellphoneSender; // byte array
+                localVarPostBody = cellphoneSenderPost; // byte array
             }
 
             // authentication (Apikey) required
@@ -660,7 +681,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<CellphoneSender>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (CellphoneSender) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CellphoneSender)));
         }
 
@@ -668,11 +689,12 @@ namespace org.egoi.client.api.Api
         /// Create cellphone sender Creates a cellphone sender
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cellphoneSender">Parameters for the sender</param>
+        /// <param name="cellphoneSenderPost">Parameters for the sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of CellphoneSender</returns>
-        public async System.Threading.Tasks.Task<CellphoneSender> CreateCellphoneSenderAsync (CellphoneSender cellphoneSender)
+        public async System.Threading.Tasks.Task<CellphoneSender> CreateCellphoneSenderAsync (CellphoneSenderPost cellphoneSenderPost, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<CellphoneSender> localVarResponse = await CreateCellphoneSenderAsyncWithHttpInfo(cellphoneSender);
+             ApiResponse<CellphoneSender> localVarResponse = await CreateCellphoneSenderWithHttpInfoAsync(cellphoneSenderPost, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -681,13 +703,14 @@ namespace org.egoi.client.api.Api
         /// Create cellphone sender Creates a cellphone sender
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cellphoneSender">Parameters for the sender</param>
+        /// <param name="cellphoneSenderPost">Parameters for the sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (CellphoneSender)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CellphoneSender>> CreateCellphoneSenderAsyncWithHttpInfo (CellphoneSender cellphoneSender)
+        public async System.Threading.Tasks.Task<ApiResponse<CellphoneSender>> CreateCellphoneSenderWithHttpInfoAsync (CellphoneSenderPost cellphoneSenderPost, CancellationToken cancellationToken = default(CancellationToken))
         {
-            // verify the required parameter 'cellphoneSender' is set
-            if (cellphoneSender == null)
-                throw new ApiException(400, "Missing required parameter 'cellphoneSender' when calling SendersApi->CreateCellphoneSender");
+            // verify the required parameter 'cellphoneSenderPost' is set
+            if (cellphoneSenderPost == null)
+                throw new ApiException(400, "Missing required parameter 'cellphoneSenderPost' when calling SendersApi->CreateCellphoneSender");
 
             var localVarPath = "/senders/cellphone";
             var localVarPathParams = new Dictionary<String, String>();
@@ -711,13 +734,13 @@ namespace org.egoi.client.api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (cellphoneSender != null && cellphoneSender.GetType() != typeof(byte[]))
+            if (cellphoneSenderPost != null && cellphoneSenderPost.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(cellphoneSender); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(cellphoneSenderPost); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = cellphoneSender; // byte array
+                localVarPostBody = cellphoneSenderPost; // byte array
             }
 
             // authentication (Apikey) required
@@ -729,7 +752,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -740,7 +763,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<CellphoneSender>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (CellphoneSender) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CellphoneSender)));
         }
 
@@ -748,11 +771,11 @@ namespace org.egoi.client.api.Api
         /// Create email sender Creates an email sender
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailSender">Parameters for the sender</param>
+        /// <param name="emailSenderPost">Parameters for the sender</param>
         /// <returns>EmailSender</returns>
-        public EmailSender CreateEmailSender (EmailSender emailSender)
+        public EmailSender CreateEmailSender (EmailSenderPost emailSenderPost)
         {
-             ApiResponse<EmailSender> localVarResponse = CreateEmailSenderWithHttpInfo(emailSender);
+             ApiResponse<EmailSender> localVarResponse = CreateEmailSenderWithHttpInfo(emailSenderPost);
              return localVarResponse.Data;
         }
 
@@ -760,13 +783,13 @@ namespace org.egoi.client.api.Api
         /// Create email sender Creates an email sender
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailSender">Parameters for the sender</param>
+        /// <param name="emailSenderPost">Parameters for the sender</param>
         /// <returns>ApiResponse of EmailSender</returns>
-        public ApiResponse< EmailSender > CreateEmailSenderWithHttpInfo (EmailSender emailSender)
+        public ApiResponse<EmailSender> CreateEmailSenderWithHttpInfo (EmailSenderPost emailSenderPost)
         {
-            // verify the required parameter 'emailSender' is set
-            if (emailSender == null)
-                throw new ApiException(400, "Missing required parameter 'emailSender' when calling SendersApi->CreateEmailSender");
+            // verify the required parameter 'emailSenderPost' is set
+            if (emailSenderPost == null)
+                throw new ApiException(400, "Missing required parameter 'emailSenderPost' when calling SendersApi->CreateEmailSender");
 
             var localVarPath = "/senders/email";
             var localVarPathParams = new Dictionary<String, String>();
@@ -790,13 +813,13 @@ namespace org.egoi.client.api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (emailSender != null && emailSender.GetType() != typeof(byte[]))
+            if (emailSenderPost != null && emailSenderPost.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(emailSender); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailSenderPost); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = emailSender; // byte array
+                localVarPostBody = emailSenderPost; // byte array
             }
 
             // authentication (Apikey) required
@@ -819,7 +842,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<EmailSender>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (EmailSender) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailSender)));
         }
 
@@ -827,11 +850,12 @@ namespace org.egoi.client.api.Api
         /// Create email sender Creates an email sender
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailSender">Parameters for the sender</param>
+        /// <param name="emailSenderPost">Parameters for the sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of EmailSender</returns>
-        public async System.Threading.Tasks.Task<EmailSender> CreateEmailSenderAsync (EmailSender emailSender)
+        public async System.Threading.Tasks.Task<EmailSender> CreateEmailSenderAsync (EmailSenderPost emailSenderPost, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<EmailSender> localVarResponse = await CreateEmailSenderAsyncWithHttpInfo(emailSender);
+             ApiResponse<EmailSender> localVarResponse = await CreateEmailSenderWithHttpInfoAsync(emailSenderPost, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -840,13 +864,14 @@ namespace org.egoi.client.api.Api
         /// Create email sender Creates an email sender
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="emailSender">Parameters for the sender</param>
+        /// <param name="emailSenderPost">Parameters for the sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (EmailSender)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<EmailSender>> CreateEmailSenderAsyncWithHttpInfo (EmailSender emailSender)
+        public async System.Threading.Tasks.Task<ApiResponse<EmailSender>> CreateEmailSenderWithHttpInfoAsync (EmailSenderPost emailSenderPost, CancellationToken cancellationToken = default(CancellationToken))
         {
-            // verify the required parameter 'emailSender' is set
-            if (emailSender == null)
-                throw new ApiException(400, "Missing required parameter 'emailSender' when calling SendersApi->CreateEmailSender");
+            // verify the required parameter 'emailSenderPost' is set
+            if (emailSenderPost == null)
+                throw new ApiException(400, "Missing required parameter 'emailSenderPost' when calling SendersApi->CreateEmailSender");
 
             var localVarPath = "/senders/email";
             var localVarPathParams = new Dictionary<String, String>();
@@ -870,13 +895,13 @@ namespace org.egoi.client.api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (emailSender != null && emailSender.GetType() != typeof(byte[]))
+            if (emailSenderPost != null && emailSenderPost.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(emailSender); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(emailSenderPost); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = emailSender; // byte array
+                localVarPostBody = emailSenderPost; // byte array
             }
 
             // authentication (Apikey) required
@@ -888,7 +913,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -899,7 +924,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<EmailSender>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (EmailSender) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailSender)));
         }
 
@@ -907,11 +932,11 @@ namespace org.egoi.client.api.Api
         /// Create phone sender Creates a phone sender
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="phoneSender">Parameters for the sender</param>
+        /// <param name="phoneSenderPost">Parameters for the sender</param>
         /// <returns>PhoneSender</returns>
-        public PhoneSender CreatePhoneSender (PhoneSender phoneSender)
+        public PhoneSender CreatePhoneSender (PhoneSenderPost phoneSenderPost)
         {
-             ApiResponse<PhoneSender> localVarResponse = CreatePhoneSenderWithHttpInfo(phoneSender);
+             ApiResponse<PhoneSender> localVarResponse = CreatePhoneSenderWithHttpInfo(phoneSenderPost);
              return localVarResponse.Data;
         }
 
@@ -919,13 +944,13 @@ namespace org.egoi.client.api.Api
         /// Create phone sender Creates a phone sender
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="phoneSender">Parameters for the sender</param>
+        /// <param name="phoneSenderPost">Parameters for the sender</param>
         /// <returns>ApiResponse of PhoneSender</returns>
-        public ApiResponse< PhoneSender > CreatePhoneSenderWithHttpInfo (PhoneSender phoneSender)
+        public ApiResponse<PhoneSender> CreatePhoneSenderWithHttpInfo (PhoneSenderPost phoneSenderPost)
         {
-            // verify the required parameter 'phoneSender' is set
-            if (phoneSender == null)
-                throw new ApiException(400, "Missing required parameter 'phoneSender' when calling SendersApi->CreatePhoneSender");
+            // verify the required parameter 'phoneSenderPost' is set
+            if (phoneSenderPost == null)
+                throw new ApiException(400, "Missing required parameter 'phoneSenderPost' when calling SendersApi->CreatePhoneSender");
 
             var localVarPath = "/senders/phone";
             var localVarPathParams = new Dictionary<String, String>();
@@ -949,13 +974,13 @@ namespace org.egoi.client.api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (phoneSender != null && phoneSender.GetType() != typeof(byte[]))
+            if (phoneSenderPost != null && phoneSenderPost.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(phoneSender); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(phoneSenderPost); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = phoneSender; // byte array
+                localVarPostBody = phoneSenderPost; // byte array
             }
 
             // authentication (Apikey) required
@@ -978,7 +1003,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<PhoneSender>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (PhoneSender) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PhoneSender)));
         }
 
@@ -986,11 +1011,12 @@ namespace org.egoi.client.api.Api
         /// Create phone sender Creates a phone sender
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="phoneSender">Parameters for the sender</param>
+        /// <param name="phoneSenderPost">Parameters for the sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PhoneSender</returns>
-        public async System.Threading.Tasks.Task<PhoneSender> CreatePhoneSenderAsync (PhoneSender phoneSender)
+        public async System.Threading.Tasks.Task<PhoneSender> CreatePhoneSenderAsync (PhoneSenderPost phoneSenderPost, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<PhoneSender> localVarResponse = await CreatePhoneSenderAsyncWithHttpInfo(phoneSender);
+             ApiResponse<PhoneSender> localVarResponse = await CreatePhoneSenderWithHttpInfoAsync(phoneSenderPost, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -999,13 +1025,14 @@ namespace org.egoi.client.api.Api
         /// Create phone sender Creates a phone sender
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="phoneSender">Parameters for the sender</param>
+        /// <param name="phoneSenderPost">Parameters for the sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PhoneSender)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PhoneSender>> CreatePhoneSenderAsyncWithHttpInfo (PhoneSender phoneSender)
+        public async System.Threading.Tasks.Task<ApiResponse<PhoneSender>> CreatePhoneSenderWithHttpInfoAsync (PhoneSenderPost phoneSenderPost, CancellationToken cancellationToken = default(CancellationToken))
         {
-            // verify the required parameter 'phoneSender' is set
-            if (phoneSender == null)
-                throw new ApiException(400, "Missing required parameter 'phoneSender' when calling SendersApi->CreatePhoneSender");
+            // verify the required parameter 'phoneSenderPost' is set
+            if (phoneSenderPost == null)
+                throw new ApiException(400, "Missing required parameter 'phoneSenderPost' when calling SendersApi->CreatePhoneSender");
 
             var localVarPath = "/senders/phone";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1029,13 +1056,13 @@ namespace org.egoi.client.api.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (phoneSender != null && phoneSender.GetType() != typeof(byte[]))
+            if (phoneSenderPost != null && phoneSenderPost.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(phoneSender); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(phoneSenderPost); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = phoneSender; // byte array
+                localVarPostBody = phoneSenderPost; // byte array
             }
 
             // authentication (Apikey) required
@@ -1047,7 +1074,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1058,7 +1085,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<PhoneSender>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (PhoneSender) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PhoneSender)));
         }
 
@@ -1068,7 +1095,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
         /// <returns></returns>
-        public void DeleteCellphoneSender (int? senderId)
+        public void DeleteCellphoneSender (int senderId)
         {
              DeleteCellphoneSenderWithHttpInfo(senderId);
         }
@@ -1079,7 +1106,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteCellphoneSenderWithHttpInfo (int? senderId)
+        public ApiResponse<Object> DeleteCellphoneSenderWithHttpInfo (int senderId)
         {
             // verify the required parameter 'senderId' is set
             if (senderId == null)
@@ -1128,7 +1155,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
         }
 
@@ -1137,10 +1164,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteCellphoneSenderAsync (int? senderId)
+        public async System.Threading.Tasks.Task DeleteCellphoneSenderAsync (int senderId, CancellationToken cancellationToken = default(CancellationToken))
         {
-             await DeleteCellphoneSenderAsyncWithHttpInfo(senderId);
+             await DeleteCellphoneSenderWithHttpInfoAsync(senderId, cancellationToken);
 
         }
 
@@ -1149,8 +1177,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCellphoneSenderAsyncWithHttpInfo (int? senderId)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCellphoneSenderWithHttpInfoAsync (int senderId, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'senderId' is set
             if (senderId == null)
@@ -1188,7 +1217,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1199,7 +1228,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
         }
 
@@ -1209,7 +1238,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
         /// <returns></returns>
-        public void DeleteEmailSender (int? senderId)
+        public void DeleteEmailSender (int senderId)
         {
              DeleteEmailSenderWithHttpInfo(senderId);
         }
@@ -1220,7 +1249,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteEmailSenderWithHttpInfo (int? senderId)
+        public ApiResponse<Object> DeleteEmailSenderWithHttpInfo (int senderId)
         {
             // verify the required parameter 'senderId' is set
             if (senderId == null)
@@ -1269,7 +1298,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
         }
 
@@ -1278,10 +1307,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteEmailSenderAsync (int? senderId)
+        public async System.Threading.Tasks.Task DeleteEmailSenderAsync (int senderId, CancellationToken cancellationToken = default(CancellationToken))
         {
-             await DeleteEmailSenderAsyncWithHttpInfo(senderId);
+             await DeleteEmailSenderWithHttpInfoAsync(senderId, cancellationToken);
 
         }
 
@@ -1290,8 +1320,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEmailSenderAsyncWithHttpInfo (int? senderId)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEmailSenderWithHttpInfoAsync (int senderId, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'senderId' is set
             if (senderId == null)
@@ -1329,7 +1360,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1340,7 +1371,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
         }
 
@@ -1350,7 +1381,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
         /// <returns></returns>
-        public void DeletePhoneSender (int? senderId)
+        public void DeletePhoneSender (int senderId)
         {
              DeletePhoneSenderWithHttpInfo(senderId);
         }
@@ -1361,7 +1392,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeletePhoneSenderWithHttpInfo (int? senderId)
+        public ApiResponse<Object> DeletePhoneSenderWithHttpInfo (int senderId)
         {
             // verify the required parameter 'senderId' is set
             if (senderId == null)
@@ -1410,7 +1441,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
         }
 
@@ -1419,10 +1450,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeletePhoneSenderAsync (int? senderId)
+        public async System.Threading.Tasks.Task DeletePhoneSenderAsync (int senderId, CancellationToken cancellationToken = default(CancellationToken))
         {
-             await DeletePhoneSenderAsyncWithHttpInfo(senderId);
+             await DeletePhoneSenderWithHttpInfoAsync(senderId, cancellationToken);
 
         }
 
@@ -1431,8 +1463,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeletePhoneSenderAsyncWithHttpInfo (int? senderId)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeletePhoneSenderWithHttpInfoAsync (int senderId, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'senderId' is set
             if (senderId == null)
@@ -1470,7 +1503,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1481,7 +1514,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
         }
 
@@ -1493,7 +1526,7 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
         /// <returns>CellphoneSenderCollection</returns>
-        public CellphoneSenderCollection GetAllCellphoneSenders (int? offset = null, int? limit = null, string status = null)
+        public CellphoneSenderCollection GetAllCellphoneSenders (int? offset = default(int?), int? limit = default(int?), string status = default(string))
         {
              ApiResponse<CellphoneSenderCollection> localVarResponse = GetAllCellphoneSendersWithHttpInfo(offset, limit, status);
              return localVarResponse.Data;
@@ -1507,7 +1540,7 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
         /// <returns>ApiResponse of CellphoneSenderCollection</returns>
-        public ApiResponse< CellphoneSenderCollection > GetAllCellphoneSendersWithHttpInfo (int? offset = null, int? limit = null, string status = null)
+        public ApiResponse<CellphoneSenderCollection> GetAllCellphoneSendersWithHttpInfo (int? offset = default(int?), int? limit = default(int?), string status = default(string))
         {
 
             var localVarPath = "/senders/cellphone";
@@ -1555,7 +1588,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<CellphoneSenderCollection>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (CellphoneSenderCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CellphoneSenderCollection)));
         }
 
@@ -1566,10 +1599,11 @@ namespace org.egoi.client.api.Api
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of CellphoneSenderCollection</returns>
-        public async System.Threading.Tasks.Task<CellphoneSenderCollection> GetAllCellphoneSendersAsync (int? offset = null, int? limit = null, string status = null)
+        public async System.Threading.Tasks.Task<CellphoneSenderCollection> GetAllCellphoneSendersAsync (int? offset = default(int?), int? limit = default(int?), string status = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<CellphoneSenderCollection> localVarResponse = await GetAllCellphoneSendersAsyncWithHttpInfo(offset, limit, status);
+             ApiResponse<CellphoneSenderCollection> localVarResponse = await GetAllCellphoneSendersWithHttpInfoAsync(offset, limit, status, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1581,8 +1615,9 @@ namespace org.egoi.client.api.Api
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (CellphoneSenderCollection)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CellphoneSenderCollection>> GetAllCellphoneSendersAsyncWithHttpInfo (int? offset = null, int? limit = null, string status = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CellphoneSenderCollection>> GetAllCellphoneSendersWithHttpInfoAsync (int? offset = default(int?), int? limit = default(int?), string status = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/senders/cellphone";
@@ -1619,7 +1654,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1630,7 +1665,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<CellphoneSenderCollection>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (CellphoneSenderCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CellphoneSenderCollection)));
         }
 
@@ -1642,7 +1677,7 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
         /// <returns>EmailSenderCollection</returns>
-        public EmailSenderCollection GetAllEmailSenders (int? offset = null, int? limit = null, string status = null)
+        public EmailSenderCollection GetAllEmailSenders (int? offset = default(int?), int? limit = default(int?), string status = default(string))
         {
              ApiResponse<EmailSenderCollection> localVarResponse = GetAllEmailSendersWithHttpInfo(offset, limit, status);
              return localVarResponse.Data;
@@ -1656,7 +1691,7 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
         /// <returns>ApiResponse of EmailSenderCollection</returns>
-        public ApiResponse< EmailSenderCollection > GetAllEmailSendersWithHttpInfo (int? offset = null, int? limit = null, string status = null)
+        public ApiResponse<EmailSenderCollection> GetAllEmailSendersWithHttpInfo (int? offset = default(int?), int? limit = default(int?), string status = default(string))
         {
 
             var localVarPath = "/senders/email";
@@ -1704,7 +1739,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<EmailSenderCollection>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (EmailSenderCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailSenderCollection)));
         }
 
@@ -1715,10 +1750,11 @@ namespace org.egoi.client.api.Api
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of EmailSenderCollection</returns>
-        public async System.Threading.Tasks.Task<EmailSenderCollection> GetAllEmailSendersAsync (int? offset = null, int? limit = null, string status = null)
+        public async System.Threading.Tasks.Task<EmailSenderCollection> GetAllEmailSendersAsync (int? offset = default(int?), int? limit = default(int?), string status = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<EmailSenderCollection> localVarResponse = await GetAllEmailSendersAsyncWithHttpInfo(offset, limit, status);
+             ApiResponse<EmailSenderCollection> localVarResponse = await GetAllEmailSendersWithHttpInfoAsync(offset, limit, status, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1730,8 +1766,9 @@ namespace org.egoi.client.api.Api
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (EmailSenderCollection)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<EmailSenderCollection>> GetAllEmailSendersAsyncWithHttpInfo (int? offset = null, int? limit = null, string status = null)
+        public async System.Threading.Tasks.Task<ApiResponse<EmailSenderCollection>> GetAllEmailSendersWithHttpInfoAsync (int? offset = default(int?), int? limit = default(int?), string status = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/senders/email";
@@ -1768,7 +1805,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1779,7 +1816,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<EmailSenderCollection>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (EmailSenderCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailSenderCollection)));
         }
 
@@ -1791,7 +1828,7 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
         /// <returns>PhoneSenderCollection</returns>
-        public PhoneSenderCollection GetAllPhoneSenders (int? offset = null, int? limit = null, string status = null)
+        public PhoneSenderCollection GetAllPhoneSenders (int? offset = default(int?), int? limit = default(int?), string status = default(string))
         {
              ApiResponse<PhoneSenderCollection> localVarResponse = GetAllPhoneSendersWithHttpInfo(offset, limit, status);
              return localVarResponse.Data;
@@ -1805,7 +1842,7 @@ namespace org.egoi.client.api.Api
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
         /// <returns>ApiResponse of PhoneSenderCollection</returns>
-        public ApiResponse< PhoneSenderCollection > GetAllPhoneSendersWithHttpInfo (int? offset = null, int? limit = null, string status = null)
+        public ApiResponse<PhoneSenderCollection> GetAllPhoneSendersWithHttpInfo (int? offset = default(int?), int? limit = default(int?), string status = default(string))
         {
 
             var localVarPath = "/senders/phone";
@@ -1853,7 +1890,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<PhoneSenderCollection>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (PhoneSenderCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PhoneSenderCollection)));
         }
 
@@ -1864,10 +1901,11 @@ namespace org.egoi.client.api.Api
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PhoneSenderCollection</returns>
-        public async System.Threading.Tasks.Task<PhoneSenderCollection> GetAllPhoneSendersAsync (int? offset = null, int? limit = null, string status = null)
+        public async System.Threading.Tasks.Task<PhoneSenderCollection> GetAllPhoneSendersAsync (int? offset = default(int?), int? limit = default(int?), string status = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<PhoneSenderCollection> localVarResponse = await GetAllPhoneSendersAsyncWithHttpInfo(offset, limit, status);
+             ApiResponse<PhoneSenderCollection> localVarResponse = await GetAllPhoneSendersWithHttpInfoAsync(offset, limit, status, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1879,8 +1917,9 @@ namespace org.egoi.client.api.Api
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <param name="status">Status filter (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PhoneSenderCollection)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PhoneSenderCollection>> GetAllPhoneSendersAsyncWithHttpInfo (int? offset = null, int? limit = null, string status = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PhoneSenderCollection>> GetAllPhoneSendersWithHttpInfoAsync (int? offset = default(int?), int? limit = default(int?), string status = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/senders/phone";
@@ -1917,7 +1956,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1928,7 +1967,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<PhoneSenderCollection>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (PhoneSenderCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PhoneSenderCollection)));
         }
 
@@ -1939,7 +1978,7 @@ namespace org.egoi.client.api.Api
         /// <param name="senderId">ID of the Sender</param>
         /// <param name="emailSenderPutRequest">Parameters for the contact</param>
         /// <returns>EmailSender</returns>
-        public EmailSender PutEmailSender (int? senderId, EmailSenderPutRequest emailSenderPutRequest)
+        public EmailSender PutEmailSender (int senderId, EmailSenderPutRequest emailSenderPutRequest)
         {
              ApiResponse<EmailSender> localVarResponse = PutEmailSenderWithHttpInfo(senderId, emailSenderPutRequest);
              return localVarResponse.Data;
@@ -1952,7 +1991,7 @@ namespace org.egoi.client.api.Api
         /// <param name="senderId">ID of the Sender</param>
         /// <param name="emailSenderPutRequest">Parameters for the contact</param>
         /// <returns>ApiResponse of EmailSender</returns>
-        public ApiResponse< EmailSender > PutEmailSenderWithHttpInfo (int? senderId, EmailSenderPutRequest emailSenderPutRequest)
+        public ApiResponse<EmailSender> PutEmailSenderWithHttpInfo (int senderId, EmailSenderPutRequest emailSenderPutRequest)
         {
             // verify the required parameter 'senderId' is set
             if (senderId == null)
@@ -2013,7 +2052,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<EmailSender>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (EmailSender) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailSender)));
         }
 
@@ -2023,10 +2062,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
         /// <param name="emailSenderPutRequest">Parameters for the contact</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of EmailSender</returns>
-        public async System.Threading.Tasks.Task<EmailSender> PutEmailSenderAsync (int? senderId, EmailSenderPutRequest emailSenderPutRequest)
+        public async System.Threading.Tasks.Task<EmailSender> PutEmailSenderAsync (int senderId, EmailSenderPutRequest emailSenderPutRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<EmailSender> localVarResponse = await PutEmailSenderAsyncWithHttpInfo(senderId, emailSenderPutRequest);
+             ApiResponse<EmailSender> localVarResponse = await PutEmailSenderWithHttpInfoAsync(senderId, emailSenderPutRequest, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -2037,8 +2077,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="senderId">ID of the Sender</param>
         /// <param name="emailSenderPutRequest">Parameters for the contact</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (EmailSender)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<EmailSender>> PutEmailSenderAsyncWithHttpInfo (int? senderId, EmailSenderPutRequest emailSenderPutRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<EmailSender>> PutEmailSenderWithHttpInfoAsync (int senderId, EmailSenderPutRequest emailSenderPutRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'senderId' is set
             if (senderId == null)
@@ -2088,7 +2129,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -2099,7 +2140,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<EmailSender>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (EmailSender) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(EmailSender)));
         }
 

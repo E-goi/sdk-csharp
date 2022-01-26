@@ -1,9 +1,9 @@
-/* 
+/*
  * APIv3 (New)
  *
- *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
  *
- * OpenAPI spec version: 3.0.0
+ * The version of the OpenAPI document: 3.0.0
  * 
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using RestSharp;
 using org.egoi.client.api.Client;
 using org.egoi.client.api.Model;
@@ -98,7 +99,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the list to search for. (optional)</param>
         /// <returns>List&lt;AppStructure&gt;</returns>
-        List<AppStructure> GetPushApps (int? listId = null);
+        List<AppStructure> GetPushApps (int? listId = default(int?));
 
         /// <summary>
         /// Get all Push applications from E-goi
@@ -109,7 +110,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the list to search for. (optional)</param>
         /// <returns>ApiResponse of List&lt;AppStructure&gt;</returns>
-        ApiResponse<List<AppStructure>> GetPushAppsWithHttpInfo (int? listId = null);
+        ApiResponse<List<AppStructure>> GetPushAppsWithHttpInfo (int? listId = default(int?));
         /// <summary>
         /// Update a specific push campaign
         /// </summary>
@@ -137,7 +138,7 @@ namespace org.egoi.client.api.Api
         /// Registers an event from the push notification.
         /// </summary>
         /// <remarks>
-        /// Registers an event from the push notification.
+        /// Registers a Firebase token
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the E-goi push app.</param>
@@ -149,7 +150,7 @@ namespace org.egoi.client.api.Api
         /// Registers an event from the push notification.
         /// </summary>
         /// <remarks>
-        /// Registers an event from the push notification.
+        /// Registers a Firebase token
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the E-goi push app.</param>
@@ -190,8 +191,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="campaignPushSendRequest">Parameters for the &#39;send push&#39; action</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> ActionSendPushAsync (string campaignHash, CampaignPushSendRequest campaignPushSendRequest);
+        System.Threading.Tasks.Task<AcceptedResponse> ActionSendPushAsync (string campaignHash, CampaignPushSendRequest campaignPushSendRequest, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Send push message
@@ -202,8 +204,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="campaignPushSendRequest">Parameters for the &#39;send push&#39; action</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionSendPushAsyncWithHttpInfo (string campaignHash, CampaignPushSendRequest campaignPushSendRequest);
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionSendPushWithHttpInfoAsync (string campaignHash, CampaignPushSendRequest campaignPushSendRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create new push campaign
         /// </summary>
@@ -212,8 +215,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pushCampaignPostRequest">Parameters for the push campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of HashcodeCampaign</returns>
-        System.Threading.Tasks.Task<HashcodeCampaign> CreatePushCampaignAsync (PushCampaignPostRequest pushCampaignPostRequest);
+        System.Threading.Tasks.Task<HashcodeCampaign> CreatePushCampaignAsync (PushCampaignPostRequest pushCampaignPostRequest, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create new push campaign
@@ -223,8 +227,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pushCampaignPostRequest">Parameters for the push campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (HashcodeCampaign)</returns>
-        System.Threading.Tasks.Task<ApiResponse<HashcodeCampaign>> CreatePushCampaignAsyncWithHttpInfo (PushCampaignPostRequest pushCampaignPostRequest);
+        System.Threading.Tasks.Task<ApiResponse<HashcodeCampaign>> CreatePushCampaignWithHttpInfoAsync (PushCampaignPostRequest pushCampaignPostRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a Push application from E-goi
         /// </summary>
@@ -233,8 +238,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AppStructure</returns>
-        System.Threading.Tasks.Task<AppStructure> GetPushAppAsync (string appId);
+        System.Threading.Tasks.Task<AppStructure> GetPushAppAsync (string appId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get a Push application from E-goi
@@ -244,8 +250,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AppStructure)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AppStructure>> GetPushAppAsyncWithHttpInfo (string appId);
+        System.Threading.Tasks.Task<ApiResponse<AppStructure>> GetPushAppWithHttpInfoAsync (string appId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get all Push applications from E-goi
         /// </summary>
@@ -254,8 +261,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the list to search for. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of List&lt;AppStructure&gt;</returns>
-        System.Threading.Tasks.Task<List<AppStructure>> GetPushAppsAsync (int? listId = null);
+        System.Threading.Tasks.Task<List<AppStructure>> GetPushAppsAsync (int? listId = default(int?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get all Push applications from E-goi
@@ -265,8 +273,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the list to search for. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (List&lt;AppStructure&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<AppStructure>>> GetPushAppsAsyncWithHttpInfo (int? listId = null);
+        System.Threading.Tasks.Task<ApiResponse<List<AppStructure>>> GetPushAppsWithHttpInfoAsync (int? listId = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update a specific push campaign
         /// </summary>
@@ -276,8 +285,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="pushCampaignPatchRequest">Parameters for the push campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of HashcodeCampaign</returns>
-        System.Threading.Tasks.Task<HashcodeCampaign> PatchPushCampaignAsync (string campaignHash, PushCampaignPatchRequest pushCampaignPatchRequest);
+        System.Threading.Tasks.Task<HashcodeCampaign> PatchPushCampaignAsync (string campaignHash, PushCampaignPatchRequest pushCampaignPatchRequest, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update a specific push campaign
@@ -288,31 +298,34 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="pushCampaignPatchRequest">Parameters for the push campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (HashcodeCampaign)</returns>
-        System.Threading.Tasks.Task<ApiResponse<HashcodeCampaign>> PatchPushCampaignAsyncWithHttpInfo (string campaignHash, PushCampaignPatchRequest pushCampaignPatchRequest);
+        System.Threading.Tasks.Task<ApiResponse<HashcodeCampaign>> PatchPushCampaignWithHttpInfoAsync (string campaignHash, PushCampaignPatchRequest pushCampaignPatchRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Registers an event from the push notification.
         /// </summary>
         /// <remarks>
-        /// Registers an event from the push notification.
+        /// Registers a Firebase token
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the E-goi push app.</param>
         /// <param name="pushEvent">Parameters for the event</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PushResponse</returns>
-        System.Threading.Tasks.Task<PushResponse> RegisterPushEventAsync (string appId, PushEvent pushEvent);
+        System.Threading.Tasks.Task<PushResponse> RegisterPushEventAsync (string appId, PushEvent pushEvent, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Registers an event from the push notification.
         /// </summary>
         /// <remarks>
-        /// Registers an event from the push notification.
+        /// Registers a Firebase token
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the E-goi push app.</param>
         /// <param name="pushEvent">Parameters for the event</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PushResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PushResponse>> RegisterPushEventAsyncWithHttpInfo (string appId, PushEvent pushEvent);
+        System.Threading.Tasks.Task<ApiResponse<PushResponse>> RegisterPushEventWithHttpInfoAsync (string appId, PushEvent pushEvent, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Registers a Firebase token
         /// </summary>
@@ -322,8 +335,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the E-goi push app.</param>
         /// <param name="pushToken">Parameters for the token</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PushResponse</returns>
-        System.Threading.Tasks.Task<PushResponse> RegisterPushTokenAsync (string appId, PushToken pushToken);
+        System.Threading.Tasks.Task<PushResponse> RegisterPushTokenAsync (string appId, PushToken pushToken, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Registers a Firebase token
@@ -334,8 +348,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the E-goi push app.</param>
         /// <param name="pushToken">Parameters for the token</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PushResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PushResponse>> RegisterPushTokenAsyncWithHttpInfo (string appId, PushToken pushToken);
+        System.Threading.Tasks.Task<ApiResponse<PushResponse>> RegisterPushTokenWithHttpInfoAsync (string appId, PushToken pushToken, CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -467,7 +482,7 @@ namespace org.egoi.client.api.Api
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="campaignPushSendRequest">Parameters for the &#39;send push&#39; action</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse< AcceptedResponse > ActionSendPushWithHttpInfo (string campaignHash, CampaignPushSendRequest campaignPushSendRequest)
+        public ApiResponse<AcceptedResponse> ActionSendPushWithHttpInfo (string campaignHash, CampaignPushSendRequest campaignPushSendRequest)
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -528,7 +543,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -538,10 +553,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="campaignPushSendRequest">Parameters for the &#39;send push&#39; action</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> ActionSendPushAsync (string campaignHash, CampaignPushSendRequest campaignPushSendRequest)
+        public async System.Threading.Tasks.Task<AcceptedResponse> ActionSendPushAsync (string campaignHash, CampaignPushSendRequest campaignPushSendRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AcceptedResponse> localVarResponse = await ActionSendPushAsyncWithHttpInfo(campaignHash, campaignPushSendRequest);
+             ApiResponse<AcceptedResponse> localVarResponse = await ActionSendPushWithHttpInfoAsync(campaignHash, campaignPushSendRequest, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -552,8 +568,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="campaignPushSendRequest">Parameters for the &#39;send push&#39; action</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionSendPushAsyncWithHttpInfo (string campaignHash, CampaignPushSendRequest campaignPushSendRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionSendPushWithHttpInfoAsync (string campaignHash, CampaignPushSendRequest campaignPushSendRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -603,7 +620,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -614,7 +631,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -636,7 +653,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pushCampaignPostRequest">Parameters for the push campaign</param>
         /// <returns>ApiResponse of HashcodeCampaign</returns>
-        public ApiResponse< HashcodeCampaign > CreatePushCampaignWithHttpInfo (PushCampaignPostRequest pushCampaignPostRequest)
+        public ApiResponse<HashcodeCampaign> CreatePushCampaignWithHttpInfo (PushCampaignPostRequest pushCampaignPostRequest)
         {
             // verify the required parameter 'pushCampaignPostRequest' is set
             if (pushCampaignPostRequest == null)
@@ -693,7 +710,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<HashcodeCampaign>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (HashcodeCampaign) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(HashcodeCampaign)));
         }
 
@@ -702,10 +719,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pushCampaignPostRequest">Parameters for the push campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of HashcodeCampaign</returns>
-        public async System.Threading.Tasks.Task<HashcodeCampaign> CreatePushCampaignAsync (PushCampaignPostRequest pushCampaignPostRequest)
+        public async System.Threading.Tasks.Task<HashcodeCampaign> CreatePushCampaignAsync (PushCampaignPostRequest pushCampaignPostRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<HashcodeCampaign> localVarResponse = await CreatePushCampaignAsyncWithHttpInfo(pushCampaignPostRequest);
+             ApiResponse<HashcodeCampaign> localVarResponse = await CreatePushCampaignWithHttpInfoAsync(pushCampaignPostRequest, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -715,8 +733,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pushCampaignPostRequest">Parameters for the push campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (HashcodeCampaign)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<HashcodeCampaign>> CreatePushCampaignAsyncWithHttpInfo (PushCampaignPostRequest pushCampaignPostRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<HashcodeCampaign>> CreatePushCampaignWithHttpInfoAsync (PushCampaignPostRequest pushCampaignPostRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'pushCampaignPostRequest' is set
             if (pushCampaignPostRequest == null)
@@ -762,7 +781,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -773,7 +792,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<HashcodeCampaign>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (HashcodeCampaign) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(HashcodeCampaign)));
         }
 
@@ -795,7 +814,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the E-goi push app.</param>
         /// <returns>ApiResponse of AppStructure</returns>
-        public ApiResponse< AppStructure > GetPushAppWithHttpInfo (string appId)
+        public ApiResponse<AppStructure> GetPushAppWithHttpInfo (string appId)
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -844,7 +863,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AppStructure>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AppStructure) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AppStructure)));
         }
 
@@ -853,10 +872,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AppStructure</returns>
-        public async System.Threading.Tasks.Task<AppStructure> GetPushAppAsync (string appId)
+        public async System.Threading.Tasks.Task<AppStructure> GetPushAppAsync (string appId, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AppStructure> localVarResponse = await GetPushAppAsyncWithHttpInfo(appId);
+             ApiResponse<AppStructure> localVarResponse = await GetPushAppWithHttpInfoAsync(appId, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -866,8 +886,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the E-goi push app.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AppStructure)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AppStructure>> GetPushAppAsyncWithHttpInfo (string appId)
+        public async System.Threading.Tasks.Task<ApiResponse<AppStructure>> GetPushAppWithHttpInfoAsync (string appId, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -905,7 +926,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -916,7 +937,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AppStructure>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AppStructure) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AppStructure)));
         }
 
@@ -926,7 +947,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the list to search for. (optional)</param>
         /// <returns>List&lt;AppStructure&gt;</returns>
-        public List<AppStructure> GetPushApps (int? listId = null)
+        public List<AppStructure> GetPushApps (int? listId = default(int?))
         {
              ApiResponse<List<AppStructure>> localVarResponse = GetPushAppsWithHttpInfo(listId);
              return localVarResponse.Data;
@@ -938,7 +959,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the list to search for. (optional)</param>
         /// <returns>ApiResponse of List&lt;AppStructure&gt;</returns>
-        public ApiResponse< List<AppStructure> > GetPushAppsWithHttpInfo (int? listId = null)
+        public ApiResponse<List<AppStructure>> GetPushAppsWithHttpInfo (int? listId = default(int?))
         {
 
             var localVarPath = "/push/apps";
@@ -984,7 +1005,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<List<AppStructure>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (List<AppStructure>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<AppStructure>)));
         }
 
@@ -993,10 +1014,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the list to search for. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of List&lt;AppStructure&gt;</returns>
-        public async System.Threading.Tasks.Task<List<AppStructure>> GetPushAppsAsync (int? listId = null)
+        public async System.Threading.Tasks.Task<List<AppStructure>> GetPushAppsAsync (int? listId = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<List<AppStructure>> localVarResponse = await GetPushAppsAsyncWithHttpInfo(listId);
+             ApiResponse<List<AppStructure>> localVarResponse = await GetPushAppsWithHttpInfoAsync(listId, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1006,8 +1028,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the list to search for. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (List&lt;AppStructure&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<AppStructure>>> GetPushAppsAsyncWithHttpInfo (int? listId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<List<AppStructure>>> GetPushAppsWithHttpInfoAsync (int? listId = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
 
             var localVarPath = "/push/apps";
@@ -1042,7 +1065,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1053,7 +1076,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<List<AppStructure>>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (List<AppStructure>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<AppStructure>)));
         }
 
@@ -1077,7 +1100,7 @@ namespace org.egoi.client.api.Api
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="pushCampaignPatchRequest">Parameters for the push campaign</param>
         /// <returns>ApiResponse of HashcodeCampaign</returns>
-        public ApiResponse< HashcodeCampaign > PatchPushCampaignWithHttpInfo (string campaignHash, PushCampaignPatchRequest pushCampaignPatchRequest)
+        public ApiResponse<HashcodeCampaign> PatchPushCampaignWithHttpInfo (string campaignHash, PushCampaignPatchRequest pushCampaignPatchRequest)
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -1138,7 +1161,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<HashcodeCampaign>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (HashcodeCampaign) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(HashcodeCampaign)));
         }
 
@@ -1148,10 +1171,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="pushCampaignPatchRequest">Parameters for the push campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of HashcodeCampaign</returns>
-        public async System.Threading.Tasks.Task<HashcodeCampaign> PatchPushCampaignAsync (string campaignHash, PushCampaignPatchRequest pushCampaignPatchRequest)
+        public async System.Threading.Tasks.Task<HashcodeCampaign> PatchPushCampaignAsync (string campaignHash, PushCampaignPatchRequest pushCampaignPatchRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<HashcodeCampaign> localVarResponse = await PatchPushCampaignAsyncWithHttpInfo(campaignHash, pushCampaignPatchRequest);
+             ApiResponse<HashcodeCampaign> localVarResponse = await PatchPushCampaignWithHttpInfoAsync(campaignHash, pushCampaignPatchRequest, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1162,8 +1186,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="pushCampaignPatchRequest">Parameters for the push campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (HashcodeCampaign)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<HashcodeCampaign>> PatchPushCampaignAsyncWithHttpInfo (string campaignHash, PushCampaignPatchRequest pushCampaignPatchRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<HashcodeCampaign>> PatchPushCampaignWithHttpInfoAsync (string campaignHash, PushCampaignPatchRequest pushCampaignPatchRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -1213,7 +1238,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.PATCH, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1224,12 +1249,12 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<HashcodeCampaign>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (HashcodeCampaign) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(HashcodeCampaign)));
         }
 
         /// <summary>
-        /// Registers an event from the push notification. Registers an event from the push notification.
+        /// Registers an event from the push notification. Registers a Firebase token
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the E-goi push app.</param>
@@ -1242,13 +1267,13 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
-        /// Registers an event from the push notification. Registers an event from the push notification.
+        /// Registers an event from the push notification. Registers a Firebase token
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the E-goi push app.</param>
         /// <param name="pushEvent">Parameters for the event</param>
         /// <returns>ApiResponse of PushResponse</returns>
-        public ApiResponse< PushResponse > RegisterPushEventWithHttpInfo (string appId, PushEvent pushEvent)
+        public ApiResponse<PushResponse> RegisterPushEventWithHttpInfo (string appId, PushEvent pushEvent)
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -1309,32 +1334,34 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<PushResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (PushResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PushResponse)));
         }
 
         /// <summary>
-        /// Registers an event from the push notification. Registers an event from the push notification.
+        /// Registers an event from the push notification. Registers a Firebase token
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the E-goi push app.</param>
         /// <param name="pushEvent">Parameters for the event</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PushResponse</returns>
-        public async System.Threading.Tasks.Task<PushResponse> RegisterPushEventAsync (string appId, PushEvent pushEvent)
+        public async System.Threading.Tasks.Task<PushResponse> RegisterPushEventAsync (string appId, PushEvent pushEvent, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<PushResponse> localVarResponse = await RegisterPushEventAsyncWithHttpInfo(appId, pushEvent);
+             ApiResponse<PushResponse> localVarResponse = await RegisterPushEventWithHttpInfoAsync(appId, pushEvent, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Registers an event from the push notification. Registers an event from the push notification.
+        /// Registers an event from the push notification. Registers a Firebase token
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the E-goi push app.</param>
         /// <param name="pushEvent">Parameters for the event</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PushResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PushResponse>> RegisterPushEventAsyncWithHttpInfo (string appId, PushEvent pushEvent)
+        public async System.Threading.Tasks.Task<ApiResponse<PushResponse>> RegisterPushEventWithHttpInfoAsync (string appId, PushEvent pushEvent, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -1384,7 +1411,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1395,7 +1422,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<PushResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (PushResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PushResponse)));
         }
 
@@ -1419,7 +1446,7 @@ namespace org.egoi.client.api.Api
         /// <param name="appId">ID of the E-goi push app.</param>
         /// <param name="pushToken">Parameters for the token</param>
         /// <returns>ApiResponse of PushResponse</returns>
-        public ApiResponse< PushResponse > RegisterPushTokenWithHttpInfo (string appId, PushToken pushToken)
+        public ApiResponse<PushResponse> RegisterPushTokenWithHttpInfo (string appId, PushToken pushToken)
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -1480,7 +1507,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<PushResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (PushResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PushResponse)));
         }
 
@@ -1490,10 +1517,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the E-goi push app.</param>
         /// <param name="pushToken">Parameters for the token</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of PushResponse</returns>
-        public async System.Threading.Tasks.Task<PushResponse> RegisterPushTokenAsync (string appId, PushToken pushToken)
+        public async System.Threading.Tasks.Task<PushResponse> RegisterPushTokenAsync (string appId, PushToken pushToken, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<PushResponse> localVarResponse = await RegisterPushTokenAsyncWithHttpInfo(appId, pushToken);
+             ApiResponse<PushResponse> localVarResponse = await RegisterPushTokenWithHttpInfoAsync(appId, pushToken, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1504,8 +1532,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId">ID of the E-goi push app.</param>
         /// <param name="pushToken">Parameters for the token</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (PushResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PushResponse>> RegisterPushTokenAsyncWithHttpInfo (string appId, PushToken pushToken)
+        public async System.Threading.Tasks.Task<ApiResponse<PushResponse>> RegisterPushTokenWithHttpInfoAsync (string appId, PushToken pushToken, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -1555,7 +1584,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1566,7 +1595,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<PushResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (PushResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PushResponse)));
         }
 

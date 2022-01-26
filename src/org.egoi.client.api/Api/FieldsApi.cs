@@ -1,9 +1,9 @@
-/* 
+/*
  * APIv3 (New)
  *
- *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
  *
- * OpenAPI spec version: 3.0.0
+ * The version of the OpenAPI document: 3.0.0
  * 
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using RestSharp;
 using org.egoi.client.api.Client;
 using org.egoi.client.api.Model;
@@ -34,7 +35,7 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="field">Parameters for the extra field</param>
         /// <returns>Field</returns>
-        Field CreateExtraField (int? listId, Field field);
+        Field CreateExtraField (int listId, Field field);
 
         /// <summary>
         /// Create extra field
@@ -46,7 +47,7 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="field">Parameters for the extra field</param>
         /// <returns>ApiResponse of Field</returns>
-        ApiResponse<Field> CreateExtraFieldWithHttpInfo (int? listId, Field field);
+        ApiResponse<Field> CreateExtraFieldWithHttpInfo (int listId, Field field);
         /// <summary>
         /// Create new field option
         /// </summary>
@@ -56,9 +57,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
-        /// <param name="fieldOption">Parameters for the field option</param>
+        /// <param name="fieldOptionPost">Parameters for the field option</param>
         /// <returns>FieldOption</returns>
-        FieldOption CreateFieldOption (int? listId, int? fieldId, FieldOption fieldOption);
+        FieldOption CreateFieldOption (int listId, int fieldId, FieldOptionPost fieldOptionPost);
 
         /// <summary>
         /// Create new field option
@@ -69,9 +70,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
-        /// <param name="fieldOption">Parameters for the field option</param>
+        /// <param name="fieldOptionPost">Parameters for the field option</param>
         /// <returns>ApiResponse of FieldOption</returns>
-        ApiResponse<FieldOption> CreateFieldOptionWithHttpInfo (int? listId, int? fieldId, FieldOption fieldOption);
+        ApiResponse<FieldOption> CreateFieldOptionWithHttpInfo (int listId, int fieldId, FieldOptionPost fieldOptionPost);
         /// <summary>
         /// Remove extra field
         /// </summary>
@@ -82,7 +83,7 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <returns></returns>
-        void DeleteExtraField (int? listId, int? fieldId);
+        void DeleteExtraField (int listId, int fieldId);
 
         /// <summary>
         /// Remove extra field
@@ -94,7 +95,7 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteExtraFieldWithHttpInfo (int? listId, int? fieldId);
+        ApiResponse<Object> DeleteExtraFieldWithHttpInfo (int listId, int fieldId);
         /// <summary>
         /// Deletes an option
         /// </summary>
@@ -106,7 +107,7 @@ namespace org.egoi.client.api.Api
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="optionId">ID of the field option</param>
         /// <returns></returns>
-        void DeleteFieldOption (int? listId, int? fieldId, int? optionId);
+        void DeleteFieldOption (int listId, int fieldId, int optionId);
 
         /// <summary>
         /// Deletes an option
@@ -119,7 +120,7 @@ namespace org.egoi.client.api.Api
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="optionId">ID of the field option</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteFieldOptionWithHttpInfo (int? listId, int? fieldId, int? optionId);
+        ApiResponse<Object> DeleteFieldOptionWithHttpInfo (int listId, int fieldId, int optionId);
         /// <summary>
         /// Get all field options
         /// </summary>
@@ -130,7 +131,7 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <returns>FieldOptionsCollection</returns>
-        FieldOptionsCollection GetAllFieldOptions (int? listId, int? fieldId);
+        FieldOptionsCollection GetAllFieldOptions (int listId, int fieldId);
 
         /// <summary>
         /// Get all field options
@@ -142,7 +143,7 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <returns>ApiResponse of FieldOptionsCollection</returns>
-        ApiResponse<FieldOptionsCollection> GetAllFieldOptionsWithHttpInfo (int? listId, int? fieldId);
+        ApiResponse<FieldOptionsCollection> GetAllFieldOptionsWithHttpInfo (int listId, int fieldId);
         /// <summary>
         /// Get all fields
         /// </summary>
@@ -154,7 +155,7 @@ namespace org.egoi.client.api.Api
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <returns>FieldCollection</returns>
-        FieldCollection GetAllFields (int? listId, int? offset = null, int? limit = null);
+        FieldCollection GetAllFields (int listId, int? offset = default(int?), int? limit = default(int?));
 
         /// <summary>
         /// Get all fields
@@ -167,7 +168,7 @@ namespace org.egoi.client.api.Api
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <returns>ApiResponse of FieldCollection</returns>
-        ApiResponse<FieldCollection> GetAllFieldsWithHttpInfo (int? listId, int? offset = null, int? limit = null);
+        ApiResponse<FieldCollection> GetAllFieldsWithHttpInfo (int listId, int? offset = default(int?), int? limit = default(int?));
         /// <summary>
         /// Update base field
         /// </summary>
@@ -179,7 +180,7 @@ namespace org.egoi.client.api.Api
         /// <param name="fieldId">ID of the base field</param>
         /// <param name="patchRequestBaseField">Parameters for the extra field</param>
         /// <returns>Field</returns>
-        Field PatchBaseField (int? listId, string fieldId, PatchRequestBaseField patchRequestBaseField);
+        Field PatchBaseField (int listId, string fieldId, PatchRequestBaseField patchRequestBaseField);
 
         /// <summary>
         /// Update base field
@@ -192,7 +193,7 @@ namespace org.egoi.client.api.Api
         /// <param name="fieldId">ID of the base field</param>
         /// <param name="patchRequestBaseField">Parameters for the extra field</param>
         /// <returns>ApiResponse of Field</returns>
-        ApiResponse<Field> PatchBaseFieldWithHttpInfo (int? listId, string fieldId, PatchRequestBaseField patchRequestBaseField);
+        ApiResponse<Field> PatchBaseFieldWithHttpInfo (int listId, string fieldId, PatchRequestBaseField patchRequestBaseField);
         /// <summary>
         /// Update extra field
         /// </summary>
@@ -204,7 +205,7 @@ namespace org.egoi.client.api.Api
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="patchRequestField">Parameters for the extra field</param>
         /// <returns>Field</returns>
-        Field PatchExtraField (int? listId, int? fieldId, PatchRequestField patchRequestField);
+        Field PatchExtraField (int listId, int fieldId, PatchRequestField patchRequestField);
 
         /// <summary>
         /// Update extra field
@@ -217,7 +218,7 @@ namespace org.egoi.client.api.Api
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="patchRequestField">Parameters for the extra field</param>
         /// <returns>ApiResponse of Field</returns>
-        ApiResponse<Field> PatchExtraFieldWithHttpInfo (int? listId, int? fieldId, PatchRequestField patchRequestField);
+        ApiResponse<Field> PatchExtraFieldWithHttpInfo (int listId, int fieldId, PatchRequestField patchRequestField);
         /// <summary>
         /// Update field option
         /// </summary>
@@ -228,9 +229,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="optionId">ID of the field option</param>
-        /// <param name="fieldOption">Parameters for the field option</param>
+        /// <param name="fieldOptionPost">Parameters for the field option</param>
         /// <returns>FieldOption</returns>
-        FieldOption UpdateFieldOption (int? listId, int? fieldId, int? optionId, FieldOption fieldOption);
+        FieldOption UpdateFieldOption (int listId, int fieldId, int optionId, FieldOptionPost fieldOptionPost);
 
         /// <summary>
         /// Update field option
@@ -242,9 +243,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="optionId">ID of the field option</param>
-        /// <param name="fieldOption">Parameters for the field option</param>
+        /// <param name="fieldOptionPost">Parameters for the field option</param>
         /// <returns>ApiResponse of FieldOption</returns>
-        ApiResponse<FieldOption> UpdateFieldOptionWithHttpInfo (int? listId, int? fieldId, int? optionId, FieldOption fieldOption);
+        ApiResponse<FieldOption> UpdateFieldOptionWithHttpInfo (int listId, int fieldId, int optionId, FieldOptionPost fieldOptionPost);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -256,8 +257,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="field">Parameters for the extra field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Field</returns>
-        System.Threading.Tasks.Task<Field> CreateExtraFieldAsync (int? listId, Field field);
+        System.Threading.Tasks.Task<Field> CreateExtraFieldAsync (int listId, Field field, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create extra field
@@ -268,8 +270,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="field">Parameters for the extra field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Field)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Field>> CreateExtraFieldAsyncWithHttpInfo (int? listId, Field field);
+        System.Threading.Tasks.Task<ApiResponse<Field>> CreateExtraFieldWithHttpInfoAsync (int listId, Field field, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create new field option
         /// </summary>
@@ -279,9 +282,10 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
-        /// <param name="fieldOption">Parameters for the field option</param>
+        /// <param name="fieldOptionPost">Parameters for the field option</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of FieldOption</returns>
-        System.Threading.Tasks.Task<FieldOption> CreateFieldOptionAsync (int? listId, int? fieldId, FieldOption fieldOption);
+        System.Threading.Tasks.Task<FieldOption> CreateFieldOptionAsync (int listId, int fieldId, FieldOptionPost fieldOptionPost, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create new field option
@@ -292,9 +296,10 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
-        /// <param name="fieldOption">Parameters for the field option</param>
+        /// <param name="fieldOptionPost">Parameters for the field option</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (FieldOption)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FieldOption>> CreateFieldOptionAsyncWithHttpInfo (int? listId, int? fieldId, FieldOption fieldOption);
+        System.Threading.Tasks.Task<ApiResponse<FieldOption>> CreateFieldOptionWithHttpInfoAsync (int listId, int fieldId, FieldOptionPost fieldOptionPost, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Remove extra field
         /// </summary>
@@ -304,8 +309,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteExtraFieldAsync (int? listId, int? fieldId);
+        System.Threading.Tasks.Task DeleteExtraFieldAsync (int listId, int fieldId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Remove extra field
@@ -316,8 +322,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteExtraFieldAsyncWithHttpInfo (int? listId, int? fieldId);
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteExtraFieldWithHttpInfoAsync (int listId, int fieldId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes an option
         /// </summary>
@@ -328,8 +335,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="optionId">ID of the field option</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteFieldOptionAsync (int? listId, int? fieldId, int? optionId);
+        System.Threading.Tasks.Task DeleteFieldOptionAsync (int listId, int fieldId, int optionId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Deletes an option
@@ -341,8 +349,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="optionId">ID of the field option</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteFieldOptionAsyncWithHttpInfo (int? listId, int? fieldId, int? optionId);
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteFieldOptionWithHttpInfoAsync (int listId, int fieldId, int optionId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get all field options
         /// </summary>
@@ -352,8 +361,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of FieldOptionsCollection</returns>
-        System.Threading.Tasks.Task<FieldOptionsCollection> GetAllFieldOptionsAsync (int? listId, int? fieldId);
+        System.Threading.Tasks.Task<FieldOptionsCollection> GetAllFieldOptionsAsync (int listId, int fieldId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get all field options
@@ -364,8 +374,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (FieldOptionsCollection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FieldOptionsCollection>> GetAllFieldOptionsAsyncWithHttpInfo (int? listId, int? fieldId);
+        System.Threading.Tasks.Task<ApiResponse<FieldOptionsCollection>> GetAllFieldOptionsWithHttpInfoAsync (int listId, int fieldId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get all fields
         /// </summary>
@@ -376,8 +387,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of FieldCollection</returns>
-        System.Threading.Tasks.Task<FieldCollection> GetAllFieldsAsync (int? listId, int? offset = null, int? limit = null);
+        System.Threading.Tasks.Task<FieldCollection> GetAllFieldsAsync (int listId, int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Get all fields
@@ -389,8 +401,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (FieldCollection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FieldCollection>> GetAllFieldsAsyncWithHttpInfo (int? listId, int? offset = null, int? limit = null);
+        System.Threading.Tasks.Task<ApiResponse<FieldCollection>> GetAllFieldsWithHttpInfoAsync (int listId, int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update base field
         /// </summary>
@@ -401,8 +414,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the base field</param>
         /// <param name="patchRequestBaseField">Parameters for the extra field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Field</returns>
-        System.Threading.Tasks.Task<Field> PatchBaseFieldAsync (int? listId, string fieldId, PatchRequestBaseField patchRequestBaseField);
+        System.Threading.Tasks.Task<Field> PatchBaseFieldAsync (int listId, string fieldId, PatchRequestBaseField patchRequestBaseField, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update base field
@@ -414,8 +428,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the base field</param>
         /// <param name="patchRequestBaseField">Parameters for the extra field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Field)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Field>> PatchBaseFieldAsyncWithHttpInfo (int? listId, string fieldId, PatchRequestBaseField patchRequestBaseField);
+        System.Threading.Tasks.Task<ApiResponse<Field>> PatchBaseFieldWithHttpInfoAsync (int listId, string fieldId, PatchRequestBaseField patchRequestBaseField, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update extra field
         /// </summary>
@@ -426,8 +441,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="patchRequestField">Parameters for the extra field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Field</returns>
-        System.Threading.Tasks.Task<Field> PatchExtraFieldAsync (int? listId, int? fieldId, PatchRequestField patchRequestField);
+        System.Threading.Tasks.Task<Field> PatchExtraFieldAsync (int listId, int fieldId, PatchRequestField patchRequestField, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update extra field
@@ -439,8 +455,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="patchRequestField">Parameters for the extra field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Field)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Field>> PatchExtraFieldAsyncWithHttpInfo (int? listId, int? fieldId, PatchRequestField patchRequestField);
+        System.Threading.Tasks.Task<ApiResponse<Field>> PatchExtraFieldWithHttpInfoAsync (int listId, int fieldId, PatchRequestField patchRequestField, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update field option
         /// </summary>
@@ -451,9 +468,10 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="optionId">ID of the field option</param>
-        /// <param name="fieldOption">Parameters for the field option</param>
+        /// <param name="fieldOptionPost">Parameters for the field option</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of FieldOption</returns>
-        System.Threading.Tasks.Task<FieldOption> UpdateFieldOptionAsync (int? listId, int? fieldId, int? optionId, FieldOption fieldOption);
+        System.Threading.Tasks.Task<FieldOption> UpdateFieldOptionAsync (int listId, int fieldId, int optionId, FieldOptionPost fieldOptionPost, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update field option
@@ -465,9 +483,10 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="optionId">ID of the field option</param>
-        /// <param name="fieldOption">Parameters for the field option</param>
+        /// <param name="fieldOptionPost">Parameters for the field option</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (FieldOption)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FieldOption>> UpdateFieldOptionAsyncWithHttpInfo (int? listId, int? fieldId, int? optionId, FieldOption fieldOption);
+        System.Threading.Tasks.Task<ApiResponse<FieldOption>> UpdateFieldOptionWithHttpInfoAsync (int listId, int fieldId, int optionId, FieldOptionPost fieldOptionPost, CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -586,7 +605,7 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="field">Parameters for the extra field</param>
         /// <returns>Field</returns>
-        public Field CreateExtraField (int? listId, Field field)
+        public Field CreateExtraField (int listId, Field field)
         {
              ApiResponse<Field> localVarResponse = CreateExtraFieldWithHttpInfo(listId, field);
              return localVarResponse.Data;
@@ -599,7 +618,7 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="field">Parameters for the extra field</param>
         /// <returns>ApiResponse of Field</returns>
-        public ApiResponse< Field > CreateExtraFieldWithHttpInfo (int? listId, Field field)
+        public ApiResponse<Field> CreateExtraFieldWithHttpInfo (int listId, Field field)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -660,7 +679,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Field>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (Field) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Field)));
         }
 
@@ -670,10 +689,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="field">Parameters for the extra field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Field</returns>
-        public async System.Threading.Tasks.Task<Field> CreateExtraFieldAsync (int? listId, Field field)
+        public async System.Threading.Tasks.Task<Field> CreateExtraFieldAsync (int listId, Field field, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<Field> localVarResponse = await CreateExtraFieldAsyncWithHttpInfo(listId, field);
+             ApiResponse<Field> localVarResponse = await CreateExtraFieldWithHttpInfoAsync(listId, field, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -684,8 +704,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="field">Parameters for the extra field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Field)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Field>> CreateExtraFieldAsyncWithHttpInfo (int? listId, Field field)
+        public async System.Threading.Tasks.Task<ApiResponse<Field>> CreateExtraFieldWithHttpInfoAsync (int listId, Field field, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -735,7 +756,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -746,7 +767,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Field>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (Field) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Field)));
         }
 
@@ -756,11 +777,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
-        /// <param name="fieldOption">Parameters for the field option</param>
+        /// <param name="fieldOptionPost">Parameters for the field option</param>
         /// <returns>FieldOption</returns>
-        public FieldOption CreateFieldOption (int? listId, int? fieldId, FieldOption fieldOption)
+        public FieldOption CreateFieldOption (int listId, int fieldId, FieldOptionPost fieldOptionPost)
         {
-             ApiResponse<FieldOption> localVarResponse = CreateFieldOptionWithHttpInfo(listId, fieldId, fieldOption);
+             ApiResponse<FieldOption> localVarResponse = CreateFieldOptionWithHttpInfo(listId, fieldId, fieldOptionPost);
              return localVarResponse.Data;
         }
 
@@ -770,9 +791,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
-        /// <param name="fieldOption">Parameters for the field option</param>
+        /// <param name="fieldOptionPost">Parameters for the field option</param>
         /// <returns>ApiResponse of FieldOption</returns>
-        public ApiResponse< FieldOption > CreateFieldOptionWithHttpInfo (int? listId, int? fieldId, FieldOption fieldOption)
+        public ApiResponse<FieldOption> CreateFieldOptionWithHttpInfo (int listId, int fieldId, FieldOptionPost fieldOptionPost)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -780,9 +801,9 @@ namespace org.egoi.client.api.Api
             // verify the required parameter 'fieldId' is set
             if (fieldId == null)
                 throw new ApiException(400, "Missing required parameter 'fieldId' when calling FieldsApi->CreateFieldOption");
-            // verify the required parameter 'fieldOption' is set
-            if (fieldOption == null)
-                throw new ApiException(400, "Missing required parameter 'fieldOption' when calling FieldsApi->CreateFieldOption");
+            // verify the required parameter 'fieldOptionPost' is set
+            if (fieldOptionPost == null)
+                throw new ApiException(400, "Missing required parameter 'fieldOptionPost' when calling FieldsApi->CreateFieldOption");
 
             var localVarPath = "/lists/{list_id}/fields/extra/{field_id}/options";
             var localVarPathParams = new Dictionary<String, String>();
@@ -808,13 +829,13 @@ namespace org.egoi.client.api.Api
 
             if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
             if (fieldId != null) localVarPathParams.Add("field_id", this.Configuration.ApiClient.ParameterToString(fieldId)); // path parameter
-            if (fieldOption != null && fieldOption.GetType() != typeof(byte[]))
+            if (fieldOptionPost != null && fieldOptionPost.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(fieldOption); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(fieldOptionPost); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = fieldOption; // byte array
+                localVarPostBody = fieldOptionPost; // byte array
             }
 
             // authentication (Apikey) required
@@ -837,7 +858,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<FieldOption>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (FieldOption) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FieldOption)));
         }
 
@@ -847,11 +868,12 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
-        /// <param name="fieldOption">Parameters for the field option</param>
+        /// <param name="fieldOptionPost">Parameters for the field option</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of FieldOption</returns>
-        public async System.Threading.Tasks.Task<FieldOption> CreateFieldOptionAsync (int? listId, int? fieldId, FieldOption fieldOption)
+        public async System.Threading.Tasks.Task<FieldOption> CreateFieldOptionAsync (int listId, int fieldId, FieldOptionPost fieldOptionPost, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<FieldOption> localVarResponse = await CreateFieldOptionAsyncWithHttpInfo(listId, fieldId, fieldOption);
+             ApiResponse<FieldOption> localVarResponse = await CreateFieldOptionWithHttpInfoAsync(listId, fieldId, fieldOptionPost, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -862,9 +884,10 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
-        /// <param name="fieldOption">Parameters for the field option</param>
+        /// <param name="fieldOptionPost">Parameters for the field option</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (FieldOption)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FieldOption>> CreateFieldOptionAsyncWithHttpInfo (int? listId, int? fieldId, FieldOption fieldOption)
+        public async System.Threading.Tasks.Task<ApiResponse<FieldOption>> CreateFieldOptionWithHttpInfoAsync (int listId, int fieldId, FieldOptionPost fieldOptionPost, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -872,9 +895,9 @@ namespace org.egoi.client.api.Api
             // verify the required parameter 'fieldId' is set
             if (fieldId == null)
                 throw new ApiException(400, "Missing required parameter 'fieldId' when calling FieldsApi->CreateFieldOption");
-            // verify the required parameter 'fieldOption' is set
-            if (fieldOption == null)
-                throw new ApiException(400, "Missing required parameter 'fieldOption' when calling FieldsApi->CreateFieldOption");
+            // verify the required parameter 'fieldOptionPost' is set
+            if (fieldOptionPost == null)
+                throw new ApiException(400, "Missing required parameter 'fieldOptionPost' when calling FieldsApi->CreateFieldOption");
 
             var localVarPath = "/lists/{list_id}/fields/extra/{field_id}/options";
             var localVarPathParams = new Dictionary<String, String>();
@@ -900,13 +923,13 @@ namespace org.egoi.client.api.Api
 
             if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
             if (fieldId != null) localVarPathParams.Add("field_id", this.Configuration.ApiClient.ParameterToString(fieldId)); // path parameter
-            if (fieldOption != null && fieldOption.GetType() != typeof(byte[]))
+            if (fieldOptionPost != null && fieldOptionPost.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(fieldOption); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(fieldOptionPost); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = fieldOption; // byte array
+                localVarPostBody = fieldOptionPost; // byte array
             }
 
             // authentication (Apikey) required
@@ -918,7 +941,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -929,7 +952,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<FieldOption>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (FieldOption) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FieldOption)));
         }
 
@@ -940,7 +963,7 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <returns></returns>
-        public void DeleteExtraField (int? listId, int? fieldId)
+        public void DeleteExtraField (int listId, int fieldId)
         {
              DeleteExtraFieldWithHttpInfo(listId, fieldId);
         }
@@ -952,7 +975,7 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteExtraFieldWithHttpInfo (int? listId, int? fieldId)
+        public ApiResponse<Object> DeleteExtraFieldWithHttpInfo (int listId, int fieldId)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -1005,7 +1028,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
         }
 
@@ -1015,10 +1038,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteExtraFieldAsync (int? listId, int? fieldId)
+        public async System.Threading.Tasks.Task DeleteExtraFieldAsync (int listId, int fieldId, CancellationToken cancellationToken = default(CancellationToken))
         {
-             await DeleteExtraFieldAsyncWithHttpInfo(listId, fieldId);
+             await DeleteExtraFieldWithHttpInfoAsync(listId, fieldId, cancellationToken);
 
         }
 
@@ -1028,8 +1052,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteExtraFieldAsyncWithHttpInfo (int? listId, int? fieldId)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteExtraFieldWithHttpInfoAsync (int listId, int fieldId, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -1071,7 +1096,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1082,7 +1107,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
         }
 
@@ -1094,7 +1119,7 @@ namespace org.egoi.client.api.Api
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="optionId">ID of the field option</param>
         /// <returns></returns>
-        public void DeleteFieldOption (int? listId, int? fieldId, int? optionId)
+        public void DeleteFieldOption (int listId, int fieldId, int optionId)
         {
              DeleteFieldOptionWithHttpInfo(listId, fieldId, optionId);
         }
@@ -1107,7 +1132,7 @@ namespace org.egoi.client.api.Api
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="optionId">ID of the field option</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteFieldOptionWithHttpInfo (int? listId, int? fieldId, int? optionId)
+        public ApiResponse<Object> DeleteFieldOptionWithHttpInfo (int listId, int fieldId, int optionId)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -1164,7 +1189,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
         }
 
@@ -1175,10 +1200,11 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="optionId">ID of the field option</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteFieldOptionAsync (int? listId, int? fieldId, int? optionId)
+        public async System.Threading.Tasks.Task DeleteFieldOptionAsync (int listId, int fieldId, int optionId, CancellationToken cancellationToken = default(CancellationToken))
         {
-             await DeleteFieldOptionAsyncWithHttpInfo(listId, fieldId, optionId);
+             await DeleteFieldOptionWithHttpInfoAsync(listId, fieldId, optionId, cancellationToken);
 
         }
 
@@ -1189,8 +1215,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="optionId">ID of the field option</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteFieldOptionAsyncWithHttpInfo (int? listId, int? fieldId, int? optionId)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteFieldOptionWithHttpInfoAsync (int listId, int fieldId, int optionId, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -1236,7 +1263,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1247,7 +1274,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Object>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
         }
 
@@ -1258,7 +1285,7 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <returns>FieldOptionsCollection</returns>
-        public FieldOptionsCollection GetAllFieldOptions (int? listId, int? fieldId)
+        public FieldOptionsCollection GetAllFieldOptions (int listId, int fieldId)
         {
              ApiResponse<FieldOptionsCollection> localVarResponse = GetAllFieldOptionsWithHttpInfo(listId, fieldId);
              return localVarResponse.Data;
@@ -1271,7 +1298,7 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <returns>ApiResponse of FieldOptionsCollection</returns>
-        public ApiResponse< FieldOptionsCollection > GetAllFieldOptionsWithHttpInfo (int? listId, int? fieldId)
+        public ApiResponse<FieldOptionsCollection> GetAllFieldOptionsWithHttpInfo (int listId, int fieldId)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -1324,7 +1351,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<FieldOptionsCollection>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (FieldOptionsCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FieldOptionsCollection)));
         }
 
@@ -1334,10 +1361,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of FieldOptionsCollection</returns>
-        public async System.Threading.Tasks.Task<FieldOptionsCollection> GetAllFieldOptionsAsync (int? listId, int? fieldId)
+        public async System.Threading.Tasks.Task<FieldOptionsCollection> GetAllFieldOptionsAsync (int listId, int fieldId, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<FieldOptionsCollection> localVarResponse = await GetAllFieldOptionsAsyncWithHttpInfo(listId, fieldId);
+             ApiResponse<FieldOptionsCollection> localVarResponse = await GetAllFieldOptionsWithHttpInfoAsync(listId, fieldId, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1348,8 +1376,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (FieldOptionsCollection)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FieldOptionsCollection>> GetAllFieldOptionsAsyncWithHttpInfo (int? listId, int? fieldId)
+        public async System.Threading.Tasks.Task<ApiResponse<FieldOptionsCollection>> GetAllFieldOptionsWithHttpInfoAsync (int listId, int fieldId, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -1391,7 +1420,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1402,7 +1431,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<FieldOptionsCollection>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (FieldOptionsCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FieldOptionsCollection)));
         }
 
@@ -1414,7 +1443,7 @@ namespace org.egoi.client.api.Api
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <returns>FieldCollection</returns>
-        public FieldCollection GetAllFields (int? listId, int? offset = null, int? limit = null)
+        public FieldCollection GetAllFields (int listId, int? offset = default(int?), int? limit = default(int?))
         {
              ApiResponse<FieldCollection> localVarResponse = GetAllFieldsWithHttpInfo(listId, offset, limit);
              return localVarResponse.Data;
@@ -1428,7 +1457,7 @@ namespace org.egoi.client.api.Api
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
         /// <returns>ApiResponse of FieldCollection</returns>
-        public ApiResponse< FieldCollection > GetAllFieldsWithHttpInfo (int? listId, int? offset = null, int? limit = null)
+        public ApiResponse<FieldCollection> GetAllFieldsWithHttpInfo (int listId, int? offset = default(int?), int? limit = default(int?))
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -1479,7 +1508,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<FieldCollection>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (FieldCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FieldCollection)));
         }
 
@@ -1490,10 +1519,11 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of FieldCollection</returns>
-        public async System.Threading.Tasks.Task<FieldCollection> GetAllFieldsAsync (int? listId, int? offset = null, int? limit = null)
+        public async System.Threading.Tasks.Task<FieldCollection> GetAllFieldsAsync (int listId, int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<FieldCollection> localVarResponse = await GetAllFieldsAsyncWithHttpInfo(listId, offset, limit);
+             ApiResponse<FieldCollection> localVarResponse = await GetAllFieldsWithHttpInfoAsync(listId, offset, limit, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1505,8 +1535,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="offset">Element offset (starting at zero for the first element) (optional)</param>
         /// <param name="limit">Number of items to return (optional, default to 10)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (FieldCollection)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FieldCollection>> GetAllFieldsAsyncWithHttpInfo (int? listId, int? offset = null, int? limit = null)
+        public async System.Threading.Tasks.Task<ApiResponse<FieldCollection>> GetAllFieldsWithHttpInfoAsync (int listId, int? offset = default(int?), int? limit = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -1546,7 +1577,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1557,7 +1588,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<FieldCollection>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (FieldCollection) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FieldCollection)));
         }
 
@@ -1569,7 +1600,7 @@ namespace org.egoi.client.api.Api
         /// <param name="fieldId">ID of the base field</param>
         /// <param name="patchRequestBaseField">Parameters for the extra field</param>
         /// <returns>Field</returns>
-        public Field PatchBaseField (int? listId, string fieldId, PatchRequestBaseField patchRequestBaseField)
+        public Field PatchBaseField (int listId, string fieldId, PatchRequestBaseField patchRequestBaseField)
         {
              ApiResponse<Field> localVarResponse = PatchBaseFieldWithHttpInfo(listId, fieldId, patchRequestBaseField);
              return localVarResponse.Data;
@@ -1583,7 +1614,7 @@ namespace org.egoi.client.api.Api
         /// <param name="fieldId">ID of the base field</param>
         /// <param name="patchRequestBaseField">Parameters for the extra field</param>
         /// <returns>ApiResponse of Field</returns>
-        public ApiResponse< Field > PatchBaseFieldWithHttpInfo (int? listId, string fieldId, PatchRequestBaseField patchRequestBaseField)
+        public ApiResponse<Field> PatchBaseFieldWithHttpInfo (int listId, string fieldId, PatchRequestBaseField patchRequestBaseField)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -1648,7 +1679,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Field>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (Field) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Field)));
         }
 
@@ -1659,10 +1690,11 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the base field</param>
         /// <param name="patchRequestBaseField">Parameters for the extra field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Field</returns>
-        public async System.Threading.Tasks.Task<Field> PatchBaseFieldAsync (int? listId, string fieldId, PatchRequestBaseField patchRequestBaseField)
+        public async System.Threading.Tasks.Task<Field> PatchBaseFieldAsync (int listId, string fieldId, PatchRequestBaseField patchRequestBaseField, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<Field> localVarResponse = await PatchBaseFieldAsyncWithHttpInfo(listId, fieldId, patchRequestBaseField);
+             ApiResponse<Field> localVarResponse = await PatchBaseFieldWithHttpInfoAsync(listId, fieldId, patchRequestBaseField, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1674,8 +1706,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the base field</param>
         /// <param name="patchRequestBaseField">Parameters for the extra field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Field)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Field>> PatchBaseFieldAsyncWithHttpInfo (int? listId, string fieldId, PatchRequestBaseField patchRequestBaseField)
+        public async System.Threading.Tasks.Task<ApiResponse<Field>> PatchBaseFieldWithHttpInfoAsync (int listId, string fieldId, PatchRequestBaseField patchRequestBaseField, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -1729,7 +1762,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.PATCH, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1740,7 +1773,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Field>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (Field) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Field)));
         }
 
@@ -1752,7 +1785,7 @@ namespace org.egoi.client.api.Api
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="patchRequestField">Parameters for the extra field</param>
         /// <returns>Field</returns>
-        public Field PatchExtraField (int? listId, int? fieldId, PatchRequestField patchRequestField)
+        public Field PatchExtraField (int listId, int fieldId, PatchRequestField patchRequestField)
         {
              ApiResponse<Field> localVarResponse = PatchExtraFieldWithHttpInfo(listId, fieldId, patchRequestField);
              return localVarResponse.Data;
@@ -1766,7 +1799,7 @@ namespace org.egoi.client.api.Api
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="patchRequestField">Parameters for the extra field</param>
         /// <returns>ApiResponse of Field</returns>
-        public ApiResponse< Field > PatchExtraFieldWithHttpInfo (int? listId, int? fieldId, PatchRequestField patchRequestField)
+        public ApiResponse<Field> PatchExtraFieldWithHttpInfo (int listId, int fieldId, PatchRequestField patchRequestField)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -1831,7 +1864,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Field>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (Field) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Field)));
         }
 
@@ -1842,10 +1875,11 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="patchRequestField">Parameters for the extra field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of Field</returns>
-        public async System.Threading.Tasks.Task<Field> PatchExtraFieldAsync (int? listId, int? fieldId, PatchRequestField patchRequestField)
+        public async System.Threading.Tasks.Task<Field> PatchExtraFieldAsync (int listId, int fieldId, PatchRequestField patchRequestField, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<Field> localVarResponse = await PatchExtraFieldAsyncWithHttpInfo(listId, fieldId, patchRequestField);
+             ApiResponse<Field> localVarResponse = await PatchExtraFieldWithHttpInfoAsync(listId, fieldId, patchRequestField, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -1857,8 +1891,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="patchRequestField">Parameters for the extra field</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (Field)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Field>> PatchExtraFieldAsyncWithHttpInfo (int? listId, int? fieldId, PatchRequestField patchRequestField)
+        public async System.Threading.Tasks.Task<ApiResponse<Field>> PatchExtraFieldWithHttpInfoAsync (int listId, int fieldId, PatchRequestField patchRequestField, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -1912,7 +1947,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.PATCH, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -1923,7 +1958,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<Field>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (Field) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Field)));
         }
 
@@ -1934,11 +1969,11 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="optionId">ID of the field option</param>
-        /// <param name="fieldOption">Parameters for the field option</param>
+        /// <param name="fieldOptionPost">Parameters for the field option</param>
         /// <returns>FieldOption</returns>
-        public FieldOption UpdateFieldOption (int? listId, int? fieldId, int? optionId, FieldOption fieldOption)
+        public FieldOption UpdateFieldOption (int listId, int fieldId, int optionId, FieldOptionPost fieldOptionPost)
         {
-             ApiResponse<FieldOption> localVarResponse = UpdateFieldOptionWithHttpInfo(listId, fieldId, optionId, fieldOption);
+             ApiResponse<FieldOption> localVarResponse = UpdateFieldOptionWithHttpInfo(listId, fieldId, optionId, fieldOptionPost);
              return localVarResponse.Data;
         }
 
@@ -1949,9 +1984,9 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="optionId">ID of the field option</param>
-        /// <param name="fieldOption">Parameters for the field option</param>
+        /// <param name="fieldOptionPost">Parameters for the field option</param>
         /// <returns>ApiResponse of FieldOption</returns>
-        public ApiResponse< FieldOption > UpdateFieldOptionWithHttpInfo (int? listId, int? fieldId, int? optionId, FieldOption fieldOption)
+        public ApiResponse<FieldOption> UpdateFieldOptionWithHttpInfo (int listId, int fieldId, int optionId, FieldOptionPost fieldOptionPost)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -1962,9 +1997,9 @@ namespace org.egoi.client.api.Api
             // verify the required parameter 'optionId' is set
             if (optionId == null)
                 throw new ApiException(400, "Missing required parameter 'optionId' when calling FieldsApi->UpdateFieldOption");
-            // verify the required parameter 'fieldOption' is set
-            if (fieldOption == null)
-                throw new ApiException(400, "Missing required parameter 'fieldOption' when calling FieldsApi->UpdateFieldOption");
+            // verify the required parameter 'fieldOptionPost' is set
+            if (fieldOptionPost == null)
+                throw new ApiException(400, "Missing required parameter 'fieldOptionPost' when calling FieldsApi->UpdateFieldOption");
 
             var localVarPath = "/lists/{list_id}/fields/extra/{field_id}/options/{option_id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1991,13 +2026,13 @@ namespace org.egoi.client.api.Api
             if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
             if (fieldId != null) localVarPathParams.Add("field_id", this.Configuration.ApiClient.ParameterToString(fieldId)); // path parameter
             if (optionId != null) localVarPathParams.Add("option_id", this.Configuration.ApiClient.ParameterToString(optionId)); // path parameter
-            if (fieldOption != null && fieldOption.GetType() != typeof(byte[]))
+            if (fieldOptionPost != null && fieldOptionPost.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(fieldOption); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(fieldOptionPost); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = fieldOption; // byte array
+                localVarPostBody = fieldOptionPost; // byte array
             }
 
             // authentication (Apikey) required
@@ -2020,7 +2055,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<FieldOption>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (FieldOption) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FieldOption)));
         }
 
@@ -2031,11 +2066,12 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="optionId">ID of the field option</param>
-        /// <param name="fieldOption">Parameters for the field option</param>
+        /// <param name="fieldOptionPost">Parameters for the field option</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of FieldOption</returns>
-        public async System.Threading.Tasks.Task<FieldOption> UpdateFieldOptionAsync (int? listId, int? fieldId, int? optionId, FieldOption fieldOption)
+        public async System.Threading.Tasks.Task<FieldOption> UpdateFieldOptionAsync (int listId, int fieldId, int optionId, FieldOptionPost fieldOptionPost, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<FieldOption> localVarResponse = await UpdateFieldOptionAsyncWithHttpInfo(listId, fieldId, optionId, fieldOption);
+             ApiResponse<FieldOption> localVarResponse = await UpdateFieldOptionWithHttpInfoAsync(listId, fieldId, optionId, fieldOptionPost, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -2047,9 +2083,10 @@ namespace org.egoi.client.api.Api
         /// <param name="listId">ID of the List</param>
         /// <param name="fieldId">ID of the Field</param>
         /// <param name="optionId">ID of the field option</param>
-        /// <param name="fieldOption">Parameters for the field option</param>
+        /// <param name="fieldOptionPost">Parameters for the field option</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (FieldOption)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FieldOption>> UpdateFieldOptionAsyncWithHttpInfo (int? listId, int? fieldId, int? optionId, FieldOption fieldOption)
+        public async System.Threading.Tasks.Task<ApiResponse<FieldOption>> UpdateFieldOptionWithHttpInfoAsync (int listId, int fieldId, int optionId, FieldOptionPost fieldOptionPost, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
@@ -2060,9 +2097,9 @@ namespace org.egoi.client.api.Api
             // verify the required parameter 'optionId' is set
             if (optionId == null)
                 throw new ApiException(400, "Missing required parameter 'optionId' when calling FieldsApi->UpdateFieldOption");
-            // verify the required parameter 'fieldOption' is set
-            if (fieldOption == null)
-                throw new ApiException(400, "Missing required parameter 'fieldOption' when calling FieldsApi->UpdateFieldOption");
+            // verify the required parameter 'fieldOptionPost' is set
+            if (fieldOptionPost == null)
+                throw new ApiException(400, "Missing required parameter 'fieldOptionPost' when calling FieldsApi->UpdateFieldOption");
 
             var localVarPath = "/lists/{list_id}/fields/extra/{field_id}/options/{option_id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2089,13 +2126,13 @@ namespace org.egoi.client.api.Api
             if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
             if (fieldId != null) localVarPathParams.Add("field_id", this.Configuration.ApiClient.ParameterToString(fieldId)); // path parameter
             if (optionId != null) localVarPathParams.Add("option_id", this.Configuration.ApiClient.ParameterToString(optionId)); // path parameter
-            if (fieldOption != null && fieldOption.GetType() != typeof(byte[]))
+            if (fieldOptionPost != null && fieldOptionPost.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(fieldOption); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(fieldOptionPost); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = fieldOption; // byte array
+                localVarPostBody = fieldOptionPost; // byte array
             }
 
             // authentication (Apikey) required
@@ -2107,7 +2144,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.PATCH, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -2118,7 +2155,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<FieldOption>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (FieldOption) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(FieldOption)));
         }
 

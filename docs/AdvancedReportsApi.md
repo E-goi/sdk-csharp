@@ -18,8 +18,9 @@ Method | HTTP request | Description
 [**GetAllAdvancedReports**](AdvancedReportsApi.md#getalladvancedreports) | **GET** /reports/advanced | Get all advanced reports
 
 
-<a name="generateemailbouncesreport"></a>
-# **GenerateEmailBouncesReport**
+
+## GenerateEmailBouncesReport
+
 > AcceptedResponse GenerateEmailBouncesReport (GenerateEmailBouncesReport generateEmailBouncesReport)
 
 Generate email bounces report
@@ -27,8 +28,9 @@ Generate email bounces report
 Generates a new email bounces report
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -38,14 +40,15 @@ namespace Example
 {
     public class GenerateEmailBouncesReportExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new AdvancedReportsApi();
+            var apiInstance = new AdvancedReportsApi(Configuration.Default);
             var generateEmailBouncesReport = new GenerateEmailBouncesReport(); // GenerateEmailBouncesReport | Parameters for the email bounces report
 
             try
@@ -54,9 +57,11 @@ namespace Example
                 AcceptedResponse result = apiInstance.GenerateEmailBouncesReport(generateEmailBouncesReport);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling AdvancedReportsApi.GenerateEmailBouncesReport: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -64,6 +69,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -79,13 +85,30 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="generateemailclicksbycontactreport"></a>
-# **GenerateEmailClicksByContactReport**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Accepted |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GenerateEmailClicksByContactReport
+
 > AcceptedResponse GenerateEmailClicksByContactReport (GenerateEmailClicksByContactReport generateEmailClicksByContactReport)
 
 Generate email clicks by contact report
@@ -93,8 +116,9 @@ Generate email clicks by contact report
 Generates a new email clicks by contact report
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -104,14 +128,15 @@ namespace Example
 {
     public class GenerateEmailClicksByContactReportExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new AdvancedReportsApi();
+            var apiInstance = new AdvancedReportsApi(Configuration.Default);
             var generateEmailClicksByContactReport = new GenerateEmailClicksByContactReport(); // GenerateEmailClicksByContactReport | Parameters for the email clicks by contact report
 
             try
@@ -120,9 +145,11 @@ namespace Example
                 AcceptedResponse result = apiInstance.GenerateEmailClicksByContactReport(generateEmailClicksByContactReport);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling AdvancedReportsApi.GenerateEmailClicksByContactReport: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -130,6 +157,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -145,13 +173,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="generateemailclicksbyurlreport"></a>
-# **GenerateEmailClicksByUrlReport**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Accepted |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GenerateEmailClicksByUrlReport
+
 > AcceptedResponse GenerateEmailClicksByUrlReport (GenerateEmailClicksByUrlReport generateEmailClicksByUrlReport)
 
 Generate email clicks by URL report
@@ -159,8 +205,9 @@ Generate email clicks by URL report
 Generates a new email clicks by URL report
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -170,14 +217,15 @@ namespace Example
 {
     public class GenerateEmailClicksByUrlReportExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new AdvancedReportsApi();
+            var apiInstance = new AdvancedReportsApi(Configuration.Default);
             var generateEmailClicksByUrlReport = new GenerateEmailClicksByUrlReport(); // GenerateEmailClicksByUrlReport | Parameters for the email clicks by URL report
 
             try
@@ -186,9 +234,11 @@ namespace Example
                 AcceptedResponse result = apiInstance.GenerateEmailClicksByUrlReport(generateEmailClicksByUrlReport);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling AdvancedReportsApi.GenerateEmailClicksByUrlReport: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -196,6 +246,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -211,13 +262,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="generateemaileventsreport"></a>
-# **GenerateEmailEventsReport**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Accepted |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GenerateEmailEventsReport
+
 > AcceptedResponse GenerateEmailEventsReport (GenerateEmailEventsReport generateEmailEventsReport)
 
 Generate email events report
@@ -225,8 +294,9 @@ Generate email events report
 Generates a new email events report
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -236,14 +306,15 @@ namespace Example
 {
     public class GenerateEmailEventsReportExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new AdvancedReportsApi();
+            var apiInstance = new AdvancedReportsApi(Configuration.Default);
             var generateEmailEventsReport = new GenerateEmailEventsReport(); // GenerateEmailEventsReport | Parameters for the email events report
 
             try
@@ -252,9 +323,11 @@ namespace Example
                 AcceptedResponse result = apiInstance.GenerateEmailEventsReport(generateEmailEventsReport);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling AdvancedReportsApi.GenerateEmailEventsReport: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -262,6 +335,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -277,13 +351,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="generateemailsmsreport"></a>
-# **GenerateEmailSmsReport**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Accepted |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GenerateEmailSmsReport
+
 > AcceptedResponse GenerateEmailSmsReport (GenerateSmsBouncesReport generateSmsBouncesReport)
 
 Generate SMS bounces report
@@ -291,8 +383,9 @@ Generate SMS bounces report
 Generates a new SMS bounces report
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -302,14 +395,15 @@ namespace Example
 {
     public class GenerateEmailSmsReportExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new AdvancedReportsApi();
+            var apiInstance = new AdvancedReportsApi(Configuration.Default);
             var generateSmsBouncesReport = new GenerateSmsBouncesReport(); // GenerateSmsBouncesReport | Parameters for the SMS bounces report
 
             try
@@ -318,9 +412,11 @@ namespace Example
                 AcceptedResponse result = apiInstance.GenerateEmailSmsReport(generateSmsBouncesReport);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling AdvancedReportsApi.GenerateEmailSmsReport: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -328,6 +424,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -343,13 +440,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="generateemailunsubscriptionsreport"></a>
-# **GenerateEmailUnsubscriptionsReport**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Accepted |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GenerateEmailUnsubscriptionsReport
+
 > AcceptedResponse GenerateEmailUnsubscriptionsReport (GenerateEmailUnsubscriptionsReport generateEmailUnsubscriptionsReport)
 
 Generate email unsubscriptions report
@@ -357,8 +472,9 @@ Generate email unsubscriptions report
 Generates a new email unsubscriptions report
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -368,14 +484,15 @@ namespace Example
 {
     public class GenerateEmailUnsubscriptionsReportExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new AdvancedReportsApi();
+            var apiInstance = new AdvancedReportsApi(Configuration.Default);
             var generateEmailUnsubscriptionsReport = new GenerateEmailUnsubscriptionsReport(); // GenerateEmailUnsubscriptionsReport | Parameters for the email unsubscriptions report
 
             try
@@ -384,9 +501,11 @@ namespace Example
                 AcceptedResponse result = apiInstance.GenerateEmailUnsubscriptionsReport(generateEmailUnsubscriptionsReport);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling AdvancedReportsApi.GenerateEmailUnsubscriptionsReport: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -394,6 +513,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -409,13 +529,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="generateformanswersreport"></a>
-# **GenerateFormAnswersReport**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Accepted |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GenerateFormAnswersReport
+
 > AcceptedResponse GenerateFormAnswersReport (GenerateFormAnswersReport generateFormAnswersReport)
 
 Generate form answers report
@@ -423,8 +561,9 @@ Generate form answers report
 Generates a new form answers report
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -434,14 +573,15 @@ namespace Example
 {
     public class GenerateFormAnswersReportExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new AdvancedReportsApi();
+            var apiInstance = new AdvancedReportsApi(Configuration.Default);
             var generateFormAnswersReport = new GenerateFormAnswersReport(); // GenerateFormAnswersReport | Parameters for the form answers report
 
             try
@@ -450,9 +590,11 @@ namespace Example
                 AcceptedResponse result = apiInstance.GenerateFormAnswersReport(generateFormAnswersReport);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling AdvancedReportsApi.GenerateFormAnswersReport: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -460,6 +602,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -475,13 +618,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="generatesendsreport"></a>
-# **GenerateSendsReport**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Accepted |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GenerateSendsReport
+
 > AcceptedResponse GenerateSendsReport (GenerateSendsReport generateSendsReport)
 
 Generate sends report
@@ -489,8 +650,9 @@ Generate sends report
 Generates a new sends report
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -500,14 +662,15 @@ namespace Example
 {
     public class GenerateSendsReportExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new AdvancedReportsApi();
+            var apiInstance = new AdvancedReportsApi(Configuration.Default);
             var generateSendsReport = new GenerateSendsReport(); // GenerateSendsReport | Parameters for the sends report
 
             try
@@ -516,9 +679,11 @@ namespace Example
                 AcceptedResponse result = apiInstance.GenerateSendsReport(generateSendsReport);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling AdvancedReportsApi.GenerateSendsReport: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -526,6 +691,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -541,13 +707,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="generatesmseventsreport"></a>
-# **GenerateSmsEventsReport**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Accepted |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GenerateSmsEventsReport
+
 > AcceptedResponse GenerateSmsEventsReport (GenerateSmsEventsReport generateSmsEventsReport)
 
 Generate SMS events report
@@ -555,8 +739,9 @@ Generate SMS events report
 Generates a new SMS events report
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -566,14 +751,15 @@ namespace Example
 {
     public class GenerateSmsEventsReportExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new AdvancedReportsApi();
+            var apiInstance = new AdvancedReportsApi(Configuration.Default);
             var generateSmsEventsReport = new GenerateSmsEventsReport(); // GenerateSmsEventsReport | Parameters for the SMS events report
 
             try
@@ -582,9 +768,11 @@ namespace Example
                 AcceptedResponse result = apiInstance.GenerateSmsEventsReport(generateSmsEventsReport);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling AdvancedReportsApi.GenerateSmsEventsReport: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -592,6 +780,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -607,13 +796,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="generatesubscriptionsreport"></a>
-# **GenerateSubscriptionsReport**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Accepted |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GenerateSubscriptionsReport
+
 > AcceptedResponse GenerateSubscriptionsReport (GenerateSubscriptionsReport generateSubscriptionsReport)
 
 Generate subscriptions report
@@ -621,8 +828,9 @@ Generate subscriptions report
 Generates a new subscriptions report
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -632,14 +840,15 @@ namespace Example
 {
     public class GenerateSubscriptionsReportExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new AdvancedReportsApi();
+            var apiInstance = new AdvancedReportsApi(Configuration.Default);
             var generateSubscriptionsReport = new GenerateSubscriptionsReport(); // GenerateSubscriptionsReport | Parameters for the subscriptions report
 
             try
@@ -648,9 +857,11 @@ namespace Example
                 AcceptedResponse result = apiInstance.GenerateSubscriptionsReport(generateSubscriptionsReport);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling AdvancedReportsApi.GenerateSubscriptionsReport: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -658,6 +869,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -673,13 +885,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="generateunsubscriptionsreport"></a>
-# **GenerateUnsubscriptionsReport**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Accepted |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GenerateUnsubscriptionsReport
+
 > AcceptedResponse GenerateUnsubscriptionsReport (GenerateUnsubscriptionsReport generateUnsubscriptionsReport)
 
 Generate unsubscriptions report
@@ -687,8 +917,9 @@ Generate unsubscriptions report
 Generates a new unsubscriptions report
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -698,14 +929,15 @@ namespace Example
 {
     public class GenerateUnsubscriptionsReportExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new AdvancedReportsApi();
+            var apiInstance = new AdvancedReportsApi(Configuration.Default);
             var generateUnsubscriptionsReport = new GenerateUnsubscriptionsReport(); // GenerateUnsubscriptionsReport | Parameters for the unsubscriptions report
 
             try
@@ -714,9 +946,11 @@ namespace Example
                 AcceptedResponse result = apiInstance.GenerateUnsubscriptionsReport(generateUnsubscriptionsReport);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling AdvancedReportsApi.GenerateUnsubscriptionsReport: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -724,6 +958,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -739,13 +974,31 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getalladvancedreports"></a>
-# **GetAllAdvancedReports**
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Accepted |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetAllAdvancedReports
+
 > AdvancedReportsCollection GetAllAdvancedReports (string status = null, string title = null, DateTime? createdMin = null, DateTime? createdMax = null, int? offset = null, int? limit = null, string order = null, string orderBy = null)
 
 Get all advanced reports
@@ -753,8 +1006,9 @@ Get all advanced reports
 Returns all advanced reports
 
 ### Example
+
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using org.egoi.client.api.Api;
 using org.egoi.client.api.Client;
@@ -764,14 +1018,15 @@ namespace Example
 {
     public class GetAllAdvancedReportsExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
             // Configure API key authorization: Apikey
             Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
-            var apiInstance = new AdvancedReportsApi();
+            var apiInstance = new AdvancedReportsApi(Configuration.Default);
             var status = status_example;  // string | Advanced report status (optional) 
             var title = title_example;  // string | Advanced report title (optional) 
             var createdMin = 2013-10-20T19:20:30+01:00;  // DateTime? | Created initial date (optional) 
@@ -787,9 +1042,11 @@ namespace Example
                 AdvancedReportsCollection result = apiInstance.GetAllAdvancedReports(status, title, createdMin, createdMax, offset, limit, order, orderBy);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException e)
             {
                 Debug.Print("Exception when calling AdvancedReportsApi.GetAllAdvancedReports: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -797,6 +1054,7 @@ namespace Example
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -819,8 +1077,24 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

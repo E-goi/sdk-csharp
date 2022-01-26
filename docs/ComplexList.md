@@ -1,17 +1,21 @@
+
 # org.egoi.client.api.Model.ComplexList
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ListId** | **int?** |  | [optional] 
+**ListId** | **int** |  | [optional] [readonly] 
 **InternalName** | **string** | Internal name of the list | [optional] 
 **PublicName** | **string** | Public name of the list | 
-**Status** | **string** | Status of the list | [optional] 
-**GroupId** | **int?** | ID of the list group | [optional] 
-**Created** | **DateTime?** |  | [optional] 
-**Updated** | **DateTime?** |  | [optional] 
-**Language** | [**Language**](Language.md) |  | [optional] 
-**Stats** | **Object** | Contact stats of the list | [optional] 
+**Status** | **string** | Status of the list | [optional] [readonly] 
+**GroupId** | **int** | ID of the list group | [optional] [readonly] 
+**Created** | **DateTime** |  | [optional] [readonly] 
+**Updated** | **DateTime** |  | [optional] [readonly] 
+**Language** | [**Language**](Language.md) |  | 
+**Stats** | [**ComplexListAllOfStats**](ComplexListAllOfStats.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

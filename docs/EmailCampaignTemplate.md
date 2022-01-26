@@ -1,18 +1,22 @@
+
 # org.egoi.client.api.Model.EmailCampaignTemplate
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TemplateId** | **int?** |  | [optional] 
-**TemplateHash** | **string** |  | [optional] 
+**TemplateId** | **int** |  | [optional] [readonly] 
+**TemplateHash** | **string** |  | [optional] [readonly] 
 **InternalName** | **string** | Campaign internal name | [optional] 
-**Created** | **DateTime?** |  | [optional] 
-**Updated** | **DateTime?** |  | [optional] 
-**SenderData** | **Object** | Information about the sender | [optional] 
+**Created** | **DateTime** |  | [optional] [readonly] 
+**Updated** | **DateTime** |  | [optional] [readonly] 
+**SenderData** | [**EmailCampaignTemplateAllOfSenderData**](EmailCampaignTemplateAllOfSenderData.md) |  | [optional] 
 **Image** | **string** | Template image | [optional] 
 **MessageHtmlVersion** | **string** | Html message | [optional] 
 **MessageTextVersion** | **string** | Text message | [optional] 
-**ReplyToData** | **Object** | Data of who to reply | [optional] 
+**ReplyToData** | [**EmailCampaignTemplateAllOfReplyToData**](EmailCampaignTemplateAllOfReplyToData.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

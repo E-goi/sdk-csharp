@@ -1,10 +1,14 @@
+
 # org.egoi.client.api.Model.UserCollection
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TotalItems** | **int?** | Returned users | [optional] 
+**TotalItems** | **int** | Returned users | [optional] 
 **Items** | [**List&lt;User&gt;**](User.md) | Returned users | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

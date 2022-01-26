@@ -1,9 +1,9 @@
-/* 
+/*
  * APIv3 (New)
  *
- *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
  *
- * OpenAPI spec version: 3.0.0
+ * The version of the OpenAPI document: 3.0.0
  * 
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -33,10 +33,67 @@ namespace org.egoi.client.api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CampaignWebPushSendRequest" /> class.
         /// </summary>
-        public CampaignWebPushSendRequest(int? siteId = default(int?), OSegmentsWithoutContactActionSend segments = default(OSegmentsWithoutContactActionSend), List<int?> notify = default(List<int?>), DateTime? scheduleDate = default(DateTime?))
+        [JsonConstructorAttribute]
+        protected CampaignWebPushSendRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CampaignWebPushSendRequest" /> class.
+        /// </summary>
+        /// <param name="siteId">siteId (required).</param>
+        /// <param name="segments">segments (required).</param>
+        /// <param name="notify">Array of IDs of the users to notify.</param>
+        /// <param name="scheduleDate">The date and time.</param>
+        public CampaignWebPushSendRequest(int siteId = default(int), OSegmentsWithoutContactActionSend segments = default(OSegmentsWithoutContactActionSend), List<int> notify = default(List<int>), DateTime scheduleDate = default(DateTime))
         {
+            // to ensure "siteId" is required (not null)
+            if (siteId == null)
+            {
+                throw new InvalidDataException("siteId is a required property for CampaignWebPushSendRequest and cannot be null");
+            }
+            else
+            {
+                this.SiteId = siteId;
+            }
+
+            // to ensure "segments" is required (not null)
+            if (segments == null)
+            {
+                throw new InvalidDataException("segments is a required property for CampaignWebPushSendRequest and cannot be null");
+            }
+            else
+            {
+                this.Segments = segments;
+            }
+
+            this.Notify = notify;
+            this.ScheduleDate = scheduleDate;
         }
-        
+
+        /// <summary>
+        /// Gets or Sets SiteId
+        /// </summary>
+        [DataMember(Name="site_id", EmitDefaultValue=true)]
+        public int SiteId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Segments
+        /// </summary>
+        [DataMember(Name="segments", EmitDefaultValue=true)]
+        public OSegmentsWithoutContactActionSend Segments { get; set; }
+
+        /// <summary>
+        /// Array of IDs of the users to notify
+        /// </summary>
+        /// <value>Array of IDs of the users to notify</value>
+        [DataMember(Name="notify", EmitDefaultValue=false)]
+        public List<int> Notify { get; set; }
+
+        /// <summary>
+        /// The date and time
+        /// </summary>
+        /// <value>The date and time</value>
+        [DataMember(Name="schedule_date", EmitDefaultValue=false)]
+        public DateTime ScheduleDate { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -45,17 +102,21 @@ namespace org.egoi.client.api.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CampaignWebPushSendRequest {\n");
+            sb.Append("  SiteId: ").Append(SiteId).Append("\n");
+            sb.Append("  Segments: ").Append(Segments).Append("\n");
+            sb.Append("  Notify: ").Append(Notify).Append("\n");
+            sb.Append("  ScheduleDate: ").Append(ScheduleDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
-  
+
         /// <summary>
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -78,7 +139,28 @@ namespace org.egoi.client.api.Model
             if (input == null)
                 return false;
 
-            return false;
+            return 
+                (
+                    this.SiteId == input.SiteId ||
+                    (this.SiteId != null &&
+                    this.SiteId.Equals(input.SiteId))
+                ) && 
+                (
+                    this.Segments == input.Segments ||
+                    (this.Segments != null &&
+                    this.Segments.Equals(input.Segments))
+                ) && 
+                (
+                    this.Notify == input.Notify ||
+                    this.Notify != null &&
+                    input.Notify != null &&
+                    this.Notify.SequenceEqual(input.Notify)
+                ) && 
+                (
+                    this.ScheduleDate == input.ScheduleDate ||
+                    (this.ScheduleDate != null &&
+                    this.ScheduleDate.Equals(input.ScheduleDate))
+                );
         }
 
         /// <summary>
@@ -90,6 +172,14 @@ namespace org.egoi.client.api.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.SiteId != null)
+                    hashCode = hashCode * 59 + this.SiteId.GetHashCode();
+                if (this.Segments != null)
+                    hashCode = hashCode * 59 + this.Segments.GetHashCode();
+                if (this.Notify != null)
+                    hashCode = hashCode * 59 + this.Notify.GetHashCode();
+                if (this.ScheduleDate != null)
+                    hashCode = hashCode * 59 + this.ScheduleDate.GetHashCode();
                 return hashCode;
             }
         }
@@ -101,6 +191,14 @@ namespace org.egoi.client.api.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
+
+            // SiteId (int) minimum
+            if(this.SiteId < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SiteId, must be a value greater than or equal to 1.", new [] { "SiteId" });
+            }
+
             yield break;
         }
     }

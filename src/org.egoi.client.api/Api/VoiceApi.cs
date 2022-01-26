@@ -1,9 +1,9 @@
-/* 
+/*
  * APIv3 (New)
  *
- *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
  *
- * OpenAPI spec version: 3.0.0
+ * The version of the OpenAPI document: 3.0.0
  * 
  * Generated by: https://github.com/openapitools/openapi-generator.git
  */
@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using RestSharp;
 using org.egoi.client.api.Client;
 using org.egoi.client.api.Model;
@@ -77,8 +78,8 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="voicePatchCampaign">Parameters for the Voice Campaign</param>
-        /// <returns>CampaignHash</returns>
-        CampaignHash PatchVoiceCampaign (string campaignHash, VoicePatchCampaign voicePatchCampaign);
+        /// <returns>InlineResponse200</returns>
+        InlineResponse200 PatchVoiceCampaign (string campaignHash, VoicePatchCampaign voicePatchCampaign);
 
         /// <summary>
         /// Update a specific voice campaign
@@ -89,8 +90,8 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="voicePatchCampaign">Parameters for the Voice Campaign</param>
-        /// <returns>ApiResponse of CampaignHash</returns>
-        ApiResponse<CampaignHash> PatchVoiceCampaignWithHttpInfo (string campaignHash, VoicePatchCampaign voicePatchCampaign);
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        ApiResponse<InlineResponse200> PatchVoiceCampaignWithHttpInfo (string campaignHash, VoicePatchCampaign voicePatchCampaign);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -102,8 +103,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="campaignVoiceSendRequest">Parameters for the &#39;send voice&#39; action</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> ActionSendVoiceAsync (string campaignHash, CampaignVoiceSendRequest campaignVoiceSendRequest);
+        System.Threading.Tasks.Task<AcceptedResponse> ActionSendVoiceAsync (string campaignHash, CampaignVoiceSendRequest campaignVoiceSendRequest, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Send voice message
@@ -114,8 +116,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="campaignVoiceSendRequest">Parameters for the &#39;send voice&#39; action</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionSendVoiceAsyncWithHttpInfo (string campaignHash, CampaignVoiceSendRequest campaignVoiceSendRequest);
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionSendVoiceWithHttpInfoAsync (string campaignHash, CampaignVoiceSendRequest campaignVoiceSendRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Create new voice campaign
         /// </summary>
@@ -124,8 +127,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voiceCampaign">Parameters for the Voice Campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of CampaignHash</returns>
-        System.Threading.Tasks.Task<CampaignHash> CreateVoiceCampaignAsync (VoiceCampaign voiceCampaign);
+        System.Threading.Tasks.Task<CampaignHash> CreateVoiceCampaignAsync (VoiceCampaign voiceCampaign, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create new voice campaign
@@ -135,8 +139,9 @@ namespace org.egoi.client.api.Api
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voiceCampaign">Parameters for the Voice Campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (CampaignHash)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CampaignHash>> CreateVoiceCampaignAsyncWithHttpInfo (VoiceCampaign voiceCampaign);
+        System.Threading.Tasks.Task<ApiResponse<CampaignHash>> CreateVoiceCampaignWithHttpInfoAsync (VoiceCampaign voiceCampaign, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Update a specific voice campaign
         /// </summary>
@@ -146,8 +151,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="voicePatchCampaign">Parameters for the Voice Campaign</param>
-        /// <returns>Task of CampaignHash</returns>
-        System.Threading.Tasks.Task<CampaignHash> PatchVoiceCampaignAsync (string campaignHash, VoicePatchCampaign voicePatchCampaign);
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of InlineResponse200</returns>
+        System.Threading.Tasks.Task<InlineResponse200> PatchVoiceCampaignAsync (string campaignHash, VoicePatchCampaign voicePatchCampaign, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update a specific voice campaign
@@ -158,8 +164,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="voicePatchCampaign">Parameters for the Voice Campaign</param>
-        /// <returns>Task of ApiResponse (CampaignHash)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CampaignHash>> PatchVoiceCampaignAsyncWithHttpInfo (string campaignHash, VoicePatchCampaign voicePatchCampaign);
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> PatchVoiceCampaignWithHttpInfoAsync (string campaignHash, VoicePatchCampaign voicePatchCampaign, CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -291,7 +298,7 @@ namespace org.egoi.client.api.Api
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="campaignVoiceSendRequest">Parameters for the &#39;send voice&#39; action</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse< AcceptedResponse > ActionSendVoiceWithHttpInfo (string campaignHash, CampaignVoiceSendRequest campaignVoiceSendRequest)
+        public ApiResponse<AcceptedResponse> ActionSendVoiceWithHttpInfo (string campaignHash, CampaignVoiceSendRequest campaignVoiceSendRequest)
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -352,7 +359,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -362,10 +369,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="campaignVoiceSendRequest">Parameters for the &#39;send voice&#39; action</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> ActionSendVoiceAsync (string campaignHash, CampaignVoiceSendRequest campaignVoiceSendRequest)
+        public async System.Threading.Tasks.Task<AcceptedResponse> ActionSendVoiceAsync (string campaignHash, CampaignVoiceSendRequest campaignVoiceSendRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AcceptedResponse> localVarResponse = await ActionSendVoiceAsyncWithHttpInfo(campaignHash, campaignVoiceSendRequest);
+             ApiResponse<AcceptedResponse> localVarResponse = await ActionSendVoiceWithHttpInfoAsync(campaignHash, campaignVoiceSendRequest, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -376,8 +384,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="campaignVoiceSendRequest">Parameters for the &#39;send voice&#39; action</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionSendVoiceAsyncWithHttpInfo (string campaignHash, CampaignVoiceSendRequest campaignVoiceSendRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionSendVoiceWithHttpInfoAsync (string campaignHash, CampaignVoiceSendRequest campaignVoiceSendRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -427,7 +436,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -438,7 +447,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<AcceptedResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (AcceptedResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AcceptedResponse)));
         }
 
@@ -460,7 +469,7 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voiceCampaign">Parameters for the Voice Campaign</param>
         /// <returns>ApiResponse of CampaignHash</returns>
-        public ApiResponse< CampaignHash > CreateVoiceCampaignWithHttpInfo (VoiceCampaign voiceCampaign)
+        public ApiResponse<CampaignHash> CreateVoiceCampaignWithHttpInfo (VoiceCampaign voiceCampaign)
         {
             // verify the required parameter 'voiceCampaign' is set
             if (voiceCampaign == null)
@@ -517,7 +526,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<CampaignHash>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (CampaignHash) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CampaignHash)));
         }
 
@@ -526,10 +535,11 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voiceCampaign">Parameters for the Voice Campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of CampaignHash</returns>
-        public async System.Threading.Tasks.Task<CampaignHash> CreateVoiceCampaignAsync (VoiceCampaign voiceCampaign)
+        public async System.Threading.Tasks.Task<CampaignHash> CreateVoiceCampaignAsync (VoiceCampaign voiceCampaign, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<CampaignHash> localVarResponse = await CreateVoiceCampaignAsyncWithHttpInfo(voiceCampaign);
+             ApiResponse<CampaignHash> localVarResponse = await CreateVoiceCampaignWithHttpInfoAsync(voiceCampaign, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -539,8 +549,9 @@ namespace org.egoi.client.api.Api
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="voiceCampaign">Parameters for the Voice Campaign</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (CampaignHash)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CampaignHash>> CreateVoiceCampaignAsyncWithHttpInfo (VoiceCampaign voiceCampaign)
+        public async System.Threading.Tasks.Task<ApiResponse<CampaignHash>> CreateVoiceCampaignWithHttpInfoAsync (VoiceCampaign voiceCampaign, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'voiceCampaign' is set
             if (voiceCampaign == null)
@@ -586,7 +597,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -597,7 +608,7 @@ namespace org.egoi.client.api.Api
             }
 
             return new ApiResponse<CampaignHash>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (CampaignHash) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CampaignHash)));
         }
 
@@ -607,10 +618,10 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="voicePatchCampaign">Parameters for the Voice Campaign</param>
-        /// <returns>CampaignHash</returns>
-        public CampaignHash PatchVoiceCampaign (string campaignHash, VoicePatchCampaign voicePatchCampaign)
+        /// <returns>InlineResponse200</returns>
+        public InlineResponse200 PatchVoiceCampaign (string campaignHash, VoicePatchCampaign voicePatchCampaign)
         {
-             ApiResponse<CampaignHash> localVarResponse = PatchVoiceCampaignWithHttpInfo(campaignHash, voicePatchCampaign);
+             ApiResponse<InlineResponse200> localVarResponse = PatchVoiceCampaignWithHttpInfo(campaignHash, voicePatchCampaign);
              return localVarResponse.Data;
         }
 
@@ -620,8 +631,8 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="voicePatchCampaign">Parameters for the Voice Campaign</param>
-        /// <returns>ApiResponse of CampaignHash</returns>
-        public ApiResponse< CampaignHash > PatchVoiceCampaignWithHttpInfo (string campaignHash, VoicePatchCampaign voicePatchCampaign)
+        /// <returns>ApiResponse of InlineResponse200</returns>
+        public ApiResponse<InlineResponse200> PatchVoiceCampaignWithHttpInfo (string campaignHash, VoicePatchCampaign voicePatchCampaign)
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -681,9 +692,9 @@ namespace org.egoi.client.api.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CampaignHash>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CampaignHash) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CampaignHash)));
+            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (InlineResponse200) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
         }
 
         /// <summary>
@@ -692,10 +703,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="voicePatchCampaign">Parameters for the Voice Campaign</param>
-        /// <returns>Task of CampaignHash</returns>
-        public async System.Threading.Tasks.Task<CampaignHash> PatchVoiceCampaignAsync (string campaignHash, VoicePatchCampaign voicePatchCampaign)
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of InlineResponse200</returns>
+        public async System.Threading.Tasks.Task<InlineResponse200> PatchVoiceCampaignAsync (string campaignHash, VoicePatchCampaign voicePatchCampaign, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<CampaignHash> localVarResponse = await PatchVoiceCampaignAsyncWithHttpInfo(campaignHash, voicePatchCampaign);
+             ApiResponse<InlineResponse200> localVarResponse = await PatchVoiceCampaignWithHttpInfoAsync(campaignHash, voicePatchCampaign, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -706,8 +718,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignHash">ID of the Campaign</param>
         /// <param name="voicePatchCampaign">Parameters for the Voice Campaign</param>
-        /// <returns>Task of ApiResponse (CampaignHash)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CampaignHash>> PatchVoiceCampaignAsyncWithHttpInfo (string campaignHash, VoicePatchCampaign voicePatchCampaign)
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (InlineResponse200)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> PatchVoiceCampaignWithHttpInfoAsync (string campaignHash, VoicePatchCampaign voicePatchCampaign, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'campaignHash' is set
             if (campaignHash == null)
@@ -757,7 +770,7 @@ namespace org.egoi.client.api.Api
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.PATCH, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
+                localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
@@ -767,9 +780,9 @@ namespace org.egoi.client.api.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CampaignHash>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CampaignHash) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CampaignHash)));
+            return new ApiResponse<InlineResponse200>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (InlineResponse200) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse200)));
         }
 
     }

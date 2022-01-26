@@ -1,13 +1,20 @@
+
 # org.egoi.client.api.Model.ComplexContact
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EmailStats** | **Object** | Email stats of the contact | [optional] 
-**SmsStats** | **Object** | SMS stats of the contact | [optional] 
-**PushStats** | **Object** | Push stats of the contact | [optional] 
-**WebpushStats** | **Object** | Webpush stats of the contact | [optional] 
-**VoiceStats** | **Object** | Voice stats of the contact | [optional] 
+**Base** | [**ContactInsideBase**](ContactInsideBase.md) | Contact base fields | [optional] 
+**Extra** | [**List&lt;ContactExtraFields&gt;**](ContactExtraFields.md) | Array of the contact&#39;s extra fields | [optional] 
+**Tags** | **List&lt;int&gt;** | Array of tags for this contact | [optional] [readonly] 
+**EmailStats** | [**ComplexContactAllOfEmailStats**](ComplexContactAllOfEmailStats.md) |  | [optional] 
+**SmsStats** | [**ComplexContactAllOfSmsStats**](ComplexContactAllOfSmsStats.md) |  | [optional] 
+**PushStats** | [**ComplexContactAllOfPushStats**](ComplexContactAllOfPushStats.md) |  | [optional] 
+**WebpushStats** | [**ComplexContactAllOfWebpushStats**](ComplexContactAllOfWebpushStats.md) |  | [optional] 
+**VoiceStats** | [**ComplexContactAllOfVoiceStats**](ComplexContactAllOfVoiceStats.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 
