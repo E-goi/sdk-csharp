@@ -38,13 +38,15 @@ namespace org.egoi.client.api.Model
         /// <param name="popupForms">popupForms.</param>
         /// <param name="whatsapp">whatsapp.</param>
         /// <param name="webPush">webPush.</param>
-        public ConnectedSitesProducts(ConnectedSitesGeneralProductTEDetailGlobal trackAndEngage = default(ConnectedSitesGeneralProductTEDetailGlobal), ConnectedSitesGeneralProductFormDetailGlobal onSiteMessage = default(ConnectedSitesGeneralProductFormDetailGlobal), ConnectedSitesGeneralProductFormDetailGlobal popupForms = default(ConnectedSitesGeneralProductFormDetailGlobal), ConnectedSitesGeneralProductFormDetailGlobal whatsapp = default(ConnectedSitesGeneralProductFormDetailGlobal), ConnectedSitesGeneralProductAppDetailGlobal webPush = default(ConnectedSitesGeneralProductAppDetailGlobal))
+        /// <param name="embedForms">embedForms.</param>
+        public ConnectedSitesProducts(ConnectedSitesGeneralProductTEDetailGlobal trackAndEngage = default(ConnectedSitesGeneralProductTEDetailGlobal), ConnectedSitesGeneralProductFormDetailGlobal onSiteMessage = default(ConnectedSitesGeneralProductFormDetailGlobal), ConnectedSitesGeneralProductFormDetailGlobal popupForms = default(ConnectedSitesGeneralProductFormDetailGlobal), ConnectedSitesGeneralProductFormDetailGlobal whatsapp = default(ConnectedSitesGeneralProductFormDetailGlobal), ConnectedSitesGeneralProductAppDetailGlobal webPush = default(ConnectedSitesGeneralProductAppDetailGlobal), ConnectedSitesEmbedForm embedForms = default(ConnectedSitesEmbedForm))
         {
             this.TrackAndEngage = trackAndEngage;
             this.OnSiteMessage = onSiteMessage;
             this.PopupForms = popupForms;
             this.Whatsapp = whatsapp;
             this.WebPush = webPush;
+            this.EmbedForms = embedForms;
         }
 
         /// <summary>
@@ -78,6 +80,12 @@ namespace org.egoi.client.api.Model
         public ConnectedSitesGeneralProductAppDetailGlobal WebPush { get; set; }
 
         /// <summary>
+        /// Gets or Sets EmbedForms
+        /// </summary>
+        [DataMember(Name="embed_forms", EmitDefaultValue=false)]
+        public ConnectedSitesEmbedForm EmbedForms { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,6 +98,7 @@ namespace org.egoi.client.api.Model
             sb.Append("  PopupForms: ").Append(PopupForms).Append("\n");
             sb.Append("  Whatsapp: ").Append(Whatsapp).Append("\n");
             sb.Append("  WebPush: ").Append(WebPush).Append("\n");
+            sb.Append("  EmbedForms: ").Append(EmbedForms).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -148,6 +157,11 @@ namespace org.egoi.client.api.Model
                     this.WebPush == input.WebPush ||
                     (this.WebPush != null &&
                     this.WebPush.Equals(input.WebPush))
+                ) && 
+                (
+                    this.EmbedForms == input.EmbedForms ||
+                    (this.EmbedForms != null &&
+                    this.EmbedForms.Equals(input.EmbedForms))
                 );
         }
 
@@ -170,6 +184,8 @@ namespace org.egoi.client.api.Model
                     hashCode = hashCode * 59 + this.Whatsapp.GetHashCode();
                 if (this.WebPush != null)
                     hashCode = hashCode * 59 + this.WebPush.GetHashCode();
+                if (this.EmbedForms != null)
+                    hashCode = hashCode * 59 + this.EmbedForms.GetHashCode();
                 return hashCode;
             }
         }

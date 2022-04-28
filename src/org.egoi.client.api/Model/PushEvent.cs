@@ -41,7 +41,7 @@ namespace org.egoi.client.api.Model
         /// <param name="os">The OS of the device. (required).</param>
         /// <param name="contact">The UID of the contact. (required).</param>
         /// <param name="messageHash">The hash of the campaign related to the notification. (required).</param>
-        /// <param name="_event">The event to register (opened, canceled). (required).</param>
+        /// <param name="_event">The event to register (open, canceled). (required).</param>
         /// <param name="deviceId">The E-goi&#39;s ID of the device. (required).</param>
         public PushEvent(string os = default(string), string contact = default(string), string messageHash = default(string), string _event = default(string), int deviceId = default(int))
         {
@@ -119,9 +119,9 @@ namespace org.egoi.client.api.Model
         public string MessageHash { get; set; }
 
         /// <summary>
-        /// The event to register (opened, canceled).
+        /// The event to register (open, canceled).
         /// </summary>
-        /// <value>The event to register (opened, canceled).</value>
+        /// <value>The event to register (open, canceled).</value>
         [DataMember(Name="event", EmitDefaultValue=true)]
         public string Event { get; set; }
 

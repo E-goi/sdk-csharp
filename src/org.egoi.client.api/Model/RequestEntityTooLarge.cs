@@ -25,34 +25,68 @@ using OpenAPIDateConverter = org.egoi.client.api.Client.OpenAPIDateConverter;
 namespace org.egoi.client.api.Model
 {
     /// <summary>
-    /// ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid
+    /// RequestEntityTooLarge
     /// </summary>
     [DataContract]
-    public partial class ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid :  IEquatable<ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid>, IValidatableObject
+    public partial class RequestEntityTooLarge :  IEquatable<RequestEntityTooLarge>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid" /> class.
+        /// Error title
         /// </summary>
-        /// <param name="appId">appId.</param>
-        /// <param name="token">Android push app ID.</param>
-        public ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid(string appId = default(string), string token = default(string))
+        /// <value>Error title</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TitleEnum
         {
-            this.AppId = appId;
-            this.Token = token;
+            /// <summary>
+            /// Enum RequestEntityTooLarge for value: Request Entity Too Large
+            /// </summary>
+            [EnumMember(Value = "Request Entity Too Large")]
+            RequestEntityTooLarge = 1
+
         }
 
         /// <summary>
-        /// Gets or Sets AppId
+        /// Error title
         /// </summary>
-        [DataMember(Name="app_id", EmitDefaultValue=false)]
-        public string AppId { get; set; }
+        /// <value>Error title</value>
+        [DataMember(Name="title", EmitDefaultValue=false)]
+        public TitleEnum? Title { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RequestEntityTooLarge" /> class.
+        /// </summary>
+        /// <param name="type">RFC for status code definitions.</param>
+        /// <param name="title">Error title.</param>
+        /// <param name="status">Status code.</param>
+        /// <param name="detail">Error detail.</param>
+        public RequestEntityTooLarge(string type = default(string), TitleEnum? title = default(TitleEnum?), int status = default(int), string detail = default(string))
+        {
+            this.Type = type;
+            this.Title = title;
+            this.Status = status;
+            this.Detail = detail;
+        }
 
         /// <summary>
-        /// Android push app ID
+        /// RFC for status code definitions
         /// </summary>
-        /// <value>Android push app ID</value>
-        [DataMember(Name="token", EmitDefaultValue=false)]
-        public string Token { get; set; }
+        /// <value>RFC for status code definitions</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
+
+
+        /// <summary>
+        /// Status code
+        /// </summary>
+        /// <value>Status code</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public int Status { get; set; }
+
+        /// <summary>
+        /// Error detail
+        /// </summary>
+        /// <value>Error detail</value>
+        [DataMember(Name="detail", EmitDefaultValue=false)]
+        public string Detail { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,9 +95,11 @@ namespace org.egoi.client.api.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid {\n");
-            sb.Append("  AppId: ").Append(AppId).Append("\n");
-            sb.Append("  Token: ").Append(Token).Append("\n");
+            sb.Append("class RequestEntityTooLarge {\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Detail: ").Append(Detail).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,29 +120,39 @@ namespace org.egoi.client.api.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid);
+            return this.Equals(input as RequestEntityTooLarge);
         }
 
         /// <summary>
-        /// Returns true if ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid instances are equal
+        /// Returns true if RequestEntityTooLarge instances are equal
         /// </summary>
-        /// <param name="input">Instance of ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid to be compared</param>
+        /// <param name="input">Instance of RequestEntityTooLarge to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid input)
+        public bool Equals(RequestEntityTooLarge input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.AppId == input.AppId ||
-                    (this.AppId != null &&
-                    this.AppId.Equals(input.AppId))
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.Token == input.Token ||
-                    (this.Token != null &&
-                    this.Token.Equals(input.Token))
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.Detail == input.Detail ||
+                    (this.Detail != null &&
+                    this.Detail.Equals(input.Detail))
                 );
         }
 
@@ -119,10 +165,14 @@ namespace org.egoi.client.api.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AppId != null)
-                    hashCode = hashCode * 59 + this.AppId.GetHashCode();
-                if (this.Token != null)
-                    hashCode = hashCode * 59 + this.Token.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Title != null)
+                    hashCode = hashCode * 59 + this.Title.GetHashCode();
+                if (this.Status != null)
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.Detail != null)
+                    hashCode = hashCode * 59 + this.Detail.GetHashCode();
                 return hashCode;
             }
         }
@@ -134,15 +184,6 @@ namespace org.egoi.client.api.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-
-
-            // AppId (string) pattern
-            Regex regexAppId = new Regex(@"[a-zA-Z0-9_-]*", RegexOptions.CultureInvariant);
-            if (false == regexAppId.Match(this.AppId).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AppId, must match a pattern of " + regexAppId, new [] { "AppId" });
-            }
-
             yield break;
         }
     }

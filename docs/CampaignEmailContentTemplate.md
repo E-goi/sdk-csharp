@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** |  | 
-**TemplateId** | **int** | ID of the template for this campaign | 
+**TemplateId** | **int** | ID of the template for this campaign (Email builder templates are not allowed) | 
 **PlainText** | **string** | Plain text for the campaign | [optional] 
 **Snippet** | **string** | Snippet text for the campaign | [optional] 
 

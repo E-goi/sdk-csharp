@@ -63,7 +63,7 @@ namespace org.egoi.client.api.Model
         /// <param name="body">HTML code of the campaign (required).</param>
         /// <param name="plainText">Plain text for the campaign.</param>
         /// <param name="snippet">Snippet text for the campaign.</param>
-        /// <param name="templateId">ID of the template for this campaign (required).</param>
+        /// <param name="templateId">ID of the template for this campaign (Email builder templates are not allowed) (required).</param>
         /// <param name="url">Campaign url (required).</param>
         /// <param name="usePageTitle">True to use page title as the campaign title (default to false).</param>
         /// <param name="file">Campaign file (required).</param>
@@ -155,9 +155,9 @@ namespace org.egoi.client.api.Model
         public string Snippet { get; set; }
 
         /// <summary>
-        /// ID of the template for this campaign
+        /// ID of the template for this campaign (Email builder templates are not allowed)
         /// </summary>
-        /// <value>ID of the template for this campaign</value>
+        /// <value>ID of the template for this campaign (Email builder templates are not allowed)</value>
         [DataMember(Name="template_id", EmitDefaultValue=true)]
         public int TemplateId { get; set; }
 

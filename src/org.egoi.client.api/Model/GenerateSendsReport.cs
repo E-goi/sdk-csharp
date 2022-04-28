@@ -40,11 +40,11 @@ namespace org.egoi.client.api.Model
         /// </summary>
         /// <param name="title">Advanced report title (required).</param>
         /// <param name="range">range (required).</param>
-        /// <param name="lists">lists (required).</param>
+        /// <param name="lists">Array of List Id&#39;s (required).</param>
         /// <param name="columns">columns (required).</param>
         /// <param name="options">options (required).</param>
         /// <param name="callbackUrl">URL which will receive the information of the report.</param>
-        public GenerateSendsReport(string title = default(string), AdvancedReportRange range = default(AdvancedReportRange), int lists = default(int), AdvancedReportSendsColumns columns = default(AdvancedReportSendsColumns), AdvancedReportSendsOptions options = default(AdvancedReportSendsOptions), string callbackUrl = default(string))
+        public GenerateSendsReport(string title = default(string), AdvancedReportRange range = default(AdvancedReportRange), List<int> lists = default(List<int>), AdvancedReportSendsColumns columns = default(AdvancedReportSendsColumns), AdvancedReportSendsOptions options = default(AdvancedReportSendsOptions), string callbackUrl = default(string))
         {
             // to ensure "title" is required (not null)
             if (title == null)
@@ -113,10 +113,11 @@ namespace org.egoi.client.api.Model
         public AdvancedReportRange Range { get; set; }
 
         /// <summary>
-        /// Gets or Sets Lists
+        /// Array of List Id&#39;s
         /// </summary>
+        /// <value>Array of List Id&#39;s</value>
         [DataMember(Name="lists", EmitDefaultValue=true)]
-        public int Lists { get; set; }
+        public List<int> Lists { get; set; }
 
         /// <summary>
         /// Gets or Sets Columns
@@ -197,8 +198,9 @@ namespace org.egoi.client.api.Model
                 ) && 
                 (
                     this.Lists == input.Lists ||
-                    (this.Lists != null &&
-                    this.Lists.Equals(input.Lists))
+                    this.Lists != null &&
+                    input.Lists != null &&
+                    this.Lists.SequenceEqual(input.Lists)
                 ) && 
                 (
                     this.Columns == input.Columns ||
@@ -249,14 +251,6 @@ namespace org.egoi.client.api.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-
-
-            // Lists (int) minimum
-            if(this.Lists < (int)1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Lists, must be a value greater than or equal to 1.", new [] { "Lists" });
-            }
-
             yield break;
         }
     }

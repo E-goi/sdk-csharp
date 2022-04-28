@@ -82,7 +82,7 @@ namespace org.egoi.client.api.Model
         /// <param name="phone">Phone of the contact.</param>
         /// <param name="pushTokenAndroid">Android push token of the contact.</param>
         /// <param name="pushTokenIos">IOS push token of the contact.</param>
-        public ContactInsideBasePost(StatusEnum? status = StatusEnum.Active, string firstName = default(string), string lastName = default(string), DateTime birthDate = default(DateTime), Language language = default(Language), string email = default(string), string cellphone = default(string), string phone = default(string), List<ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid> pushTokenAndroid = default(List<ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid>), List<ContactBaseWithStatusFieldsSchemaBasePushTokenIos> pushTokenIos = default(List<ContactBaseWithStatusFieldsSchemaBasePushTokenIos>))
+        public ContactInsideBasePost(StatusEnum? status = StatusEnum.Active, string firstName = default(string), string lastName = default(string), DateTime birthDate = default(DateTime), Language language = default(Language), string email = default(string), string cellphone = default(string), string phone = default(string), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid> pushTokenAndroid = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid>), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos> pushTokenIos = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos>))
         {
             // use default value if no "status" provided
             if (status == null)
@@ -165,14 +165,14 @@ namespace org.egoi.client.api.Model
         /// </summary>
         /// <value>Android push token of the contact</value>
         [DataMember(Name="push_token_android", EmitDefaultValue=false)]
-        public List<ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid> PushTokenAndroid { get; set; }
+        public List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid> PushTokenAndroid { get; set; }
 
         /// <summary>
         /// IOS push token of the contact
         /// </summary>
         /// <value>IOS push token of the contact</value>
         [DataMember(Name="push_token_ios", EmitDefaultValue=false)]
-        public List<ContactBaseWithStatusFieldsSchemaBasePushTokenIos> PushTokenIos { get; set; }
+        public List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos> PushTokenIos { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

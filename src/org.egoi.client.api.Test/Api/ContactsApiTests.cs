@@ -286,8 +286,8 @@ namespace org.egoi.client.api.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string contactId = null;
             //int listId = null;
-            //ContactBaseStatusExtra contactBaseStatusExtra = null;
-            //var response = instance.PatchContact(contactId, listId, contactBaseStatusExtra);
+            //ContactBaseStatusExtraNoRemoved contactBaseStatusExtraNoRemoved = null;
+            //var response = instance.PatchContact(contactId, listId, contactBaseStatusExtraNoRemoved);
             //Assert.IsInstanceOf(typeof(CreateContactResponse), response, "response is CreateContactResponse");
         }
         

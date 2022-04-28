@@ -97,7 +97,6 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
-| **404** | NotFound |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **429** | Too Many Requests |  -  |
 | **500** | Internal Server Error |  -  |
@@ -277,8 +276,8 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
-| **404** | NotFound |  -  |
 | **408** | Request Timeout |  -  |
+| **413** | Request Entity Too Large |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **429** | Too Many Requests |  -  |
 | **500** | Internal Server Error |  -  |
@@ -369,7 +368,6 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
-| **404** | NotFound |  -  |
 | **408** | Request Timeout |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
@@ -458,8 +456,8 @@ void (empty response body)
 | **204** | No Content |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 | **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
 | **429** | Too Many Requests |  -  |
 | **500** | Internal Server Error |  -  |
 | **503** | Service Unavailable |  -  |
@@ -746,8 +744,8 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
-| **404** | NotFound |  -  |
 | **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
 | **429** | Too Many Requests |  -  |
 | **500** | Internal Server Error |  -  |
 | **503** | Service Unavailable |  -  |
@@ -836,8 +834,8 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 | **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
 | **429** | Too Many Requests |  -  |
 | **500** | Internal Server Error |  -  |
 | **503** | Service Unavailable |  -  |
@@ -927,8 +925,8 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
-| **404** | NotFound |  -  |
 | **408** | Request Timeout |  -  |
+| **413** | Payload Too Large |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **429** | Too Many Requests |  -  |
 | **500** | Internal Server Error |  -  |

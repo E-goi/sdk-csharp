@@ -98,6 +98,14 @@ namespace org.egoi.client.api.Test
             // TODO unit test for the property 'DestinationField'
         }
         /// <summary>
+        /// Test the property 'UniqueContactsOnly'
+        /// </summary>
+        [Test]
+        public void UniqueContactsOnlyTest()
+        {
+            // TODO unit test for the property 'UniqueContactsOnly'
+        }
+        /// <summary>
         /// Test the property 'LimitContacts'
         /// </summary>
         [Test]

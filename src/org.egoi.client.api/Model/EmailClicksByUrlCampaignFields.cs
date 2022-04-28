@@ -41,7 +41,12 @@ namespace org.egoi.client.api.Model
         /// <param name="internalName">True to include the internal name of the campaign, false otherwise (required).</param>
         /// <param name="campaignHash">True to include the hash of the campaign, false otherwise (required).</param>
         /// <param name="url">True to include the URL of the campaign, false otherwise (required).</param>
-        public EmailClicksByUrlCampaignFields(bool internalName = default(bool), bool campaignHash = default(bool), bool url = default(bool))
+        /// <param name="city">True to include city information, false otherwise (required).</param>
+        /// <param name="country">True to include country information, false otherwise (required).</param>
+        /// <param name="region">True to include region information, false otherwise (required).</param>
+        /// <param name="program">True to include device program information, false otherwise (required).</param>
+        /// <param name="os">True to include operating system information, false otherwise (required).</param>
+        public EmailClicksByUrlCampaignFields(bool internalName = default(bool), bool campaignHash = default(bool), bool url = default(bool), bool city = default(bool), bool country = default(bool), bool region = default(bool), bool program = default(bool), bool os = default(bool))
         {
             // to ensure "internalName" is required (not null)
             if (internalName == null)
@@ -73,6 +78,56 @@ namespace org.egoi.client.api.Model
                 this.Url = url;
             }
 
+            // to ensure "city" is required (not null)
+            if (city == null)
+            {
+                throw new InvalidDataException("city is a required property for EmailClicksByUrlCampaignFields and cannot be null");
+            }
+            else
+            {
+                this.City = city;
+            }
+
+            // to ensure "country" is required (not null)
+            if (country == null)
+            {
+                throw new InvalidDataException("country is a required property for EmailClicksByUrlCampaignFields and cannot be null");
+            }
+            else
+            {
+                this.Country = country;
+            }
+
+            // to ensure "region" is required (not null)
+            if (region == null)
+            {
+                throw new InvalidDataException("region is a required property for EmailClicksByUrlCampaignFields and cannot be null");
+            }
+            else
+            {
+                this.Region = region;
+            }
+
+            // to ensure "program" is required (not null)
+            if (program == null)
+            {
+                throw new InvalidDataException("program is a required property for EmailClicksByUrlCampaignFields and cannot be null");
+            }
+            else
+            {
+                this.Program = program;
+            }
+
+            // to ensure "os" is required (not null)
+            if (os == null)
+            {
+                throw new InvalidDataException("os is a required property for EmailClicksByUrlCampaignFields and cannot be null");
+            }
+            else
+            {
+                this.Os = os;
+            }
+
         }
 
         /// <summary>
@@ -97,6 +152,41 @@ namespace org.egoi.client.api.Model
         public bool Url { get; set; }
 
         /// <summary>
+        /// True to include city information, false otherwise
+        /// </summary>
+        /// <value>True to include city information, false otherwise</value>
+        [DataMember(Name="city", EmitDefaultValue=true)]
+        public bool City { get; set; }
+
+        /// <summary>
+        /// True to include country information, false otherwise
+        /// </summary>
+        /// <value>True to include country information, false otherwise</value>
+        [DataMember(Name="country", EmitDefaultValue=true)]
+        public bool Country { get; set; }
+
+        /// <summary>
+        /// True to include region information, false otherwise
+        /// </summary>
+        /// <value>True to include region information, false otherwise</value>
+        [DataMember(Name="region", EmitDefaultValue=true)]
+        public bool Region { get; set; }
+
+        /// <summary>
+        /// True to include device program information, false otherwise
+        /// </summary>
+        /// <value>True to include device program information, false otherwise</value>
+        [DataMember(Name="program", EmitDefaultValue=true)]
+        public bool Program { get; set; }
+
+        /// <summary>
+        /// True to include operating system information, false otherwise
+        /// </summary>
+        /// <value>True to include operating system information, false otherwise</value>
+        [DataMember(Name="os", EmitDefaultValue=true)]
+        public bool Os { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -107,6 +197,11 @@ namespace org.egoi.client.api.Model
             sb.Append("  InternalName: ").Append(InternalName).Append("\n");
             sb.Append("  CampaignHash: ").Append(CampaignHash).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
+            sb.Append("  City: ").Append(City).Append("\n");
+            sb.Append("  Country: ").Append(Country).Append("\n");
+            sb.Append("  Region: ").Append(Region).Append("\n");
+            sb.Append("  Program: ").Append(Program).Append("\n");
+            sb.Append("  Os: ").Append(Os).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,6 +250,31 @@ namespace org.egoi.client.api.Model
                     this.Url == input.Url ||
                     (this.Url != null &&
                     this.Url.Equals(input.Url))
+                ) && 
+                (
+                    this.City == input.City ||
+                    (this.City != null &&
+                    this.City.Equals(input.City))
+                ) && 
+                (
+                    this.Country == input.Country ||
+                    (this.Country != null &&
+                    this.Country.Equals(input.Country))
+                ) && 
+                (
+                    this.Region == input.Region ||
+                    (this.Region != null &&
+                    this.Region.Equals(input.Region))
+                ) && 
+                (
+                    this.Program == input.Program ||
+                    (this.Program != null &&
+                    this.Program.Equals(input.Program))
+                ) && 
+                (
+                    this.Os == input.Os ||
+                    (this.Os != null &&
+                    this.Os.Equals(input.Os))
                 );
         }
 
@@ -173,6 +293,16 @@ namespace org.egoi.client.api.Model
                     hashCode = hashCode * 59 + this.CampaignHash.GetHashCode();
                 if (this.Url != null)
                     hashCode = hashCode * 59 + this.Url.GetHashCode();
+                if (this.City != null)
+                    hashCode = hashCode * 59 + this.City.GetHashCode();
+                if (this.Country != null)
+                    hashCode = hashCode * 59 + this.Country.GetHashCode();
+                if (this.Region != null)
+                    hashCode = hashCode * 59 + this.Region.GetHashCode();
+                if (this.Program != null)
+                    hashCode = hashCode * 59 + this.Program.GetHashCode();
+                if (this.Os != null)
+                    hashCode = hashCode * 59 + this.Os.GetHashCode();
                 return hashCode;
             }
         }

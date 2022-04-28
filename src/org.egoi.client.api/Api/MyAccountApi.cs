@@ -29,7 +29,7 @@ namespace org.egoi.client.api.Api
         /// Enable Track&amp;Engage
         /// </summary>
         /// <remarks>
-        /// Enable Track&amp;Engag
+        /// Enable Track&amp;Engage
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineObject"></param>
@@ -40,12 +40,31 @@ namespace org.egoi.client.api.Api
         /// Enable Track&amp;Engage
         /// </summary>
         /// <remarks>
-        /// Enable Track&amp;Engag
+        /// Enable Track&amp;Engage
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineObject"></param>
         /// <returns>ApiResponse of TeResponse</returns>
         ApiResponse<TeResponse> EnableTeWithHttpInfo (InlineObject inlineObject);
+        /// <summary>
+        /// Enable Transactional
+        /// </summary>
+        /// <remarks>
+        /// Enable Transactionale api usage
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns></returns>
+        void EnableTransactional ();
+
+        /// <summary>
+        /// Enable Transactional
+        /// </summary>
+        /// <remarks>
+        /// Enable Transactionale api usage
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> EnableTransactionalWithHttpInfo ();
         /// <summary>
         /// Get My Account Info
         /// </summary>
@@ -71,7 +90,7 @@ namespace org.egoi.client.api.Api
         /// Enable Track&amp;Engage
         /// </summary>
         /// <remarks>
-        /// Enable Track&amp;Engag
+        /// Enable Track&amp;Engage
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineObject"></param>
@@ -83,13 +102,34 @@ namespace org.egoi.client.api.Api
         /// Enable Track&amp;Engage
         /// </summary>
         /// <remarks>
-        /// Enable Track&amp;Engag
+        /// Enable Track&amp;Engage
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineObject"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (TeResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TeResponse>> EnableTeWithHttpInfoAsync (InlineObject inlineObject, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Enable Transactional
+        /// </summary>
+        /// <remarks>
+        /// Enable Transactionale api usage
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task EnableTransactionalAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Enable Transactional
+        /// </summary>
+        /// <remarks>
+        /// Enable Transactionale api usage
+        /// </remarks>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> EnableTransactionalWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get My Account Info
         /// </summary>
@@ -223,7 +263,7 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
-        /// Enable Track&amp;Engage Enable Track&amp;Engag
+        /// Enable Track&amp;Engage Enable Track&amp;Engage
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineObject"></param>
@@ -235,7 +275,7 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
-        /// Enable Track&amp;Engage Enable Track&amp;Engag
+        /// Enable Track&amp;Engage Enable Track&amp;Engage
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineObject"></param>
@@ -302,7 +342,7 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
-        /// Enable Track&amp;Engage Enable Track&amp;Engag
+        /// Enable Track&amp;Engage Enable Track&amp;Engage
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineObject"></param>
@@ -316,7 +356,7 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
-        /// Enable Track&amp;Engage Enable Track&amp;Engag
+        /// Enable Track&amp;Engage Enable Track&amp;Engage
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineObject"></param>
@@ -381,6 +421,137 @@ namespace org.egoi.client.api.Api
             return new ApiResponse<TeResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (TeResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TeResponse)));
+        }
+
+        /// <summary>
+        /// Enable Transactional Enable Transactionale api usage
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns></returns>
+        public void EnableTransactional ()
+        {
+             EnableTransactionalWithHttpInfo();
+        }
+
+        /// <summary>
+        /// Enable Transactional Enable Transactionale api usage
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> EnableTransactionalWithHttpInfo ()
+        {
+
+            var localVarPath = "/my-account/actions/enable-transactional";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EnableTransactional", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Enable Transactional Enable Transactionale api usage
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task EnableTransactionalAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await EnableTransactionalWithHttpInfoAsync(cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Enable Transactional Enable Transactionale api usage
+        /// </summary>
+        /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> EnableTransactionalWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/my-account/actions/enable-transactional";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (Apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
+            {
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("EnableTransactional", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
         }
 
         /// <summary>

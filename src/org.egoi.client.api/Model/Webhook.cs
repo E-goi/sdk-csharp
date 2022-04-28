@@ -41,7 +41,8 @@ namespace org.egoi.client.api.Model
         /// <param name="listId">listId (required).</param>
         /// <param name="url">Url to send the webhook (required).</param>
         /// <param name="actions">Action that will trigger the webhook (required).</param>
-        public Webhook(int listId = default(int), string url = default(string), List<WebhookActionSchema> actions = default(List<WebhookActionSchema>))
+        /// <param name="fields">Array of contact field IDs to be displayed in the webhook.</param>
+        public Webhook(int listId = default(int), string url = default(string), List<WebhookActionSchema> actions = default(List<WebhookActionSchema>), List<string> fields = default(List<string>))
         {
             // to ensure "listId" is required (not null)
             if (listId == null)
@@ -73,6 +74,7 @@ namespace org.egoi.client.api.Model
                 this.Actions = actions;
             }
 
+            this.Fields = fields;
         }
 
         /// <summary>
@@ -102,6 +104,13 @@ namespace org.egoi.client.api.Model
         public List<WebhookActionSchema> Actions { get; set; }
 
         /// <summary>
+        /// Array of contact field IDs to be displayed in the webhook
+        /// </summary>
+        /// <value>Array of contact field IDs to be displayed in the webhook</value>
+        [DataMember(Name="fields", EmitDefaultValue=false)]
+        public List<string> Fields { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -113,6 +122,7 @@ namespace org.egoi.client.api.Model
             sb.Append("  ListId: ").Append(ListId).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Actions: ").Append(Actions).Append("\n");
+            sb.Append("  Fields: ").Append(Fields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -167,6 +177,12 @@ namespace org.egoi.client.api.Model
                     this.Actions != null &&
                     input.Actions != null &&
                     this.Actions.SequenceEqual(input.Actions)
+                ) && 
+                (
+                    this.Fields == input.Fields ||
+                    this.Fields != null &&
+                    input.Fields != null &&
+                    this.Fields.SequenceEqual(input.Fields)
                 );
         }
 
@@ -187,6 +203,8 @@ namespace org.egoi.client.api.Model
                     hashCode = hashCode * 59 + this.Url.GetHashCode();
                 if (this.Actions != null)
                     hashCode = hashCode * 59 + this.Actions.GetHashCode();
+                if (this.Fields != null)
+                    hashCode = hashCode * 59 + this.Fields.GetHashCode();
                 return hashCode;
             }
         }

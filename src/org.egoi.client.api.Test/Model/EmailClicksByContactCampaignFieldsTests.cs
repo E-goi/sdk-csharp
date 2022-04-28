@@ -89,6 +89,46 @@ namespace org.egoi.client.api.Test
         {
             // TODO unit test for the property 'Url'
         }
+        /// <summary>
+        /// Test the property 'City'
+        /// </summary>
+        [Test]
+        public void CityTest()
+        {
+            // TODO unit test for the property 'City'
+        }
+        /// <summary>
+        /// Test the property 'Country'
+        /// </summary>
+        [Test]
+        public void CountryTest()
+        {
+            // TODO unit test for the property 'Country'
+        }
+        /// <summary>
+        /// Test the property 'Region'
+        /// </summary>
+        [Test]
+        public void RegionTest()
+        {
+            // TODO unit test for the property 'Region'
+        }
+        /// <summary>
+        /// Test the property 'Program'
+        /// </summary>
+        [Test]
+        public void ProgramTest()
+        {
+            // TODO unit test for the property 'Program'
+        }
+        /// <summary>
+        /// Test the property 'Os'
+        /// </summary>
+        [Test]
+        public void OsTest()
+        {
+            // TODO unit test for the property 'Os'
+        }
 
     }
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Title** | **string** | Advanced report title | 
 **Range** | [**AdvancedReportRange**](AdvancedReportRange.md) |  | 
-**Lists** | **int** |  | 
+**Lists** | **List&lt;int&gt;** | Array of List Id&#39;s | 
 **Columns** | [**AdvancedReportUnsubscriptionsColumns**](AdvancedReportUnsubscriptionsColumns.md) |  | 
 **Options** | [**AdvancedReportUnsubscriptionsOptions**](AdvancedReportUnsubscriptionsOptions.md) |  | 
 **CallbackUrl** | **string** | URL which will receive the information of the report | [optional] 

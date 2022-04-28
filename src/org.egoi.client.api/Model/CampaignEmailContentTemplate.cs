@@ -58,7 +58,7 @@ namespace org.egoi.client.api.Model
         /// Initializes a new instance of the <see cref="CampaignEmailContentTemplate" /> class.
         /// </summary>
         /// <param name="type">type (required).</param>
-        /// <param name="templateId">ID of the template for this campaign (required).</param>
+        /// <param name="templateId">ID of the template for this campaign (Email builder templates are not allowed) (required).</param>
         /// <param name="plainText">Plain text for the campaign.</param>
         /// <param name="snippet">Snippet text for the campaign.</param>
         public CampaignEmailContentTemplate(TypeEnum type = default(TypeEnum), int templateId = default(int), string plainText = default(string), string snippet = default(string))
@@ -89,9 +89,9 @@ namespace org.egoi.client.api.Model
 
 
         /// <summary>
-        /// ID of the template for this campaign
+        /// ID of the template for this campaign (Email builder templates are not allowed)
         /// </summary>
-        /// <value>ID of the template for this campaign</value>
+        /// <value>ID of the template for this campaign (Email builder templates are not allowed)</value>
         [DataMember(Name="template_id", EmitDefaultValue=true)]
         public int TemplateId { get; set; }
 

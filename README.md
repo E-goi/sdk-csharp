@@ -8,7 +8,7 @@ The API describes each available method. Learn about parameters, errors, and how
 If you find a bug or something worth fixing, create an issue.
 
 ### Changelog
-#### 1.1.2
+#### 1.1.3
 ## Frameworks supported
 
 
@@ -175,6 +175,7 @@ Class | Method | HTTP request | Description
 *ListsApi* | [**GetAllLists**](docs/ListsApi.md#getalllists) | **GET** /lists | Get all lists
 *ListsApi* | [**UpdateList**](docs/ListsApi.md#updatelist) | **PATCH** /lists/{list_id} | Update a specific list
 *MyAccountApi* | [**EnableTe**](docs/MyAccountApi.md#enablete) | **POST** /my-account/actions/enable-te | Enable Track&Engage
+*MyAccountApi* | [**EnableTransactional**](docs/MyAccountApi.md#enabletransactional) | **POST** /my-account/actions/enable-transactional | Enable Transactional
 *MyAccountApi* | [**GetMyAccount**](docs/MyAccountApi.md#getmyaccount) | **GET** /my-account | Get My Account Info
 *OperationsApi* | [**ActionApproveOperation**](docs/OperationsApi.md#actionapproveoperation) | **POST** /operations/actions/approve | Approve operation
 *OperationsApi* | [**ActionCancelOperation**](docs/OperationsApi.md#actioncanceloperation) | **POST** /operations/actions/cancel | Cancel operation
@@ -249,6 +250,7 @@ Class | Method | HTTP request | Description
  - [Model.AbstractSendEmail](docs/AbstractSendEmail.md)
  - [Model.AbstractSendVoice](docs/AbstractSendVoice.md)
  - [Model.AbstractSendVoiceAllOf](docs/AbstractSendVoiceAllOf.md)
+ - [Model.AbstractSendVoiceAllOf1](docs/AbstractSendVoiceAllOf1.md)
  - [Model.AbstractSuppresionList](docs/AbstractSuppresionList.md)
  - [Model.AcceptedResponse](docs/AcceptedResponse.md)
  - [Model.ActivateContactsAll](docs/ActivateContactsAll.md)
@@ -370,6 +372,10 @@ Class | Method | HTTP request | Description
  - [Model.CellphoneSender](docs/CellphoneSender.md)
  - [Model.CellphoneSenderCollection](docs/CellphoneSenderCollection.md)
  - [Model.CellphoneSenderPost](docs/CellphoneSenderPost.md)
+ - [Model.ClientAlreadyEnabled](docs/ClientAlreadyEnabled.md)
+ - [Model.ClientAlreadyEnabledErrors](docs/ClientAlreadyEnabledErrors.md)
+ - [Model.ClientIsBeingEnabled](docs/ClientIsBeingEnabled.md)
+ - [Model.ClientIsBeingEnabledErrors](docs/ClientIsBeingEnabledErrors.md)
  - [Model.CnameExists](docs/CnameExists.md)
  - [Model.CnameExistsErrors](docs/CnameExistsErrors.md)
  - [Model.ComplexContact](docs/ComplexContact.md)
@@ -391,11 +397,13 @@ Class | Method | HTTP request | Description
  - [Model.ConflictAllOf](docs/ConflictAllOf.md)
  - [Model.ConnectedSitesDomain](docs/ConnectedSitesDomain.md)
  - [Model.ConnectedSitesDomainDetail](docs/ConnectedSitesDomainDetail.md)
+ - [Model.ConnectedSitesEmbedForm](docs/ConnectedSitesEmbedForm.md)
  - [Model.ConnectedSitesGeneralProductAppDetail](docs/ConnectedSitesGeneralProductAppDetail.md)
  - [Model.ConnectedSitesGeneralProductAppDetailGlobal](docs/ConnectedSitesGeneralProductAppDetailGlobal.md)
  - [Model.ConnectedSitesGeneralProductFormDetail](docs/ConnectedSitesGeneralProductFormDetail.md)
  - [Model.ConnectedSitesGeneralProductFormDetailGlobal](docs/ConnectedSitesGeneralProductFormDetailGlobal.md)
  - [Model.ConnectedSitesGeneralProductTEDetailGlobal](docs/ConnectedSitesGeneralProductTEDetailGlobal.md)
+ - [Model.ConnectedSitesProductEmbedFormDetail](docs/ConnectedSitesProductEmbedFormDetail.md)
  - [Model.ConnectedSitesProducts](docs/ConnectedSitesProducts.md)
  - [Model.Contact](docs/Contact.md)
  - [Model.ContactActivity](docs/ContactActivity.md)
@@ -413,13 +421,16 @@ Class | Method | HTTP request | Description
  - [Model.ContactBaseFieldsWithIdSchema](docs/ContactBaseFieldsWithIdSchema.md)
  - [Model.ContactBaseStatusExtra](docs/ContactBaseStatusExtra.md)
  - [Model.ContactBaseStatusExtraBulk](docs/ContactBaseStatusExtraBulk.md)
+ - [Model.ContactBaseStatusExtraNoRemoved](docs/ContactBaseStatusExtraNoRemoved.md)
  - [Model.ContactBaseWithStatusFieldsBulkSchema](docs/ContactBaseWithStatusFieldsBulkSchema.md)
  - [Model.ContactBaseWithStatusFieldsNoTokensSchema](docs/ContactBaseWithStatusFieldsNoTokensSchema.md)
  - [Model.ContactBaseWithStatusFieldsNoTokensSchemaBase](docs/ContactBaseWithStatusFieldsNoTokensSchemaBase.md)
  - [Model.ContactBaseWithStatusFieldsSchema](docs/ContactBaseWithStatusFieldsSchema.md)
  - [Model.ContactBaseWithStatusFieldsSchemaBase](docs/ContactBaseWithStatusFieldsSchemaBase.md)
- - [Model.ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid](docs/ContactBaseWithStatusFieldsSchemaBasePushTokenAndroid.md)
- - [Model.ContactBaseWithStatusFieldsSchemaBasePushTokenIos](docs/ContactBaseWithStatusFieldsSchemaBasePushTokenIos.md)
+ - [Model.ContactBaseWithStatusNoRemovedFieldsSchema](docs/ContactBaseWithStatusNoRemovedFieldsSchema.md)
+ - [Model.ContactBaseWithStatusNoRemovedFieldsSchemaBase](docs/ContactBaseWithStatusNoRemovedFieldsSchemaBase.md)
+ - [Model.ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid](docs/ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid.md)
+ - [Model.ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos](docs/ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos.md)
  - [Model.ContactBulk](docs/ContactBulk.md)
  - [Model.ContactCollection](docs/ContactCollection.md)
  - [Model.ContactExportRequest](docs/ContactExportRequest.md)
@@ -524,6 +535,8 @@ Class | Method | HTTP request | Description
  - [Model.EmailUnsubscriptionsListStatsFields](docs/EmailUnsubscriptionsListStatsFields.md)
  - [Model.EnableTeConflict](docs/EnableTeConflict.md)
  - [Model.EnableTeConflictsErrors](docs/EnableTeConflictsErrors.md)
+ - [Model.EnableTransactionalConflict](docs/EnableTransactionalConflict.md)
+ - [Model.EnableTransactionalConflictsErrors](docs/EnableTransactionalConflictsErrors.md)
  - [Model.ExportContactsWebhookData](docs/ExportContactsWebhookData.md)
  - [Model.ExtraFieldId](docs/ExtraFieldId.md)
  - [Model.Field](docs/Field.md)
@@ -625,6 +638,7 @@ Class | Method | HTTP request | Description
  - [Model.PatchRequestBaseField](docs/PatchRequestBaseField.md)
  - [Model.PatchRequestField](docs/PatchRequestField.md)
  - [Model.PatchRequestList](docs/PatchRequestList.md)
+ - [Model.PayloadTooLarge](docs/PayloadTooLarge.md)
  - [Model.PhoneCampaignTemplate](docs/PhoneCampaignTemplate.md)
  - [Model.PhoneCampaignTemplateAllOf](docs/PhoneCampaignTemplateAllOf.md)
  - [Model.PhoneReport](docs/PhoneReport.md)
@@ -679,6 +693,7 @@ Class | Method | HTTP request | Description
  - [Model.ReportCampaignsGroup](docs/ReportCampaignsGroup.md)
  - [Model.ReportCampaignsLast](docs/ReportCampaignsLast.md)
  - [Model.ReportCampaignsSpecific](docs/ReportCampaignsSpecific.md)
+ - [Model.RequestEntityTooLarge](docs/RequestEntityTooLarge.md)
  - [Model.RequestItemsUnsubscribe](docs/RequestItemsUnsubscribe.md)
  - [Model.RequestItemsUnsubscribeAllOf](docs/RequestItemsUnsubscribeAllOf.md)
  - [Model.RequestTimeout](docs/RequestTimeout.md)

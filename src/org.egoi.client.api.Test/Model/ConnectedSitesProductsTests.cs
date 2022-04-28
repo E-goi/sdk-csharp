@@ -105,6 +105,14 @@ namespace org.egoi.client.api.Test
         {
             // TODO unit test for the property 'WebPush'
         }
+        /// <summary>
+        /// Test the property 'EmbedForms'
+        /// </summary>
+        [Test]
+        public void EmbedFormsTest()
+        {
+            // TODO unit test for the property 'EmbedForms'
+        }
 
     }
 

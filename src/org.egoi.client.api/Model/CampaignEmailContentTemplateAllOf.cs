@@ -53,7 +53,7 @@ namespace org.egoi.client.api.Model
         /// Initializes a new instance of the <see cref="CampaignEmailContentTemplateAllOf" /> class.
         /// </summary>
         /// <param name="type">type.</param>
-        /// <param name="templateId">ID of the template for this campaign.</param>
+        /// <param name="templateId">ID of the template for this campaign (Email builder templates are not allowed).</param>
         public CampaignEmailContentTemplateAllOf(TypeEnum? type = default(TypeEnum?), int templateId = default(int))
         {
             this.Type = type;
@@ -62,9 +62,9 @@ namespace org.egoi.client.api.Model
 
 
         /// <summary>
-        /// ID of the template for this campaign
+        /// ID of the template for this campaign (Email builder templates are not allowed)
         /// </summary>
-        /// <value>ID of the template for this campaign</value>
+        /// <value>ID of the template for this campaign (Email builder templates are not allowed)</value>
         [DataMember(Name="template_id", EmitDefaultValue=false)]
         public int TemplateId { get; set; }
 

@@ -1,12 +1,11 @@
 
-# org.egoi.client.api.Model.ContactBaseWithStatusFieldsSchemaBasePushTokenIos
+# org.egoi.client.api.Model.ClientAlreadyEnabled
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AppId** | **string** |  | [optional] 
-**Token** | **string** | Ios push app ID | [optional] 
+**Errors** | [**ClientAlreadyEnabledErrors**](ClientAlreadyEnabledErrors.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

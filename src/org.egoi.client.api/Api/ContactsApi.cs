@@ -417,9 +417,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactId">ID of the Contact</param>
         /// <param name="listId">ID of the List</param>
-        /// <param name="contactBaseStatusExtra">Parameters for the contact</param>
+        /// <param name="contactBaseStatusExtraNoRemoved">Parameters for the contact</param>
         /// <returns>CreateContactResponse</returns>
-        CreateContactResponse PatchContact (string contactId, int listId, ContactBaseStatusExtra contactBaseStatusExtra);
+        CreateContactResponse PatchContact (string contactId, int listId, ContactBaseStatusExtraNoRemoved contactBaseStatusExtraNoRemoved);
 
         /// <summary>
         /// Update a specific contact
@@ -430,9 +430,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactId">ID of the Contact</param>
         /// <param name="listId">ID of the List</param>
-        /// <param name="contactBaseStatusExtra">Parameters for the contact</param>
+        /// <param name="contactBaseStatusExtraNoRemoved">Parameters for the contact</param>
         /// <returns>ApiResponse of CreateContactResponse</returns>
-        ApiResponse<CreateContactResponse> PatchContactWithHttpInfo (string contactId, int listId, ContactBaseStatusExtra contactBaseStatusExtra);
+        ApiResponse<CreateContactResponse> PatchContactWithHttpInfo (string contactId, int listId, ContactBaseStatusExtraNoRemoved contactBaseStatusExtraNoRemoved);
         /// <summary>
         /// Search contact
         /// </summary>
@@ -880,10 +880,10 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactId">ID of the Contact</param>
         /// <param name="listId">ID of the List</param>
-        /// <param name="contactBaseStatusExtra">Parameters for the contact</param>
+        /// <param name="contactBaseStatusExtraNoRemoved">Parameters for the contact</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of CreateContactResponse</returns>
-        System.Threading.Tasks.Task<CreateContactResponse> PatchContactAsync (string contactId, int listId, ContactBaseStatusExtra contactBaseStatusExtra, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<CreateContactResponse> PatchContactAsync (string contactId, int listId, ContactBaseStatusExtraNoRemoved contactBaseStatusExtraNoRemoved, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update a specific contact
@@ -894,10 +894,10 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactId">ID of the Contact</param>
         /// <param name="listId">ID of the List</param>
-        /// <param name="contactBaseStatusExtra">Parameters for the contact</param>
+        /// <param name="contactBaseStatusExtraNoRemoved">Parameters for the contact</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (CreateContactResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateContactResponse>> PatchContactWithHttpInfoAsync (string contactId, int listId, ContactBaseStatusExtra contactBaseStatusExtra, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CreateContactResponse>> PatchContactWithHttpInfoAsync (string contactId, int listId, ContactBaseStatusExtraNoRemoved contactBaseStatusExtraNoRemoved, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Search contact
         /// </summary>
@@ -3679,11 +3679,11 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactId">ID of the Contact</param>
         /// <param name="listId">ID of the List</param>
-        /// <param name="contactBaseStatusExtra">Parameters for the contact</param>
+        /// <param name="contactBaseStatusExtraNoRemoved">Parameters for the contact</param>
         /// <returns>CreateContactResponse</returns>
-        public CreateContactResponse PatchContact (string contactId, int listId, ContactBaseStatusExtra contactBaseStatusExtra)
+        public CreateContactResponse PatchContact (string contactId, int listId, ContactBaseStatusExtraNoRemoved contactBaseStatusExtraNoRemoved)
         {
-             ApiResponse<CreateContactResponse> localVarResponse = PatchContactWithHttpInfo(contactId, listId, contactBaseStatusExtra);
+             ApiResponse<CreateContactResponse> localVarResponse = PatchContactWithHttpInfo(contactId, listId, contactBaseStatusExtraNoRemoved);
              return localVarResponse.Data;
         }
 
@@ -3693,9 +3693,9 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactId">ID of the Contact</param>
         /// <param name="listId">ID of the List</param>
-        /// <param name="contactBaseStatusExtra">Parameters for the contact</param>
+        /// <param name="contactBaseStatusExtraNoRemoved">Parameters for the contact</param>
         /// <returns>ApiResponse of CreateContactResponse</returns>
-        public ApiResponse<CreateContactResponse> PatchContactWithHttpInfo (string contactId, int listId, ContactBaseStatusExtra contactBaseStatusExtra)
+        public ApiResponse<CreateContactResponse> PatchContactWithHttpInfo (string contactId, int listId, ContactBaseStatusExtraNoRemoved contactBaseStatusExtraNoRemoved)
         {
             // verify the required parameter 'contactId' is set
             if (contactId == null)
@@ -3703,9 +3703,9 @@ namespace org.egoi.client.api.Api
             // verify the required parameter 'listId' is set
             if (listId == null)
                 throw new ApiException(400, "Missing required parameter 'listId' when calling ContactsApi->PatchContact");
-            // verify the required parameter 'contactBaseStatusExtra' is set
-            if (contactBaseStatusExtra == null)
-                throw new ApiException(400, "Missing required parameter 'contactBaseStatusExtra' when calling ContactsApi->PatchContact");
+            // verify the required parameter 'contactBaseStatusExtraNoRemoved' is set
+            if (contactBaseStatusExtraNoRemoved == null)
+                throw new ApiException(400, "Missing required parameter 'contactBaseStatusExtraNoRemoved' when calling ContactsApi->PatchContact");
 
             var localVarPath = "/lists/{list_id}/contacts/{contact_id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -3731,13 +3731,13 @@ namespace org.egoi.client.api.Api
 
             if (contactId != null) localVarPathParams.Add("contact_id", this.Configuration.ApiClient.ParameterToString(contactId)); // path parameter
             if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
-            if (contactBaseStatusExtra != null && contactBaseStatusExtra.GetType() != typeof(byte[]))
+            if (contactBaseStatusExtraNoRemoved != null && contactBaseStatusExtraNoRemoved.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(contactBaseStatusExtra); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(contactBaseStatusExtraNoRemoved); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = contactBaseStatusExtra; // byte array
+                localVarPostBody = contactBaseStatusExtraNoRemoved; // byte array
             }
 
             // authentication (Apikey) required
@@ -3770,12 +3770,12 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactId">ID of the Contact</param>
         /// <param name="listId">ID of the List</param>
-        /// <param name="contactBaseStatusExtra">Parameters for the contact</param>
+        /// <param name="contactBaseStatusExtraNoRemoved">Parameters for the contact</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of CreateContactResponse</returns>
-        public async System.Threading.Tasks.Task<CreateContactResponse> PatchContactAsync (string contactId, int listId, ContactBaseStatusExtra contactBaseStatusExtra, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<CreateContactResponse> PatchContactAsync (string contactId, int listId, ContactBaseStatusExtraNoRemoved contactBaseStatusExtraNoRemoved, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<CreateContactResponse> localVarResponse = await PatchContactWithHttpInfoAsync(contactId, listId, contactBaseStatusExtra, cancellationToken);
+             ApiResponse<CreateContactResponse> localVarResponse = await PatchContactWithHttpInfoAsync(contactId, listId, contactBaseStatusExtraNoRemoved, cancellationToken);
              return localVarResponse.Data;
 
         }
@@ -3786,10 +3786,10 @@ namespace org.egoi.client.api.Api
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactId">ID of the Contact</param>
         /// <param name="listId">ID of the List</param>
-        /// <param name="contactBaseStatusExtra">Parameters for the contact</param>
+        /// <param name="contactBaseStatusExtraNoRemoved">Parameters for the contact</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (CreateContactResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CreateContactResponse>> PatchContactWithHttpInfoAsync (string contactId, int listId, ContactBaseStatusExtra contactBaseStatusExtra, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<CreateContactResponse>> PatchContactWithHttpInfoAsync (string contactId, int listId, ContactBaseStatusExtraNoRemoved contactBaseStatusExtraNoRemoved, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'contactId' is set
             if (contactId == null)
@@ -3797,9 +3797,9 @@ namespace org.egoi.client.api.Api
             // verify the required parameter 'listId' is set
             if (listId == null)
                 throw new ApiException(400, "Missing required parameter 'listId' when calling ContactsApi->PatchContact");
-            // verify the required parameter 'contactBaseStatusExtra' is set
-            if (contactBaseStatusExtra == null)
-                throw new ApiException(400, "Missing required parameter 'contactBaseStatusExtra' when calling ContactsApi->PatchContact");
+            // verify the required parameter 'contactBaseStatusExtraNoRemoved' is set
+            if (contactBaseStatusExtraNoRemoved == null)
+                throw new ApiException(400, "Missing required parameter 'contactBaseStatusExtraNoRemoved' when calling ContactsApi->PatchContact");
 
             var localVarPath = "/lists/{list_id}/contacts/{contact_id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -3825,13 +3825,13 @@ namespace org.egoi.client.api.Api
 
             if (contactId != null) localVarPathParams.Add("contact_id", this.Configuration.ApiClient.ParameterToString(contactId)); // path parameter
             if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
-            if (contactBaseStatusExtra != null && contactBaseStatusExtra.GetType() != typeof(byte[]))
+            if (contactBaseStatusExtraNoRemoved != null && contactBaseStatusExtraNoRemoved.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(contactBaseStatusExtra); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(contactBaseStatusExtraNoRemoved); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = contactBaseStatusExtra; // byte array
+                localVarPostBody = contactBaseStatusExtraNoRemoved; // byte array
             }
 
             // authentication (Apikey) required

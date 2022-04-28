@@ -87,10 +87,11 @@ namespace org.egoi.client.api.Model
         /// <param name="segments">segments (required).</param>
         /// <param name="notify">Array of IDs of the users to notify.</param>
         /// <param name="destinationField">Destination field of this campaign (required).</param>
+        /// <param name="uniqueContactsOnly">True to send the campaign only to unique contacts (default to false).</param>
         /// <param name="limitContacts">limitContacts.</param>
         /// <param name="limitHour">limitHour.</param>
         /// <param name="limitSpeed">Speed limit to send the campaign.</param>
-        public AbstractSendVoice(int listId = default(int), OSegmentsActionSend segments = default(OSegmentsActionSend), List<int> notify = default(List<int>), DestinationFieldEnum destinationField = default(DestinationFieldEnum), OLimitContactsActionSend limitContacts = default(OLimitContactsActionSend), LimitHourActionSendLimitHour limitHour = default(LimitHourActionSendLimitHour), int limitSpeed = default(int))
+        public AbstractSendVoice(int listId = default(int), OSegmentsActionSend segments = default(OSegmentsActionSend), List<int> notify = default(List<int>), DestinationFieldEnum destinationField = default(DestinationFieldEnum), bool uniqueContactsOnly = false, OLimitContactsActionSend limitContacts = default(OLimitContactsActionSend), LimitHourActionSendLimitHour limitHour = default(LimitHourActionSendLimitHour), int limitSpeed = default(int))
         {
             // to ensure "listId" is required (not null)
             if (listId == null)
@@ -123,6 +124,15 @@ namespace org.egoi.client.api.Model
             }
 
             this.Notify = notify;
+            // use default value if no "uniqueContactsOnly" provided
+            if (uniqueContactsOnly == null)
+            {
+                this.UniqueContactsOnly = false;
+            }
+            else
+            {
+                this.UniqueContactsOnly = uniqueContactsOnly;
+            }
             this.LimitContacts = limitContacts;
             this.LimitHour = limitHour;
             this.LimitSpeed = limitSpeed;
@@ -147,6 +157,13 @@ namespace org.egoi.client.api.Model
         [DataMember(Name="notify", EmitDefaultValue=false)]
         public List<int> Notify { get; set; }
 
+
+        /// <summary>
+        /// True to send the campaign only to unique contacts
+        /// </summary>
+        /// <value>True to send the campaign only to unique contacts</value>
+        [DataMember(Name="unique_contacts_only", EmitDefaultValue=false)]
+        public bool UniqueContactsOnly { get; set; }
 
         /// <summary>
         /// Gets or Sets LimitContacts
@@ -179,6 +196,7 @@ namespace org.egoi.client.api.Model
             sb.Append("  Segments: ").Append(Segments).Append("\n");
             sb.Append("  Notify: ").Append(Notify).Append("\n");
             sb.Append("  DestinationField: ").Append(DestinationField).Append("\n");
+            sb.Append("  UniqueContactsOnly: ").Append(UniqueContactsOnly).Append("\n");
             sb.Append("  LimitContacts: ").Append(LimitContacts).Append("\n");
             sb.Append("  LimitHour: ").Append(LimitHour).Append("\n");
             sb.Append("  LimitSpeed: ").Append(LimitSpeed).Append("\n");
@@ -238,6 +256,11 @@ namespace org.egoi.client.api.Model
                     this.DestinationField.Equals(input.DestinationField))
                 ) && 
                 (
+                    this.UniqueContactsOnly == input.UniqueContactsOnly ||
+                    (this.UniqueContactsOnly != null &&
+                    this.UniqueContactsOnly.Equals(input.UniqueContactsOnly))
+                ) && 
+                (
                     this.LimitContacts == input.LimitContacts ||
                     (this.LimitContacts != null &&
                     this.LimitContacts.Equals(input.LimitContacts))
@@ -271,6 +294,8 @@ namespace org.egoi.client.api.Model
                     hashCode = hashCode * 59 + this.Notify.GetHashCode();
                 if (this.DestinationField != null)
                     hashCode = hashCode * 59 + this.DestinationField.GetHashCode();
+                if (this.UniqueContactsOnly != null)
+                    hashCode = hashCode * 59 + this.UniqueContactsOnly.GetHashCode();
                 if (this.LimitContacts != null)
                     hashCode = hashCode * 59 + this.LimitContacts.GetHashCode();
                 if (this.LimitHour != null)

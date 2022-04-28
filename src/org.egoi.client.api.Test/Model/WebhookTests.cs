@@ -97,6 +97,14 @@ namespace org.egoi.client.api.Test
         {
             // TODO unit test for the property 'Actions'
         }
+        /// <summary>
+        /// Test the property 'Fields'
+        /// </summary>
+        [Test]
+        public void FieldsTest()
+        {
+            // TODO unit test for the property 'Fields'
+        }
 
     }
 

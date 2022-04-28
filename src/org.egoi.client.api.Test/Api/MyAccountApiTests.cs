@@ -76,6 +76,17 @@ namespace org.egoi.client.api.Test
         }
         
         /// <summary>
+        /// Test EnableTransactional
+        /// </summary>
+        [Test]
+        public void EnableTransactionalTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //instance.EnableTransactional();
+            
+        }
+        
+        /// <summary>
         /// Test GetMyAccount
         /// </summary>
         [Test]

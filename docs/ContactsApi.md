@@ -563,7 +563,6 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 | **408** | Request Timeout |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **429** | Too Many Requests |  -  |
@@ -656,6 +655,7 @@ Name | Type | Description  | Notes
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **408** | Request Timeout |  -  |
+| **413** | Request Entity Too Large |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **429** | Too Many Requests |  -  |
 | **500** | Internal Server Error |  -  |
@@ -1022,7 +1022,6 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 | **408** | Request Timeout |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
@@ -1440,7 +1439,7 @@ Name | Type | Description  | Notes
 
 ## PatchContact
 
-> CreateContactResponse PatchContact (string contactId, int listId, ContactBaseStatusExtra contactBaseStatusExtra)
+> CreateContactResponse PatchContact (string contactId, int listId, ContactBaseStatusExtraNoRemoved contactBaseStatusExtraNoRemoved)
 
 Update a specific contact
 
@@ -1470,12 +1469,12 @@ namespace Example
             var apiInstance = new ContactsApi(Configuration.Default);
             var contactId = contactId_example;  // string | ID of the Contact
             var listId = 56;  // int | ID of the List
-            var contactBaseStatusExtra = new ContactBaseStatusExtra(); // ContactBaseStatusExtra | Parameters for the contact
+            var contactBaseStatusExtraNoRemoved = new ContactBaseStatusExtraNoRemoved(); // ContactBaseStatusExtraNoRemoved | Parameters for the contact
 
             try
             {
                 // Update a specific contact
-                CreateContactResponse result = apiInstance.PatchContact(contactId, listId, contactBaseStatusExtra);
+                CreateContactResponse result = apiInstance.PatchContact(contactId, listId, contactBaseStatusExtraNoRemoved);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -1496,7 +1495,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **contactId** | **string**| ID of the Contact | 
  **listId** | **int**| ID of the List | 
- **contactBaseStatusExtra** | [**ContactBaseStatusExtra**](ContactBaseStatusExtra.md)| Parameters for the contact | 
+ **contactBaseStatusExtraNoRemoved** | [**ContactBaseStatusExtraNoRemoved**](ContactBaseStatusExtraNoRemoved.md)| Parameters for the contact | 
 
 ### Return type
 

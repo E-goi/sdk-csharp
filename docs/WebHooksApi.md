@@ -88,6 +88,7 @@ Name | Type | Description  | Notes
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **408** | Request Timeout |  -  |
+| **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **429** | Too Many Requests |  -  |
 | **500** | Internal Server Error |  -  |

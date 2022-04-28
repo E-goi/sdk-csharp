@@ -44,82 +44,94 @@ namespace org.egoi.client.api.Model
             Importcontacts = 1,
 
             /// <summary>
+            /// Enum Updatecontacts for value: update_contacts
+            /// </summary>
+            [EnumMember(Value = "update_contacts")]
+            Updatecontacts = 2,
+
+            /// <summary>
             /// Enum Exportcontacts for value: export_contacts
             /// </summary>
             [EnumMember(Value = "export_contacts")]
-            Exportcontacts = 2,
+            Exportcontacts = 3,
 
             /// <summary>
             /// Enum Exportreports for value: export_reports
             /// </summary>
             [EnumMember(Value = "export_reports")]
-            Exportreports = 3,
+            Exportreports = 4,
 
             /// <summary>
             /// Enum Advancedreport for value: advanced_report
             /// </summary>
             [EnumMember(Value = "advanced_report")]
-            Advancedreport = 4,
+            Advancedreport = 5,
 
             /// <summary>
             /// Enum Email for value: email
             /// </summary>
             [EnumMember(Value = "email")]
-            Email = 5,
+            Email = 6,
 
             /// <summary>
             /// Enum Sms for value: sms
             /// </summary>
             [EnumMember(Value = "sms")]
-            Sms = 6,
+            Sms = 7,
 
             /// <summary>
             /// Enum Smartsms for value: smart_sms
             /// </summary>
             [EnumMember(Value = "smart_sms")]
-            Smartsms = 7,
+            Smartsms = 8,
 
             /// <summary>
             /// Enum Voice for value: voice
             /// </summary>
             [EnumMember(Value = "voice")]
-            Voice = 8,
+            Voice = 9,
 
             /// <summary>
             /// Enum Push for value: push
             /// </summary>
             [EnumMember(Value = "push")]
-            Push = 9,
+            Push = 10,
 
             /// <summary>
             /// Enum Webpush for value: webpush
             /// </summary>
             [EnumMember(Value = "webpush")]
-            Webpush = 10,
+            Webpush = 11,
 
             /// <summary>
             /// Enum Ads for value: ads
             /// </summary>
             [EnumMember(Value = "ads")]
-            Ads = 11,
+            Ads = 12,
+
+            /// <summary>
+            /// Enum Social for value: social
+            /// </summary>
+            [EnumMember(Value = "social")]
+            Social = 13,
 
             /// <summary>
             /// Enum Segmentgeneration for value: segment_generation
             /// </summary>
             [EnumMember(Value = "segment_generation")]
-            Segmentgeneration = 12,
+            Segmentgeneration = 14,
 
             /// <summary>
             /// Enum Massoperation for value: mass_operation
             /// </summary>
             [EnumMember(Value = "mass_operation")]
-            Massoperation = 13,
+            Massoperation = 15,
 
             /// <summary>
             /// Enum Unify for value: unify
             /// </summary>
             [EnumMember(Value = "unify")]
-            Unify = 14
+            Unify = 16
 
         }
 
