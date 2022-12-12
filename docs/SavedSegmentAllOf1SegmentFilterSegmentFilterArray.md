@@ -1,5 +1,5 @@
 
-# org.egoi.client.api.Model.SavedSegmentAllOfSegmentFilterSegmentFilterArray
+# org.egoi.client.api.Model.SavedSegmentAllOf1SegmentFilterSegmentFilterArray
 
 ## Properties
 

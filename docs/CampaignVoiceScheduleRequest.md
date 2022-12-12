@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ScheduleDate** | **DateTime** | The date and time | [optional] 
 **ListId** | **int** |  | 
-**Segments** | [**OSegmentsActionSend**](OSegmentsActionSend.md) |  | 
-**Notify** | **List&lt;int&gt;** | Array of IDs of the users to notify | [optional] 
 **DestinationField** | **string** | Destination field of this campaign | 
 **UniqueContactsOnly** | **bool** | True to send the campaign only to unique contacts | [optional] [default to false]
+**Segments** | [**OSegmentsActionSend**](OSegmentsActionSend.md) |  | 
+**Notify** | **List&lt;int&gt;** | Array of IDs of the users to notify | [optional] 
 **LimitContacts** | [**OLimitContactsActionSend**](OLimitContactsActionSend.md) |  | [optional] 
 **LimitHour** | [**LimitHourActionSendLimitHour**](LimitHourActionSendLimitHour.md) |  | [optional] 
 **LimitSpeed** | **int** | Speed limit to send the campaign | [optional] 

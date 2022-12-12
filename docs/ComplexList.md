@@ -5,6 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Language** | [**Language**](Language.md) |  | 
+**Stats** | [**ComplexListAllOfStats**](ComplexListAllOfStats.md) |  | [optional] 
 **ListId** | **int** |  | [optional] [readonly] 
 **InternalName** | **string** | Internal name of the list | [optional] 
 **PublicName** | **string** | Public name of the list | 
@@ -12,8 +14,6 @@ Name | Type | Description | Notes
 **GroupId** | **int** | ID of the list group | [optional] [readonly] 
 **Created** | **DateTime** |  | [optional] [readonly] 
 **Updated** | **DateTime** |  | [optional] [readonly] 
-**Language** | [**Language**](Language.md) |  | 
-**Stats** | [**ComplexListAllOfStats**](ComplexListAllOfStats.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

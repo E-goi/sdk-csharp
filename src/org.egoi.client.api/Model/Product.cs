@@ -1,7 +1,7 @@
 /*
  * APIv3 (New)
  *
- *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
  * 
@@ -33,6 +33,9 @@ namespace org.egoi.client.api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Product" /> class.
         /// </summary>
+        /// <param name="categories">Array of product categories, using the character &#39;&gt;&#39; as delimiter for the breadcrumb                                 syntax.</param>
+        /// <param name="relatedProducts">Related products.</param>
+        /// <param name="customAttributes">Custom attributes.</param>
         /// <param name="productIdentifier">The ID of the product in your store.</param>
         /// <param name="name">Name of the product.</param>
         /// <param name="description">Description of the product.</param>
@@ -46,11 +49,11 @@ namespace org.egoi.client.api.Model
         /// <param name="price">Price of the product (default to 0D).</param>
         /// <param name="salePrice">Sale price of the product (default to 0D).</param>
         /// <param name="brand">Brand of the product.</param>
-        /// <param name="categories">Array of product categories, using the character &#39;&gt;&#39; as delimiter for the breadcrumb                                 syntax.</param>
-        /// <param name="relatedProducts">Related products.</param>
-        /// <param name="customAttributes">Custom attributes.</param>
-        public Product(string productIdentifier = default(string), string name = default(string), string description = default(string), string sku = default(string), string upc = default(string), string ean = default(string), string gtin = default(string), string mpn = default(string), string link = default(string), string imageLink = default(string), double price = 0D, double salePrice = 0D, string brand = default(string), List<string> categories = default(List<string>), List<string> relatedProducts = default(List<string>), List<ProductCustomAttributes> customAttributes = default(List<ProductCustomAttributes>))
+        public Product(List<string> categories = default(List<string>), List<string> relatedProducts = default(List<string>), List<ProductCustomAttributes> customAttributes = default(List<ProductCustomAttributes>), string productIdentifier = default(string), string name = default(string), string description = default(string), string sku = default(string), string upc = default(string), string ean = default(string), string gtin = default(string), string mpn = default(string), string link = default(string), string imageLink = default(string), double price = 0D, double salePrice = 0D, string brand = default(string))
         {
+            this.Categories = categories;
+            this.RelatedProducts = relatedProducts;
+            this.CustomAttributes = customAttributes;
             this.ProductIdentifier = productIdentifier;
             this.Name = name;
             this.Description = description;
@@ -80,10 +83,28 @@ namespace org.egoi.client.api.Model
                 this.SalePrice = salePrice;
             }
             this.Brand = brand;
-            this.Categories = categories;
-            this.RelatedProducts = relatedProducts;
-            this.CustomAttributes = customAttributes;
         }
+
+        /// <summary>
+        /// Array of product categories, using the character &#39;&gt;&#39; as delimiter for the breadcrumb                                 syntax
+        /// </summary>
+        /// <value>Array of product categories, using the character &#39;&gt;&#39; as delimiter for the breadcrumb                                 syntax</value>
+        [DataMember(Name="categories", EmitDefaultValue=false)]
+        public List<string> Categories { get; set; }
+
+        /// <summary>
+        /// Related products
+        /// </summary>
+        /// <value>Related products</value>
+        [DataMember(Name="related_products", EmitDefaultValue=false)]
+        public List<string> RelatedProducts { get; set; }
+
+        /// <summary>
+        /// Custom attributes
+        /// </summary>
+        /// <value>Custom attributes</value>
+        [DataMember(Name="custom_attributes", EmitDefaultValue=false)]
+        public List<ProductCustomAttributes> CustomAttributes { get; set; }
 
         /// <summary>
         /// The ID of the product in your store
@@ -183,27 +204,6 @@ namespace org.egoi.client.api.Model
         public string Brand { get; set; }
 
         /// <summary>
-        /// Array of product categories, using the character &#39;&gt;&#39; as delimiter for the breadcrumb                                 syntax
-        /// </summary>
-        /// <value>Array of product categories, using the character &#39;&gt;&#39; as delimiter for the breadcrumb                                 syntax</value>
-        [DataMember(Name="categories", EmitDefaultValue=false)]
-        public List<string> Categories { get; set; }
-
-        /// <summary>
-        /// Related products
-        /// </summary>
-        /// <value>Related products</value>
-        [DataMember(Name="related_products", EmitDefaultValue=false)]
-        public List<string> RelatedProducts { get; set; }
-
-        /// <summary>
-        /// Custom attributes
-        /// </summary>
-        /// <value>Custom attributes</value>
-        [DataMember(Name="custom_attributes", EmitDefaultValue=false)]
-        public List<ProductCustomAttributes> CustomAttributes { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -211,6 +211,9 @@ namespace org.egoi.client.api.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Product {\n");
+            sb.Append("  Categories: ").Append(Categories).Append("\n");
+            sb.Append("  RelatedProducts: ").Append(RelatedProducts).Append("\n");
+            sb.Append("  CustomAttributes: ").Append(CustomAttributes).Append("\n");
             sb.Append("  ProductIdentifier: ").Append(ProductIdentifier).Append("\n");
             sb.Append("  CatalogId: ").Append(CatalogId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -225,9 +228,6 @@ namespace org.egoi.client.api.Model
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  SalePrice: ").Append(SalePrice).Append("\n");
             sb.Append("  Brand: ").Append(Brand).Append("\n");
-            sb.Append("  Categories: ").Append(Categories).Append("\n");
-            sb.Append("  RelatedProducts: ").Append(RelatedProducts).Append("\n");
-            sb.Append("  CustomAttributes: ").Append(CustomAttributes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -262,6 +262,24 @@ namespace org.egoi.client.api.Model
                 return false;
 
             return 
+                (
+                    this.Categories == input.Categories ||
+                    this.Categories != null &&
+                    input.Categories != null &&
+                    this.Categories.SequenceEqual(input.Categories)
+                ) && 
+                (
+                    this.RelatedProducts == input.RelatedProducts ||
+                    this.RelatedProducts != null &&
+                    input.RelatedProducts != null &&
+                    this.RelatedProducts.SequenceEqual(input.RelatedProducts)
+                ) && 
+                (
+                    this.CustomAttributes == input.CustomAttributes ||
+                    this.CustomAttributes != null &&
+                    input.CustomAttributes != null &&
+                    this.CustomAttributes.SequenceEqual(input.CustomAttributes)
+                ) && 
                 (
                     this.ProductIdentifier == input.ProductIdentifier ||
                     (this.ProductIdentifier != null &&
@@ -331,24 +349,6 @@ namespace org.egoi.client.api.Model
                     this.Brand == input.Brand ||
                     (this.Brand != null &&
                     this.Brand.Equals(input.Brand))
-                ) && 
-                (
-                    this.Categories == input.Categories ||
-                    this.Categories != null &&
-                    input.Categories != null &&
-                    this.Categories.SequenceEqual(input.Categories)
-                ) && 
-                (
-                    this.RelatedProducts == input.RelatedProducts ||
-                    this.RelatedProducts != null &&
-                    input.RelatedProducts != null &&
-                    this.RelatedProducts.SequenceEqual(input.RelatedProducts)
-                ) && 
-                (
-                    this.CustomAttributes == input.CustomAttributes ||
-                    this.CustomAttributes != null &&
-                    input.CustomAttributes != null &&
-                    this.CustomAttributes.SequenceEqual(input.CustomAttributes)
                 );
         }
 
@@ -361,6 +361,12 @@ namespace org.egoi.client.api.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Categories != null)
+                    hashCode = hashCode * 59 + this.Categories.GetHashCode();
+                if (this.RelatedProducts != null)
+                    hashCode = hashCode * 59 + this.RelatedProducts.GetHashCode();
+                if (this.CustomAttributes != null)
+                    hashCode = hashCode * 59 + this.CustomAttributes.GetHashCode();
                 if (this.ProductIdentifier != null)
                     hashCode = hashCode * 59 + this.ProductIdentifier.GetHashCode();
                 if (this.CatalogId != null)
@@ -389,12 +395,6 @@ namespace org.egoi.client.api.Model
                     hashCode = hashCode * 59 + this.SalePrice.GetHashCode();
                 if (this.Brand != null)
                     hashCode = hashCode * 59 + this.Brand.GetHashCode();
-                if (this.Categories != null)
-                    hashCode = hashCode * 59 + this.Categories.GetHashCode();
-                if (this.RelatedProducts != null)
-                    hashCode = hashCode * 59 + this.RelatedProducts.GetHashCode();
-                if (this.CustomAttributes != null)
-                    hashCode = hashCode * 59 + this.CustomAttributes.GetHashCode();
                 return hashCode;
             }
         }
@@ -406,6 +406,15 @@ namespace org.egoi.client.api.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
+
+            // ProductIdentifier (string) pattern
+            Regex regexProductIdentifier = new Regex(@"[a-zA-Z0-9\\_\\-.]", RegexOptions.CultureInvariant);
+            if (false == regexProductIdentifier.Match(this.ProductIdentifier).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductIdentifier, must match a pattern of " + regexProductIdentifier, new [] { "ProductIdentifier" });
+            }
+
 
 
             // CatalogId (int) minimum

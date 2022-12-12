@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Type** | **string** | Type of segment | [optional] [readonly] 
 **SegmentId** | **string** |  | [optional] 
 **Name** | **string** | Name of the segment | [optional] 
-**Type** | **string** | Type of segment | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

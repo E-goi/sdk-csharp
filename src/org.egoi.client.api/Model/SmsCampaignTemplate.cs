@@ -1,7 +1,7 @@
 /*
  * APIv3 (New)
  *
- *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
  * 
@@ -31,33 +31,6 @@ namespace org.egoi.client.api.Model
     public partial class SmsCampaignTemplate :  IEquatable<SmsCampaignTemplate>, IValidatableObject
     {
         /// <summary>
-        /// Message type
-        /// </summary>
-        /// <value>Message type</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum MessageTypeEnum
-        {
-            /// <summary>
-            /// Enum Normal for value: normal
-            /// </summary>
-            [EnumMember(Value = "normal")]
-            Normal = 1,
-
-            /// <summary>
-            /// Enum Flash for value: flash
-            /// </summary>
-            [EnumMember(Value = "flash")]
-            Flash = 2
-
-        }
-
-        /// <summary>
-        /// Message type
-        /// </summary>
-        /// <value>Message type</value>
-        [DataMember(Name="message_type", EmitDefaultValue=false)]
-        public MessageTypeEnum? MessageType { get; set; }
-        /// <summary>
         /// Message encoding
         /// </summary>
         /// <value>Message encoding</value>
@@ -85,23 +58,73 @@ namespace org.egoi.client.api.Model
         [DataMember(Name="encoding", EmitDefaultValue=false)]
         public EncodingEnum? Encoding { get; set; }
         /// <summary>
+        /// Message type
+        /// </summary>
+        /// <value>Message type</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum MessageTypeEnum
+        {
+            /// <summary>
+            /// Enum Normal for value: normal
+            /// </summary>
+            [EnumMember(Value = "normal")]
+            Normal = 1,
+
+            /// <summary>
+            /// Enum Flash for value: flash
+            /// </summary>
+            [EnumMember(Value = "flash")]
+            Flash = 2
+
+        }
+
+        /// <summary>
+        /// Message type
+        /// </summary>
+        /// <value>Message type</value>
+        [DataMember(Name="message_type", EmitDefaultValue=false)]
+        public MessageTypeEnum? MessageType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="SmsCampaignTemplate" /> class.
         /// </summary>
-        /// <param name="internalName">Campaign internal name.</param>
+        /// <param name="encoding">Message encoding.</param>
+        /// <param name="maxMessages">Maximum number of messages.</param>
         /// <param name="message">Message.</param>
         /// <param name="sender">Sender number.</param>
         /// <param name="messageType">Message type.</param>
-        /// <param name="encoding">Message encoding.</param>
-        /// <param name="maxMessages">Maximum number of messages.</param>
-        public SmsCampaignTemplate(string internalName = default(string), string message = default(string), string sender = default(string), MessageTypeEnum? messageType = default(MessageTypeEnum?), EncodingEnum? encoding = default(EncodingEnum?), int maxMessages = default(int))
+        /// <param name="internalName">Campaign internal name.</param>
+        public SmsCampaignTemplate(EncodingEnum? encoding = default(EncodingEnum?), int maxMessages = default(int), string message = default(string), string sender = default(string), MessageTypeEnum? messageType = default(MessageTypeEnum?), string internalName = default(string))
         {
-            this.InternalName = internalName;
+            this.Encoding = encoding;
+            this.MaxMessages = maxMessages;
             this.Message = message;
             this.Sender = sender;
             this.MessageType = messageType;
-            this.Encoding = encoding;
-            this.MaxMessages = maxMessages;
+            this.InternalName = internalName;
         }
+
+
+        /// <summary>
+        /// Maximum number of messages
+        /// </summary>
+        /// <value>Maximum number of messages</value>
+        [DataMember(Name="max_messages", EmitDefaultValue=false)]
+        public int MaxMessages { get; set; }
+
+        /// <summary>
+        /// Message
+        /// </summary>
+        /// <value>Message</value>
+        [DataMember(Name="message", EmitDefaultValue=false)]
+        public string Message { get; set; }
+
+        /// <summary>
+        /// Sender number
+        /// </summary>
+        /// <value>Sender number</value>
+        [DataMember(Name="sender", EmitDefaultValue=false)]
+        public string Sender { get; set; }
+
 
         /// <summary>
         /// Gets or Sets TemplateId
@@ -135,29 +158,6 @@ namespace org.egoi.client.api.Model
         public DateTime Updated { get; private set; }
 
         /// <summary>
-        /// Message
-        /// </summary>
-        /// <value>Message</value>
-        [DataMember(Name="message", EmitDefaultValue=false)]
-        public string Message { get; set; }
-
-        /// <summary>
-        /// Sender number
-        /// </summary>
-        /// <value>Sender number</value>
-        [DataMember(Name="sender", EmitDefaultValue=false)]
-        public string Sender { get; set; }
-
-
-
-        /// <summary>
-        /// Maximum number of messages
-        /// </summary>
-        /// <value>Maximum number of messages</value>
-        [DataMember(Name="max_messages", EmitDefaultValue=false)]
-        public int MaxMessages { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -165,16 +165,16 @@ namespace org.egoi.client.api.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SmsCampaignTemplate {\n");
+            sb.Append("  Encoding: ").Append(Encoding).Append("\n");
+            sb.Append("  MaxMessages: ").Append(MaxMessages).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  Sender: ").Append(Sender).Append("\n");
+            sb.Append("  MessageType: ").Append(MessageType).Append("\n");
             sb.Append("  TemplateId: ").Append(TemplateId).Append("\n");
             sb.Append("  TemplateHash: ").Append(TemplateHash).Append("\n");
             sb.Append("  InternalName: ").Append(InternalName).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  Updated: ").Append(Updated).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  Sender: ").Append(Sender).Append("\n");
-            sb.Append("  MessageType: ").Append(MessageType).Append("\n");
-            sb.Append("  Encoding: ").Append(Encoding).Append("\n");
-            sb.Append("  MaxMessages: ").Append(MaxMessages).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -210,6 +210,31 @@ namespace org.egoi.client.api.Model
 
             return 
                 (
+                    this.Encoding == input.Encoding ||
+                    (this.Encoding != null &&
+                    this.Encoding.Equals(input.Encoding))
+                ) && 
+                (
+                    this.MaxMessages == input.MaxMessages ||
+                    (this.MaxMessages != null &&
+                    this.MaxMessages.Equals(input.MaxMessages))
+                ) && 
+                (
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
+                ) && 
+                (
+                    this.Sender == input.Sender ||
+                    (this.Sender != null &&
+                    this.Sender.Equals(input.Sender))
+                ) && 
+                (
+                    this.MessageType == input.MessageType ||
+                    (this.MessageType != null &&
+                    this.MessageType.Equals(input.MessageType))
+                ) && 
+                (
                     this.TemplateId == input.TemplateId ||
                     (this.TemplateId != null &&
                     this.TemplateId.Equals(input.TemplateId))
@@ -233,31 +258,6 @@ namespace org.egoi.client.api.Model
                     this.Updated == input.Updated ||
                     (this.Updated != null &&
                     this.Updated.Equals(input.Updated))
-                ) && 
-                (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                ) && 
-                (
-                    this.Sender == input.Sender ||
-                    (this.Sender != null &&
-                    this.Sender.Equals(input.Sender))
-                ) && 
-                (
-                    this.MessageType == input.MessageType ||
-                    (this.MessageType != null &&
-                    this.MessageType.Equals(input.MessageType))
-                ) && 
-                (
-                    this.Encoding == input.Encoding ||
-                    (this.Encoding != null &&
-                    this.Encoding.Equals(input.Encoding))
-                ) && 
-                (
-                    this.MaxMessages == input.MaxMessages ||
-                    (this.MaxMessages != null &&
-                    this.MaxMessages.Equals(input.MaxMessages))
                 );
         }
 
@@ -270,6 +270,16 @@ namespace org.egoi.client.api.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Encoding != null)
+                    hashCode = hashCode * 59 + this.Encoding.GetHashCode();
+                if (this.MaxMessages != null)
+                    hashCode = hashCode * 59 + this.MaxMessages.GetHashCode();
+                if (this.Message != null)
+                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                if (this.Sender != null)
+                    hashCode = hashCode * 59 + this.Sender.GetHashCode();
+                if (this.MessageType != null)
+                    hashCode = hashCode * 59 + this.MessageType.GetHashCode();
                 if (this.TemplateId != null)
                     hashCode = hashCode * 59 + this.TemplateId.GetHashCode();
                 if (this.TemplateHash != null)
@@ -280,16 +290,6 @@ namespace org.egoi.client.api.Model
                     hashCode = hashCode * 59 + this.Created.GetHashCode();
                 if (this.Updated != null)
                     hashCode = hashCode * 59 + this.Updated.GetHashCode();
-                if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
-                if (this.Sender != null)
-                    hashCode = hashCode * 59 + this.Sender.GetHashCode();
-                if (this.MessageType != null)
-                    hashCode = hashCode * 59 + this.MessageType.GetHashCode();
-                if (this.Encoding != null)
-                    hashCode = hashCode * 59 + this.Encoding.GetHashCode();
-                if (this.MaxMessages != null)
-                    hashCode = hashCode * 59 + this.MaxMessages.GetHashCode();
                 return hashCode;
             }
         }
@@ -301,6 +301,14 @@ namespace org.egoi.client.api.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
+
+            // MaxMessages (int) minimum
+            if(this.MaxMessages < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MaxMessages, must be a value greater than or equal to 1.", new [] { "MaxMessages" });
+            }
+
 
 
             // TemplateId (int) minimum
@@ -316,14 +324,6 @@ namespace org.egoi.client.api.Model
             if (false == regexTemplateHash.Match(this.TemplateHash).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TemplateHash, must match a pattern of " + regexTemplateHash, new [] { "TemplateHash" });
-            }
-
-
-
-            // MaxMessages (int) minimum
-            if(this.MaxMessages < (int)1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MaxMessages, must be a value greater than or equal to 1.", new [] { "MaxMessages" });
             }
 
             yield break;

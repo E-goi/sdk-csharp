@@ -1,7 +1,7 @@
 /*
  * APIv3 (New)
  *
- *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
  * 
@@ -167,25 +167,25 @@ namespace org.egoi.client.api.Api
         /// Import collection of contacts
         /// </summary>
         /// <remarks>
-        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)
+        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Notes:***&lt;br&gt;Minimum of 2 contacts to use this method. [Use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)&lt;br&gt;It defaults to ***Bulk object*** import.
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
-        /// <param name="importBulkRequest">Parameters for the bulk import</param>
+        /// <param name="importBulkFileRequest">Parameters for the bulk import</param>
         /// <returns>AcceptedResponse</returns>
-        AcceptedResponse ActionImportBulk (int listId, ImportBulkRequest importBulkRequest);
+        AcceptedResponse ActionImportBulk (int listId, ImportBulkFileRequest importBulkFileRequest);
 
         /// <summary>
         /// Import collection of contacts
         /// </summary>
         /// <remarks>
-        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)
+        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Notes:***&lt;br&gt;Minimum of 2 contacts to use this method. [Use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)&lt;br&gt;It defaults to ***Bulk object*** import.
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
-        /// <param name="importBulkRequest">Parameters for the bulk import</param>
+        /// <param name="importBulkFileRequest">Parameters for the bulk import</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        ApiResponse<AcceptedResponse> ActionImportBulkWithHttpInfo (int listId, ImportBulkRequest importBulkRequest);
+        ApiResponse<AcceptedResponse> ActionImportBulkWithHttpInfo (int listId, ImportBulkFileRequest importBulkFileRequest);
         /// <summary>
         /// Start automation
         /// </summary>
@@ -612,27 +612,27 @@ namespace org.egoi.client.api.Api
         /// Import collection of contacts
         /// </summary>
         /// <remarks>
-        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)
+        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Notes:***&lt;br&gt;Minimum of 2 contacts to use this method. [Use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)&lt;br&gt;It defaults to ***Bulk object*** import.
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
-        /// <param name="importBulkRequest">Parameters for the bulk import</param>
+        /// <param name="importBulkFileRequest">Parameters for the bulk import</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        System.Threading.Tasks.Task<AcceptedResponse> ActionImportBulkAsync (int listId, ImportBulkRequest importBulkRequest, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<AcceptedResponse> ActionImportBulkAsync (int listId, ImportBulkFileRequest importBulkFileRequest, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Import collection of contacts
         /// </summary>
         /// <remarks>
-        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)
+        /// Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Notes:***&lt;br&gt;Minimum of 2 contacts to use this method. [Use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)&lt;br&gt;It defaults to ***Bulk object*** import.
         /// </remarks>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
-        /// <param name="importBulkRequest">Parameters for the bulk import</param>
+        /// <param name="importBulkFileRequest">Parameters for the bulk import</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionImportBulkWithHttpInfoAsync (int listId, ImportBulkRequest importBulkRequest, CancellationToken cancellationToken = default(CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionImportBulkWithHttpInfoAsync (int listId, ImportBulkFileRequest importBulkFileRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Start automation
         /// </summary>
@@ -2073,33 +2073,33 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
-        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)
+        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Notes:***&lt;br&gt;Minimum of 2 contacts to use this method. [Use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)&lt;br&gt;It defaults to ***Bulk object*** import.
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
-        /// <param name="importBulkRequest">Parameters for the bulk import</param>
+        /// <param name="importBulkFileRequest">Parameters for the bulk import</param>
         /// <returns>AcceptedResponse</returns>
-        public AcceptedResponse ActionImportBulk (int listId, ImportBulkRequest importBulkRequest)
+        public AcceptedResponse ActionImportBulk (int listId, ImportBulkFileRequest importBulkFileRequest)
         {
-             ApiResponse<AcceptedResponse> localVarResponse = ActionImportBulkWithHttpInfo(listId, importBulkRequest);
+             ApiResponse<AcceptedResponse> localVarResponse = ActionImportBulkWithHttpInfo(listId, importBulkFileRequest);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)
+        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Notes:***&lt;br&gt;Minimum of 2 contacts to use this method. [Use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)&lt;br&gt;It defaults to ***Bulk object*** import.
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
-        /// <param name="importBulkRequest">Parameters for the bulk import</param>
+        /// <param name="importBulkFileRequest">Parameters for the bulk import</param>
         /// <returns>ApiResponse of AcceptedResponse</returns>
-        public ApiResponse<AcceptedResponse> ActionImportBulkWithHttpInfo (int listId, ImportBulkRequest importBulkRequest)
+        public ApiResponse<AcceptedResponse> ActionImportBulkWithHttpInfo (int listId, ImportBulkFileRequest importBulkFileRequest)
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
                 throw new ApiException(400, "Missing required parameter 'listId' when calling ContactsApi->ActionImportBulk");
-            // verify the required parameter 'importBulkRequest' is set
-            if (importBulkRequest == null)
-                throw new ApiException(400, "Missing required parameter 'importBulkRequest' when calling ContactsApi->ActionImportBulk");
+            // verify the required parameter 'importBulkFileRequest' is set
+            if (importBulkFileRequest == null)
+                throw new ApiException(400, "Missing required parameter 'importBulkFileRequest' when calling ContactsApi->ActionImportBulk");
 
             var localVarPath = "/lists/{list_id}/contacts/actions/import-bulk";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2124,13 +2124,13 @@ namespace org.egoi.client.api.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
-            if (importBulkRequest != null && importBulkRequest.GetType() != typeof(byte[]))
+            if (importBulkFileRequest != null && importBulkFileRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(importBulkRequest); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(importBulkFileRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = importBulkRequest; // byte array
+                localVarPostBody = importBulkFileRequest; // byte array
             }
 
             // authentication (Apikey) required
@@ -2158,36 +2158,36 @@ namespace org.egoi.client.api.Api
         }
 
         /// <summary>
-        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)
+        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Notes:***&lt;br&gt;Minimum of 2 contacts to use this method. [Use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)&lt;br&gt;It defaults to ***Bulk object*** import.
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
-        /// <param name="importBulkRequest">Parameters for the bulk import</param>
+        /// <param name="importBulkFileRequest">Parameters for the bulk import</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of AcceptedResponse</returns>
-        public async System.Threading.Tasks.Task<AcceptedResponse> ActionImportBulkAsync (int listId, ImportBulkRequest importBulkRequest, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<AcceptedResponse> ActionImportBulkAsync (int listId, ImportBulkFileRequest importBulkFileRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AcceptedResponse> localVarResponse = await ActionImportBulkWithHttpInfoAsync(listId, importBulkRequest, cancellationToken);
+             ApiResponse<AcceptedResponse> localVarResponse = await ActionImportBulkWithHttpInfoAsync(listId, importBulkFileRequest, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)
+        /// Import collection of contacts Imports a collection of contacts &lt;/br&gt;      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits &#39;Stream Limits&#39;)&lt;br&gt; ***Notes:***&lt;br&gt;Minimum of 2 contacts to use this method. [Use Create new contact method instead](#operation/createContact &#39;Create new contact&#39;)&lt;br&gt;It defaults to ***Bulk object*** import.
         /// </summary>
         /// <exception cref="org.egoi.client.api.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="listId">ID of the List</param>
-        /// <param name="importBulkRequest">Parameters for the bulk import</param>
+        /// <param name="importBulkFileRequest">Parameters for the bulk import</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (AcceptedResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionImportBulkWithHttpInfoAsync (int listId, ImportBulkRequest importBulkRequest, CancellationToken cancellationToken = default(CancellationToken))
+        public async System.Threading.Tasks.Task<ApiResponse<AcceptedResponse>> ActionImportBulkWithHttpInfoAsync (int listId, ImportBulkFileRequest importBulkFileRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
             // verify the required parameter 'listId' is set
             if (listId == null)
                 throw new ApiException(400, "Missing required parameter 'listId' when calling ContactsApi->ActionImportBulk");
-            // verify the required parameter 'importBulkRequest' is set
-            if (importBulkRequest == null)
-                throw new ApiException(400, "Missing required parameter 'importBulkRequest' when calling ContactsApi->ActionImportBulk");
+            // verify the required parameter 'importBulkFileRequest' is set
+            if (importBulkFileRequest == null)
+                throw new ApiException(400, "Missing required parameter 'importBulkFileRequest' when calling ContactsApi->ActionImportBulk");
 
             var localVarPath = "/lists/{list_id}/contacts/actions/import-bulk";
             var localVarPathParams = new Dictionary<String, String>();
@@ -2212,13 +2212,13 @@ namespace org.egoi.client.api.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (listId != null) localVarPathParams.Add("list_id", this.Configuration.ApiClient.ParameterToString(listId)); // path parameter
-            if (importBulkRequest != null && importBulkRequest.GetType() != typeof(byte[]))
+            if (importBulkFileRequest != null && importBulkFileRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(importBulkRequest); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(importBulkFileRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = importBulkRequest; // byte array
+                localVarPostBody = importBulkFileRequest; // byte array
             }
 
             // authentication (Apikey) required

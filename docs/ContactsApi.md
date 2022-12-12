@@ -577,11 +577,11 @@ Name | Type | Description  | Notes
 
 ## ActionImportBulk
 
-> AcceptedResponse ActionImportBulk (int listId, ImportBulkRequest importBulkRequest)
+> AcceptedResponse ActionImportBulk (int listId, ImportBulkFileRequest importBulkFileRequest)
 
 Import collection of contacts
 
-Imports a collection of contacts </br>      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits 'Stream Limits')<br> ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact 'Create new contact')
+Imports a collection of contacts </br>      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits 'Stream Limits')<br> ***Notes:***<br>Minimum of 2 contacts to use this method. [Use Create new contact method instead](#operation/createContact 'Create new contact')<br>It defaults to ***Bulk object*** import.
 
 ### Example
 
@@ -606,12 +606,12 @@ namespace Example
 
             var apiInstance = new ContactsApi(Configuration.Default);
             var listId = 56;  // int | ID of the List
-            var importBulkRequest = new ImportBulkRequest(); // ImportBulkRequest | Parameters for the bulk import
+            var importBulkFileRequest = new ImportBulkFileRequest(); // ImportBulkFileRequest | Parameters for the bulk import
 
             try
             {
                 // Import collection of contacts
-                AcceptedResponse result = apiInstance.ActionImportBulk(listId, importBulkRequest);
+                AcceptedResponse result = apiInstance.ActionImportBulk(listId, importBulkFileRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -631,7 +631,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **listId** | **int**| ID of the List | 
- **importBulkRequest** | [**ImportBulkRequest**](ImportBulkRequest.md)| Parameters for the bulk import | 
+ **importBulkFileRequest** | [**ImportBulkFileRequest**](ImportBulkFileRequest.md)| Parameters for the bulk import | 
 
 ### Return type
 
@@ -655,6 +655,7 @@ Name | Type | Description  | Notes
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
 | **408** | Request Timeout |  -  |
+| **409** | Conflict |  -  |
 | **413** | Request Entity Too Large |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **429** | Too Many Requests |  -  |
@@ -1520,6 +1521,7 @@ Name | Type | Description  | Notes
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **408** | Request Timeout |  -  |
+| **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **429** | Too Many Requests |  -  |
 | **500** | Internal Server Error |  -  |

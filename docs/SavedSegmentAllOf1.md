@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Created** | **DateTime** |  | [optional] [readonly] 
-**Updated** | **DateTime** |  | [optional] [readonly] 
+**Type** | **string** | Type of segment | [optional] [readonly] 
+**SegmentFilter** | [**SavedSegmentAllOf1SegmentFilter**](SavedSegmentAllOf1SegmentFilter.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

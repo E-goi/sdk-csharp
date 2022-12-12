@@ -1,7 +1,7 @@
 /*
  * APIv3 (New)
  *
- *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+ *  # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
  *
  * The version of the OpenAPI document: 3.0.0
  * 
@@ -33,52 +33,21 @@ namespace org.egoi.client.api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailCampaignTemplate" /> class.
         /// </summary>
-        /// <param name="internalName">Campaign internal name.</param>
         /// <param name="senderData">senderData.</param>
         /// <param name="image">Template image.</param>
         /// <param name="messageHtmlVersion">Html message.</param>
         /// <param name="messageTextVersion">Text message.</param>
         /// <param name="replyToData">replyToData.</param>
-        public EmailCampaignTemplate(string internalName = default(string), EmailCampaignTemplateAllOfSenderData senderData = default(EmailCampaignTemplateAllOfSenderData), string image = default(string), string messageHtmlVersion = default(string), string messageTextVersion = default(string), EmailCampaignTemplateAllOfReplyToData replyToData = default(EmailCampaignTemplateAllOfReplyToData))
+        /// <param name="internalName">Campaign internal name.</param>
+        public EmailCampaignTemplate(EmailCampaignTemplateAllOfSenderData senderData = default(EmailCampaignTemplateAllOfSenderData), string image = default(string), string messageHtmlVersion = default(string), string messageTextVersion = default(string), EmailCampaignTemplateAllOfReplyToData replyToData = default(EmailCampaignTemplateAllOfReplyToData), string internalName = default(string))
         {
-            this.InternalName = internalName;
             this.SenderData = senderData;
             this.Image = image;
             this.MessageHtmlVersion = messageHtmlVersion;
             this.MessageTextVersion = messageTextVersion;
             this.ReplyToData = replyToData;
+            this.InternalName = internalName;
         }
-
-        /// <summary>
-        /// Gets or Sets TemplateId
-        /// </summary>
-        [DataMember(Name="template_id", EmitDefaultValue=false)]
-        public int TemplateId { get; private set; }
-
-        /// <summary>
-        /// Gets or Sets TemplateHash
-        /// </summary>
-        [DataMember(Name="template_hash", EmitDefaultValue=false)]
-        public string TemplateHash { get; private set; }
-
-        /// <summary>
-        /// Campaign internal name
-        /// </summary>
-        /// <value>Campaign internal name</value>
-        [DataMember(Name="internal_name", EmitDefaultValue=false)]
-        public string InternalName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Created
-        /// </summary>
-        [DataMember(Name="created", EmitDefaultValue=true)]
-        public DateTime Created { get; private set; }
-
-        /// <summary>
-        /// Gets or Sets Updated
-        /// </summary>
-        [DataMember(Name="updated", EmitDefaultValue=true)]
-        public DateTime Updated { get; private set; }
 
         /// <summary>
         /// Gets or Sets SenderData
@@ -114,6 +83,37 @@ namespace org.egoi.client.api.Model
         public EmailCampaignTemplateAllOfReplyToData ReplyToData { get; set; }
 
         /// <summary>
+        /// Gets or Sets TemplateId
+        /// </summary>
+        [DataMember(Name="template_id", EmitDefaultValue=false)]
+        public int TemplateId { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TemplateHash
+        /// </summary>
+        [DataMember(Name="template_hash", EmitDefaultValue=false)]
+        public string TemplateHash { get; private set; }
+
+        /// <summary>
+        /// Campaign internal name
+        /// </summary>
+        /// <value>Campaign internal name</value>
+        [DataMember(Name="internal_name", EmitDefaultValue=false)]
+        public string InternalName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Created
+        /// </summary>
+        [DataMember(Name="created", EmitDefaultValue=true)]
+        public DateTime Created { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets Updated
+        /// </summary>
+        [DataMember(Name="updated", EmitDefaultValue=true)]
+        public DateTime Updated { get; private set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -121,16 +121,16 @@ namespace org.egoi.client.api.Model
         {
             var sb = new StringBuilder();
             sb.Append("class EmailCampaignTemplate {\n");
-            sb.Append("  TemplateId: ").Append(TemplateId).Append("\n");
-            sb.Append("  TemplateHash: ").Append(TemplateHash).Append("\n");
-            sb.Append("  InternalName: ").Append(InternalName).Append("\n");
-            sb.Append("  Created: ").Append(Created).Append("\n");
-            sb.Append("  Updated: ").Append(Updated).Append("\n");
             sb.Append("  SenderData: ").Append(SenderData).Append("\n");
             sb.Append("  Image: ").Append(Image).Append("\n");
             sb.Append("  MessageHtmlVersion: ").Append(MessageHtmlVersion).Append("\n");
             sb.Append("  MessageTextVersion: ").Append(MessageTextVersion).Append("\n");
             sb.Append("  ReplyToData: ").Append(ReplyToData).Append("\n");
+            sb.Append("  TemplateId: ").Append(TemplateId).Append("\n");
+            sb.Append("  TemplateHash: ").Append(TemplateHash).Append("\n");
+            sb.Append("  InternalName: ").Append(InternalName).Append("\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  Updated: ").Append(Updated).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -166,31 +166,6 @@ namespace org.egoi.client.api.Model
 
             return 
                 (
-                    this.TemplateId == input.TemplateId ||
-                    (this.TemplateId != null &&
-                    this.TemplateId.Equals(input.TemplateId))
-                ) && 
-                (
-                    this.TemplateHash == input.TemplateHash ||
-                    (this.TemplateHash != null &&
-                    this.TemplateHash.Equals(input.TemplateHash))
-                ) && 
-                (
-                    this.InternalName == input.InternalName ||
-                    (this.InternalName != null &&
-                    this.InternalName.Equals(input.InternalName))
-                ) && 
-                (
-                    this.Created == input.Created ||
-                    (this.Created != null &&
-                    this.Created.Equals(input.Created))
-                ) && 
-                (
-                    this.Updated == input.Updated ||
-                    (this.Updated != null &&
-                    this.Updated.Equals(input.Updated))
-                ) && 
-                (
                     this.SenderData == input.SenderData ||
                     (this.SenderData != null &&
                     this.SenderData.Equals(input.SenderData))
@@ -214,6 +189,31 @@ namespace org.egoi.client.api.Model
                     this.ReplyToData == input.ReplyToData ||
                     (this.ReplyToData != null &&
                     this.ReplyToData.Equals(input.ReplyToData))
+                ) && 
+                (
+                    this.TemplateId == input.TemplateId ||
+                    (this.TemplateId != null &&
+                    this.TemplateId.Equals(input.TemplateId))
+                ) && 
+                (
+                    this.TemplateHash == input.TemplateHash ||
+                    (this.TemplateHash != null &&
+                    this.TemplateHash.Equals(input.TemplateHash))
+                ) && 
+                (
+                    this.InternalName == input.InternalName ||
+                    (this.InternalName != null &&
+                    this.InternalName.Equals(input.InternalName))
+                ) && 
+                (
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
+                ) && 
+                (
+                    this.Updated == input.Updated ||
+                    (this.Updated != null &&
+                    this.Updated.Equals(input.Updated))
                 );
         }
 
@@ -226,16 +226,6 @@ namespace org.egoi.client.api.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.TemplateId != null)
-                    hashCode = hashCode * 59 + this.TemplateId.GetHashCode();
-                if (this.TemplateHash != null)
-                    hashCode = hashCode * 59 + this.TemplateHash.GetHashCode();
-                if (this.InternalName != null)
-                    hashCode = hashCode * 59 + this.InternalName.GetHashCode();
-                if (this.Created != null)
-                    hashCode = hashCode * 59 + this.Created.GetHashCode();
-                if (this.Updated != null)
-                    hashCode = hashCode * 59 + this.Updated.GetHashCode();
                 if (this.SenderData != null)
                     hashCode = hashCode * 59 + this.SenderData.GetHashCode();
                 if (this.Image != null)
@@ -246,6 +236,16 @@ namespace org.egoi.client.api.Model
                     hashCode = hashCode * 59 + this.MessageTextVersion.GetHashCode();
                 if (this.ReplyToData != null)
                     hashCode = hashCode * 59 + this.ReplyToData.GetHashCode();
+                if (this.TemplateId != null)
+                    hashCode = hashCode * 59 + this.TemplateId.GetHashCode();
+                if (this.TemplateHash != null)
+                    hashCode = hashCode * 59 + this.TemplateHash.GetHashCode();
+                if (this.InternalName != null)
+                    hashCode = hashCode * 59 + this.InternalName.GetHashCode();
+                if (this.Created != null)
+                    hashCode = hashCode * 59 + this.Created.GetHashCode();
+                if (this.Updated != null)
+                    hashCode = hashCode * 59 + this.Updated.GetHashCode();
                 return hashCode;
             }
         }

@@ -8,7 +8,7 @@ The API describes each available method. Learn about parameters, errors, and how
 If you find a bug or something worth fixing, create an issue.
 
 ### Changelog
-#### 1.1.3
+#### 1.1.4
 ## Frameworks supported
 
 
@@ -432,6 +432,11 @@ Class | Method | HTTP request | Description
  - [Model.ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid](docs/ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid.md)
  - [Model.ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos](docs/ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos.md)
  - [Model.ContactBulk](docs/ContactBulk.md)
+ - [Model.ContactBulkFile](docs/ContactBulkFile.md)
+ - [Model.ContactBulkFileAllOf](docs/ContactBulkFileAllOf.md)
+ - [Model.ContactBulkFileAllOf1](docs/ContactBulkFileAllOf1.md)
+ - [Model.ContactBulkFileAllOf2](docs/ContactBulkFileAllOf2.md)
+ - [Model.ContactBulkFileAllOf3](docs/ContactBulkFileAllOf3.md)
  - [Model.ContactCollection](docs/ContactCollection.md)
  - [Model.ContactExportRequest](docs/ContactExportRequest.md)
  - [Model.ContactExtraFieldCellphone](docs/ContactExtraFieldCellphone.md)
@@ -448,6 +453,7 @@ Class | Method | HTTP request | Description
  - [Model.ContactExtraFieldsBulk](docs/ContactExtraFieldsBulk.md)
  - [Model.ContactExtraFieldsBulkSchema](docs/ContactExtraFieldsBulkSchema.md)
  - [Model.ContactExtraFieldsSchema](docs/ContactExtraFieldsSchema.md)
+ - [Model.ContactFieldMappingFileBulkSchema](docs/ContactFieldMappingFileBulkSchema.md)
  - [Model.ContactForgetRequest](docs/ContactForgetRequest.md)
  - [Model.ContactInsideBase](docs/ContactInsideBase.md)
  - [Model.ContactInsideBaseBulk](docs/ContactInsideBaseBulk.md)
@@ -586,6 +592,8 @@ Class | Method | HTTP request | Description
  - [Model.HeaderFooterFooterLinks](docs/HeaderFooterFooterLinks.md)
  - [Model.HeaderFooterHeaderLinks](docs/HeaderFooterHeaderLinks.md)
  - [Model.HeaderFooterTemplate](docs/HeaderFooterTemplate.md)
+ - [Model.ImportBulkFileRequest](docs/ImportBulkFileRequest.md)
+ - [Model.ImportBulkFileRequestSchema](docs/ImportBulkFileRequestSchema.md)
  - [Model.ImportBulkRequest](docs/ImportBulkRequest.md)
  - [Model.ImportOrdersBulkBulkRequest](docs/ImportOrdersBulkBulkRequest.md)
  - [Model.ImportOrdersBulkBulkRequestItems](docs/ImportOrdersBulkBulkRequestItems.md)
@@ -700,8 +708,8 @@ Class | Method | HTTP request | Description
  - [Model.SavedSegment](docs/SavedSegment.md)
  - [Model.SavedSegmentAllOf](docs/SavedSegmentAllOf.md)
  - [Model.SavedSegmentAllOf1](docs/SavedSegmentAllOf1.md)
- - [Model.SavedSegmentAllOfSegmentFilter](docs/SavedSegmentAllOfSegmentFilter.md)
- - [Model.SavedSegmentAllOfSegmentFilterSegmentFilterArray](docs/SavedSegmentAllOfSegmentFilterSegmentFilterArray.md)
+ - [Model.SavedSegmentAllOf1SegmentFilter](docs/SavedSegmentAllOf1SegmentFilter.md)
+ - [Model.SavedSegmentAllOf1SegmentFilterSegmentFilterArray](docs/SavedSegmentAllOf1SegmentFilterSegmentFilterArray.md)
  - [Model.Segment](docs/Segment.md)
  - [Model.SegmentCollection](docs/SegmentCollection.md)
  - [Model.SegmentsActionSend](docs/SegmentsActionSend.md)

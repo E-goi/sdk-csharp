@@ -6,9 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CampaignHash** | **string** |  | [optional] [readonly] 
-**Overall** | [**OverallOverall**](OverallOverall.md) |  | [optional] 
 **OperatingSystems** | **List&lt;Object&gt;** | Stats of the campaign for each operating system | [optional] 
 **Brands** | **List&lt;Object&gt;** | Stats of the campaign for each brand | [optional] 
+**Overall** | [**OverallOverall**](OverallOverall.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
