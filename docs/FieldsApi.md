@@ -474,7 +474,7 @@ Name | Type | Description  | Notes
 
 ## GetAllFields
 
-> FieldCollection GetAllFields (int listId, int? offset = null, int? limit = null)
+> List&lt;ComplexField&gt; GetAllFields (int listId, int? offset = null, int? limit = null)
 
 Get all fields
 
@@ -509,7 +509,7 @@ namespace Example
             try
             {
                 // Get all fields
-                FieldCollection result = apiInstance.GetAllFields(listId, offset, limit);
+                List<ComplexField> result = apiInstance.GetAllFields(listId, offset, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -534,7 +534,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FieldCollection**](FieldCollection.md)
+[**List&lt;ComplexField&gt;**](ComplexField.md)
 
 ### Authorization
 

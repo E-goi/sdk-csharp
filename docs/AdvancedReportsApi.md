@@ -8,10 +8,10 @@ Method | HTTP request | Description
 [**GenerateEmailClicksByContactReport**](AdvancedReportsApi.md#generateemailclicksbycontactreport) | **POST** /reports/advanced/email-clicks-by-contact | Generate email clicks by contact report
 [**GenerateEmailClicksByUrlReport**](AdvancedReportsApi.md#generateemailclicksbyurlreport) | **POST** /reports/advanced/email-clicks-by-url | Generate email clicks by URL report
 [**GenerateEmailEventsReport**](AdvancedReportsApi.md#generateemaileventsreport) | **POST** /reports/advanced/email-events | Generate email events report
-[**GenerateEmailSmsReport**](AdvancedReportsApi.md#generateemailsmsreport) | **POST** /reports/advanced/sms-bounces | Generate SMS bounces report
 [**GenerateEmailUnsubscriptionsReport**](AdvancedReportsApi.md#generateemailunsubscriptionsreport) | **POST** /reports/advanced/email-unsubscriptions | Generate email unsubscriptions report
 [**GenerateFormAnswersReport**](AdvancedReportsApi.md#generateformanswersreport) | **POST** /reports/advanced/form-answers | Generate form answers report
 [**GenerateSendsReport**](AdvancedReportsApi.md#generatesendsreport) | **POST** /reports/advanced/sends | Generate sends report
+[**GenerateSmsBouncesReport**](AdvancedReportsApi.md#generatesmsbouncesreport) | **POST** /reports/advanced/sms-bounces | Generate SMS bounces report
 [**GenerateSmsEventsReport**](AdvancedReportsApi.md#generatesmseventsreport) | **POST** /reports/advanced/sms-events | Generate SMS events report
 [**GenerateSubscriptionsReport**](AdvancedReportsApi.md#generatesubscriptionsreport) | **POST** /reports/advanced/subscriptions | Generate subscriptions report
 [**GenerateUnsubscriptionsReport**](AdvancedReportsApi.md#generateunsubscriptionsreport) | **POST** /reports/advanced/unsubscriptions | Generate unsubscriptions report
@@ -374,95 +374,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GenerateEmailSmsReport
-
-> AcceptedResponse GenerateEmailSmsReport (GenerateSmsBouncesReport generateSmsBouncesReport)
-
-Generate SMS bounces report
-
-Generates a new SMS bounces report
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using org.egoi.client.api.Api;
-using org.egoi.client.api.Client;
-using org.egoi.client.api.Model;
-
-namespace Example
-{
-    public class GenerateEmailSmsReportExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "https://api.egoiapp.com";
-            // Configure API key authorization: Apikey
-            Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
-
-            var apiInstance = new AdvancedReportsApi(Configuration.Default);
-            var generateSmsBouncesReport = new GenerateSmsBouncesReport(); // GenerateSmsBouncesReport | Parameters for the SMS bounces report
-
-            try
-            {
-                // Generate SMS bounces report
-                AcceptedResponse result = apiInstance.GenerateEmailSmsReport(generateSmsBouncesReport);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling AdvancedReportsApi.GenerateEmailSmsReport: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **generateSmsBouncesReport** | [**GenerateSmsBouncesReport**](GenerateSmsBouncesReport.md)| Parameters for the SMS bounces report | 
-
-### Return type
-
-[**AcceptedResponse**](AcceptedResponse.md)
-
-### Authorization
-
-[Apikey](../README.md#Apikey)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **202** | Accepted |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **408** | Request Timeout |  -  |
-| **422** | Unprocessable Entity |  -  |
-| **429** | Too Many Requests |  -  |
-| **500** | Internal Server Error |  -  |
-| **503** | Service Unavailable |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## GenerateEmailUnsubscriptionsReport
 
 > AcceptedResponse GenerateEmailUnsubscriptionsReport (GenerateEmailUnsubscriptionsReport generateEmailUnsubscriptionsReport)
@@ -696,6 +607,95 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **generateSendsReport** | [**GenerateSendsReport**](GenerateSendsReport.md)| Parameters for the sends report | 
+
+### Return type
+
+[**AcceptedResponse**](AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Accepted |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GenerateSmsBouncesReport
+
+> AcceptedResponse GenerateSmsBouncesReport (GenerateSmsBouncesReport generateSmsBouncesReport)
+
+Generate SMS bounces report
+
+Generates a new SMS bounces report
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using org.egoi.client.api.Api;
+using org.egoi.client.api.Client;
+using org.egoi.client.api.Model;
+
+namespace Example
+{
+    public class GenerateSmsBouncesReportExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
+            // Configure API key authorization: Apikey
+            Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
+
+            var apiInstance = new AdvancedReportsApi(Configuration.Default);
+            var generateSmsBouncesReport = new GenerateSmsBouncesReport(); // GenerateSmsBouncesReport | Parameters for the SMS bounces report
+
+            try
+            {
+                // Generate SMS bounces report
+                AcceptedResponse result = apiInstance.GenerateSmsBouncesReport(generateSmsBouncesReport);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling AdvancedReportsApi.GenerateSmsBouncesReport: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **generateSmsBouncesReport** | [**GenerateSmsBouncesReport**](GenerateSmsBouncesReport.md)| Parameters for the SMS bounces report | 
 
 ### Return type
 

@@ -1038,7 +1038,7 @@ Name | Type | Description  | Notes
 
 ## GetAllContactActivities
 
-> ActivityCollection GetAllContactActivities (string contactId, int listId, int? offset = null, int? limit = null, DateTime? dateMin = null, DateTime? dateMax = null)
+> ActivityCollection GetAllContactActivities (string contactId, int listId, int? offset = null, int? limit = null, DateTime? dateMin = null, DateTime? dateMax = null, string actionName = null)
 
 Get all contact activities
 
@@ -1072,11 +1072,12 @@ namespace Example
             var limit = 56;  // int? | Number of items to return (optional)  (default to 10)
             var dateMin = 2013-10-20T19:20:30+01:00;  // DateTime? | Start date (optional) 
             var dateMax = 2013-10-20T19:20:30+01:00;  // DateTime? | End date (optional) 
+            var actionName = actionName_example;  // string | Action data to return (optional) 
 
             try
             {
                 // Get all contact activities
-                ActivityCollection result = apiInstance.GetAllContactActivities(contactId, listId, offset, limit, dateMin, dateMax);
+                ActivityCollection result = apiInstance.GetAllContactActivities(contactId, listId, offset, limit, dateMin, dateMax, actionName);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -1101,6 +1102,7 @@ Name | Type | Description  | Notes
  **limit** | **int?**| Number of items to return | [optional] [default to 10]
  **dateMin** | **DateTime?**| Start date | [optional] 
  **dateMax** | **DateTime?**| End date | [optional] 
+ **actionName** | **string**| Action data to return | [optional] 
 
 ### Return type
 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ActionData** | [**ContactActivityClickAllOfActionData**](ContactActivityClickAllOfActionData.md) |  | [optional] 
+**ActionData** | [**ContactAutomationsActivityAllOfActionData**](ContactAutomationsActivityAllOfActionData.md) |  | [optional] 
 **Date** | **DateTime** | The date and time | [optional] 
 **ActionName** | **string** | Action name | [optional] 
 

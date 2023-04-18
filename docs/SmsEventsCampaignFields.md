@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **CampaignHash** | **bool** | True to include the hash of the campaign, false otherwise | 
 **SendDate** | **bool** | True to include the send date of the campaign, false otherwise | 
 **Group** | **bool** | True to include the group of the campaign, false otherwise | 
+**Channel** | **bool** | True to include the channel of the campaign, false otherwise | [optional] 
+**Type** | **bool** | True to include the type of the campaign, false otherwise | [optional] 
 **Sender** | **bool** | True to include the sender of the campaign, false otherwise | 
 
 [[Back to Model list]](../README.md#documentation-for-models)

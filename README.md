@@ -8,7 +8,7 @@ The API describes each available method. Learn about parameters, errors, and how
 If you find a bug or something worth fixing, create an issue.
 
 ### Changelog
-#### 1.1.4
+#### 1.1.5
 ## Frameworks supported
 
 
@@ -105,10 +105,10 @@ Class | Method | HTTP request | Description
 *AdvancedReportsApi* | [**GenerateEmailClicksByContactReport**](docs/AdvancedReportsApi.md#generateemailclicksbycontactreport) | **POST** /reports/advanced/email-clicks-by-contact | Generate email clicks by contact report
 *AdvancedReportsApi* | [**GenerateEmailClicksByUrlReport**](docs/AdvancedReportsApi.md#generateemailclicksbyurlreport) | **POST** /reports/advanced/email-clicks-by-url | Generate email clicks by URL report
 *AdvancedReportsApi* | [**GenerateEmailEventsReport**](docs/AdvancedReportsApi.md#generateemaileventsreport) | **POST** /reports/advanced/email-events | Generate email events report
-*AdvancedReportsApi* | [**GenerateEmailSmsReport**](docs/AdvancedReportsApi.md#generateemailsmsreport) | **POST** /reports/advanced/sms-bounces | Generate SMS bounces report
 *AdvancedReportsApi* | [**GenerateEmailUnsubscriptionsReport**](docs/AdvancedReportsApi.md#generateemailunsubscriptionsreport) | **POST** /reports/advanced/email-unsubscriptions | Generate email unsubscriptions report
 *AdvancedReportsApi* | [**GenerateFormAnswersReport**](docs/AdvancedReportsApi.md#generateformanswersreport) | **POST** /reports/advanced/form-answers | Generate form answers report
 *AdvancedReportsApi* | [**GenerateSendsReport**](docs/AdvancedReportsApi.md#generatesendsreport) | **POST** /reports/advanced/sends | Generate sends report
+*AdvancedReportsApi* | [**GenerateSmsBouncesReport**](docs/AdvancedReportsApi.md#generatesmsbouncesreport) | **POST** /reports/advanced/sms-bounces | Generate SMS bounces report
 *AdvancedReportsApi* | [**GenerateSmsEventsReport**](docs/AdvancedReportsApi.md#generatesmseventsreport) | **POST** /reports/advanced/sms-events | Generate SMS events report
 *AdvancedReportsApi* | [**GenerateSubscriptionsReport**](docs/AdvancedReportsApi.md#generatesubscriptionsreport) | **POST** /reports/advanced/subscriptions | Generate subscriptions report
 *AdvancedReportsApi* | [**GenerateUnsubscriptionsReport**](docs/AdvancedReportsApi.md#generateunsubscriptionsreport) | **POST** /reports/advanced/unsubscriptions | Generate unsubscriptions report
@@ -407,10 +407,16 @@ Class | Method | HTTP request | Description
  - [Model.ConnectedSitesProducts](docs/ConnectedSitesProducts.md)
  - [Model.Contact](docs/Contact.md)
  - [Model.ContactActivity](docs/ContactActivity.md)
+ - [Model.ContactActivityAbstractActionsWithAutomations](docs/ContactActivityAbstractActionsWithAutomations.md)
+ - [Model.ContactActivityAbstractActionsWithCampaign](docs/ContactActivityAbstractActionsWithCampaign.md)
  - [Model.ContactActivityAbstractActionsWithData](docs/ContactActivityAbstractActionsWithData.md)
+ - [Model.ContactActivityAbstractActionsWithTags](docs/ContactActivityAbstractActionsWithTags.md)
  - [Model.ContactActivityClick](docs/ContactActivityClick.md)
  - [Model.ContactActivityClickAllOf](docs/ContactActivityClickAllOf.md)
  - [Model.ContactActivityClickAllOfActionData](docs/ContactActivityClickAllOfActionData.md)
+ - [Model.ContactAutomationsActivity](docs/ContactAutomationsActivity.md)
+ - [Model.ContactAutomationsActivityAllOf](docs/ContactAutomationsActivityAllOf.md)
+ - [Model.ContactAutomationsActivityAllOfActionData](docs/ContactAutomationsActivityAllOfActionData.md)
  - [Model.ContactBaseExtra](docs/ContactBaseExtra.md)
  - [Model.ContactBaseExtraBulk](docs/ContactBaseExtraBulk.md)
  - [Model.ContactBaseExtraFull](docs/ContactBaseExtraFull.md)
@@ -437,6 +443,9 @@ Class | Method | HTTP request | Description
  - [Model.ContactBulkFileAllOf1](docs/ContactBulkFileAllOf1.md)
  - [Model.ContactBulkFileAllOf2](docs/ContactBulkFileAllOf2.md)
  - [Model.ContactBulkFileAllOf3](docs/ContactBulkFileAllOf3.md)
+ - [Model.ContactCampaignActivity](docs/ContactCampaignActivity.md)
+ - [Model.ContactCampaignActivityAllOf](docs/ContactCampaignActivityAllOf.md)
+ - [Model.ContactCampaignActivityAllOfActionData](docs/ContactCampaignActivityAllOfActionData.md)
  - [Model.ContactCollection](docs/ContactCollection.md)
  - [Model.ContactExportRequest](docs/ContactExportRequest.md)
  - [Model.ContactExtraFieldCellphone](docs/ContactExtraFieldCellphone.md)
@@ -463,6 +472,9 @@ Class | Method | HTTP request | Description
  - [Model.ContactSearchResponse](docs/ContactSearchResponse.md)
  - [Model.ContactStatusFieldsBulkSchema](docs/ContactStatusFieldsBulkSchema.md)
  - [Model.ContactStatusFieldsSchema](docs/ContactStatusFieldsSchema.md)
+ - [Model.ContactTagActivity](docs/ContactTagActivity.md)
+ - [Model.ContactTagActivityAllOf](docs/ContactTagActivityAllOf.md)
+ - [Model.ContactTagActivityAllOfActionData](docs/ContactTagActivityAllOfActionData.md)
  - [Model.ContactTags](docs/ContactTags.md)
  - [Model.ContactTagsBulk](docs/ContactTagsBulk.md)
  - [Model.ContactsActionUpdateContactsSchema](docs/ContactsActionUpdateContactsSchema.md)
@@ -544,9 +556,9 @@ Class | Method | HTTP request | Description
  - [Model.EnableTransactionalConflict](docs/EnableTransactionalConflict.md)
  - [Model.EnableTransactionalConflictsErrors](docs/EnableTransactionalConflictsErrors.md)
  - [Model.ExportContactsWebhookData](docs/ExportContactsWebhookData.md)
+ - [Model.ExportReportWebhookData](docs/ExportReportWebhookData.md)
  - [Model.ExtraFieldId](docs/ExtraFieldId.md)
  - [Model.Field](docs/Field.md)
- - [Model.FieldCollection](docs/FieldCollection.md)
  - [Model.FieldInUse](docs/FieldInUse.md)
  - [Model.FieldInUseErrors](docs/FieldInUseErrors.md)
  - [Model.FieldInUseErrorsFieldInUseData](docs/FieldInUseErrorsFieldInUseData.md)
@@ -595,6 +607,7 @@ Class | Method | HTTP request | Description
  - [Model.ImportBulkFileRequest](docs/ImportBulkFileRequest.md)
  - [Model.ImportBulkFileRequestSchema](docs/ImportBulkFileRequestSchema.md)
  - [Model.ImportBulkRequest](docs/ImportBulkRequest.md)
+ - [Model.ImportContactsWebhookData](docs/ImportContactsWebhookData.md)
  - [Model.ImportOrdersBulkBulkRequest](docs/ImportOrdersBulkBulkRequest.md)
  - [Model.ImportOrdersBulkBulkRequestItems](docs/ImportOrdersBulkBulkRequestItems.md)
  - [Model.InlineObject](docs/InlineObject.md)
