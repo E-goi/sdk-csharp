@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FieldId** | **int** |  | [optional] 
 **Format** | **string** | Extra field format | [optional] [readonly] 
-**Value** | **string** | Extra field value | [optional] 
+**Value** | **string** | Cellphone  value (country code followed by phone number, split by &#39;-&#39;) | [optional] 
 **Status** | **string** | Extra field status | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

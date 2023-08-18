@@ -379,7 +379,7 @@ namespace org.egoi.client.api.Model
         /// <param name="phone">Phone of the contact.</param>
         /// <param name="pushTokenAndroid">Android push token of the contact.</param>
         /// <param name="pushTokenIos">IOS push token of the contact.</param>
-        public ContactInsideBase(StatusEnum? status = StatusEnum.Active, string firstName = default(string), string lastName = default(string), DateTime birthDate = default(DateTime), Language language = default(Language), string email = default(string), string cellphone = default(string), string phone = default(string), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid> pushTokenAndroid = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid>), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos> pushTokenIos = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos>))
+        public ContactInsideBase(StatusEnum? status = StatusEnum.Active, string firstName = default(string), string lastName = default(string), string birthDate = default(string), Language language = default(Language), string email = default(string), string cellphone = default(string), string phone = default(string), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid> pushTokenAndroid = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid>), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos> pushTokenIos = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos>))
         {
             // use default value if no "status" provided
             if (status == null)
@@ -414,7 +414,7 @@ namespace org.egoi.client.api.Model
         /// </summary>
         /// <value>Date and hour of the contact consent</value>
         [DataMember(Name="consent_date", EmitDefaultValue=false)]
-        public DateTime ConsentDate { get; private set; }
+        public string ConsentDate { get; private set; }
 
 
         /// <summary>
@@ -422,7 +422,7 @@ namespace org.egoi.client.api.Model
         /// </summary>
         /// <value>Date and hour of the contact subscription</value>
         [DataMember(Name="subscription_date", EmitDefaultValue=false)]
-        public DateTime SubscriptionDate { get; private set; }
+        public string SubscriptionDate { get; private set; }
 
         /// <summary>
         /// Contact subscription form
@@ -445,15 +445,14 @@ namespace org.egoi.client.api.Model
         /// </summary>
         /// <value>Contact unsubscription date</value>
         [DataMember(Name="unsubscription_date", EmitDefaultValue=false)]
-        public DateTime UnsubscriptionDate { get; private set; }
+        public string UnsubscriptionDate { get; private set; }
 
         /// <summary>
         /// Last modification date of the contact
         /// </summary>
         /// <value>Last modification date of the contact</value>
         [DataMember(Name="change_date", EmitDefaultValue=false)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime ChangeDate { get; private set; }
+        public string ChangeDate { get; private set; }
 
         /// <summary>
         /// First name of the contact
@@ -474,8 +473,7 @@ namespace org.egoi.client.api.Model
         /// </summary>
         /// <value>Birth date of the contact</value>
         [DataMember(Name="birth_date", EmitDefaultValue=false)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime BirthDate { get; set; }
+        public string BirthDate { get; set; }
 
         /// <summary>
         /// Gets or Sets Language

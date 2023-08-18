@@ -56,7 +56,7 @@ namespace org.egoi.client.api.Model
         /// </summary>
         /// <param name="fieldId">fieldId.</param>
         /// <param name="value">Extra field value.</param>
-        public ContactExtraFieldDate(int fieldId = default(int), DateTime value = default(DateTime))
+        public ContactExtraFieldDate(int fieldId = default(int), string value = default(string))
         {
             this.FieldId = fieldId;
             this.Value = value;
@@ -74,8 +74,7 @@ namespace org.egoi.client.api.Model
         /// </summary>
         /// <value>Extra field value</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime Value { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

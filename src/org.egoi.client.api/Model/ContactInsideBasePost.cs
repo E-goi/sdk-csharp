@@ -78,11 +78,11 @@ namespace org.egoi.client.api.Model
         /// <param name="birthDate">Birth date of the contact.</param>
         /// <param name="language">language.</param>
         /// <param name="email">Email of the contact.</param>
-        /// <param name="cellphone">Cellphone of the contact.</param>
-        /// <param name="phone">Phone of the contact.</param>
+        /// <param name="cellphone">Cellphone of the contact (country code followed by phone number, split by &#39;-&#39;).</param>
+        /// <param name="phone">Phone of the contact (country code followed by phone number, split by &#39;-&#39;).</param>
         /// <param name="pushTokenAndroid">Android push token of the contact.</param>
         /// <param name="pushTokenIos">IOS push token of the contact.</param>
-        public ContactInsideBasePost(StatusEnum? status = StatusEnum.Active, string firstName = default(string), string lastName = default(string), DateTime birthDate = default(DateTime), Language language = default(Language), string email = default(string), string cellphone = default(string), string phone = default(string), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid> pushTokenAndroid = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid>), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos> pushTokenIos = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos>))
+        public ContactInsideBasePost(StatusEnum? status = StatusEnum.Active, string firstName = default(string), string lastName = default(string), string birthDate = default(string), Language language = default(Language), string email = default(string), string cellphone = default(string), string phone = default(string), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid> pushTokenAndroid = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid>), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos> pushTokenIos = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos>))
         {
             // use default value if no "status" provided
             if (status == null)
@@ -130,8 +130,7 @@ namespace org.egoi.client.api.Model
         /// </summary>
         /// <value>Birth date of the contact</value>
         [DataMember(Name="birth_date", EmitDefaultValue=false)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime BirthDate { get; set; }
+        public string BirthDate { get; set; }
 
         /// <summary>
         /// Gets or Sets Language
@@ -147,16 +146,16 @@ namespace org.egoi.client.api.Model
         public string Email { get; set; }
 
         /// <summary>
-        /// Cellphone of the contact
+        /// Cellphone of the contact (country code followed by phone number, split by &#39;-&#39;)
         /// </summary>
-        /// <value>Cellphone of the contact</value>
+        /// <value>Cellphone of the contact (country code followed by phone number, split by &#39;-&#39;)</value>
         [DataMember(Name="cellphone", EmitDefaultValue=false)]
         public string Cellphone { get; set; }
 
         /// <summary>
-        /// Phone of the contact
+        /// Phone of the contact (country code followed by phone number, split by &#39;-&#39;)
         /// </summary>
-        /// <value>Phone of the contact</value>
+        /// <value>Phone of the contact (country code followed by phone number, split by &#39;-&#39;)</value>
         [DataMember(Name="phone", EmitDefaultValue=false)]
         public string Phone { get; set; }
 
@@ -335,6 +334,24 @@ namespace org.egoi.client.api.Model
             if (false == regexContactId.Match(this.ContactId).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ContactId, must match a pattern of " + regexContactId, new [] { "ContactId" });
+            }
+
+
+
+            // Cellphone (string) pattern
+            Regex regexCellphone = new Regex(@"^(\\d){1,3}-(\\d){4,20}$", RegexOptions.CultureInvariant);
+            if (false == regexCellphone.Match(this.Cellphone).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Cellphone, must match a pattern of " + regexCellphone, new [] { "Cellphone" });
+            }
+
+
+
+            // Phone (string) pattern
+            Regex regexPhone = new Regex(@"^(\\d){1,3}-(\\d){4,20}$", RegexOptions.CultureInvariant);
+            if (false == regexPhone.Match(this.Phone).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Phone, must match a pattern of " + regexPhone, new [] { "Phone" });
             }
 
             yield break;

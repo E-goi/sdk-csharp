@@ -39,7 +39,7 @@ namespace org.egoi.client.api.Model
         /// <param name="views">Push messages that were viewed by the contact.</param>
         /// <param name="clicks">Total number of clicks made by the contact.</param>
         /// <param name="lastViewDate">Date of the last push message view of the contact.</param>
-        public ComplexContactAllOfPushStats(int sent = default(int), int delivered = default(int), int notDelivered = default(int), int views = default(int), int clicks = default(int), DateTime? lastViewDate = default(DateTime?))
+        public ComplexContactAllOfPushStats(int sent = default(int), int delivered = default(int), int notDelivered = default(int), int views = default(int), int clicks = default(int), string lastViewDate = default(string))
         {
             this.LastViewDate = lastViewDate;
             this.Sent = sent;
@@ -90,7 +90,7 @@ namespace org.egoi.client.api.Model
         /// </summary>
         /// <value>Date of the last push message view of the contact</value>
         [DataMember(Name="last_view_date", EmitDefaultValue=true)]
-        public DateTime? LastViewDate { get; set; }
+        public string LastViewDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

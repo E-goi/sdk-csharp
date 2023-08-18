@@ -35,7 +35,7 @@ namespace org.egoi.client.api.Model
         /// </summary>
         /// <param name="_base">_base.</param>
         /// <param name="extra">Array of the contact&#39;s extra fields.</param>
-        public ContactBaseStatusExtraBulk(ContactBaseWithStatusFieldsSchemaBase _base = default(ContactBaseWithStatusFieldsSchemaBase), List<ContactExtraFieldsBulk> extra = default(List<ContactExtraFieldsBulk>))
+        public ContactBaseStatusExtraBulk(ContactBaseWithStatusFieldsBulkSchemaBase _base = default(ContactBaseWithStatusFieldsBulkSchemaBase), List<ContactExtraFieldsBulk> extra = default(List<ContactExtraFieldsBulk>))
         {
             this.Base = _base;
             this.Extra = extra;
@@ -45,7 +45,7 @@ namespace org.egoi.client.api.Model
         /// Gets or Sets Base
         /// </summary>
         [DataMember(Name="base", EmitDefaultValue=false)]
-        public ContactBaseWithStatusFieldsSchemaBase Base { get; set; }
+        public ContactBaseWithStatusFieldsBulkSchemaBase Base { get; set; }
 
         /// <summary>
         /// Array of the contact&#39;s extra fields

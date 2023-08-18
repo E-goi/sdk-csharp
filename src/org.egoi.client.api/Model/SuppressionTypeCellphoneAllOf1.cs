@@ -33,16 +33,16 @@ namespace org.egoi.client.api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SuppressionTypeCellphoneAllOf1" /> class.
         /// </summary>
-        /// <param name="value">Array of cellphone values to add to the suppression list.</param>
+        /// <param name="value">Array of cellphone values to add to the suppression list (country code followed by phone number, split by &#39;-&#39;).</param>
         public SuppressionTypeCellphoneAllOf1(List<string> value = default(List<string>))
         {
             this.Value = value;
         }
 
         /// <summary>
-        /// Array of cellphone values to add to the suppression list
+        /// Array of cellphone values to add to the suppression list (country code followed by phone number, split by &#39;-&#39;)
         /// </summary>
-        /// <value>Array of cellphone values to add to the suppression list</value>
+        /// <value>Array of cellphone values to add to the suppression list (country code followed by phone number, split by &#39;-&#39;)</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public List<string> Value { get; set; }
 

@@ -34,7 +34,7 @@ namespace org.egoi.client.api.Model
         /// Initializes a new instance of the <see cref="ContactBaseWithStatusFieldsBulkSchema" /> class.
         /// </summary>
         /// <param name="_base">_base.</param>
-        public ContactBaseWithStatusFieldsBulkSchema(ContactBaseWithStatusFieldsSchemaBase _base = default(ContactBaseWithStatusFieldsSchemaBase))
+        public ContactBaseWithStatusFieldsBulkSchema(ContactBaseWithStatusFieldsBulkSchemaBase _base = default(ContactBaseWithStatusFieldsBulkSchemaBase))
         {
             this.Base = _base;
         }
@@ -43,7 +43,7 @@ namespace org.egoi.client.api.Model
         /// Gets or Sets Base
         /// </summary>
         [DataMember(Name="base", EmitDefaultValue=false)]
-        public ContactBaseWithStatusFieldsSchemaBase Base { get; set; }
+        public ContactBaseWithStatusFieldsBulkSchemaBase Base { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

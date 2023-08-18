@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **Delivered** | **int** | Webpush messages delivered to the contact | [optional] 
 **Clicks** | **int** | Total number of clicks made by the contact | [optional] 
 **Bounces** | **int** | Bounces for the contact | [optional] 
-**LastSendDate** | **DateTime** | Date of the last webpush message sent to the contact | [optional] 
-**LastDeliveryDate** | **DateTime** | Date of the last webpush message delivered to the contact | [optional] 
-**LastClickDate** | **DateTime** | Date of the last webpush message clicked by the contact | [optional] 
-**LastBounceDate** | **DateTime** | Date of the last webpush bounce for the contact | [optional] 
+**LastSendDate** | **string** | Date of the last webpush message sent to the contact | [optional] 
+**LastDeliveryDate** | **string** | Date of the last webpush message delivered to the contact | [optional] 
+**LastClickDate** | **string** | Date of the last webpush message clicked by the contact | [optional] 
+**LastBounceDate** | **string** | Date of the last webpush bounce for the contact | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -25,10 +25,10 @@ using OpenAPIDateConverter = org.egoi.client.api.Client.OpenAPIDateConverter;
 namespace org.egoi.client.api.Model
 {
     /// <summary>
-    /// ContactInsideBaseWithId
+    /// Contact base fields
     /// </summary>
     [DataContract]
-    public partial class ContactInsideBaseWithId :  IEquatable<ContactInsideBaseWithId>, IValidatableObject
+    public partial class ContactBaseWithStatusFieldsBulkSchemaBase :  IEquatable<ContactBaseWithStatusFieldsBulkSchemaBase>, IValidatableObject
     {
         /// <summary>
         /// Status of the contact
@@ -139,153 +139,6 @@ namespace org.egoi.client.api.Model
         [DataMember(Name="consent", EmitDefaultValue=false)]
         public ConsentEnum? Consent { get; set; }
         /// <summary>
-        /// Contact subscription method
-        /// </summary>
-        /// <value>Contact subscription method</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum SubscriptionMethodEnum
-        {
-            /// <summary>
-            /// Enum Manual for value: manual
-            /// </summary>
-            [EnumMember(Value = "manual")]
-            Manual = 1,
-
-            /// <summary>
-            /// Enum Form for value: form
-            /// </summary>
-            [EnumMember(Value = "form")]
-            Form = 2,
-
-            /// <summary>
-            /// Enum Imported for value: imported
-            /// </summary>
-            [EnumMember(Value = "imported")]
-            Imported = 3,
-
-            /// <summary>
-            /// Enum Referral for value: referral
-            /// </summary>
-            [EnumMember(Value = "referral")]
-            Referral = 4,
-
-            /// <summary>
-            /// Enum Api for value: api
-            /// </summary>
-            [EnumMember(Value = "api")]
-            Api = 5
-
-        }
-
-        /// <summary>
-        /// Contact subscription method
-        /// </summary>
-        /// <value>Contact subscription method</value>
-        [DataMember(Name="subscription_method", EmitDefaultValue=false)]
-        public SubscriptionMethodEnum? SubscriptionMethod { get; set; }
-        /// <summary>
-        /// Contact unsubscription method
-        /// </summary>
-        /// <value>Contact unsubscription method</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum UnsubscriptionMethodEnum
-        {
-            /// <summary>
-            /// Enum Manual for value: manual
-            /// </summary>
-            [EnumMember(Value = "manual")]
-            Manual = 1,
-
-            /// <summary>
-            /// Enum Form for value: form
-            /// </summary>
-            [EnumMember(Value = "form")]
-            Form = 2,
-
-            /// <summary>
-            /// Enum Unsubscribelink for value: unsubscribe_link
-            /// </summary>
-            [EnumMember(Value = "unsubscribe_link")]
-            Unsubscribelink = 3,
-
-            /// <summary>
-            /// Enum Bounce for value: bounce
-            /// </summary>
-            [EnumMember(Value = "bounce")]
-            Bounce = 4,
-
-            /// <summary>
-            /// Enum Api for value: api
-            /// </summary>
-            [EnumMember(Value = "api")]
-            Api = 5,
-
-            /// <summary>
-            /// Enum Empty for value: 
-            /// </summary>
-            [EnumMember(Value = "")]
-            Empty = 6
-
-        }
-
-        /// <summary>
-        /// Contact unsubscription method
-        /// </summary>
-        /// <value>Contact unsubscription method</value>
-        [DataMember(Name="unsubscription_method", EmitDefaultValue=false)]
-        public UnsubscriptionMethodEnum? UnsubscriptionMethod { get; set; }
-        /// <summary>
-        /// Contact unsubscription reason
-        /// </summary>
-        /// <value>Contact unsubscription reason</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum UnsubscriptionReasonEnum
-        {
-            /// <summary>
-            /// Enum Notinterested for value: not_interested
-            /// </summary>
-            [EnumMember(Value = "not_interested")]
-            Notinterested = 1,
-
-            /// <summary>
-            /// Enum Lackoftime for value: lack_of_time
-            /// </summary>
-            [EnumMember(Value = "lack_of_time")]
-            Lackoftime = 2,
-
-            /// <summary>
-            /// Enum Emailaddresschange for value: email_address_change
-            /// </summary>
-            [EnumMember(Value = "email_address_change")]
-            Emailaddresschange = 3,
-
-            /// <summary>
-            /// Enum Spam for value: spam
-            /// </summary>
-            [EnumMember(Value = "spam")]
-            Spam = 4,
-
-            /// <summary>
-            /// Enum Other for value: other
-            /// </summary>
-            [EnumMember(Value = "other")]
-            Other = 5,
-
-            /// <summary>
-            /// Enum Empty for value: 
-            /// </summary>
-            [EnumMember(Value = "")]
-            Empty = 6
-
-        }
-
-        /// <summary>
-        /// Contact unsubscription reason
-        /// </summary>
-        /// <value>Contact unsubscription reason</value>
-        [DataMember(Name="unsubscription_reason", EmitDefaultValue=false)]
-        public UnsubscriptionReasonEnum? UnsubscriptionReason { get; set; }
-        /// <summary>
         /// Email channel status
         /// </summary>
         /// <value>Email channel status</value>
@@ -367,22 +220,24 @@ namespace org.egoi.client.api.Model
         [DataMember(Name="phone_status", EmitDefaultValue=false)]
         public PhoneStatusEnum? PhoneStatus { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContactInsideBaseWithId" /> class.
+        /// Initializes a new instance of the <see cref="ContactBaseWithStatusFieldsBulkSchemaBase" /> class.
         /// </summary>
-        /// <param name="contactId">contactId.</param>
         /// <param name="status">Status of the contact (default to StatusEnum.Active).</param>
+        /// <param name="consent">Contact consent.</param>
         /// <param name="firstName">First name of the contact.</param>
         /// <param name="lastName">Last name of the contact.</param>
         /// <param name="birthDate">Birth date of the contact.</param>
         /// <param name="language">language.</param>
         /// <param name="email">Email of the contact.</param>
+        /// <param name="emailStatus">Email channel status.</param>
         /// <param name="cellphone">Cellphone of the contact.</param>
+        /// <param name="cellphoneStatus">Cellphone channel status.</param>
         /// <param name="phone">Phone of the contact.</param>
+        /// <param name="phoneStatus">Phone channel status.</param>
         /// <param name="pushTokenAndroid">Android push token of the contact.</param>
         /// <param name="pushTokenIos">IOS push token of the contact.</param>
-        public ContactInsideBaseWithId(string contactId = default(string), StatusEnum? status = StatusEnum.Active, string firstName = default(string), string lastName = default(string), string birthDate = default(string), Language language = default(Language), string email = default(string), string cellphone = default(string), string phone = default(string), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid> pushTokenAndroid = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid>), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos> pushTokenIos = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos>))
+        public ContactBaseWithStatusFieldsBulkSchemaBase(StatusEnum? status = StatusEnum.Active, ConsentEnum? consent = default(ConsentEnum?), string firstName = default(string), string lastName = default(string), string birthDate = default(string), Language language = default(Language), string email = default(string), EmailStatusEnum? emailStatus = default(EmailStatusEnum?), string cellphone = default(string), CellphoneStatusEnum? cellphoneStatus = default(CellphoneStatusEnum?), string phone = default(string), PhoneStatusEnum? phoneStatus = default(PhoneStatusEnum?), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid> pushTokenAndroid = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid>), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos> pushTokenIos = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos>))
         {
-            this.ContactId = contactId;
             // use default value if no "status" provided
             if (status == null)
             {
@@ -392,13 +247,17 @@ namespace org.egoi.client.api.Model
             {
                 this.Status = status;
             }
+            this.Consent = consent;
             this.FirstName = firstName;
             this.LastName = lastName;
             this.BirthDate = birthDate;
             this.Language = language;
             this.Email = email;
+            this.EmailStatus = emailStatus;
             this.Cellphone = cellphone;
+            this.CellphoneStatus = cellphoneStatus;
             this.Phone = phone;
+            this.PhoneStatus = phoneStatus;
             this.PushTokenAndroid = pushTokenAndroid;
             this.PushTokenIos = pushTokenIos;
         }
@@ -407,54 +266,9 @@ namespace org.egoi.client.api.Model
         /// Gets or Sets ContactId
         /// </summary>
         [DataMember(Name="contact_id", EmitDefaultValue=false)]
-        public string ContactId { get; set; }
+        public string ContactId { get; private set; }
 
 
-
-        /// <summary>
-        /// Date and hour of the contact consent
-        /// </summary>
-        /// <value>Date and hour of the contact consent</value>
-        [DataMember(Name="consent_date", EmitDefaultValue=false)]
-        public string ConsentDate { get; private set; }
-
-
-        /// <summary>
-        /// Date and hour of the contact subscription
-        /// </summary>
-        /// <value>Date and hour of the contact subscription</value>
-        [DataMember(Name="subscription_date", EmitDefaultValue=false)]
-        public string SubscriptionDate { get; private set; }
-
-        /// <summary>
-        /// Contact subscription form
-        /// </summary>
-        /// <value>Contact subscription form</value>
-        [DataMember(Name="subscription_form", EmitDefaultValue=false)]
-        public int SubscriptionForm { get; private set; }
-
-
-
-        /// <summary>
-        /// Contact unsubscription observation
-        /// </summary>
-        /// <value>Contact unsubscription observation</value>
-        [DataMember(Name="unsubscription_observation", EmitDefaultValue=false)]
-        public string UnsubscriptionObservation { get; private set; }
-
-        /// <summary>
-        /// Contact unsubscription date
-        /// </summary>
-        /// <value>Contact unsubscription date</value>
-        [DataMember(Name="unsubscription_date", EmitDefaultValue=false)]
-        public string UnsubscriptionDate { get; private set; }
-
-        /// <summary>
-        /// Last modification date of the contact
-        /// </summary>
-        /// <value>Last modification date of the contact</value>
-        [DataMember(Name="change_date", EmitDefaultValue=false)]
-        public string ChangeDate { get; private set; }
 
         /// <summary>
         /// First name of the contact
@@ -528,19 +342,10 @@ namespace org.egoi.client.api.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ContactInsideBaseWithId {\n");
+            sb.Append("class ContactBaseWithStatusFieldsBulkSchemaBase {\n");
             sb.Append("  ContactId: ").Append(ContactId).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Consent: ").Append(Consent).Append("\n");
-            sb.Append("  ConsentDate: ").Append(ConsentDate).Append("\n");
-            sb.Append("  SubscriptionMethod: ").Append(SubscriptionMethod).Append("\n");
-            sb.Append("  SubscriptionDate: ").Append(SubscriptionDate).Append("\n");
-            sb.Append("  SubscriptionForm: ").Append(SubscriptionForm).Append("\n");
-            sb.Append("  UnsubscriptionMethod: ").Append(UnsubscriptionMethod).Append("\n");
-            sb.Append("  UnsubscriptionReason: ").Append(UnsubscriptionReason).Append("\n");
-            sb.Append("  UnsubscriptionObservation: ").Append(UnsubscriptionObservation).Append("\n");
-            sb.Append("  UnsubscriptionDate: ").Append(UnsubscriptionDate).Append("\n");
-            sb.Append("  ChangeDate: ").Append(ChangeDate).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  BirthDate: ").Append(BirthDate).Append("\n");
@@ -573,15 +378,15 @@ namespace org.egoi.client.api.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ContactInsideBaseWithId);
+            return this.Equals(input as ContactBaseWithStatusFieldsBulkSchemaBase);
         }
 
         /// <summary>
-        /// Returns true if ContactInsideBaseWithId instances are equal
+        /// Returns true if ContactBaseWithStatusFieldsBulkSchemaBase instances are equal
         /// </summary>
-        /// <param name="input">Instance of ContactInsideBaseWithId to be compared</param>
+        /// <param name="input">Instance of ContactBaseWithStatusFieldsBulkSchemaBase to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ContactInsideBaseWithId input)
+        public bool Equals(ContactBaseWithStatusFieldsBulkSchemaBase input)
         {
             if (input == null)
                 return false;
@@ -601,51 +406,6 @@ namespace org.egoi.client.api.Model
                     this.Consent == input.Consent ||
                     (this.Consent != null &&
                     this.Consent.Equals(input.Consent))
-                ) && 
-                (
-                    this.ConsentDate == input.ConsentDate ||
-                    (this.ConsentDate != null &&
-                    this.ConsentDate.Equals(input.ConsentDate))
-                ) && 
-                (
-                    this.SubscriptionMethod == input.SubscriptionMethod ||
-                    (this.SubscriptionMethod != null &&
-                    this.SubscriptionMethod.Equals(input.SubscriptionMethod))
-                ) && 
-                (
-                    this.SubscriptionDate == input.SubscriptionDate ||
-                    (this.SubscriptionDate != null &&
-                    this.SubscriptionDate.Equals(input.SubscriptionDate))
-                ) && 
-                (
-                    this.SubscriptionForm == input.SubscriptionForm ||
-                    (this.SubscriptionForm != null &&
-                    this.SubscriptionForm.Equals(input.SubscriptionForm))
-                ) && 
-                (
-                    this.UnsubscriptionMethod == input.UnsubscriptionMethod ||
-                    (this.UnsubscriptionMethod != null &&
-                    this.UnsubscriptionMethod.Equals(input.UnsubscriptionMethod))
-                ) && 
-                (
-                    this.UnsubscriptionReason == input.UnsubscriptionReason ||
-                    (this.UnsubscriptionReason != null &&
-                    this.UnsubscriptionReason.Equals(input.UnsubscriptionReason))
-                ) && 
-                (
-                    this.UnsubscriptionObservation == input.UnsubscriptionObservation ||
-                    (this.UnsubscriptionObservation != null &&
-                    this.UnsubscriptionObservation.Equals(input.UnsubscriptionObservation))
-                ) && 
-                (
-                    this.UnsubscriptionDate == input.UnsubscriptionDate ||
-                    (this.UnsubscriptionDate != null &&
-                    this.UnsubscriptionDate.Equals(input.UnsubscriptionDate))
-                ) && 
-                (
-                    this.ChangeDate == input.ChangeDate ||
-                    (this.ChangeDate != null &&
-                    this.ChangeDate.Equals(input.ChangeDate))
                 ) && 
                 (
                     this.FirstName == input.FirstName ||
@@ -726,24 +486,6 @@ namespace org.egoi.client.api.Model
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.Consent != null)
                     hashCode = hashCode * 59 + this.Consent.GetHashCode();
-                if (this.ConsentDate != null)
-                    hashCode = hashCode * 59 + this.ConsentDate.GetHashCode();
-                if (this.SubscriptionMethod != null)
-                    hashCode = hashCode * 59 + this.SubscriptionMethod.GetHashCode();
-                if (this.SubscriptionDate != null)
-                    hashCode = hashCode * 59 + this.SubscriptionDate.GetHashCode();
-                if (this.SubscriptionForm != null)
-                    hashCode = hashCode * 59 + this.SubscriptionForm.GetHashCode();
-                if (this.UnsubscriptionMethod != null)
-                    hashCode = hashCode * 59 + this.UnsubscriptionMethod.GetHashCode();
-                if (this.UnsubscriptionReason != null)
-                    hashCode = hashCode * 59 + this.UnsubscriptionReason.GetHashCode();
-                if (this.UnsubscriptionObservation != null)
-                    hashCode = hashCode * 59 + this.UnsubscriptionObservation.GetHashCode();
-                if (this.UnsubscriptionDate != null)
-                    hashCode = hashCode * 59 + this.UnsubscriptionDate.GetHashCode();
-                if (this.ChangeDate != null)
-                    hashCode = hashCode * 59 + this.ChangeDate.GetHashCode();
                 if (this.FirstName != null)
                     hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
@@ -786,14 +528,6 @@ namespace org.egoi.client.api.Model
             if (false == regexContactId.Match(this.ContactId).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ContactId, must match a pattern of " + regexContactId, new [] { "ContactId" });
-            }
-
-
-
-            // SubscriptionForm (int) minimum
-            if(this.SubscriptionForm < (int)0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SubscriptionForm, must be a value greater than or equal to 0.", new [] { "SubscriptionForm" });
             }
 
             yield break;

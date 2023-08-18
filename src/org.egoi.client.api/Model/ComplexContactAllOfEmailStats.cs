@@ -47,7 +47,7 @@ namespace org.egoi.client.api.Model
         /// <param name="lastOpenCountry">Country where the last email for that contact was opened.</param>
         /// <param name="lastOpenRegion">Region where the last email for that contact was opened.</param>
         /// <param name="lastOpenCity">City where the last email for that contact was opened.</param>
-        public ComplexContactAllOfEmailStats(int sent = default(int), int opens = default(int), int clicks = default(int), int softBounces = default(int), int hardBounces = default(int), int forwards = default(int), int conversions = default(int), int socialActions = default(int), DateTime? lastSendDate = default(DateTime?), DateTime? lastOpenDate = default(DateTime?), DateTime? lastClickDate = default(DateTime?), string lastOpenCountry = default(string), string lastOpenRegion = default(string), string lastOpenCity = default(string))
+        public ComplexContactAllOfEmailStats(int sent = default(int), int opens = default(int), int clicks = default(int), int softBounces = default(int), int hardBounces = default(int), int forwards = default(int), int conversions = default(int), int socialActions = default(int), string lastSendDate = default(string), string lastOpenDate = default(string), string lastClickDate = default(string), string lastOpenCountry = default(string), string lastOpenRegion = default(string), string lastOpenCity = default(string))
         {
             this.LastSendDate = lastSendDate;
             this.LastOpenDate = lastOpenDate;
@@ -132,21 +132,21 @@ namespace org.egoi.client.api.Model
         /// </summary>
         /// <value>Date of the last email sent to the contact</value>
         [DataMember(Name="last_send_date", EmitDefaultValue=true)]
-        public DateTime? LastSendDate { get; set; }
+        public string LastSendDate { get; set; }
 
         /// <summary>
         /// Date of the last email open of the contact
         /// </summary>
         /// <value>Date of the last email open of the contact</value>
         [DataMember(Name="last_open_date", EmitDefaultValue=true)]
-        public DateTime? LastOpenDate { get; set; }
+        public string LastOpenDate { get; set; }
 
         /// <summary>
         /// Date of the last email click of the contact
         /// </summary>
         /// <value>Date of the last email click of the contact</value>
         [DataMember(Name="last_click_date", EmitDefaultValue=true)]
-        public DateTime? LastClickDate { get; set; }
+        public string LastClickDate { get; set; }
 
         /// <summary>
         /// Country where the last email for that contact was opened

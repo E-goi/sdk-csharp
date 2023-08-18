@@ -12,7 +12,7 @@ The version of the OpenAPI document: 3.0.0
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{28BA0B76-67BA-4323-B96A-6D75EE320DC6}</ProjectGuid>
+    <ProjectGuid>{20200C32-C6F6-4440-B595-5AD41E231B4E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>org.egoi.client.api</RootNamespace>

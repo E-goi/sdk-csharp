@@ -82,7 +82,7 @@ namespace org.egoi.client.api.Model
         /// Initializes a new instance of the <see cref="ContactExtraFieldPhone" /> class.
         /// </summary>
         /// <param name="fieldId">fieldId.</param>
-        /// <param name="value">Extra field value.</param>
+        /// <param name="value">Phone value (country code followed by phone number, split by &#39;-&#39;).</param>
         /// <param name="status">Extra field status.</param>
         public ContactExtraFieldPhone(int fieldId = default(int), string value = default(string), StatusEnum? status = default(StatusEnum?))
         {
@@ -99,9 +99,9 @@ namespace org.egoi.client.api.Model
 
 
         /// <summary>
-        /// Extra field value
+        /// Phone value (country code followed by phone number, split by &#39;-&#39;)
         /// </summary>
-        /// <value>Extra field value</value>
+        /// <value>Phone value (country code followed by phone number, split by &#39;-&#39;)</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public string Value { get; set; }
 
@@ -208,6 +208,15 @@ namespace org.egoi.client.api.Model
             if(this.FieldId < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FieldId, must be a value greater than or equal to 1.", new [] { "FieldId" });
+            }
+
+
+
+            // Value (string) pattern
+            Regex regexValue = new Regex(@"^(\\d){1,3}-(\\d){4,20}$", RegexOptions.CultureInvariant);
+            if (false == regexValue.Match(this.Value).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, must match a pattern of " + regexValue, new [] { "Value" });
             }
 
             yield break;

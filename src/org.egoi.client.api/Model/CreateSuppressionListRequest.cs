@@ -86,7 +86,7 @@ namespace org.egoi.client.api.Model
         /// Initializes a new instance of the <see cref="CreateSuppressionListRequest" /> class.
         /// </summary>
         /// <param name="type">Suppression type (required).</param>
-        /// <param name="value">Array of phone values to add to the suppression list (required).</param>
+        /// <param name="value">Array of phone values to add to the suppression list (country code followed by phone number, split by &#39;-&#39;) (required).</param>
         public CreateSuppressionListRequest(TypeEnum type = default(TypeEnum), List<string> value = default(List<string>))
         {
             // to ensure "type" is required (not null)
@@ -113,9 +113,9 @@ namespace org.egoi.client.api.Model
 
 
         /// <summary>
-        /// Array of phone values to add to the suppression list
+        /// Array of phone values to add to the suppression list (country code followed by phone number, split by &#39;-&#39;)
         /// </summary>
-        /// <value>Array of phone values to add to the suppression list</value>
+        /// <value>Array of phone values to add to the suppression list (country code followed by phone number, split by &#39;-&#39;)</value>
         [DataMember(Name="value", EmitDefaultValue=true)]
         public List<string> Value { get; set; }
 

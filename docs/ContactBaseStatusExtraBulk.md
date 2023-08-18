@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Base** | [**ContactBaseWithStatusFieldsSchemaBase**](ContactBaseWithStatusFieldsSchemaBase.md) |  | [optional] 
+**Base** | [**ContactBaseWithStatusFieldsBulkSchemaBase**](ContactBaseWithStatusFieldsBulkSchemaBase.md) |  | [optional] 
 **Extra** | [**List&lt;ContactExtraFieldsBulk&gt;**](ContactExtraFieldsBulk.md) | Array of the contact&#39;s extra fields | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

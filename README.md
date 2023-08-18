@@ -8,7 +8,7 @@ The API describes each available method. Learn about parameters, errors, and how
 If you find a bug or something worth fixing, create an issue.
 
 ### Changelog
-#### 1.1.5
+#### 1.1.6
 ## Frameworks supported
 
 
@@ -429,6 +429,7 @@ Class | Method | HTTP request | Description
  - [Model.ContactBaseStatusExtraBulk](docs/ContactBaseStatusExtraBulk.md)
  - [Model.ContactBaseStatusExtraNoRemoved](docs/ContactBaseStatusExtraNoRemoved.md)
  - [Model.ContactBaseWithStatusFieldsBulkSchema](docs/ContactBaseWithStatusFieldsBulkSchema.md)
+ - [Model.ContactBaseWithStatusFieldsBulkSchemaBase](docs/ContactBaseWithStatusFieldsBulkSchemaBase.md)
  - [Model.ContactBaseWithStatusFieldsNoTokensSchema](docs/ContactBaseWithStatusFieldsNoTokensSchema.md)
  - [Model.ContactBaseWithStatusFieldsNoTokensSchemaBase](docs/ContactBaseWithStatusFieldsNoTokensSchemaBase.md)
  - [Model.ContactBaseWithStatusFieldsSchema](docs/ContactBaseWithStatusFieldsSchema.md)

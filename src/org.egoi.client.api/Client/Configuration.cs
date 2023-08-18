@@ -29,7 +29,7 @@ namespace org.egoi.client.api.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.1.5";
+        public const string Version = "1.1.6";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -114,7 +114,7 @@ namespace org.egoi.client.api.Client
         /// </summary>
         public Configuration()
         {
-            UserAgent = "OpenAPI-Generator/1.1.5/csharp";
+            UserAgent = "OpenAPI-Generator/1.1.6/csharp";
             BasePath = "https://api.egoiapp.com";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -187,7 +187,7 @@ namespace org.egoi.client.api.Client
             string tempFolderPath = null,
             string dateTimeFormat = null,
             int timeout = 100000,
-            string userAgent = "OpenAPI-Generator/1.1.5/csharp"
+            string userAgent = "OpenAPI-Generator/1.1.6/csharp"
             // ReSharper restore UnusedParameter.Local
             )
         {
@@ -421,7 +421,7 @@ namespace org.egoi.client.api.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 3.0.0\n";
-            report += "    SDK Package Version: 1.1.5\n";
+            report += "    SDK Package Version: 1.1.6\n";
 
             return report;
         }

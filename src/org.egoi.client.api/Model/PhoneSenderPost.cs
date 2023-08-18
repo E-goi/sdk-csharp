@@ -161,7 +161,7 @@ namespace org.egoi.client.api.Model
 
 
             // Phone (string) pattern
-            Regex regexPhone = new Regex(@"^(){0,1}(\\d){1,3}-(\\d){4,20}$", RegexOptions.CultureInvariant);
+            Regex regexPhone = new Regex(@"^(\\d){1,3}-(\\d){4,20}$", RegexOptions.CultureInvariant);
             if (false == regexPhone.Match(this.Phone).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Phone, must match a pattern of " + regexPhone, new [] { "Phone" });

@@ -230,11 +230,11 @@ namespace org.egoi.client.api.Model
         /// <param name="language">language.</param>
         /// <param name="email">Email of the contact.</param>
         /// <param name="emailStatus">Email channel status.</param>
-        /// <param name="cellphone">Cellphone of the contact.</param>
+        /// <param name="cellphone">Cellphone of the contact (country code followed by phone number, split by &#39;-&#39;).</param>
         /// <param name="cellphoneStatus">Cellphone channel status.</param>
-        /// <param name="phone">Phone of the contact.</param>
+        /// <param name="phone">Phone of the contact (country code followed by phone number, split by &#39;-&#39;).</param>
         /// <param name="phoneStatus">Phone channel status.</param>
-        public ContactBaseWithStatusFieldsNoTokensSchemaBase(StatusEnum? status = StatusEnum.Active, ConsentEnum? consent = default(ConsentEnum?), string firstName = default(string), string lastName = default(string), DateTime birthDate = default(DateTime), Language language = default(Language), string email = default(string), EmailStatusEnum? emailStatus = default(EmailStatusEnum?), string cellphone = default(string), CellphoneStatusEnum? cellphoneStatus = default(CellphoneStatusEnum?), string phone = default(string), PhoneStatusEnum? phoneStatus = default(PhoneStatusEnum?))
+        public ContactBaseWithStatusFieldsNoTokensSchemaBase(StatusEnum? status = StatusEnum.Active, ConsentEnum? consent = default(ConsentEnum?), string firstName = default(string), string lastName = default(string), string birthDate = default(string), Language language = default(Language), string email = default(string), EmailStatusEnum? emailStatus = default(EmailStatusEnum?), string cellphone = default(string), CellphoneStatusEnum? cellphoneStatus = default(CellphoneStatusEnum?), string phone = default(string), PhoneStatusEnum? phoneStatus = default(PhoneStatusEnum?))
         {
             // use default value if no "status" provided
             if (status == null)
@@ -285,8 +285,7 @@ namespace org.egoi.client.api.Model
         /// </summary>
         /// <value>Birth date of the contact</value>
         [DataMember(Name="birth_date", EmitDefaultValue=false)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime BirthDate { get; set; }
+        public string BirthDate { get; set; }
 
         /// <summary>
         /// Gets or Sets Language
@@ -303,17 +302,17 @@ namespace org.egoi.client.api.Model
 
 
         /// <summary>
-        /// Cellphone of the contact
+        /// Cellphone of the contact (country code followed by phone number, split by &#39;-&#39;)
         /// </summary>
-        /// <value>Cellphone of the contact</value>
+        /// <value>Cellphone of the contact (country code followed by phone number, split by &#39;-&#39;)</value>
         [DataMember(Name="cellphone", EmitDefaultValue=false)]
         public string Cellphone { get; set; }
 
 
         /// <summary>
-        /// Phone of the contact
+        /// Phone of the contact (country code followed by phone number, split by &#39;-&#39;)
         /// </summary>
-        /// <value>Phone of the contact</value>
+        /// <value>Phone of the contact (country code followed by phone number, split by &#39;-&#39;)</value>
         [DataMember(Name="phone", EmitDefaultValue=false)]
         public string Phone { get; set; }
 
@@ -493,6 +492,24 @@ namespace org.egoi.client.api.Model
             if (false == regexContactId.Match(this.ContactId).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ContactId, must match a pattern of " + regexContactId, new [] { "ContactId" });
+            }
+
+
+
+            // Cellphone (string) pattern
+            Regex regexCellphone = new Regex(@"^(\\d){1,3}-(\\d){4,20}$", RegexOptions.CultureInvariant);
+            if (false == regexCellphone.Match(this.Cellphone).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Cellphone, must match a pattern of " + regexCellphone, new [] { "Cellphone" });
+            }
+
+
+
+            // Phone (string) pattern
+            Regex regexPhone = new Regex(@"^(\\d){1,3}-(\\d){4,20}$", RegexOptions.CultureInvariant);
+            if (false == regexPhone.Match(this.Phone).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Phone, must match a pattern of " + regexPhone, new [] { "Phone" });
             }
 
             yield break;

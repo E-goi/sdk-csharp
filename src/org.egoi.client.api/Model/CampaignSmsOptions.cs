@@ -43,10 +43,16 @@ namespace org.egoi.client.api.Model
             Gsm = 1,
 
             /// <summary>
+            /// Enum Gsmextended for value: gsm_extended
+            /// </summary>
+            [EnumMember(Value = "gsm_extended")]
+            Gsmextended = 2,
+
+            /// <summary>
             /// Enum Unicode for value: unicode
             /// </summary>
             [EnumMember(Value = "unicode")]
-            Unicode = 2
+            Unicode = 3
 
         }
 
@@ -156,9 +162,9 @@ namespace org.egoi.client.api.Model
 
 
             // MaxMessages (int) maximum
-            if(this.MaxMessages > (int)9)
+            if(this.MaxMessages > (int)7)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MaxMessages, must be a value less than or equal to 9.", new [] { "MaxMessages" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MaxMessages, must be a value less than or equal to 7.", new [] { "MaxMessages" });
             }
 
             // MaxMessages (int) minimum

@@ -1,5 +1,5 @@
 
-# org.egoi.client.api.Model.ContactBaseWithStatusNoRemovedFieldsSchemaBase
+# org.egoi.client.api.Model.ContactBaseWithStatusFieldsBulkSchemaBase
 
 ## Properties
 
@@ -14,9 +14,9 @@ Name | Type | Description | Notes
 **Language** | [**Language**](Language.md) |  | [optional] 
 **Email** | **string** | Email of the contact | [optional] 
 **EmailStatus** | **string** | Email channel status | [optional] 
-**Cellphone** | **string** | Cellphone of the contact (country code followed by phone number, split by &#39;-&#39;) | [optional] 
+**Cellphone** | **string** | Cellphone of the contact | [optional] 
 **CellphoneStatus** | **string** | Cellphone channel status | [optional] 
-**Phone** | **string** | Phone of the contact (country code followed by phone number, split by &#39;-&#39;) | [optional] 
+**Phone** | **string** | Phone of the contact | [optional] 
 **PhoneStatus** | **string** | Phone channel status | [optional] 
 **PushTokenAndroid** | [**List&lt;ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid&gt;**](ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid.md) | Android push token of the contact | [optional] 
 **PushTokenIos** | [**List&lt;ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos&gt;**](ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos.md) | IOS push token of the contact | [optional] 

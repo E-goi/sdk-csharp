@@ -41,7 +41,7 @@ namespace org.egoi.client.api.Model
         /// <param name="lastDeliveryDate">Date of the last webpush message delivered to the contact.</param>
         /// <param name="lastClickDate">Date of the last webpush message clicked by the contact.</param>
         /// <param name="lastBounceDate">Date of the last webpush bounce for the contact.</param>
-        public ComplexContactAllOfWebpushStats(int sent = default(int), int delivered = default(int), int clicks = default(int), int bounces = default(int), DateTime lastSendDate = default(DateTime), DateTime lastDeliveryDate = default(DateTime), DateTime lastClickDate = default(DateTime), DateTime lastBounceDate = default(DateTime))
+        public ComplexContactAllOfWebpushStats(int sent = default(int), int delivered = default(int), int clicks = default(int), int bounces = default(int), string lastSendDate = default(string), string lastDeliveryDate = default(string), string lastClickDate = default(string), string lastBounceDate = default(string))
         {
             this.Sent = sent;
             this.Delivered = delivered;
@@ -86,28 +86,28 @@ namespace org.egoi.client.api.Model
         /// </summary>
         /// <value>Date of the last webpush message sent to the contact</value>
         [DataMember(Name="last_send_date", EmitDefaultValue=false)]
-        public DateTime LastSendDate { get; set; }
+        public string LastSendDate { get; set; }
 
         /// <summary>
         /// Date of the last webpush message delivered to the contact
         /// </summary>
         /// <value>Date of the last webpush message delivered to the contact</value>
         [DataMember(Name="last_delivery_date", EmitDefaultValue=false)]
-        public DateTime LastDeliveryDate { get; set; }
+        public string LastDeliveryDate { get; set; }
 
         /// <summary>
         /// Date of the last webpush message clicked by the contact
         /// </summary>
         /// <value>Date of the last webpush message clicked by the contact</value>
         [DataMember(Name="last_click_date", EmitDefaultValue=false)]
-        public DateTime LastClickDate { get; set; }
+        public string LastClickDate { get; set; }
 
         /// <summary>
         /// Date of the last webpush bounce for the contact
         /// </summary>
         /// <value>Date of the last webpush bounce for the contact</value>
         [DataMember(Name="last_bounce_date", EmitDefaultValue=false)]
-        public DateTime LastBounceDate { get; set; }
+        public string LastBounceDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
