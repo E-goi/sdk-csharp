@@ -43,6 +43,10 @@ namespace org.egoi.client.api.Model
         /// <param name="lastBounceDate">Date of the last webpush bounce for the contact.</param>
         public ComplexContactAllOfWebpushStats(int sent = default(int), int delivered = default(int), int clicks = default(int), int bounces = default(int), string lastSendDate = default(string), string lastDeliveryDate = default(string), string lastClickDate = default(string), string lastBounceDate = default(string))
         {
+            this.LastSendDate = lastSendDate;
+            this.LastDeliveryDate = lastDeliveryDate;
+            this.LastClickDate = lastClickDate;
+            this.LastBounceDate = lastBounceDate;
             this.Sent = sent;
             this.Delivered = delivered;
             this.Clicks = clicks;
@@ -85,28 +89,28 @@ namespace org.egoi.client.api.Model
         /// Date of the last webpush message sent to the contact
         /// </summary>
         /// <value>Date of the last webpush message sent to the contact</value>
-        [DataMember(Name="last_send_date", EmitDefaultValue=false)]
+        [DataMember(Name="last_send_date", EmitDefaultValue=true)]
         public string LastSendDate { get; set; }
 
         /// <summary>
         /// Date of the last webpush message delivered to the contact
         /// </summary>
         /// <value>Date of the last webpush message delivered to the contact</value>
-        [DataMember(Name="last_delivery_date", EmitDefaultValue=false)]
+        [DataMember(Name="last_delivery_date", EmitDefaultValue=true)]
         public string LastDeliveryDate { get; set; }
 
         /// <summary>
         /// Date of the last webpush message clicked by the contact
         /// </summary>
         /// <value>Date of the last webpush message clicked by the contact</value>
-        [DataMember(Name="last_click_date", EmitDefaultValue=false)]
+        [DataMember(Name="last_click_date", EmitDefaultValue=true)]
         public string LastClickDate { get; set; }
 
         /// <summary>
         /// Date of the last webpush bounce for the contact
         /// </summary>
         /// <value>Date of the last webpush bounce for the contact</value>
-        [DataMember(Name="last_bounce_date", EmitDefaultValue=false)]
+        [DataMember(Name="last_bounce_date", EmitDefaultValue=true)]
         public string LastBounceDate { get; set; }
 
         /// <summary>

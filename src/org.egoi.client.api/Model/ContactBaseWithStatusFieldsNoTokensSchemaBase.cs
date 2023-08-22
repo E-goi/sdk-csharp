@@ -234,8 +234,9 @@ namespace org.egoi.client.api.Model
         /// <param name="cellphoneStatus">Cellphone channel status.</param>
         /// <param name="phone">Phone of the contact (country code followed by phone number, split by &#39;-&#39;).</param>
         /// <param name="phoneStatus">Phone channel status.</param>
-        public ContactBaseWithStatusFieldsNoTokensSchemaBase(StatusEnum? status = StatusEnum.Active, ConsentEnum? consent = default(ConsentEnum?), string firstName = default(string), string lastName = default(string), DateTime birthDate = default(DateTime), Language language = default(Language), string email = default(string), EmailStatusEnum? emailStatus = default(EmailStatusEnum?), string cellphone = default(string), CellphoneStatusEnum? cellphoneStatus = default(CellphoneStatusEnum?), string phone = default(string), PhoneStatusEnum? phoneStatus = default(PhoneStatusEnum?))
+        public ContactBaseWithStatusFieldsNoTokensSchemaBase(StatusEnum? status = StatusEnum.Active, ConsentEnum? consent = default(ConsentEnum?), string firstName = default(string), string lastName = default(string), string birthDate = default(string), Language language = default(Language), string email = default(string), EmailStatusEnum? emailStatus = default(EmailStatusEnum?), string cellphone = default(string), CellphoneStatusEnum? cellphoneStatus = default(CellphoneStatusEnum?), string phone = default(string), PhoneStatusEnum? phoneStatus = default(PhoneStatusEnum?))
         {
+            this.BirthDate = birthDate;
             // use default value if no "status" provided
             if (status == null)
             {
@@ -284,9 +285,8 @@ namespace org.egoi.client.api.Model
         /// Birth date of the contact
         /// </summary>
         /// <value>Birth date of the contact</value>
-        [DataMember(Name="birth_date", EmitDefaultValue=false)]
-        [JsonConverter(typeof(OpenAPIDateConverter))]
-        public DateTime BirthDate { get; set; }
+        [DataMember(Name="birth_date", EmitDefaultValue=true)]
+        public string BirthDate { get; set; }
 
         /// <summary>
         /// Gets or Sets Language

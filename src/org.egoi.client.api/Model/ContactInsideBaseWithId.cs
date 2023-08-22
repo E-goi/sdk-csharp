@@ -382,6 +382,7 @@ namespace org.egoi.client.api.Model
         /// <param name="pushTokenIos">IOS push token of the contact.</param>
         public ContactInsideBaseWithId(string contactId = default(string), StatusEnum? status = StatusEnum.Active, string firstName = default(string), string lastName = default(string), string birthDate = default(string), Language language = default(Language), string email = default(string), string cellphone = default(string), string phone = default(string), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid> pushTokenAndroid = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid>), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos> pushTokenIos = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos>))
         {
+            this.BirthDate = birthDate;
             this.ContactId = contactId;
             // use default value if no "status" provided
             if (status == null)
@@ -423,7 +424,7 @@ namespace org.egoi.client.api.Model
         /// Date and hour of the contact subscription
         /// </summary>
         /// <value>Date and hour of the contact subscription</value>
-        [DataMember(Name="subscription_date", EmitDefaultValue=false)]
+        [DataMember(Name="subscription_date", EmitDefaultValue=true)]
         public string SubscriptionDate { get; private set; }
 
         /// <summary>
@@ -446,14 +447,14 @@ namespace org.egoi.client.api.Model
         /// Contact unsubscription date
         /// </summary>
         /// <value>Contact unsubscription date</value>
-        [DataMember(Name="unsubscription_date", EmitDefaultValue=false)]
+        [DataMember(Name="unsubscription_date", EmitDefaultValue=true)]
         public string UnsubscriptionDate { get; private set; }
 
         /// <summary>
         /// Last modification date of the contact
         /// </summary>
         /// <value>Last modification date of the contact</value>
-        [DataMember(Name="change_date", EmitDefaultValue=false)]
+        [DataMember(Name="change_date", EmitDefaultValue=true)]
         public string ChangeDate { get; private set; }
 
         /// <summary>
@@ -474,7 +475,7 @@ namespace org.egoi.client.api.Model
         /// Birth date of the contact
         /// </summary>
         /// <value>Birth date of the contact</value>
-        [DataMember(Name="birth_date", EmitDefaultValue=false)]
+        [DataMember(Name="birth_date", EmitDefaultValue=true)]
         public string BirthDate { get; set; }
 
         /// <summary>

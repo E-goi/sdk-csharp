@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Consent** | **string** | Contact consent | [optional] 
 **FirstName** | **string** | First name of the contact | [optional] 
 **LastName** | **string** | Last name of the contact | [optional] 
-**BirthDate** | **DateTime** | Birth date of the contact | [optional] 
+**BirthDate** | **string** | Birth date of the contact | [optional] 
 **Language** | [**Language**](Language.md) |  | [optional] 
 **Email** | **string** | Email of the contact | [optional] 
 **EmailStatus** | **string** | Email channel status | [optional] 

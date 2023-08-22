@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Status** | **string** | Status of the contact | [optional] [default to StatusEnum.Active]
 **FirstName** | **string** | First name of the contact | [optional] 
 **LastName** | **string** | Last name of the contact | [optional] 
-**BirthDate** | **DateTime** | Birth date of the contact | [optional] 
+**BirthDate** | **string** | Birth date of the contact | [optional] 
 **Language** | [**Language**](Language.md) |  | [optional] 
 **Email** | **string** | Email of the contact | [optional] 
 **Cellphone** | **string** | Cellphone of the contact (country code followed by phone number, split by &#39;-&#39;) | [optional] 

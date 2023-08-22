@@ -81,7 +81,7 @@ The version of the OpenAPI document: 3.0.0
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\org.egoi.client.api\org.egoi.client.api.csproj">
-          <Project>{FA89C51D-BA0B-4DDB-AC83-2D5D1B3EDF13}</Project>
+          <Project>{F17C5428-0277-4378-BD1B-8A5DF140A0EF}</Project>
           <Name>org.egoi.client.api</Name>
       </ProjectReference>
   </ItemGroup>
