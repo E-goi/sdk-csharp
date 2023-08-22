@@ -49,7 +49,7 @@ namespace org.egoi.client.api.Model
         /// Extra field format
         /// </summary>
         /// <value>Extra field format</value>
-        [DataMember(Name="format", EmitDefaultValue=false)]
+        [DataMember(Name="format", EmitDefaultValue=true)]
         public FormatEnum? Format { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ContactExtraFieldOptions" /> class.
@@ -58,6 +58,7 @@ namespace org.egoi.client.api.Model
         /// <param name="value">Extra field value.</param>
         public ContactExtraFieldOptions(int fieldId = default(int), List<int> value = default(List<int>))
         {
+            this.Value = value;
             this.FieldId = fieldId;
             this.Value = value;
         }
@@ -73,7 +74,7 @@ namespace org.egoi.client.api.Model
         /// Extra field value
         /// </summary>
         /// <value>Extra field value</value>
-        [DataMember(Name="value", EmitDefaultValue=false)]
+        [DataMember(Name="value", EmitDefaultValue=true)]
         public List<int> Value { get; set; }
 
         /// <summary>

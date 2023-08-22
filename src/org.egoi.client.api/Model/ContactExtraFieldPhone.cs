@@ -49,7 +49,7 @@ namespace org.egoi.client.api.Model
         /// Extra field format
         /// </summary>
         /// <value>Extra field format</value>
-        [DataMember(Name="format", EmitDefaultValue=false)]
+        [DataMember(Name="format", EmitDefaultValue=true)]
         public FormatEnum? Format { get; set; }
         /// <summary>
         /// Extra field status
@@ -76,7 +76,7 @@ namespace org.egoi.client.api.Model
         /// Extra field status
         /// </summary>
         /// <value>Extra field status</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
+        [DataMember(Name="status", EmitDefaultValue=true)]
         public StatusEnum? Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ContactExtraFieldPhone" /> class.
@@ -86,6 +86,8 @@ namespace org.egoi.client.api.Model
         /// <param name="status">Extra field status.</param>
         public ContactExtraFieldPhone(int fieldId = default(int), string value = default(string), StatusEnum? status = default(StatusEnum?))
         {
+            this.Value = value;
+            this.Status = status;
             this.FieldId = fieldId;
             this.Value = value;
             this.Status = status;
@@ -102,7 +104,7 @@ namespace org.egoi.client.api.Model
         /// Phone value (country code followed by phone number, split by &#39;-&#39;)
         /// </summary>
         /// <value>Phone value (country code followed by phone number, split by &#39;-&#39;)</value>
-        [DataMember(Name="value", EmitDefaultValue=false)]
+        [DataMember(Name="value", EmitDefaultValue=true)]
         public string Value { get; set; }
 
 

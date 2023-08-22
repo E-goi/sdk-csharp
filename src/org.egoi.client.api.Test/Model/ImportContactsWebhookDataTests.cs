@@ -97,6 +97,14 @@ namespace org.egoi.client.api.Test
         {
             // TODO unit test for the property 'Invalid'
         }
+        /// <summary>
+        /// Test the property 'File'
+        /// </summary>
+        [Test]
+        public void FileTest()
+        {
+            // TODO unit test for the property 'File'
+        }
 
     }
 

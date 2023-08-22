@@ -37,12 +37,14 @@ namespace org.egoi.client.api.Model
         /// <param name="updated">updated.</param>
         /// <param name="ignored">ignored.</param>
         /// <param name="invalid">invalid.</param>
-        public ImportContactsWebhookData(int imported = default(int), int updated = default(int), int ignored = default(int), int invalid = default(int))
+        /// <param name="file">file.</param>
+        public ImportContactsWebhookData(int imported = default(int), int updated = default(int), int ignored = default(int), int invalid = default(int), string file = default(string))
         {
             this.Imported = imported;
             this.Updated = updated;
             this.Ignored = ignored;
             this.Invalid = invalid;
+            this.File = file;
         }
 
         /// <summary>
@@ -70,6 +72,12 @@ namespace org.egoi.client.api.Model
         public int Invalid { get; set; }
 
         /// <summary>
+        /// Gets or Sets File
+        /// </summary>
+        [DataMember(Name="file", EmitDefaultValue=false)]
+        public string File { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,6 +89,7 @@ namespace org.egoi.client.api.Model
             sb.Append("  Updated: ").Append(Updated).Append("\n");
             sb.Append("  Ignored: ").Append(Ignored).Append("\n");
             sb.Append("  Invalid: ").Append(Invalid).Append("\n");
+            sb.Append("  File: ").Append(File).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -134,6 +143,11 @@ namespace org.egoi.client.api.Model
                     this.Invalid == input.Invalid ||
                     (this.Invalid != null &&
                     this.Invalid.Equals(input.Invalid))
+                ) && 
+                (
+                    this.File == input.File ||
+                    (this.File != null &&
+                    this.File.Equals(input.File))
                 );
         }
 
@@ -154,6 +168,8 @@ namespace org.egoi.client.api.Model
                     hashCode = hashCode * 59 + this.Ignored.GetHashCode();
                 if (this.Invalid != null)
                     hashCode = hashCode * 59 + this.Invalid.GetHashCode();
+                if (this.File != null)
+                    hashCode = hashCode * 59 + this.File.GetHashCode();
                 return hashCode;
             }
         }

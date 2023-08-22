@@ -236,7 +236,7 @@ namespace org.egoi.client.api.Model
         /// <param name="phoneStatus">Phone channel status.</param>
         /// <param name="pushTokenAndroid">Android push token of the contact.</param>
         /// <param name="pushTokenIos">IOS push token of the contact.</param>
-        public ContactBaseWithStatusFieldsBulkSchemaBase(StatusEnum? status = StatusEnum.Active, ConsentEnum? consent = default(ConsentEnum?), string firstName = default(string), string lastName = default(string), string birthDate = default(string), Language language = default(Language), string email = default(string), EmailStatusEnum? emailStatus = default(EmailStatusEnum?), string cellphone = default(string), CellphoneStatusEnum? cellphoneStatus = default(CellphoneStatusEnum?), string phone = default(string), PhoneStatusEnum? phoneStatus = default(PhoneStatusEnum?), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid> pushTokenAndroid = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid>), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos> pushTokenIos = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos>))
+        public ContactBaseWithStatusFieldsBulkSchemaBase(StatusEnum? status = StatusEnum.Active, ConsentEnum? consent = default(ConsentEnum?), string firstName = default(string), string lastName = default(string), DateTime birthDate = default(DateTime), Language language = default(Language), string email = default(string), EmailStatusEnum? emailStatus = default(EmailStatusEnum?), string cellphone = default(string), CellphoneStatusEnum? cellphoneStatus = default(CellphoneStatusEnum?), string phone = default(string), PhoneStatusEnum? phoneStatus = default(PhoneStatusEnum?), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid> pushTokenAndroid = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroid>), List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos> pushTokenIos = default(List<ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIos>))
         {
             // use default value if no "status" provided
             if (status == null)
@@ -289,7 +289,8 @@ namespace org.egoi.client.api.Model
         /// </summary>
         /// <value>Birth date of the contact</value>
         [DataMember(Name="birth_date", EmitDefaultValue=false)]
-        public string BirthDate { get; set; }
+        [JsonConverter(typeof(OpenAPIDateConverter))]
+        public DateTime BirthDate { get; set; }
 
         /// <summary>
         /// Gets or Sets Language
