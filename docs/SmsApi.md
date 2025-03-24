@@ -40,7 +40,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
             var apiInstance = new SmsApi(Configuration.Default);
-            var campaignHash = campaignHash_example;  // string | ID of the Campaign
+            var campaignHash = campaignHash_example;  // string | Hash of the Campaign
             var campaignSmsSendRequest = new CampaignSmsSendRequest(); // CampaignSmsSendRequest | Parameters for the 'send sms' action
 
             try
@@ -65,7 +65,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaignHash** | **string**| ID of the Campaign | 
+ **campaignHash** | **string**| Hash of the Campaign | 
  **campaignSmsSendRequest** | [**CampaignSmsSendRequest**](CampaignSmsSendRequest.md)| Parameters for the &#39;send sms&#39; action | 
 
 ### Return type
@@ -219,7 +219,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
             var apiInstance = new SmsApi(Configuration.Default);
-            var campaignHash = campaignHash_example;  // string | ID of the Campaign
+            var campaignHash = campaignHash_example;  // string | Hash of the Campaign
             var smsCampaignPatchRequest = new SmsCampaignPatchRequest(); // SmsCampaignPatchRequest | Parameters for the Sms Campaign
 
             try
@@ -244,7 +244,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaignHash** | **string**| ID of the Campaign | 
+ **campaignHash** | **string**| Hash of the Campaign | 
  **smsCampaignPatchRequest** | [**SmsCampaignPatchRequest**](SmsCampaignPatchRequest.md)| Parameters for the Sms Campaign | 
 
 ### Return type

@@ -5,7 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Language** | [**Language**](Language.md) |  | [optional] 
+**DefaultLanguage** | [**Language**](Language.md) |  | [optional] 
+**AvailableLanguages** | **List&lt;string&gt;** | Array of available languages | [optional] 
 **Stats** | [**ComplexListAllOfStats**](ComplexListAllOfStats.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

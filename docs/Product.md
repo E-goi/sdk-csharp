@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Categories** | **List&lt;string&gt;** | Array of product categories, using the character &#39;&gt;&#39; as delimiter for the breadcrumb                                 syntax | [optional] 
-**RelatedProducts** | **List&lt;string&gt;** | Related products | [optional] 
+**RelatedProducts** | **List&lt;string&gt;** | Related products, array of &#39;product_identifier&#39; | [optional] 
 **CustomAttributes** | [**List&lt;ProductCustomAttributes&gt;**](ProductCustomAttributes.md) | Custom attributes | [optional] 
 **ProductIdentifier** | **string** | The ID of the product in your store | [optional] 
 **CatalogId** | **int** |  | [optional] [readonly] 

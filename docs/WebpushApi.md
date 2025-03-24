@@ -44,7 +44,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
             var apiInstance = new WebpushApi(Configuration.Default);
-            var campaignHash = campaignHash_example;  // string | ID of the Campaign
+            var campaignHash = campaignHash_example;  // string | Hash of the Campaign
 
             try
             {
@@ -68,7 +68,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaignHash** | **string**| ID of the Campaign | 
+ **campaignHash** | **string**| Hash of the Campaign | 
 
 ### Return type
 
@@ -132,7 +132,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
             var apiInstance = new WebpushApi(Configuration.Default);
-            var campaignHash = campaignHash_example;  // string | ID of the Campaign
+            var campaignHash = campaignHash_example;  // string | Hash of the Campaign
             var campaignWebPushSendRequest = new CampaignWebPushSendRequest(); // CampaignWebPushSendRequest | Parameters for the 'send web-push' action
 
             try
@@ -157,7 +157,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaignHash** | **string**| ID of the Campaign | 
+ **campaignHash** | **string**| Hash of the Campaign | 
  **campaignWebPushSendRequest** | [**CampaignWebPushSendRequest**](CampaignWebPushSendRequest.md)| Parameters for the &#39;send web-push&#39; action | 
 
 ### Return type
@@ -586,7 +586,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
             var apiInstance = new WebpushApi(Configuration.Default);
-            var campaignHash = campaignHash_example;  // string | ID of the Campaign
+            var campaignHash = campaignHash_example;  // string | Hash of the Campaign
             var webPushPatchCampaign = new WebPushPatchCampaign(); // WebPushPatchCampaign | Parameters for the Webpush Campaign
 
             try
@@ -611,7 +611,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaignHash** | **string**| ID of the Campaign | 
+ **campaignHash** | **string**| Hash of the Campaign | 
  **webPushPatchCampaign** | [**WebPushPatchCampaign**](WebPushPatchCampaign.md)| Parameters for the Webpush Campaign | 
 
 ### Return type

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**CreateList**](ListsApi.md#createlist) | **POST** /lists | Create new list
 [**DeleteList**](ListsApi.md#deletelist) | **DELETE** /lists/{list_id} | Remove list
 [**GetAllLists**](ListsApi.md#getalllists) | **GET** /lists | Get all lists
+[**GetList**](ListsApi.md#getlist) | **GET** /lists/{list_id} | Get list
 [**UpdateList**](ListsApi.md#updatelist) | **PATCH** /lists/{list_id} | Update a specific list
 
 
@@ -283,6 +284,95 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetList
+
+> ComplexList GetList (int listId)
+
+Get list
+
+Returns list information given its ID
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using org.egoi.client.api.Api;
+using org.egoi.client.api.Client;
+using org.egoi.client.api.Model;
+
+namespace Example
+{
+    public class GetListExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
+            // Configure API key authorization: Apikey
+            Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
+
+            var apiInstance = new ListsApi(Configuration.Default);
+            var listId = 56;  // int | ID of the List
+
+            try
+            {
+                // Get list
+                ComplexList result = apiInstance.GetList(listId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ListsApi.GetList: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **listId** | **int**| ID of the List | 
+
+### Return type
+
+[**ComplexList**](ComplexList.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **408** | Request Timeout |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **429** | Too Many Requests |  -  |

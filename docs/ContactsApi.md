@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**GetContact**](ContactsApi.md#getcontact) | **GET** /lists/{list_id}/contacts/{contact_id} | Get contact
 [**PatchContact**](ContactsApi.md#patchcontact) | **PATCH** /lists/{list_id}/contacts/{contact_id} | Update a specific contact
 [**SearchContacts**](ContactsApi.md#searchcontacts) | **GET** /contacts/search | Search contact
+[**UpdateContactByField**](ContactsApi.md#updatecontactbyfield) | **POST** /lists/{list_id}/contacts/by-field | Updates a contact by field
 
 
 
@@ -1615,6 +1616,98 @@ Name | Type | Description  | Notes
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateContactByField
+
+> CreateContactResponse UpdateContactByField (int listId, ContactFieldIdBaseExtraPost contactFieldIdBaseExtraPost)
+
+Updates a contact by field
+
+Updates a contact by field, wich must be unique in list
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using org.egoi.client.api.Api;
+using org.egoi.client.api.Client;
+using org.egoi.client.api.Model;
+
+namespace Example
+{
+    public class UpdateContactByFieldExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
+            // Configure API key authorization: Apikey
+            Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
+
+            var apiInstance = new ContactsApi(Configuration.Default);
+            var listId = 56;  // int | ID of the list where the contact belongs
+            var contactFieldIdBaseExtraPost = new ContactFieldIdBaseExtraPost(); // ContactFieldIdBaseExtraPost | Parameters for the Contact Update by Field Id
+
+            try
+            {
+                // Updates a contact by field
+                CreateContactResponse result = apiInstance.UpdateContactByField(listId, contactFieldIdBaseExtraPost);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ContactsApi.UpdateContactByField: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **listId** | **int**| ID of the list where the contact belongs | 
+ **contactFieldIdBaseExtraPost** | [**ContactFieldIdBaseExtraPost**](ContactFieldIdBaseExtraPost.md)| Parameters for the Contact Update by Field Id | 
+
+### Return type
+
+[**CreateContactResponse**](CreateContactResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **429** | Too Many Requests |  -  |
 | **500** | Internal Server Error |  -  |

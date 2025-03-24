@@ -39,7 +39,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
             var apiInstance = new CampaignsApi(Configuration.Default);
-            var campaignHash = campaignHash_example;  // string | ID of the Campaign
+            var campaignHash = campaignHash_example;  // string | Hash of the Campaign
 
             try
             {
@@ -62,7 +62,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaignHash** | **string**| ID of the Campaign | 
+ **campaignHash** | **string**| Hash of the Campaign | 
 
 ### Return type
 
@@ -145,7 +145,7 @@ namespace Example
             var scheduleDateMin = 2013-10-20T19:20:30+01:00;  // DateTime? | Schedule Date initial (optional) 
             var scheduleDateMax = 2013-10-20T19:20:30+01:00;  // DateTime? | Schedule Date finish (optional) 
             var offset = 56;  // int? | Element offset (starting at zero for the first element) (optional) 
-            var limit = 56;  // int? | Number of items to return (optional)  (default to 10)
+            var limit = 56;  // int? | Number of items to return (optional)  (default to 100)
             var order = order_example;  // string | Type of order (optional)  (default to desc)
             var orderBy = orderBy_example;  // string | Reference attribute to order campaigns (optional)  (default to created)
 
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
  **scheduleDateMin** | **DateTime?**| Schedule Date initial | [optional] 
  **scheduleDateMax** | **DateTime?**| Schedule Date finish | [optional] 
  **offset** | **int?**| Element offset (starting at zero for the first element) | [optional] 
- **limit** | **int?**| Number of items to return | [optional] [default to 10]
+ **limit** | **int?**| Number of items to return | [optional] [default to 100]
  **order** | **string**| Type of order | [optional] [default to desc]
  **orderBy** | **string**| Reference attribute to order campaigns | [optional] [default to created]
 

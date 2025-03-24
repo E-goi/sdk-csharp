@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **SalePrice** | **double** | Sale price of the product | [optional] [default to 0D]
 **Brand** | **string** | Brand of the product | [optional] 
 **Categories** | **List&lt;string&gt;** | Array of product categories, using the character &#39;&gt;&#39; as delimiter for the breadcrumb                         syntax | [optional] 
-**RelatedProducts** | [**ProductPatchRequestRelatedProducts**](ProductPatchRequestRelatedProducts.md) |  | [optional] 
+**RelatedProducts** | **List&lt;string&gt;** | Related products, array of &#39;product_identifier&#39; | [optional] 
 **CustomAttributes** | [**List&lt;ProductCustomAttributes&gt;**](ProductCustomAttributes.md) | Custom attributes | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

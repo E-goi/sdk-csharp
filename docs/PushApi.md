@@ -44,7 +44,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
             var apiInstance = new PushApi(Configuration.Default);
-            var campaignHash = campaignHash_example;  // string | ID of the Campaign
+            var campaignHash = campaignHash_example;  // string | Hash of the Campaign
             var campaignPushSendRequest = new CampaignPushSendRequest(); // CampaignPushSendRequest | Parameters for the 'send push' action
 
             try
@@ -69,7 +69,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaignHash** | **string**| ID of the Campaign | 
+ **campaignHash** | **string**| Hash of the Campaign | 
  **campaignPushSendRequest** | [**CampaignPushSendRequest**](CampaignPushSendRequest.md)| Parameters for the &#39;send push&#39; action | 
 
 ### Return type
@@ -395,7 +395,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
             var apiInstance = new PushApi(Configuration.Default);
-            var campaignHash = campaignHash_example;  // string | ID of the Campaign
+            var campaignHash = campaignHash_example;  // string | Hash of the Campaign
             var pushCampaignPatchRequest = new PushCampaignPatchRequest(); // PushCampaignPatchRequest | Parameters for the push campaign
 
             try
@@ -420,7 +420,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaignHash** | **string**| ID of the Campaign | 
+ **campaignHash** | **string**| Hash of the Campaign | 
  **pushCampaignPatchRequest** | [**PushCampaignPatchRequest**](PushCampaignPatchRequest.md)| Parameters for the push campaign | 
 
 ### Return type

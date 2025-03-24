@@ -4,6 +4,8 @@ All URIs are relative to *https://api.egoiapp.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**GenerateByModelReport**](AdvancedReportsApi.md#generatebymodelreport) | **POST** /reports/advanced/model | Generate report by model
+[**GenerateContactActivityReport**](AdvancedReportsApi.md#generatecontactactivityreport) | **POST** /reports/advanced/contact-activity | Generate contact activity report
 [**GenerateEmailBouncesReport**](AdvancedReportsApi.md#generateemailbouncesreport) | **POST** /reports/advanced/email-bounces | Generate email bounces report
 [**GenerateEmailClicksByContactReport**](AdvancedReportsApi.md#generateemailclicksbycontactreport) | **POST** /reports/advanced/email-clicks-by-contact | Generate email clicks by contact report
 [**GenerateEmailClicksByUrlReport**](AdvancedReportsApi.md#generateemailclicksbyurlreport) | **POST** /reports/advanced/email-clicks-by-url | Generate email clicks by URL report
@@ -16,7 +18,186 @@ Method | HTTP request | Description
 [**GenerateSubscriptionsReport**](AdvancedReportsApi.md#generatesubscriptionsreport) | **POST** /reports/advanced/subscriptions | Generate subscriptions report
 [**GenerateUnsubscriptionsReport**](AdvancedReportsApi.md#generateunsubscriptionsreport) | **POST** /reports/advanced/unsubscriptions | Generate unsubscriptions report
 [**GetAllAdvancedReports**](AdvancedReportsApi.md#getalladvancedreports) | **GET** /reports/advanced | Get all advanced reports
+[**GetAllAdvancedReportsModels**](AdvancedReportsApi.md#getalladvancedreportsmodels) | **GET** /reports/advanced/models | Get all advanced reports models
 
+
+
+## GenerateByModelReport
+
+> AcceptedResponse GenerateByModelReport (GenerateByModelReport generateByModelReport)
+
+Generate report by model
+
+Generates a new report by model Id
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using org.egoi.client.api.Api;
+using org.egoi.client.api.Client;
+using org.egoi.client.api.Model;
+
+namespace Example
+{
+    public class GenerateByModelReportExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
+            // Configure API key authorization: Apikey
+            Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
+
+            var apiInstance = new AdvancedReportsApi(Configuration.Default);
+            var generateByModelReport = new GenerateByModelReport(); // GenerateByModelReport | Parameters for the report by model Id
+
+            try
+            {
+                // Generate report by model
+                AcceptedResponse result = apiInstance.GenerateByModelReport(generateByModelReport);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling AdvancedReportsApi.GenerateByModelReport: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **generateByModelReport** | [**GenerateByModelReport**](GenerateByModelReport.md)| Parameters for the report by model Id | 
+
+### Return type
+
+[**AcceptedResponse**](AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Accepted |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GenerateContactActivityReport
+
+> AcceptedResponse GenerateContactActivityReport (GenerateContactActivityReport generateContactActivityReport)
+
+Generate contact activity report
+
+Generates a new contact activity report
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using org.egoi.client.api.Api;
+using org.egoi.client.api.Client;
+using org.egoi.client.api.Model;
+
+namespace Example
+{
+    public class GenerateContactActivityReportExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
+            // Configure API key authorization: Apikey
+            Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
+
+            var apiInstance = new AdvancedReportsApi(Configuration.Default);
+            var generateContactActivityReport = new GenerateContactActivityReport(); // GenerateContactActivityReport | Parameters for the contact activity report
+
+            try
+            {
+                // Generate contact activity report
+                AcceptedResponse result = apiInstance.GenerateContactActivityReport(generateContactActivityReport);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling AdvancedReportsApi.GenerateContactActivityReport: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **generateContactActivityReport** | [**GenerateContactActivityReport**](GenerateContactActivityReport.md)| Parameters for the contact activity report | 
+
+### Return type
+
+[**AcceptedResponse**](AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Accepted |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## GenerateEmailBouncesReport
@@ -1070,6 +1251,102 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AdvancedReportsCollection**](AdvancedReportsCollection.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **408** | Request Timeout |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetAllAdvancedReportsModels
+
+> AdvancedReportsModelsCollection GetAllAdvancedReportsModels (string title = null, int? offset = null, int? limit = null, string order = null, string orderBy = null)
+
+Get all advanced reports models
+
+Returns all advanced reports
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using org.egoi.client.api.Api;
+using org.egoi.client.api.Client;
+using org.egoi.client.api.Model;
+
+namespace Example
+{
+    public class GetAllAdvancedReportsModelsExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://api.egoiapp.com";
+            // Configure API key authorization: Apikey
+            Configuration.Default.AddApiKey("Apikey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
+
+            var apiInstance = new AdvancedReportsApi(Configuration.Default);
+            var title = title_example;  // string | Advanced report model title (optional) 
+            var offset = 56;  // int? | Element offset (starting at zero for the first element) (optional) 
+            var limit = 56;  // int? | Number of items to return (optional)  (default to 10)
+            var order = order_example;  // string | Type of order (optional)  (default to desc)
+            var orderBy = orderBy_example;  // string | Reference attribute to order the advanced reports (optional)  (default to model_id)
+
+            try
+            {
+                // Get all advanced reports models
+                AdvancedReportsModelsCollection result = apiInstance.GetAllAdvancedReportsModels(title, offset, limit, order, orderBy);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling AdvancedReportsApi.GetAllAdvancedReportsModels: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **title** | **string**| Advanced report model title | [optional] 
+ **offset** | **int?**| Element offset (starting at zero for the first element) | [optional] 
+ **limit** | **int?**| Number of items to return | [optional] [default to 10]
+ **order** | **string**| Type of order | [optional] [default to desc]
+ **orderBy** | **string**| Reference attribute to order the advanced reports | [optional] [default to model_id]
+
+### Return type
+
+[**AdvancedReportsModelsCollection**](AdvancedReportsModelsCollection.md)
 
 ### Authorization
 

@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **int** |  | [optional] [readonly] 
 **CampaignHash** | **string** |  | [optional] [readonly] 
 **Status** | **string** | Status of the campaign | [optional] 
 **Thumbnail** | **string** | Thumbnail of the campaign | [optional] 
@@ -19,6 +20,8 @@ Name | Type | Description | Notes
 **StartDate** | **DateTime** |  | [optional] 
 **EndDate** | **DateTime** |  | [optional] 
 **ScheduleDate** | [**CampaignScheduleDate**](CampaignScheduleDate.md) |  | [optional] 
+**ProcessedMessages** | **int** | Total number of processed messages | [optional] 
+**AutomationId** | **int** | The automation id of the campaign | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

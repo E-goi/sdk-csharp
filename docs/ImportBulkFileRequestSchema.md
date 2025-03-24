@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Mode** | **string** | Add new contacts only (&#39;add&#39;) or add and replace existing ones (&#39;update&#39;) | 
-**CompareField** | **string** | Field ID which will be mapped for comparison to prevent duplicates) | 
+**Mode** | **string** | Add new contacts only (&#39;add&#39;), add and replace existing ones (&#39;update&#39;) or only replace existing ones (&#39;update_only&#39;) | 
+**CompareField** | **string** | Field ID which will be mapped for comparison to prevent duplicates. Field must be set as unique in E-goi. | 
 **File** | [**ContactBulkFile**](ContactBulkFile.md) | File to import | 
 **ForceEmpty** | **bool** | If &#39;true&#39; accepts empty values and erases those fields | [optional] [default to false]
 **Notify** | **List&lt;int&gt;** | Array of IDs of the users to notify | [optional] 

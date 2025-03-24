@@ -40,7 +40,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
             var apiInstance = new VoiceApi(Configuration.Default);
-            var campaignHash = campaignHash_example;  // string | ID of the Campaign
+            var campaignHash = campaignHash_example;  // string | Hash of the Campaign
             var campaignVoiceSendRequest = new CampaignVoiceSendRequest(); // CampaignVoiceSendRequest | Parameters for the 'send voice' action
 
             try
@@ -65,7 +65,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaignHash** | **string**| ID of the Campaign | 
+ **campaignHash** | **string**| Hash of the Campaign | 
  **campaignVoiceSendRequest** | [**CampaignVoiceSendRequest**](CampaignVoiceSendRequest.md)| Parameters for the &#39;send voice&#39; action | 
 
 ### Return type
@@ -219,7 +219,7 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Apikey", "Bearer");
 
             var apiInstance = new VoiceApi(Configuration.Default);
-            var campaignHash = campaignHash_example;  // string | ID of the Campaign
+            var campaignHash = campaignHash_example;  // string | Hash of the Campaign
             var voicePatchCampaign = new VoicePatchCampaign(); // VoicePatchCampaign | Parameters for the Voice Campaign
 
             try
@@ -244,7 +244,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **campaignHash** | **string**| ID of the Campaign | 
+ **campaignHash** | **string**| Hash of the Campaign | 
  **voicePatchCampaign** | [**VoicePatchCampaign**](VoicePatchCampaign.md)| Parameters for the Voice Campaign | 
 
 ### Return type
