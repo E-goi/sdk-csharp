@@ -8,8 +8,10 @@ Name | Type | Description | Notes
 **OrderTotal** | **double** | Ecommerce cart total | [optional] 
 **OrderId** | **string** | Order ID is any non-empty unique string | 
 **CartId** | **string** | Cart ID that originated this order | [optional] 
+**OrderDate** | **DateTime** | Date and hour of the order | [optional] 
+**OrderStatus** | **string** | Status of the order | [optional] [default to OrderStatusEnum.Unknown]
 **Contact** | [**ContactBaseExtraFull**](ContactBaseExtraFull.md) | Contact | [optional] 
-**Products** | [**List&lt;Product&gt;**](Product.md) | List of products | [optional] 
+**Products** | [**List&lt;OrderProduct&gt;**](OrderProduct.md) | List of products | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -31,6 +31,51 @@ namespace org.egoi.client.api.Model
     public partial class CreateOrder :  IEquatable<CreateOrder>, IValidatableObject
     {
         /// <summary>
+        /// Status of the order
+        /// </summary>
+        /// <value>Status of the order</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum OrderStatusEnum
+        {
+            /// <summary>
+            /// Enum Created for value: created
+            /// </summary>
+            [EnumMember(Value = "created")]
+            Created = 1,
+
+            /// <summary>
+            /// Enum Pending for value: pending
+            /// </summary>
+            [EnumMember(Value = "pending")]
+            Pending = 2,
+
+            /// <summary>
+            /// Enum Canceled for value: canceled
+            /// </summary>
+            [EnumMember(Value = "canceled")]
+            Canceled = 3,
+
+            /// <summary>
+            /// Enum Completed for value: completed
+            /// </summary>
+            [EnumMember(Value = "completed")]
+            Completed = 4,
+
+            /// <summary>
+            /// Enum Unknown for value: unknown
+            /// </summary>
+            [EnumMember(Value = "unknown")]
+            Unknown = 5
+
+        }
+
+        /// <summary>
+        /// Status of the order
+        /// </summary>
+        /// <value>Status of the order</value>
+        [DataMember(Name="order_status", EmitDefaultValue=false)]
+        public OrderStatusEnum? OrderStatus { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="CreateOrder" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -41,9 +86,11 @@ namespace org.egoi.client.api.Model
         /// <param name="orderTotal">Ecommerce cart total.</param>
         /// <param name="orderId">Order ID is any non-empty unique string (required).</param>
         /// <param name="cartId">Cart ID that originated this order.</param>
+        /// <param name="orderDate">Date and hour of the order.</param>
+        /// <param name="orderStatus">Status of the order (default to OrderStatusEnum.Unknown).</param>
         /// <param name="contact">Contact.</param>
         /// <param name="products">List of products.</param>
-        public CreateOrder(double orderTotal = default(double), string orderId = default(string), string cartId = default(string), ContactBaseExtraFull contact = default(ContactBaseExtraFull), List<Product> products = default(List<Product>))
+        public CreateOrder(double orderTotal = default(double), string orderId = default(string), string cartId = default(string), DateTime orderDate = default(DateTime), OrderStatusEnum? orderStatus = OrderStatusEnum.Unknown, ContactBaseExtraFull contact = default(ContactBaseExtraFull), List<OrderProduct> products = default(List<OrderProduct>))
         {
             // to ensure "orderId" is required (not null)
             if (orderId == null)
@@ -57,6 +104,16 @@ namespace org.egoi.client.api.Model
 
             this.OrderTotal = orderTotal;
             this.CartId = cartId;
+            this.OrderDate = orderDate;
+            // use default value if no "orderStatus" provided
+            if (orderStatus == null)
+            {
+                this.OrderStatus = OrderStatusEnum.Unknown;
+            }
+            else
+            {
+                this.OrderStatus = orderStatus;
+            }
             this.Contact = contact;
             this.Products = products;
         }
@@ -83,6 +140,14 @@ namespace org.egoi.client.api.Model
         public string CartId { get; set; }
 
         /// <summary>
+        /// Date and hour of the order
+        /// </summary>
+        /// <value>Date and hour of the order</value>
+        [DataMember(Name="order_date", EmitDefaultValue=false)]
+        public DateTime OrderDate { get; set; }
+
+
+        /// <summary>
         /// Contact
         /// </summary>
         /// <value>Contact</value>
@@ -94,7 +159,7 @@ namespace org.egoi.client.api.Model
         /// </summary>
         /// <value>List of products</value>
         [DataMember(Name="products", EmitDefaultValue=false)]
-        public List<Product> Products { get; set; }
+        public List<OrderProduct> Products { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -107,6 +172,8 @@ namespace org.egoi.client.api.Model
             sb.Append("  OrderTotal: ").Append(OrderTotal).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("  CartId: ").Append(CartId).Append("\n");
+            sb.Append("  OrderDate: ").Append(OrderDate).Append("\n");
+            sb.Append("  OrderStatus: ").Append(OrderStatus).Append("\n");
             sb.Append("  Contact: ").Append(Contact).Append("\n");
             sb.Append("  Products: ").Append(Products).Append("\n");
             sb.Append("}\n");
@@ -159,6 +226,16 @@ namespace org.egoi.client.api.Model
                     this.CartId.Equals(input.CartId))
                 ) && 
                 (
+                    this.OrderDate == input.OrderDate ||
+                    (this.OrderDate != null &&
+                    this.OrderDate.Equals(input.OrderDate))
+                ) && 
+                (
+                    this.OrderStatus == input.OrderStatus ||
+                    (this.OrderStatus != null &&
+                    this.OrderStatus.Equals(input.OrderStatus))
+                ) && 
+                (
                     this.Contact == input.Contact ||
                     (this.Contact != null &&
                     this.Contact.Equals(input.Contact))
@@ -186,6 +263,10 @@ namespace org.egoi.client.api.Model
                     hashCode = hashCode * 59 + this.OrderId.GetHashCode();
                 if (this.CartId != null)
                     hashCode = hashCode * 59 + this.CartId.GetHashCode();
+                if (this.OrderDate != null)
+                    hashCode = hashCode * 59 + this.OrderDate.GetHashCode();
+                if (this.OrderStatus != null)
+                    hashCode = hashCode * 59 + this.OrderStatus.GetHashCode();
                 if (this.Contact != null)
                     hashCode = hashCode * 59 + this.Contact.GetHashCode();
                 if (this.Products != null)

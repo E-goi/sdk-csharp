@@ -74,6 +74,14 @@ namespace org.egoi.client.api.Test
             // TODO unit test for the property 'OrderId'
         }
         /// <summary>
+        /// Test the property 'OrderStatus'
+        /// </summary>
+        [Test]
+        public void OrderStatusTest()
+        {
+            // TODO unit test for the property 'OrderStatus'
+        }
+        /// <summary>
         /// Test the property 'ContactId'
         /// </summary>
         [Test]

@@ -31,6 +31,51 @@ namespace org.egoi.client.api.Model
     public partial class ImportOrdersBulkBulkRequest :  IEquatable<ImportOrdersBulkBulkRequest>, IValidatableObject
     {
         /// <summary>
+        /// Status of the order
+        /// </summary>
+        /// <value>Status of the order</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum OrderStatusEnum
+        {
+            /// <summary>
+            /// Enum Created for value: created
+            /// </summary>
+            [EnumMember(Value = "created")]
+            Created = 1,
+
+            /// <summary>
+            /// Enum Pending for value: pending
+            /// </summary>
+            [EnumMember(Value = "pending")]
+            Pending = 2,
+
+            /// <summary>
+            /// Enum Canceled for value: canceled
+            /// </summary>
+            [EnumMember(Value = "canceled")]
+            Canceled = 3,
+
+            /// <summary>
+            /// Enum Completed for value: completed
+            /// </summary>
+            [EnumMember(Value = "completed")]
+            Completed = 4,
+
+            /// <summary>
+            /// Enum Unknown for value: unknown
+            /// </summary>
+            [EnumMember(Value = "unknown")]
+            Unknown = 5
+
+        }
+
+        /// <summary>
+        /// Status of the order
+        /// </summary>
+        /// <value>Status of the order</value>
+        [DataMember(Name="order_status", EmitDefaultValue=false)]
+        public OrderStatusEnum? OrderStatus { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ImportOrdersBulkBulkRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -39,12 +84,13 @@ namespace org.egoi.client.api.Model
         /// Initializes a new instance of the <see cref="ImportOrdersBulkBulkRequest" /> class.
         /// </summary>
         /// <param name="orderId">Ecommerce order id (required).</param>
-        /// <param name="contactId">Contact ID is any non-empty unique string identifying the user (such as an email address or e-goi uid).</param>
-        /// <param name="revenue">Ecommerce order revenue (required).</param>
+        /// <param name="orderStatus">Status of the order (default to OrderStatusEnum.Unknown).</param>
+        /// <param name="contactId">Contact ID is any non-empty unique string identifying the user (such as an email address or e-goi uid) (required).</param>
+        /// <param name="revenue">Ecommerce order revenue. Must be greater than 0. (required).</param>
         /// <param name="storeUrl">Ecommerce store url (required).</param>
         /// <param name="date">Ecommerce order date (For technical reasons, all orders synchronized will have the date of synchronization.) (required).</param>
         /// <param name="items">Array of ordered products (required).</param>
-        public ImportOrdersBulkBulkRequest(string orderId = default(string), string contactId = default(string), decimal revenue = default(decimal), string storeUrl = default(string), DateTime date = default(DateTime), List<ImportOrdersBulkBulkRequestItems> items = default(List<ImportOrdersBulkBulkRequestItems>))
+        public ImportOrdersBulkBulkRequest(string orderId = default(string), OrderStatusEnum? orderStatus = OrderStatusEnum.Unknown, string contactId = default(string), decimal revenue = default(decimal), string storeUrl = default(string), DateTime date = default(DateTime), List<ImportOrdersBulkBulkRequestItems> items = default(List<ImportOrdersBulkBulkRequestItems>))
         {
             // to ensure "orderId" is required (not null)
             if (orderId == null)
@@ -54,6 +100,16 @@ namespace org.egoi.client.api.Model
             else
             {
                 this.OrderId = orderId;
+            }
+
+            // to ensure "contactId" is required (not null)
+            if (contactId == null)
+            {
+                throw new InvalidDataException("contactId is a required property for ImportOrdersBulkBulkRequest and cannot be null");
+            }
+            else
+            {
+                this.ContactId = contactId;
             }
 
             // to ensure "revenue" is required (not null)
@@ -97,7 +153,15 @@ namespace org.egoi.client.api.Model
                 this.Items = items;
             }
 
-            this.ContactId = contactId;
+            // use default value if no "orderStatus" provided
+            if (orderStatus == null)
+            {
+                this.OrderStatus = OrderStatusEnum.Unknown;
+            }
+            else
+            {
+                this.OrderStatus = orderStatus;
+            }
         }
 
         /// <summary>
@@ -107,17 +171,18 @@ namespace org.egoi.client.api.Model
         [DataMember(Name="order_id", EmitDefaultValue=true)]
         public string OrderId { get; set; }
 
+
         /// <summary>
         /// Contact ID is any non-empty unique string identifying the user (such as an email address or e-goi uid)
         /// </summary>
         /// <value>Contact ID is any non-empty unique string identifying the user (such as an email address or e-goi uid)</value>
-        [DataMember(Name="contact_id", EmitDefaultValue=false)]
+        [DataMember(Name="contact_id", EmitDefaultValue=true)]
         public string ContactId { get; set; }
 
         /// <summary>
-        /// Ecommerce order revenue
+        /// Ecommerce order revenue. Must be greater than 0.
         /// </summary>
-        /// <value>Ecommerce order revenue</value>
+        /// <value>Ecommerce order revenue. Must be greater than 0.</value>
         [DataMember(Name="revenue", EmitDefaultValue=true)]
         public decimal Revenue { get; set; }
 
@@ -151,6 +216,7 @@ namespace org.egoi.client.api.Model
             var sb = new StringBuilder();
             sb.Append("class ImportOrdersBulkBulkRequest {\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
+            sb.Append("  OrderStatus: ").Append(OrderStatus).Append("\n");
             sb.Append("  ContactId: ").Append(ContactId).Append("\n");
             sb.Append("  Revenue: ").Append(Revenue).Append("\n");
             sb.Append("  StoreUrl: ").Append(StoreUrl).Append("\n");
@@ -196,6 +262,11 @@ namespace org.egoi.client.api.Model
                     this.OrderId.Equals(input.OrderId))
                 ) && 
                 (
+                    this.OrderStatus == input.OrderStatus ||
+                    (this.OrderStatus != null &&
+                    this.OrderStatus.Equals(input.OrderStatus))
+                ) && 
+                (
                     this.ContactId == input.ContactId ||
                     (this.ContactId != null &&
                     this.ContactId.Equals(input.ContactId))
@@ -234,6 +305,8 @@ namespace org.egoi.client.api.Model
                 int hashCode = 41;
                 if (this.OrderId != null)
                     hashCode = hashCode * 59 + this.OrderId.GetHashCode();
+                if (this.OrderStatus != null)
+                    hashCode = hashCode * 59 + this.OrderStatus.GetHashCode();
                 if (this.ContactId != null)
                     hashCode = hashCode * 59 + this.ContactId.GetHashCode();
                 if (this.Revenue != null)
